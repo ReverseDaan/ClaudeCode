@@ -11,10 +11,70 @@ van elke sessie en houd je eraan. Werk de sectie "Voortgang" bij als een stap af
   binnen te kijken en tot rust te komen.
 - Centraal thema: **"reis naar binnen"**.
 - Naam: **Stillness and Strokes**. ("Nest" was een werknaam en wordt niet meer gebruikt.)
+  Let op: dit is de oude naam; er wordt een nieuwe, Nederlandse naam gezocht.
+  Tot die vastligt blijft "Stillness and Strokes" in `site.yaml` staan.
   De naam staat op precies één plek, `src/_data/site.yaml` (veld `naam`), en
   wordt in templates altijd gebruikt als `{{ site.naam }}`. Zet de naam nooit
   rechtstreeks in een template, tekstbestand of CSS, zodat hij later met één
   wijziging aan te passen is.
+
+## Bronnen
+
+1. **`docs/siteplan.md`**: momentopname van het Miro-frame "Maken van een
+   website" (sitemap, de zeven pagina's, bezoekersroute, aanmeldformulier,
+   juridische eisen, lanceercontrole).
+2. **Miro-bord**: https://miro.com/app/board/uXjVIXPOJ5k=/ (frame "Maken van een
+   website"). Als de Miro-koppeling beschikbaar is, controleer dan of het bord
+   afwijkt van `docs/siteplan.md` en meld verschillen. Schrijf of wijzig
+   **nooit** iets op het Miro-bord.
+
+## Werkwijze: eerst user story, dan pas bouwen
+
+**Je schrijft geen code en wijzigt geen bestanden buiten `stories/` voordat
+Daan een user story expliciet heeft goedgekeurd.**
+
+1. Kies één afgebakend stuk: in principe de volgende open stap uit
+   "Plan en voortgang", of een kleiner deel daarvan.
+2. Schrijf een user story volgens `docs/user-story-template.md` en sla die op
+   als `stories/NNN-korte-naam.md` met status `Concept`.
+3. Laat de story in de chat zien en **stop**. Wacht op een antwoord.
+4. Alleen bij een expliciete goedkeuring ("akkoord", "goedgekeurd", "bouw maar")
+   zet je de status op `Goedgekeurd` en begin je te bouwen. Vragen, opmerkingen
+   of "ziet er goed uit, maar…" zijn géén goedkeuring: verwerk ze en leg de
+   story opnieuw voor.
+5. Bouw alleen wat in de goedgekeurde story staat. Kom je iets tegen dat buiten
+   de scope valt, stop dan en stel een nieuwe of aangepaste story voor.
+6. Na het bouwen: loop elk acceptatiecriterium na, meld per criterium of het
+   gehaald is, zet de status op `Gebouwd — ter review` en werk "Plan en
+   voortgang" bij. Daan zet de story op `Afgerond`.
+
+Eén story tegelijk. Nooit meerdere stories in één keer bouwen.
+
+## Nog te beslissen: niet zelf invullen
+
+Op deze punten wijkt deze CLAUDE.md af van het siteplan op Miro, of hangen ze af
+van keuzes die Daan en Vincent nog samen maken. Kies hier niet zelf een kant:
+benoem het in de user story onder "Open vragen" en gebruik tot die tijd
+placeholders.
+
+- **Menu en pagina's.** Deze repo: Home · Over ons · Retraites · Programma ·
+  Aanmelden · Contact. Siteplan: Home · Wat en waarom · Retraites en events ·
+  Kalender · Aanmelden · Over de stichting · Contact.
+- **Taal.** Deze repo: alleen Nederlands. Siteplan: Nederlands met een Engelse
+  versie.
+- **Naam en domein**: zie hierboven.
+- **Rechtsvorm** (stichting ja/nee): bepaalt of KvK, RSIN en ANBI-gegevens op de
+  site komen.
+- **Prijzen, data en locaties** van retraites: niet als bevestigd tonen tenzij
+  Daan dat aangeeft. Ook de voorjaarsretraite van april 2027 is nog niet
+  definitief.
+- **Beheer zonder code**: Vincent moet een retraite kunnen toevoegen. Eén
+  Markdown-bestand per retraite is het startpunt; of er later een eenvoudig CMS
+  bij komt, is open.
+- **Betalen**: geen checkout op de site. Na goedkeuring van een aanmelding volgt
+  een betaallink (Mollie, Stripe of Hipsy). Aanmelden is **geen directe
+  boeking**; dat moet op de site duidelijk zijn.
+- Gebruik geen persoonsgegevens van echte deelnemers, ook niet als voorbeeld.
 
 ## Doelgroep en toon
 
@@ -88,6 +148,10 @@ van elke sessie en houd je eraan. Werk de sectie "Voortgang" bij als een stap af
 claudecode/
 ├── CLAUDE.md
 ├── README.md               # uitleg voor de eigenaar: teksten aanpassen, retraite toevoegen
+├── docs/
+│   ├── siteplan.md         # momentopname van het siteplan op Miro
+│   └── user-story-template.md
+├── stories/                # user stories, één bestand per story (NNN-korte-naam.md)
 ├── package.json
 ├── eleventy.config.js      # Eleventy-configuratie
 ├── .gitignore              # o.a. node_modules/ en _site/
@@ -130,7 +194,8 @@ De build-output komt in `_site/`. Die wordt niet gecommit.
 
 ## Plan en voortgang
 
-Werk in kleine stappen. Laat na elke stap zien wat er is veranderd.
+Werk in kleine stappen, elk via een goedgekeurde user story (zie "Werkwijze").
+Laat na elke stap zien wat er is veranderd.
 
 - [x] 1. Projectopzet: Eleventy, package.json, .gitignore, lege basislayout, README
 - [x] 2. Basisstijl: kleuren, lettertypes, typografie en spacing als CSS-variabelen
