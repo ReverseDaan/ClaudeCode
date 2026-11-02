@@ -7,6 +7,7 @@
    4. Header en menu
    5. Footer
    6. Homepagina
+   7. Stijlwisselaar (tijdelijk, om thema's te vergelijken)
    ================================================================== */
 
 
@@ -24,6 +25,12 @@
   --kleur-bruin-zacht: #6b5643;  /* zachter bruin, voor bijzaken */
   --kleur-oker: #c99a45;         /* oker, voor knoppen */
   --kleur-oker-licht: #d9b066;   /* oker bij hover */
+
+  /* Kleuren van de hero zolang er nog geen foto is (een bosverloop) */
+  --hero-gloed-1: #7d8b55;
+  --hero-gloed-2: #4b5a2e;
+  --hero-verloop-van: #56653a;
+  --hero-verloop-naar: #2f3a1c;
 
   /* Lettertypes */
   --font-kop: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -49,6 +56,80 @@
   --breedte-tekst: 38rem; /* prettige regellengte voor lopende tekst */
   --hoek: 6px;
   --overgang: 250ms ease;
+}
+
+
+/* ------------------------------------------------------------------
+   1b. Thema's om stijlen te vergelijken (zie de stijlwisselaar)
+   De waarden hierboven zijn het standaardthema "Bos". Elk thema
+   hieronder overschrijft alleen de kleuren, de hoekafronding en het
+   koplettertype. De namen van de variabelen blijven gelijk, ook als de
+   kleur niet meer "mos" of "oker" is: zo werkt de rest van het
+   stijlblad zonder aanpassingen.
+   Thema toevoegen? Kopieer een blok, geef het een nieuwe code en zet
+   die code ook in src/_data/site.yaml onder "stijlwisselaar".
+   ------------------------------------------------------------------ */
+
+/* Zand: beige met bruin, warm en zacht */
+[data-thema="zand"] {
+  --kleur-mos: #85563a;          /* warm cacaobruin, voor links */
+  --kleur-mos-donker: #5a3c2a;   /* donker chocoladebruin, voor vlakken */
+  --kleur-zand: #f8f1e7;         /* crème */
+  --kleur-zand-donker: #ecdfcd;  /* zachte beige */
+  --kleur-aarde: #b08766;        /* karamel, voor details */
+  --kleur-bruin: #46301f;        /* tekst */
+  --kleur-bruin-zacht: #765b47;
+  --kleur-oker: #dcbb93;         /* zachte karamel, voor knoppen */
+  --kleur-oker-licht: #e8cfae;
+
+  --hero-gloed-1: #b08766;
+  --hero-gloed-2: #7a523b;
+  --hero-verloop-van: #8c6248;
+  --hero-verloop-naar: #4a3122;
+
+  --hoek: 10px;
+}
+
+/* Groen & goud: modern en zacht */
+[data-thema="groen-goud"] {
+  --kleur-mos: #3f6656;          /* eucalyptusgroen, voor links */
+  --kleur-mos-donker: #2b453a;   /* diep saliegroen, voor vlakken */
+  --kleur-zand: #f5f4ef;         /* gebroken wit */
+  --kleur-zand-donker: #e2e4d9;  /* lichte salie */
+  --kleur-aarde: #a98e4f;        /* gedempt goud, voor details */
+  --kleur-bruin: #23302a;        /* tekst: bijna zwart groen */
+  --kleur-bruin-zacht: #52615a;
+  --kleur-oker: #cdb06a;         /* zacht goud, voor knoppen */
+  --kleur-oker-licht: #dcc489;
+
+  --hero-gloed-1: #86a393;
+  --hero-gloed-2: #3f6656;
+  --hero-verloop-van: #4f7464;
+  --hero-verloop-naar: #22372e;
+
+  --font-kop: "Fraunces", Georgia, serif;
+  --hoek: 12px;
+}
+
+/* Ochtend: opwekkend en activerend, maar zacht */
+[data-thema="ochtend"] {
+  --kleur-mos: #2a706b;          /* frisse zeegroen, voor links */
+  --kleur-mos-donker: #1f4f4c;   /* diep zeegroen, voor vlakken */
+  --kleur-zand: #fdf8f3;         /* licht perzikwit */
+  --kleur-zand-donker: #f5e2d5;  /* zachte abrikoos */
+  --kleur-aarde: #e0896c;        /* koraal, voor details */
+  --kleur-bruin: #2d2a33;        /* tekst: zacht antraciet */
+  --kleur-bruin-zacht: #5b5662;
+  --kleur-oker: #f3a98f;         /* zacht koraal, voor knoppen */
+  --kleur-oker-licht: #f7c0ab;
+
+  --hero-gloed-1: #e99a7c;
+  --hero-gloed-2: #3f8f88;
+  --hero-verloop-van: #2f7b75;
+  --hero-verloop-naar: #1b4542;
+
+  --font-kop: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --hoek: 14px;
 }
 
 
@@ -407,9 +488,9 @@ a:hover {
   background-image:
     linear-gradient(180deg, rgb(30 26 16 / 0.35) 0%, rgb(30 26 16 / 0.55) 100%),
     var(--hero-afbeelding),
-    radial-gradient(ellipse at 30% 20%, #7d8b55 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 70%, #4b5a2e 0%, transparent 60%),
-    linear-gradient(160deg, #56653a 0%, #2f3a1c 100%);
+    radial-gradient(ellipse at 30% 20%, var(--hero-gloed-1) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, var(--hero-gloed-2) 0%, transparent 60%),
+    linear-gradient(160deg, var(--hero-verloop-van) 0%, var(--hero-verloop-naar) 100%);
   background-size: cover;
   background-position: center;
 }
@@ -451,4 +532,100 @@ a:hover {
 
 .hero__rand-voor {
   fill: var(--kleur-zand);
+}
+
+
+/* ------------------------------------------------------------------
+   7. Stijlwisselaar
+   Tijdelijk hulpmiddel om thema's te vergelijken. Een zwevende knop
+   rechtsonder met een lijstje thema's. Uitzetten kan in site.yaml.
+   ------------------------------------------------------------------ */
+.stijlwisselaar {
+  position: fixed;
+  right: var(--ruimte-s);
+  bottom: var(--ruimte-s);
+  z-index: 50;
+  font-family: var(--font-tekst);
+  font-size: var(--tekst-klein);
+}
+
+/* Zonder JavaScript werkt de wisselaar niet, dus dan blijft hij verborgen */
+.stijlwisselaar[hidden] {
+  display: none;
+}
+
+.stijlwisselaar__knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--kleur-bruin);
+  color: var(--kleur-zand);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.18);
+}
+
+.stijlwisselaar__pijl {
+  transition: transform var(--overgang);
+}
+
+.stijlwisselaar__knop[aria-expanded="true"] .stijlwisselaar__pijl {
+  transform: rotate(180deg);
+}
+
+.stijlwisselaar__lijst {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.5rem);
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--kleur-zand);
+  border: 1px solid var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+}
+
+.stijlwisselaar__lijst[hidden] {
+  display: none;
+}
+
+.stijlwisselaar__optie {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: none;
+  border: 0;
+  border-radius: calc(var(--hoek) - 2px);
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  color: var(--kleur-bruin);
+  text-align: left;
+  cursor: pointer;
+}
+
+.stijlwisselaar__optie:hover {
+  background: var(--kleur-zand-donker);
+}
+
+/* Het actieve thema krijgt een vinkje */
+.stijlwisselaar__optie::before {
+  content: "";
+  width: 1rem;
+  flex: none;
+}
+
+.stijlwisselaar__optie[aria-pressed="true"] {
+  font-weight: 600;
+}
+
+.stijlwisselaar__optie[aria-pressed="true"]::before {
+  content: "✓";
+  color: var(--kleur-mos);
 }
