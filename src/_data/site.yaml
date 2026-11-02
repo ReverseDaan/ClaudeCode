@@ -45,3 +45,26 @@ menu:
     url: "/stichting/"
   - tekst: "Contact"
     url: "/contact/"
+
+# ------------------------------------------------------------------
+# Stijlwisselaar (tijdelijk)
+# ------------------------------------------------------------------
+# Een knop rechtsonder op elke pagina om tussen huisstijlen te wisselen.
+# Handig om stijlen te vergelijken; zet "aan" op false vóór de lancering.
+# Staat hij uit, dan zie je altijd het eerste thema hieronder.
+#
+# Elk thema heeft:
+#  - code: moet gelijk zijn aan de naam in style.css, bij [data-thema="..."]
+#  - naam: de tekst in het keuzelijstje
+# Het eerste thema is de standaard en heeft geen eigen blok in style.css.
+stijlwisselaar:
+  aan: true
+  themas:
+    - code: "bos"
+      naam: "Bos"
+    - code: "zand"
+      naam: "Zand"
+    - code: "groen-goud"
+      naam: "Groen & goud"
+    - code: "ochtend"
+      naam: "Ochtend"

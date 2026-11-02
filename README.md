@@ -36,6 +36,22 @@ ververst de pagina vanzelf.
 De naam van de organisatie staat **alleen** in `src/_data/site.yaml`. Pas je
 hem daar aan, dan verandert hij overal op de site.
 
+## Stijlen vergelijken
+
+Rechtsonder op elke pagina staat een knop **Stijl** waarmee je wisselt tussen
+een paar huisstijlen (thema's). Je keuze blijft bewaard als je doorklikt.
+
+| Wat wil je?                     | Waar                                         |
+| ------------------------------- | -------------------------------------------- |
+| Kleuren van een thema aanpassen | `src/css/style.css`, sectie "1b. Thema's"    |
+| Thema toevoegen                 | Kopieer een blok in sectie 1b, geef het een nieuwe code en zet code + naam in `src/_data/site.yaml` onder `stijlwisselaar` |
+| Knop uitzetten (vóór lancering) | `src/_data/site.yaml`: `stijlwisselaar: aan: false` |
+
+Het eerste thema in de lijst (nu **Bos**) is de standaard: dat zien
+bezoekers als de knop uit staat. Kies je later een ander thema als vaste
+stijl, kopieer dan de waarden van dat thema naar het `:root`-blok bovenaan
+`style.css`.
+
 ## Foto's toevoegen
 
 Zet je foto's in `src/images/` met deze bestandsnamen:
