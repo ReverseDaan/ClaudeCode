@@ -12,10 +12,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap">
 
+  {% if site.stijlwisselaar.aan %}
+    {# Extra koplettertypes voor de thema's Groen & goud (Fraunces) en Ochtend (Nunito) #}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Nunito:wght@500;600;700&display=swap">
+  {% endif %}
+
   <link rel="stylesheet" href="/css/style.css">
 
   {# Laat de CSS weten dat JavaScript werkt (nodig voor het mobiele menu) #}
   <script>document.documentElement.classList.add("js");</script>
+
+  {% if site.stijlwisselaar.aan %}
+    {# Zet het onthouden thema al vóór de pagina getekend wordt,
+       zodat je niet eerst even het standaardthema ziet. #}
+    <script>
+      try {
+        var stijl = localStorage.getItem("stijl");
+        var themas = [{% for thema in site.stijlwisselaar.themas %}{{ thema.code | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}];
+        if (stijl && stijl !== themas[0] && themas.indexOf(stijl) !== -1) {
+          document.documentElement.dataset.thema = stijl;
+        }
+      } catch (fout) {}
+    </script>
+    <script src="/js/stijlwisselaar.js" defer></script>
+  {% endif %}
   <script src="/js/menu.js" defer></script>
 </head>
 <body>
@@ -28,5 +48,9 @@
   </main>
 
   {% include "partials/footer.njk" %}
+
+  {% if site.stijlwisselaar.aan %}
+    {% include "partials/stijlwisselaar.njk" %}
+  {% endif %}
 </body>
 </html>

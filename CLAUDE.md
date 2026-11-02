@@ -191,14 +191,16 @@ claudecode/
     │       ├── header.njk
     │       ├── footer.njk
     │       ├── retraite-kaart.njk
-    │       └── penseelstreek.njk   # SVG-scheidingslijn
+    │       ├── penseelstreek.njk   # SVG-scheidingslijn
+    │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
     │   ├── retraites.json  # standaardinstellingen voor alle retraites
     │   └── 2027-04-voorjaar.md     # voorbeeld
     ├── css/
     │   └── style.css
     ├── js/
-    │   └── menu.js
+    │   ├── menu.js
+    │   └── stijlwisselaar.js
     ├── images/             # eigen foto's (nu placeholders)
     ├── index.njk           # Home
     ├── wat-en-waarom.md
@@ -244,6 +246,10 @@ wordt eerst een story in `stories/`.
 - [ ] 14. Over de stichting, privacybeleid en voorwaarden (US-14, US-17)
 - [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
 - [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
+
+Extra stories (buiten het stappenplan):
+
+- [x] Story 002: stijlwisselaar met vier thema's (Bos, Zand, Groen & goud, Ochtend): ter review. Zet hem uit vóór de lancering (`site.yaml`).
 
 ## Menu
 
