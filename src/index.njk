@@ -4,7 +4,7 @@ layout: layouts/base.njk
 {# Homepagina. De teksten staan in src/_data/home.yaml. #}
 
 {# 1. Hero: grote bosafbeelding met naam, slogan en knop #}
-<section class="hero" style="--hero-afbeelding: url('{{ home.hero.afbeelding }}')">
+<section class="hero" style="--hero-afbeelding: url('{{ home.hero.afbeelding | url }}')">
   <div class="container hero__inhoud">
     <h1 class="hero__titel">{{ site.naam }}</h1>
     <p class="hero__slogan">{{ home.hero.slogan }}</p>

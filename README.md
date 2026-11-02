@@ -51,5 +51,10 @@ npm run build
 ```
 
 De complete website komt in de map `_site/`. Die map hoef je niet zelf te
-uploaden: de hostingdienst (Netlify of Cloudflare Pages) bouwt de site
-automatisch bij elke wijziging op GitHub.
+uploaden.
+
+## Online
+
+De site staat op **https://reversedaan.github.io/ClaudeCode/**. Bij elke push
+naar `main` bouwt GitHub de site opnieuw (zie het tabblad *Actions*). Na
+ongeveer een minuut staat de nieuwe versie online.

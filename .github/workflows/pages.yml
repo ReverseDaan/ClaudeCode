@@ -1,0 +1,50 @@
+# Bouwt de site met Eleventy en zet hem online op GitHub Pages.
+# Dit gebeurt automatisch bij elke push naar de branch main.
+name: Publiceren op GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # ook handmatig te starten via het tabblad Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  bouwen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Haalt het pad van de site op (bijv. /ClaudeCode) zodat alle links kloppen.
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - run: npx @11ty/eleventy --pathprefix="${{ steps.pages.outputs.base_path }}/"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publiceren:
+    needs: bouwen
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

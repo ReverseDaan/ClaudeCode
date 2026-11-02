@@ -1,6 +1,7 @@
 // Eleventy-configuratie.
 // Eleventy leest alles uit de map src/ en bouwt de website in de map _site/.
 import yaml from "js-yaml";
+import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (eleventyConfig) {
   // Databestanden in src/_data/ mogen YAML zijn (.yaml of .yml).
@@ -10,6 +11,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
+
+  // Zorgt dat links als "/css/style.css" ook werken als de site in een
+  // submap staat (zoals bij GitHub Pages: /ClaudeCode/). Lokaal verandert er niets.
+  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // Het huidige jaartal, voor de copyright-regel in de footer.
   eleventyConfig.addGlobalData("jaar", new Date().getFullYear());

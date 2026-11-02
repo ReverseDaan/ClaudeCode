@@ -69,8 +69,13 @@ van elke sessie en houd je eraan. Werk de sectie "Voortgang" bij als een stap af
   eerste retraite met een datum in de toekomst.
 - Formulieren (aanmelden, contact): via de formulierdienst van de host
   (Netlify Forms) of Formspree. Er is geen eigen backend.
-- Hosting: gratis via Netlify of Cloudflare Pages, gekoppeld aan deze
-  GitHub-repo. Bij elke push bouwt de site automatisch opnieuw.
+- Hosting: **GitHub Pages**, via de workflow `.github/workflows/pages.yml`.
+  Bij elke push naar `main` wordt de site gebouwd en gepubliceerd op
+  https://reversedaan.github.io/ClaudeCode/. Omdat de site in een submap staat,
+  gebruikt Eleventy een pathPrefix (HtmlBasePlugin). Schrijf links gewoon als
+  `/pagina/`, want de plugin zet het voorvoegsel ervoor. Alleen URL's in
+  `style`-attributen of CSS moeten door het filter `| url`.
+  Let op: Netlify Forms werkt niet op GitHub Pages, dus gebruik voor formulieren Formspree.
 - De eigenaar heeft een achtergrond in Mendix en kent wat Java/JavaScript.
   Houd de code daarom leesbaar en eenvoudig, met korte Nederlandse comments
   waar dat helpt. Vermijd slimmigheden.
@@ -140,7 +145,7 @@ Werk in kleine stappen. Laat na elke stap zien wat er is veranderd.
 - [ ] 11. Pagina's Over ons en Programma
 - [ ] 12. Aanmelden- en Contactpagina met formulier
 - [ ] 13. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis (title/description/OG)
-- [ ] 14. Online zetten via Netlify of Cloudflare Pages
+- [~] 14. Online zetten via GitHub Pages (workflow staat; Pages moet aan in de repo-instellingen)
 
 ## Menu
 
