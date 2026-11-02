@@ -167,14 +167,16 @@ claudecode/
     │       ├── header.njk
     │       ├── footer.njk
     │       ├── retraite-kaart.njk
-    │       └── penseelstreek.njk   # SVG-scheidingslijn
+    │       ├── penseelstreek.njk   # SVG-scheidingslijn
+    │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
     │   ├── retraites.json  # standaardinstellingen voor alle retraites
     │   └── 2027-04-voorjaar.md     # voorbeeld
     ├── css/
     │   └── style.css
     ├── js/
-    │   └── menu.js
+    │   ├── menu.js
+    │   └── stijlwisselaar.js
     ├── images/             # eigen foto's (nu placeholders)
     ├── index.njk           # Home
     ├── over-ons.md
@@ -211,6 +213,10 @@ Laat na elke stap zien wat er is veranderd.
 - [ ] 12. Aanmelden- en Contactpagina met formulier
 - [ ] 13. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis (title/description/OG)
 - [~] 14. Online zetten via GitHub Pages (workflow staat; Pages moet aan in de repo-instellingen)
+
+Extra stories (buiten het stappenplan):
+
+- [x] Story 001: stijlwisselaar met vier thema's (Bos, Zand, Groen & goud, Ochtend). Zet hem uit vóór de lancering (`site.yaml`).
 
 ## Menu
 

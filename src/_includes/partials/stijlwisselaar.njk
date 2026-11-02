@@ -1,0 +1,17 @@
+{# Stijlwisselaar: zwevende knop rechtsonder om tussen thema's te wisselen.
+   Staat standaard verborgen (hidden); het script zet hem aan, zodat je
+   zonder JavaScript geen knop ziet die niets doet.
+   Thema's en aan/uit staan in src/_data/site.yaml. #}
+<div class="stijlwisselaar" hidden>
+  <ul class="stijlwisselaar__lijst" id="stijlwisselaar-lijst" hidden>
+    {% for thema in site.stijlwisselaar.themas %}
+      <li>
+        <button class="stijlwisselaar__optie" type="button" data-thema-code="{{ thema.code }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ thema.naam }}</button>
+      </li>
+    {% endfor %}
+  </ul>
+  <button class="stijlwisselaar__knop" type="button" aria-expanded="false" aria-controls="stijlwisselaar-lijst">
+    Stijl: <span class="stijlwisselaar__huidig">{{ site.stijlwisselaar.themas[0].naam }}</span>
+    <span class="stijlwisselaar__pijl" aria-hidden="true">▴</span>
+  </button>
+</div>

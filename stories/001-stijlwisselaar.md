@@ -1,6 +1,6 @@
 # 001 — Stijlwisselaar om huisstijlen te vergelijken
 
-**Status:** Concept
+**Status:** Gebouwd — ter review
 **Bron:** CLAUDE.md, sectie "Look & feel"; `src/css/style.css` (design tokens)
 **Afhankelijk van:** geen
 
@@ -58,13 +58,13 @@ De huisstijl staat al als variabelen (kleuren, lettertypes, hoeken) bovenaan `sr
 - README: sectie "Stijlen vergelijken".
 
 ## Open vragen voor Daan
-- ~~Welke richtingen?~~ Beantwoord: vier thema's zoals hierboven. Vallen "Licht" en "Aarde" hiermee weg, of moet een van beide er nog bij?
-- Mag een thema ook het koplettertype wisselen, of wil je eerst alleen kleuren vergelijken?
-- De site staat publiek op GitHub Pages: is het oké dat bezoekers de knop ook zien zolang de wisselaar aan staat?
+- ~~Welke richtingen?~~ Beantwoord: vier thema's zoals hierboven; Licht en Aarde vervallen.
+- ~~Koplettertype per thema?~~ Ja (akkoord Daan, 2 nov 2026).
+- ~~Knop zichtbaar voor bezoekers?~~ Ja, voorlopig (akkoord Daan, 2 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
