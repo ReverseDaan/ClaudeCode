@@ -1,0 +1,21 @@
+{# Bovenbalk met de naam en het hoofdmenu. Het menu komt uit src/_data/site.yaml. #}
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="/">{{ site.naam }}</a>
+
+    <button class="menu-knop" type="button" aria-expanded="false" aria-controls="hoofdmenu">
+      <span class="menu-knop__streepjes" aria-hidden="true"></span>
+      Menu
+    </button>
+
+    <nav id="hoofdmenu" class="hoofdmenu" aria-label="Hoofdmenu">
+      <ul>
+        {% for item in site.menu %}
+          <li>
+            <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.tekst }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

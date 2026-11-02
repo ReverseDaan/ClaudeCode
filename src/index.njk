@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+---
+{# Homepagina. De teksten staan in src/_data/home.yaml. #}
+
+{# 1. Hero: grote bosafbeelding met naam, slogan en knop #}
+<section class="hero" style="--hero-afbeelding: url('{{ home.hero.afbeelding }}')">
+  <div class="container hero__inhoud">
+    <h1 class="hero__titel">{{ site.naam }}</h1>
+    <p class="hero__slogan">{{ home.hero.slogan }}</p>
+    <a class="knop" href="/retraites/">{{ home.hero.knop }}</a>
+  </div>
+
+  {# Zachte heuvelrand die de hero laat overlopen in de rest van de pagina #}
+  <svg class="hero__rand" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="hero__rand-achter" d="M0,55 C120,30 230,70 360,52 C500,32 600,62 740,48 C880,34 1000,66 1200,40 L1200,100 L0,100 Z"/>
+    <path class="hero__rand-voor" d="M0,78 C160,58 300,90 470,72 C620,56 760,88 920,74 C1040,64 1120,80 1200,70 L1200,100 L0,100 Z"/>
+  </svg>
+</section>
+
+{# De volgende blokken (intro, drie stappen, eerstvolgende retraite, over ons,
+   ervaringen) worden in de volgende stappen toegevoegd. #}

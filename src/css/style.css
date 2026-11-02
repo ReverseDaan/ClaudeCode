@@ -1,0 +1,454 @@
+/* ==================================================================
+   Stillness and Strokes: stijlblad
+   Opbouw:
+   1. Design tokens (kleuren, lettertypes, ruimte), pas hier de huisstijl aan
+   2. Basis
+   3. Hulpklassen
+   4. Header en menu
+   5. Footer
+   6. Homepagina
+   ================================================================== */
+
+
+/* ------------------------------------------------------------------
+   1. Design tokens
+   ------------------------------------------------------------------ */
+:root {
+  /* Kleuren */
+  --kleur-mos: #5f6f3e;          /* mosgroen, de hoofdkleur */
+  --kleur-mos-donker: #36401f;   /* donker mos, voor vlakken met lichte tekst */
+  --kleur-zand: #f5efe4;         /* lichte zandkleur, de achtergrond */
+  --kleur-zand-donker: #e8dcc8;  /* iets donkerder zand, voor vlakken */
+  --kleur-aarde: #9a7452;        /* aardetint, voor details */
+  --kleur-bruin: #3a2a1d;        /* donkerbruin, voor tekst */
+  --kleur-bruin-zacht: #6b5643;  /* zachter bruin, voor bijzaken */
+  --kleur-oker: #c99a45;         /* oker, voor knoppen */
+  --kleur-oker-licht: #d9b066;   /* oker bij hover */
+
+  /* Lettertypes */
+  --font-kop: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-tekst: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+
+  /* Lettergroottes, die meeschalen met de schermbreedte */
+  --tekst-klein: 0.9rem;
+  --tekst-basis: 1.0625rem;
+  --tekst-groot: clamp(1.15rem, 1rem + 0.6vw, 1.35rem);
+  --kop-3: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem);
+  --kop-2: clamp(1.9rem, 1.5rem + 1.8vw, 2.75rem);
+  --kop-1: clamp(2.6rem, 1.8rem + 4vw, 5rem);
+
+  /* Ruimte: veel witruimte past bij het gevoel van vertragen */
+  --ruimte-xs: 0.5rem;
+  --ruimte-s: 1rem;
+  --ruimte-m: 1.5rem;
+  --ruimte-l: 2.5rem;
+  --ruimte-xl: clamp(3.5rem, 2.5rem + 5vw, 7rem);
+
+  /* Overig */
+  --breedte-max: 72rem;   /* maximale breedte van de inhoud */
+  --breedte-tekst: 38rem; /* prettige regellengte voor lopende tekst */
+  --hoek: 6px;
+  --overgang: 250ms ease;
+}
+
+
+/* ------------------------------------------------------------------
+   2. Basis
+   ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--kleur-zand);
+  color: var(--kleur-bruin);
+  font-family: var(--font-tekst);
+  font-size: var(--tekst-basis);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-kop);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--ruimte-s);
+}
+
+h1 { font-size: var(--kop-1); }
+h2 { font-size: var(--kop-2); }
+h3 { font-size: var(--kop-3); }
+
+p {
+  margin: 0 0 var(--ruimte-s);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--kleur-mos);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--kleur-mos-donker);
+}
+
+/* Duidelijk zichtbare focus voor wie met het toetsenbord navigeert */
+:focus-visible {
+  outline: 3px solid var(--kleur-oker);
+  outline-offset: 3px;
+}
+
+/* Minder beweging voor wie dat in de systeeminstellingen heeft aangegeven */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   3. Hulpklassen
+   ------------------------------------------------------------------ */
+.container {
+  width: 100%;
+  max-width: var(--breedte-max);
+  margin-inline: auto;
+  padding-inline: var(--ruimte-m);
+}
+
+.kale-lijst {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Link "Direct naar de inhoud": alleen zichtbaar bij toetsenbordfocus */
+.skip-link {
+  position: absolute;
+  left: var(--ruimte-s);
+  top: -4rem;
+  z-index: 100;
+  background: var(--kleur-bruin);
+  color: var(--kleur-zand);
+  padding: var(--ruimte-xs) var(--ruimte-s);
+  border-radius: var(--hoek);
+}
+
+.skip-link:focus {
+  top: var(--ruimte-s);
+}
+
+/* Knop in okerkleur */
+.knop {
+  display: inline-block;
+  background: var(--kleur-oker);
+  color: var(--kleur-bruin);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  transition: background-color var(--overgang), transform var(--overgang);
+}
+
+.knop:hover {
+  background: var(--kleur-oker-licht);
+  color: var(--kleur-bruin);
+  transform: translateY(-1px);
+}
+
+
+/* ------------------------------------------------------------------
+   4. Header en menu
+   Mobiel: menu onder een knop. Vanaf 860px breed: menu naast het logo.
+   ------------------------------------------------------------------ */
+.site-header {
+  background: var(--kleur-zand);
+  border-bottom: 1px solid var(--kleur-zand-donker);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ruimte-s);
+  padding-block: var(--ruimte-s);
+}
+
+.logo {
+  font-family: var(--font-kop);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--kleur-bruin);
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.logo:hover {
+  color: var(--kleur-mos);
+}
+
+/* Menuknop (alleen op mobiel, en alleen als JavaScript werkt) */
+.menu-knop {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  background: none;
+  border: 1px solid var(--kleur-zand-donker);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--kleur-bruin);
+  cursor: pointer;
+}
+
+.js .menu-knop {
+  display: inline-flex;
+}
+
+/* Drie streepjes van het "hamburger"-icoon */
+.menu-knop__streepjes,
+.menu-knop__streepjes::before,
+.menu-knop__streepjes::after {
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  position: relative;
+  transition: transform var(--overgang), background-color var(--overgang);
+}
+
+.menu-knop__streepjes::before,
+.menu-knop__streepjes::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-knop__streepjes::before { top: -6px; }
+.menu-knop__streepjes::after  { top: 6px; }
+
+/* Als het menu open is, worden de streepjes een kruisje */
+.menu-knop[aria-expanded="true"] .menu-knop__streepjes {
+  background: transparent;
+}
+.menu-knop[aria-expanded="true"] .menu-knop__streepjes::before {
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-knop[aria-expanded="true"] .menu-knop__streepjes::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.hoofdmenu {
+  width: 100%;
+}
+
+/* Met JavaScript is het menu op mobiel standaard ingeklapt */
+.js .hoofdmenu {
+  display: none;
+}
+
+.js .hoofdmenu.is-open {
+  display: block;
+}
+
+.hoofdmenu ul {
+  list-style: none;
+  margin: 0;
+  padding: var(--ruimte-xs) 0;
+}
+
+.hoofdmenu a {
+  display: block;
+  padding: 0.7rem 0;
+  color: var(--kleur-bruin);
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--kleur-zand-donker);
+}
+
+.hoofdmenu li:last-child a {
+  border-bottom: 0;
+}
+
+.hoofdmenu a:hover,
+.hoofdmenu a[aria-current="page"] {
+  color: var(--kleur-mos);
+}
+
+@media (min-width: 860px) {
+  .site-header__inner {
+    flex-wrap: nowrap;
+  }
+
+  .js .menu-knop {
+    display: none;
+  }
+
+  .hoofdmenu,
+  .js .hoofdmenu {
+    display: block;
+    width: auto;
+  }
+
+  .hoofdmenu ul {
+    display: flex;
+    gap: var(--ruimte-m);
+    padding: 0;
+  }
+
+  .hoofdmenu a {
+    padding: 0.25rem 0;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  .hoofdmenu li:last-child a {
+    border-bottom: 2px solid transparent;
+  }
+
+  .hoofdmenu a:hover,
+  .hoofdmenu a[aria-current="page"] {
+    border-bottom-color: var(--kleur-mos);
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   5. Footer
+   ------------------------------------------------------------------ */
+.site-footer {
+  background: var(--kleur-mos-donker);
+  color: var(--kleur-zand);
+  padding-block: var(--ruimte-xl) var(--ruimte-m);
+  font-size: var(--tekst-klein);
+}
+
+.site-footer a {
+  color: var(--kleur-zand);
+}
+
+.site-footer a:hover {
+  color: var(--kleur-oker-licht);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--ruimte-l);
+}
+
+.site-footer__naam {
+  font-family: var(--font-kop);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: var(--ruimte-xs);
+}
+
+.site-footer__kop {
+  font-family: var(--font-tekst);
+  font-size: var(--tekst-klein);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kleur-oker-licht);
+  margin-bottom: var(--ruimte-xs);
+}
+
+.site-footer__copyright {
+  margin: var(--ruimte-l) 0 0;
+  padding-top: var(--ruimte-m);
+  border-top: 1px solid rgb(245 239 228 / 0.2);
+  opacity: 0.8;
+}
+
+@media (min-width: 700px) {
+  .site-footer__inner {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   6. Homepagina
+   ------------------------------------------------------------------ */
+
+/* Hero: grote bosafbeelding met naam, slogan en knop.
+   Lagen van boven naar onder:
+   1. een donker verloop, zodat de tekst goed leesbaar blijft
+   2. de foto (uit home.yaml)
+   3. een groen bosverloop, zichtbaar zolang er nog geen foto is */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(88vh, 52rem);
+  padding-block: var(--ruimte-xl) calc(var(--ruimte-xl) + 3rem);
+  color: var(--kleur-zand);
+  text-align: center;
+  background-color: var(--kleur-mos-donker);
+  background-image:
+    linear-gradient(180deg, rgb(30 26 16 / 0.35) 0%, rgb(30 26 16 / 0.55) 100%),
+    var(--hero-afbeelding),
+    radial-gradient(ellipse at 30% 20%, #7d8b55 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, #4b5a2e 0%, transparent 60%),
+    linear-gradient(160deg, #56653a 0%, #2f3a1c 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__inhoud {
+  max-width: 48rem;
+}
+
+.hero__titel {
+  font-size: var(--kop-1);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--ruimte-m);
+  text-wrap: balance;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 0.25);
+}
+
+.hero__slogan {
+  font-size: var(--tekst-groot);
+  max-width: 32rem;
+  margin: 0 auto var(--ruimte-l);
+  text-wrap: balance;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.3);
+}
+
+/* De zachte heuvelrand onderaan de hero */
+.hero__rand {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: clamp(3rem, 8vw, 6rem);
+}
+
+.hero__rand-achter {
+  fill: var(--kleur-zand);
+  opacity: 0.45;
+}
+
+.hero__rand-voor {
+  fill: var(--kleur-zand);
+}

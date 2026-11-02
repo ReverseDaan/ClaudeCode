@@ -1,0 +1,31 @@
+{# Footer met contactgegevens en social media. Alles komt uit src/_data/site.yaml. #}
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <p class="site-footer__naam">{{ site.naam }}</p>
+      <p>Retraites over vertragen, creëren en de reis naar binnen.</p>
+    </div>
+
+    <div>
+      <h2 class="site-footer__kop">Contact</h2>
+      <ul class="kale-lijst">
+        <li><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
+        <li><a href="tel:{{ site.contact.telefoon | replace(' ', '') }}">{{ site.contact.telefoon }}</a></li>
+        <li>{{ site.contact.plaats }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__kop">Volg ons</h2>
+      <ul class="kale-lijst">
+        {% for kanaal in site.social %}
+          <li><a href="{{ kanaal.url }}" rel="noopener">{{ kanaal.naam }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="site-footer__copyright">© {{ jaar }} {{ site.naam }}</p>
+  </div>
+</footer>

@@ -1,0 +1,15 @@
+{
+  "name": "stillness-and-strokes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website van een retraite-organisatie: kunst, introspectie en vertragen.",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "js-yaml": "^4.1.0"
+  }
+}

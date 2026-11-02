@@ -1,0 +1,13 @@
+# ------------------------------------------------------------------
+# Teksten van de homepagina, per blok van boven naar beneden.
+# Pas de tekst tussen de aanhalingstekens aan; laat de namen
+# vóór de dubbele punt (zoals "slogan:") staan.
+# ------------------------------------------------------------------
+
+hero:
+  # Korte zin onder de naam, bovenaan de pagina.
+  slogan: "Vertraag. Maak iets met je handen. Begin de reis naar binnen."
+  knop: "Bekijk de retraites"
+  # Foto voor de achtergrond. Zet het bestand in src/images/.
+  # Zolang de foto er niet is, zie je een groene achtergrond.
+  afbeelding: "/images/hero-bos.jpg"

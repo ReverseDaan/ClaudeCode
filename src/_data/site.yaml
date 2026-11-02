@@ -1,0 +1,43 @@
+# ------------------------------------------------------------------
+# Algemene gegevens van de website
+# ------------------------------------------------------------------
+# Dit bestand gebruikt YAML. Een paar regels:
+#  - Regels die met # beginnen zijn commentaar en verschijnen niet op de site.
+#  - Inspringen gebeurt met spaties, niet met tabs.
+#  - Zet tekst met een dubbele punt (:) erin tussen "aanhalingstekens".
+# ------------------------------------------------------------------
+
+# De naam van de organisatie. Deze staat ALLEEN hier en wordt overal
+# op de site automatisch ingevuld (logo, paginatitels, footer).
+naam: "Stillness and Strokes"
+
+# Korte omschrijving voor zoekmachines en bij het delen op social media.
+omschrijving: "Retraites waarin je schildert en tekent als ingang om naar binnen te kijken en tot rust te komen. Geen ervaring nodig."
+
+# Contactgegevens (voorbeeldwaarden: vervang ze door de echte gegevens).
+contact:
+  email: "info@voorbeeld.nl"
+  telefoon: "06 12345678"
+  plaats: "Veluwe, Nederland"
+
+# Links naar social media. Haal een regel weg als je een kanaal niet gebruikt.
+social:
+  - naam: "Instagram"
+    url: "https://www.instagram.com/"
+  - naam: "Facebook"
+    url: "https://www.facebook.com/"
+
+# Het hoofdmenu, in deze volgorde.
+menu:
+  - tekst: "Home"
+    url: "/"
+  - tekst: "Over ons"
+    url: "/over-ons/"
+  - tekst: "Retraites"
+    url: "/retraites/"
+  - tekst: "Programma"
+    url: "/programma/"
+  - tekst: "Aanmelden"
+    url: "/aanmelden/"
+  - tekst: "Contact"
+    url: "/contact/"
