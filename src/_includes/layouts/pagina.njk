@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+---
+{# Layout voor gewone pagina's: een kop met titel en (optioneel) een korte intro,
+   daaronder de tekst uit het Markdown-bestand. #}
+<article class="pagina">
+  <header class="pagina__kop">
+    <div class="container">
+      <h1>{{ kop or title }}</h1>
+      {% if intro %}<p class="pagina__intro">{{ intro }}</p>{% endif %}
+    </div>
+  </header>
+
+  <div class="container pagina__tekst">
+    {{ content | safe }}
+  </div>
+</article>

@@ -27,6 +27,8 @@ ververst de pagina vanzelf.
 | Wat wil je aanpassen?                  | Bestand                    |
 | -------------------------------------- | -------------------------- |
 | Naam, contactgegevens, social, menu    | `src/_data/site.yaml`      |
+| KvK, RSIN, statutaire zetel, ANBI      | `src/_data/stichting.yaml` |
+| Tekst van een gewone pagina            | `src/<pagina>.md` (bijv. `src/kalender.md`) |
 | Teksten op de homepagina               | `src/_data/home.yaml`      |
 | Kleuren, lettertypes, witruimte        | `src/css/style.css` (bovenaan, onder "Design tokens") |
 | Foto's                                 | `src/images/`              |

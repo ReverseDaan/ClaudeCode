@@ -1,0 +1,15 @@
+# ------------------------------------------------------------------
+# Gegevens van de stichting
+# ------------------------------------------------------------------
+# Deze gegevens staan in de voettekst van elke pagina en straks op de
+# pagina "Over de stichting".
+# Zolang een waarde "volgt" is, toont de site dat ook zo.
+# ------------------------------------------------------------------
+
+kvk: "volgt"
+rsin: "volgt"
+zetel: "volgt"
+
+# Heeft de stichting een ANBI-status? Zet dan op true.
+# Bij false staat er nergens op de site iets over ANBI.
+anbi: false

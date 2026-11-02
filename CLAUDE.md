@@ -50,21 +50,36 @@ Daan een user story expliciet heeft goedgekeurd.**
 
 Eén story tegelijk. Nooit meerdere stories in één keer bouwen.
 
+## Besluiten (2 november 2026)
+
+Daan heeft de pagina-opzet goedgekeurd (`docs/pagina-opzet.md`, story-overzicht
+US-01 t/m US-19). Daarin zijn deze punten besloten:
+
+- **Menu en pagina's: volg het siteplan.** Home · Wat en waarom · Retraites en
+  events · Kalender · Aanmelden · Over de stichting · Contact. "Over ons" en
+  "Programma" vervallen: de begeleiders en "een sessie stap voor stap" komen op
+  Wat en waarom.
+- **Taal: eerst alles in het Nederlands**, maar zo opgezet dat Engels later onder
+  `/en/` kan worden toegevoegd (aparte fase, US-19). Zet teksten daarom in data-
+  of Markdown-bestanden en niet in templates.
+- **Stichting, KvK, RSIN en ANBI:** nu bouwen met duidelijk gemarkeerde
+  placeholders. Het ANBI-blok verschijnt alleen als een instelling in het
+  databestand dat aangeeft.
+- **Formulierdienst:** nog niet gekozen. Er moeten twee mails komen (naar de
+  organisatie én een bevestiging aan de aanvrager). Vergelijk de gratis opties
+  (Formspree, Web3Forms, Basin) in de story voor Aanmelden en laat Daan kiezen.
+- **Gedeeld account:** de repo staat nu onder ReverseDaan. Overzetten naar een
+  gedeeld account of een organisatie-account gebeurt later.
+- **Framework:** Eleventy blijft.
+
 ## Nog te beslissen: niet zelf invullen
 
-Op deze punten wijkt deze CLAUDE.md af van het siteplan op Miro, of hangen ze af
-van keuzes die Daan en Vincent nog samen maken. Kies hier niet zelf een kant:
-benoem het in de user story onder "Open vragen" en gebruik tot die tijd
-placeholders.
+Kies hier niet zelf een kant: benoem het in de user story onder "Open vragen"
+en gebruik tot die tijd placeholders.
 
-- **Menu en pagina's.** Deze repo: Home · Over ons · Retraites · Programma ·
-  Aanmelden · Contact. Siteplan: Home · Wat en waarom · Retraites en events ·
-  Kalender · Aanmelden · Over de stichting · Contact.
-- **Taal.** Deze repo: alleen Nederlands. Siteplan: Nederlands met een Engelse
-  versie.
 - **Naam en domein**: zie hierboven.
-- **Rechtsvorm** (stichting ja/nee): bepaalt of KvK, RSIN en ANBI-gegevens op de
-  site komen.
+- **Rechtsvorm** (stichting ja/nee): bepaalt of er echte KvK-, RSIN- en
+  ANBI-gegevens op de site komen.
 - **Prijzen, data en locaties** van retraites: niet als bevestigd tonen tenzij
   Daan dat aangeeft. Ook de voorjaarsretraite van april 2027 is nog niet
   definitief.
@@ -75,6 +90,9 @@ placeholders.
   een betaallink (Mollie, Stripe of Hipsy). Aanmelden is **geen directe
   boeking**; dat moet op de site duidelijk zijn.
 - Gebruik geen persoonsgegevens van echte deelnemers, ook niet als voorbeeld.
+  Uitzondering: de feedback in het Miro-frame "Feedback" mag op de site. Daar
+  is akkoord voor (Daan, 2 november 2026). Gebruik geen achternamen of andere
+  gegevens die een deelnemer herkenbaar maken, tenzij Daan dat aangeeft.
 
 ## Doelgroep en toon
 
@@ -83,7 +101,7 @@ placeholders.
 - Toon: uitnodigend, warm en laagdrempelig. **Niet zweverig.** Schrijf
   concreet (wat doe je, hoe ziet een dag eruit) in plaats van vaag of spiritueel.
 - Gebruik "je/jij" en niet "u".
-- De hele site is in het **Nederlands**.
+- De site is in het **Nederlands**; een Engelse versie volgt later (zie Besluiten).
 
 ## Look & feel
 
@@ -117,7 +135,10 @@ placeholders.
   - `src/retraites/*.md`: één bestand per retraite, met de gegevens in
     front matter (titel, datum, locatie, prijs, plekken, aanmeldlink) en de
     beschrijving als Markdown
-  - Gewone pagina's (Over ons, Programma) als Markdown
+  - `src/_data/personen.yaml`: begeleiders en bestuursleden (foto, naam, rol, bio)
+  - `src/_data/stichting.yaml`: KvK, RSIN, statutaire zetel, ANBI aan/uit
+  - Lopende tekst van pagina's (Wat en waarom, Over de stichting, privacy,
+    voorwaarden) als Markdown
 - Gebruik YAML in plaats van JSON voor data, omdat YAML commentaar toestaat en
   makkelijker met de hand te bewerken is. Zet bij elk databestand
   uitleg-commentaar voor de eigenaar.
@@ -127,15 +148,15 @@ placeholders.
   menu). Geen frontend-framework.
 - De "eerstvolgende retraite" wordt bij het bouwen automatisch bepaald: de
   eerste retraite met een datum in de toekomst.
-- Formulieren (aanmelden, contact): via de formulierdienst van de host
-  (Netlify Forms) of Formspree. Er is geen eigen backend.
+- Formulieren (aanmelden, contact): via een externe formulierdienst, nog te
+  kiezen (zie Besluiten). Er is geen eigen backend.
 - Hosting: **GitHub Pages**, via de workflow `.github/workflows/pages.yml`.
   Bij elke push naar `main` wordt de site gebouwd en gepubliceerd op
   https://reversedaan.github.io/ClaudeCode/. Omdat de site in een submap staat,
   gebruikt Eleventy een pathPrefix (HtmlBasePlugin). Schrijf links gewoon als
   `/pagina/`, want de plugin zet het voorvoegsel ervoor. Alleen URL's in
   `style`-attributen of CSS moeten door het filter `| url`.
-  Let op: Netlify Forms werkt niet op GitHub Pages, dus gebruik voor formulieren Formspree.
+  Let op: Netlify Forms werkt niet op GitHub Pages.
 - De eigenaar heeft een achtergrond in Mendix en kent wat Java/JavaScript.
   Houd de code daarom leesbaar en eenvoudig, met korte Nederlandse comments
   waar dat helpt. Vermijd slimmigheden.
@@ -150,6 +171,7 @@ claudecode/
 ├── README.md               # uitleg voor de eigenaar: teksten aanpassen, retraite toevoegen
 ├── docs/
 │   ├── siteplan.md         # momentopname van het siteplan op Miro
+│   ├── pagina-opzet.md     # goedgekeurde pagina-opzet: overzicht user stories US-01 t/m US-19
 │   └── user-story-template.md
 ├── stories/                # user stories, één bestand per story (NNN-korte-naam.md)
 ├── package.json
@@ -159,7 +181,9 @@ claudecode/
     ├── _data/
     │   ├── site.yaml       # naam, slogan, contact, social, menu
     │   ├── home.yaml       # teksten homepagina
-    │   └── ervaringen.yaml # deelnemersquotes
+    │   ├── ervaringen.yaml # deelnemersquotes
+    │   ├── personen.yaml   # begeleiders en bestuursleden
+    │   └── stichting.yaml  # KvK, RSIN, zetel, ANBI aan/uit
     ├── _includes/
     │   ├── layouts/
     │   │   └── base.njk    # HTML-skelet: head, header, footer
@@ -177,11 +201,14 @@ claudecode/
     │   └── menu.js
     ├── images/             # eigen foto's (nu placeholders)
     ├── index.njk           # Home
-    ├── over-ons.md
-    ├── retraites.njk       # overzicht van alle retraites
-    ├── programma.md
+    ├── wat-en-waarom.md
+    ├── retraites.njk       # Retraites en events (per formaat)
+    ├── kalender.njk        # dezelfde retraites, per datum
     ├── aanmelden.njk
-    └── contact.njk
+    ├── stichting.md        # Over de stichting
+    ├── contact.njk
+    ├── privacy.md
+    └── voorwaarden.md
 ```
 
 De build-output komt in `_site/`. Die wordt niet gecommit.
@@ -201,17 +228,23 @@ Laat na elke stap zien wat er is veranderd.
 - [x] 2. Basisstijl: kleuren, lettertypes, typografie en spacing als CSS-variabelen
 - [x] 3. Header met menu (inclusief mobiel menu) en footer, gevuld vanuit site.yaml
 - [x] 4. Home: hero met bosbeeld, naam, slogan en de knop "Bekijk de retraites"
-- [ ] 5. Home: intro (kunst + introspectie) en de penseelstreek-scheidingslijn
-- [ ] 6. Home: drie blokken (aankomen, creëren, reflecteren)
-- [ ] 7. Retraite-datamodel en een voorbeeldretraite, plus het blok "eerstvolgende retraite" op home
-- [ ] 8. Home: blok "Over ons" met fotoplaceholder
-- [ ] 9. Home: ervaringen (gemarkeerd als voorbeeldtekst)
-- [ ] 10. Pagina Retraites (overzicht en detailpagina per retraite)
-- [ ] 11. Pagina's Over ons en Programma
-- [ ] 12. Aanmelden- en Contactpagina met formulier
-- [ ] 13. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis (title/description/OG)
-- [~] 14. Online zetten via GitHub Pages (workflow staat; Pages moet aan in de repo-instellingen)
+- [~] 5. Online via GitHub Pages (workflow staat; Pages-bron moet op "GitHub Actions")
+
+Vervolg in de goedgekeurde volgorde uit `docs/pagina-opzet.md`. Elke stap
+wordt eerst een story in `stories/`.
+
+- [x] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16), story 001: ter review
+- [ ] 7. Retraite- en personendata met één voorbeeldretraite (US-18)
+- [ ] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04)
+- [ ] 9. Retraites en events, plus de eventpagina (US-07, US-08)
+- [ ] 10. Kalender, als lijst per maand (US-09)
+- [ ] 11. Wat en waarom (US-05, US-06)
+- [ ] 12. Aanmelden, na de keuze voor een formulierdienst (US-11 t/m US-13)
+- [ ] 13. Contact (US-15)
+- [ ] 14. Over de stichting, privacybeleid en voorwaarden (US-14, US-17)
+- [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
+- [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
 
 ## Menu
 
-Home · Over ons · Retraites · Programma · Aanmelden · Contact
+Home · Wat en waarom · Retraites en events · Kalender · Aanmelden · Over de stichting · Contact
