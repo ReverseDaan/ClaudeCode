@@ -1,4 +1,5 @@
-{# Footer met contactgegevens en social media. Alles komt uit src/_data/site.yaml. #}
+{# Voettekst op elke pagina. De gegevens komen uit src/_data/site.yaml
+   en src/_data/stichting.yaml. #}
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div>
@@ -6,17 +7,22 @@
       <p>Retraites over vertragen, creëren en de reis naar binnen.</p>
     </div>
 
+    <nav aria-label="Snelle links">
+      <h2 class="site-footer__kop">Snelle links</h2>
+      <ul class="kale-lijst">
+        {% for item in site.menu %}
+          <li><a href="{{ item.url }}">{{ item.tekst }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
     <div>
       <h2 class="site-footer__kop">Contact</h2>
       <ul class="kale-lijst">
         <li><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
-        <li><a href="tel:{{ site.contact.telefoon | replace(' ', '') }}">{{ site.contact.telefoon }}</a></li>
-        <li>{{ site.contact.plaats }}</li>
       </ul>
-    </div>
 
-    <div>
-      <h2 class="site-footer__kop">Volg ons</h2>
+      <h2 class="site-footer__kop site-footer__kop--los">Volg ons</h2>
       <ul class="kale-lijst">
         {% for kanaal in site.social %}
           <li><a href="{{ kanaal.url }}" rel="noopener">{{ kanaal.naam }}</a></li>
@@ -25,7 +31,16 @@
     </div>
   </div>
 
-  <div class="container">
-    <p class="site-footer__copyright">© {{ jaar }} {{ site.naam }}</p>
+  {# Onderste regel: juridische gegevens en links #}
+  <div class="container site-footer__onder">
+    <p>© {{ jaar }} {{ site.naam }}</p>
+    <ul class="site-footer__gegevens kale-lijst">
+      <li>KvK: {{ stichting.kvk }}</li>
+      <li>RSIN: {{ stichting.rsin }}</li>
+      <li>Statutaire zetel: {{ stichting.zetel }}</li>
+      {% if stichting.anbi %}<li>ANBI-instelling</li>{% endif %}
+      <li><a href="/privacy/">Privacybeleid</a></li>
+      <li><a href="/voorwaarden/">Algemene voorwaarden</a></li>
+    </ul>
   </div>
 </footer>

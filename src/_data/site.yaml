@@ -15,6 +15,8 @@ naam: "Stillness and Strokes"
 omschrijving: "Retraites waarin je schildert en tekent als ingang om naar binnen te kijken en tot rust te komen. Geen ervaring nodig."
 
 # Contactgegevens (voorbeeldwaarden: vervang ze door de echte gegevens).
+# In de voettekst staat alleen het e-mailadres; telefoon en plaats zijn
+# voor later (bijv. de contactpagina).
 contact:
   email: "info@voorbeeld.nl"
   telefoon: "06 12345678"
@@ -27,17 +29,19 @@ social:
   - naam: "Facebook"
     url: "https://www.facebook.com/"
 
-# Het hoofdmenu, in deze volgorde.
+# Het hoofdmenu, in deze volgorde. "tekst" is wat in het menu staat.
 menu:
   - tekst: "Home"
     url: "/"
-  - tekst: "Over ons"
-    url: "/over-ons/"
+  - tekst: "Wat en waarom"
+    url: "/wat-en-waarom/"
   - tekst: "Retraites"
     url: "/retraites/"
-  - tekst: "Programma"
-    url: "/programma/"
+  - tekst: "Kalender"
+    url: "/kalender/"
   - tekst: "Aanmelden"
     url: "/aanmelden/"
+  - tekst: "Over de stichting"
+    url: "/stichting/"
   - tekst: "Contact"
     url: "/contact/"

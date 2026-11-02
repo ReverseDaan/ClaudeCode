@@ -90,8 +90,9 @@ en gebruik tot die tijd placeholders.
   een betaallink (Mollie, Stripe of Hipsy). Aanmelden is **geen directe
   boeking**; dat moet op de site duidelijk zijn.
 - Gebruik geen persoonsgegevens van echte deelnemers, ook niet als voorbeeld.
-  Echte feedback (Miro-frame "Feedback") alleen gebruiken met schriftelijke
-  toestemming én nadat Daan dat aangeeft.
+  Uitzondering: de feedback in het Miro-frame "Feedback" mag op de site. Daar
+  is akkoord voor (Daan, 2 november 2026). Gebruik geen achternamen of andere
+  gegevens die een deelnemer herkenbaar maken, tenzij Daan dat aangeeft.
 
 ## Doelgroep en toon
 
@@ -232,7 +233,7 @@ Laat na elke stap zien wat er is veranderd.
 Vervolg in de goedgekeurde volgorde uit `docs/pagina-opzet.md`. Elke stap
 wordt eerst een story in `stories/`.
 
-- [ ] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16)
+- [x] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16), story 001: ter review
 - [ ] 7. Retraite- en personendata met één voorbeeldretraite (US-18)
 - [ ] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04)
 - [ ] 9. Retraites en events, plus de eventpagina (US-07, US-08)

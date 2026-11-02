@@ -7,6 +7,7 @@
    4. Header en menu
    5. Footer
    6. Homepagina
+   7. Gewone pagina's
    ================================================================== */
 
 
@@ -175,7 +176,7 @@ a:hover {
 
 /* ------------------------------------------------------------------
    4. Header en menu
-   Mobiel: menu onder een knop. Vanaf 860px breed: menu naast het logo.
+   Mobiel en tablet: menu onder een knop. Vanaf 1024px breed: menu naast het logo.
    ------------------------------------------------------------------ */
 .site-header {
   background: var(--kleur-zand);
@@ -294,7 +295,7 @@ a:hover {
   color: var(--kleur-mos);
 }
 
-@media (min-width: 860px) {
+@media (min-width: 1024px) {
   .site-header__inner {
     flex-wrap: nowrap;
   }
@@ -311,13 +312,14 @@ a:hover {
 
   .hoofdmenu ul {
     display: flex;
-    gap: var(--ruimte-m);
+    gap: 1.25rem;
     padding: 0;
   }
 
   .hoofdmenu a {
     padding: 0.25rem 0;
     font-size: 1rem;
+    white-space: nowrap;
     border-bottom: 2px solid transparent;
   }
 
@@ -372,11 +374,38 @@ a:hover {
   margin-bottom: var(--ruimte-xs);
 }
 
-.site-footer__copyright {
-  margin: var(--ruimte-l) 0 0;
+.site-footer__kop--los {
+  margin-top: var(--ruimte-m);
+}
+
+.site-footer li + li {
+  margin-top: 0.2rem;
+}
+
+/* Onderste regel met copyright, KvK, RSIN en juridische links */
+.site-footer__onder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ruimte-xs) var(--ruimte-l);
+  justify-content: space-between;
+  margin-top: var(--ruimte-l);
   padding-top: var(--ruimte-m);
   border-top: 1px solid rgb(245 239 228 / 0.2);
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+.site-footer__onder p {
+  margin: 0;
+}
+
+.site-footer__gegevens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem var(--ruimte-m);
+}
+
+.site-footer__gegevens li + li {
+  margin-top: 0;
 }
 
 @media (min-width: 700px) {
@@ -451,4 +480,34 @@ a:hover {
 
 .hero__rand-voor {
   fill: var(--kleur-zand);
+}
+
+
+/* ------------------------------------------------------------------
+   7. Gewone pagina's (layout pagina.njk)
+   ------------------------------------------------------------------ */
+.pagina__kop {
+  background: var(--kleur-zand-donker);
+  padding-block: var(--ruimte-xl) var(--ruimte-l);
+}
+
+.pagina__kop h1 {
+  font-size: var(--kop-2);
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.pagina__intro {
+  font-size: var(--tekst-groot);
+  color: var(--kleur-bruin-zacht);
+  max-width: var(--breedte-tekst);
+  margin: 0;
+}
+
+.pagina__tekst {
+  padding-block: var(--ruimte-l) var(--ruimte-xl);
+}
+
+.pagina__tekst > * {
+  max-width: var(--breedte-tekst);
 }
