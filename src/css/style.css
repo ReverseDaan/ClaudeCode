@@ -880,7 +880,9 @@ a:hover {
   color: var(--kleur-bruin-zacht);
 }
 
-.pagina__tekst td:first-child {
+/* Eerste kolom niet afbreken, maar alleen bij tabellen met twee kolommen
+   (zoals het dagritme). Bredere tabellen mogen op mobiel gewoon afbreken. */
+.pagina__tekst td:first-child:nth-last-child(2) {
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
