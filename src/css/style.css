@@ -261,7 +261,7 @@ a:hover {
 
 /* ------------------------------------------------------------------
    4. Header en menu
-   Mobiel en tablet: menu onder een knop. Vanaf 1024px breed: menu naast het logo.
+   Mobiel en tablet: menu onder een knop. Vanaf 1200px breed: menu naast het logo.
    ------------------------------------------------------------------ */
 .site-header {
   background: var(--kleur-zand);

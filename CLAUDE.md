@@ -55,8 +55,9 @@ Eén story tegelijk. Nooit meerdere stories in één keer bouwen.
 Daan heeft de pagina-opzet goedgekeurd (`docs/pagina-opzet.md`, story-overzicht
 US-01 t/m US-19). Daarin zijn deze punten besloten:
 
-- **Menu en pagina's: volg het siteplan.** Home · Wat en waarom · Retraites en
-  events · Kalender · Aanmelden · Over de stichting · Contact. "Over ons" en
+- **Menu en pagina's: volg het siteplan**, plus "Veelgestelde vragen" (Daan,
+  3 nov 2026, story 022). Home · Wat en waarom · Retraites en events · Kalender ·
+  Aanmelden · Veelgestelde vragen · Over de stichting · Contact. "Over ons" en
   "Programma" vervallen: de begeleiders en "een sessie stap voor stap" komen op
   Wat en waarom.
 - **Taal: eerst alles in het Nederlands**, maar zo opgezet dat Engels later onder
@@ -224,7 +225,7 @@ claudecode/
     ├── aanmelden.njk
     ├── stichting.md        # Over de stichting
     ├── contact.md
-    ├── vragen.njk          # Veelgestelde vragen (niet in het menu)
+    ├── vragen.njk          # Veelgestelde vragen
     ├── agenda.njk          # maakt per retraite een .ics-bestand
     ├── privacy.md
     └── voorwaarden.md
@@ -271,11 +272,12 @@ Extra stories (buiten het stappenplan):
 - [x] Story 010: ervaringen van deelnemers op Home en Wat en waarom (US-03): ter review
 - [ ] Story 011: galerij: in de wacht tot er foto's zijn
 - [x] Story 012: "Is dit iets voor mij?" op Wat en waarom: ter review
-- [x] Story 013: veelgestelde vragen op /vragen/ (niet in het menu): ter review
+- [x] Story 013: veelgestelde vragen op /vragen/: ter review
+- [x] Story 022: vragen opgeschoond, maaltijden plantaardig, rol Begeleider, menu-item Veelgestelde vragen: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu
 
-Home · Wat en waarom · Retraites en events · Kalender · Aanmelden · Over de stichting · Contact
+Home · Wat en waarom · Retraites en events · Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact

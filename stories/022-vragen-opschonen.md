@@ -1,6 +1,6 @@
 # 022 — Veelgestelde vragen opschonen, maaltijden invullen, vragen in het menu
 
-**Status:** Goedgekeurd (Daan, 3 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 3 nov 2026 (chat); stories 005, 006, 012, 013
 **Afhankelijk van:** 013 (veelgestelde vragen), 012 (Is dit iets voor mij?)
 
@@ -64,8 +64,24 @@ Daan wil een kortere vragenlijst, een eigen menu-item ervoor, en de maaltijden c
 4. ~~Bijgewerkte antwoorden?~~ Akkoord (Daan, 3 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd) en diezelfde build in Chrome op 375, 1024, 1199, 1200, 1280 en 1440 px, in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Inbegrepen: "Alle maaltijden, plantaardig"; "Maaltijden: volgt" is weg |
+| 2 | ✅ Daan en Vincent: "Begeleider" op Wat en waarom en Over de stichting; "oprichter" staat nergens meer in de HTML |
+| 3 | ✅ "Ik vind stilte spannend" is weg |
+| 4 | ✅ `/vragen/`: Meedoen, Verblijf, Aanmelden en betalen, met acht vragen in de afgesproken volgorde; de zes geschrapte vragen zijn weg (ook "Is er een minimumleeftijd?") |
+| 5 | ✅ Vier bijgewerkte antwoorden; "Kan ik annuleren?" linkt naar `/voorwaarden/` |
+| 6 | ✅ Acht menu-items, "Veelgestelde vragen" tussen Aanmelden en Over de stichting, met `aria-current="page"` op `/vragen/` |
+| 7 | ✅ Menu op één regel vanaf 1200 px; daaronder het uitklapmenu; nergens horizontaal scrollen |
+| 8 | ✅ Uitklapblokken zonder JavaScript; laagste contrast 4,77:1 (Zand) |
+
+Aanpassing: met acht items werd de naam op 1024 px over drie regels geperst. Daarom staat het menu nu pas vanaf 1200 px naast de naam (was 1024 px); tussen 1024 en 1200 px zie je het uitklapmenu.
