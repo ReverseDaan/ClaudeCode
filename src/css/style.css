@@ -10,6 +10,7 @@
    7. Gewone pagina's
    8. Stijlwisselaar (tijdelijk, om thema's te vergelijken)
    9. Retraites: kaarten, kalender en aanmelden
+  10. Inhoudspagina's: tabellen, citaten, personen en meldingen
    ================================================================== */
 
 
@@ -833,3 +834,127 @@ a:hover {
   margin-block: var(--ruimte-m) var(--ruimte-l);
 }
 
+
+
+/* ------------------------------------------------------------------
+   10. Inhoudspagina's: tabellen, citaten, personen en meldingen
+   (Wat en waarom, Over de stichting)
+   ------------------------------------------------------------------ */
+.pagina__tekst h2 {
+  font-size: var(--kop-3);
+  margin-top: var(--ruimte-l);
+}
+
+.pagina__tekst h2:first-child {
+  margin-top: 0;
+}
+
+.pagina__tekst h3 {
+  font-size: 1.3rem;
+  margin-top: var(--ruimte-m);
+}
+
+/* Tabel, bijv. het dagritme. Op smalle schermen loopt de tabel niet
+   buiten beeld: de tekst in de rechterkolom loopt gewoon door. */
+.pagina__tekst table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 var(--ruimte-m);
+  font-size: var(--tekst-klein);
+}
+
+.pagina__tekst th,
+.pagina__tekst td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.55rem 0.75rem 0.55rem 0;
+  border-bottom: 1px solid var(--kleur-zand-donker);
+}
+
+.pagina__tekst th {
+  font-weight: 600;
+  color: var(--kleur-bruin-zacht);
+}
+
+.pagina__tekst td:first-child {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Citaat */
+.pagina__tekst blockquote {
+  margin: var(--ruimte-m) 0;
+  padding-left: var(--ruimte-m);
+  border-left: 3px solid var(--kleur-oker);
+  font-family: var(--font-kop);
+  font-size: var(--tekst-groot);
+  font-style: italic;
+}
+
+/* Kaarten van begeleiders en oprichters */
+.personen-lijst {
+  display: grid;
+  gap: var(--ruimte-m);
+  margin: 0 0 var(--ruimte-m);
+}
+
+.persoon-kaart {
+  display: flex;
+  gap: var(--ruimte-s);
+  align-items: flex-start;
+  padding: var(--ruimte-m);
+  background: var(--kleur-zand);
+  border: 1px solid var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+}
+
+.persoon-kaart__foto {
+  flex: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Zolang er geen foto is: een cirkel met de eerste letter */
+.persoon-kaart__foto--leeg {
+  display: grid;
+  place-items: center;
+  background: var(--kleur-mos);
+  color: var(--kleur-zand);
+  font-family: var(--font-kop);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.persoon-kaart__naam {
+  font-size: 1.3rem;
+  margin: 0 0 0.15rem;
+}
+
+.persoon-kaart__rol {
+  margin: 0 0 var(--ruimte-xs);
+  font-size: var(--tekst-klein);
+  color: var(--kleur-bruin-zacht);
+}
+
+.persoon-kaart__bio {
+  margin: 0;
+}
+
+.pagina__actie {
+  margin-top: var(--ruimte-l);
+}
+
+/* Opvallende melding, bijv. "voorbeeldgegevens" */
+.melding {
+  padding: var(--ruimte-s) var(--ruimte-m);
+  margin: 0 0 var(--ruimte-m);
+  background: var(--kleur-zand-donker);
+  border-left: 4px solid var(--kleur-oker);
+  border-radius: var(--hoek);
+}
+
+.melding strong {
+  display: block;
+}

@@ -1,6 +1,6 @@
 # 006 — Pagina "Over de stichting" met missie, geschiedenis en voorbeeldgegevens
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** `docs/pagina-opzet.md` (US-14); `docs/siteplan.md` sectie C (pagina 06) en "Juridisch"; Drive: brochure 2025 (dia 2), Draaiboek en overleg editie 1
 **Afhankelijk van:** 005 (personen met echte namen); kan ook los gebouwd worden
 
@@ -36,12 +36,12 @@ Er is nog geen stichting (Daan, 3 nov 2026). De pagina krijgt daarom **gegeneree
 > We geloven dat er in deze snel veranderende wereld een tegenbeweging nodig is. Een beweging die ruimte biedt voor vertraging, verstilling en bewuste aandacht. Met {{ site.naam }} maken we die ruimte: retraites waarin stilte, creativiteit en natuurlijke verbinding samenkomen, toegankelijk voor iedereen, ook zonder ervaring.
 
 ### Hoe het begon
-> Het idee ontstond toen Daan in India een houtskoolcursus volgde bij kunstenaar Rohit Kishan, en ervoer hoe tekenen en stilte elkaar versterken. Samen met Vincent groeide dat uit tot een eigen retraite.
+> Het idee ontstond toen Daan tijdens een reis door India een houtskoolcursus volgde, en ervoer hoe tekenen en stilte elkaar versterken. Samen met Vincent groeide dat uit tot een eigen retraite.
 >
 > In de zomer van 2025 vond de eerste editie plaats: vijf dagen op de Veluwe, met meditatie, yoga, schilderen en veel tijd in de natuur. Wat we daar leerden, nemen we mee in elke volgende retraite.
 
 ### Wie wij zijn
-Kaarten van Daan Smit en Vincent Nieuwenhuis uit `personen.yaml`, met hun rol in het bestuur (zie open vraag 1).
+Kaarten van Daan Smit en Vincent Nieuwenhuis uit `personen.yaml`, met de rol "Oprichter en begeleider".
 
 ### Gegevens *(voorbeeld)*
 | Gegeven | Voorbeeldwaarde |
@@ -66,7 +66,7 @@ De nummers zijn bewust herkenbaar nep (oplopende cijfers), zodat ze niet per ong
 |---|---|---|
 | Missie en geschiedenis | Zie hierboven | Concept, ter review |
 | KvK, RSIN, zetel | 12345678, 123456789, Epe | **Gegenereerd voorbeeld**, zo gemarkeerd op de site |
-| Bestuursrollen | Zie open vraag 1 | Placeholder |
+| Rollen | Oprichter en begeleider | Definitief (Daan, 3 nov 2026) |
 
 ## Technische aanpak (kort)
 - `src/stichting.md`: teksten en secties
@@ -76,9 +76,9 @@ De nummers zijn bewust herkenbaar nep (oplopende cijfers), zodat ze niet per ong
 - Controle zoals bij story 004
 
 ## Open vragen voor Daan
-1. **Bestuursrollen:** wil je bij Daan en Vincent een (voorbeeld)rol zetten, zoals "voorzitter" en "penningmeester", of alleen "oprichter"?
-2. **Geschiedenis:** mag Rohit Kishan bij naam genoemd worden in "Hoe het begon"? Hij stond in de brochure, maar kwam uiteindelijk niet naar editie 1.
-3. **Zetel:** is Epe als voorbeeld goed, of liever een andere plaats?
+1. ~~Bestuursrollen?~~ Alleen "oprichter" (Daan, 3 nov 2026).
+2. ~~Rohit noemen?~~ Nee (Daan, 3 nov 2026).
+3. ~~Zetel?~~ Epe als voorbeeld (Daan, 3 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd

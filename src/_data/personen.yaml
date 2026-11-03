@@ -8,20 +8,21 @@
 #  - naam:  zoals bezoekers hem zien
 #  - rol:   bijv. "Begeleider" of "Bestuurslid"
 #  - bio:   twee à drie zinnen
-#  - foto:  bestandsnaam in src/images/ (tot die er is: placeholder)
+#  - foto:  bestandsnaam in src/images/. Staat het bestand er (nog) niet,
+#           dan toont de site een cirkel met de voorletter.
 #
-# LET OP: hieronder staan nog placeholders. Vervang ze door echte
-# gegevens zodra die er zijn.
+# De bio's zijn nog concepten: pas ze gerust aan.
 # ------------------------------------------------------------------
 
-- code: "begeleider-1"
-  naam: "Naam volgt"
-  rol: "Begeleider"
-  bio: "Bio volgt. Hier komen twee à drie zinnen over wie je bent, wat je doet tijdens de retraite en waarom."
-  foto: "persoon-1.jpg"
+- code: "daan"
+  naam: "Daan Smit"
+  rol: "Oprichter en begeleider"
+  bio: "Daan begeleidt de meditaties en is je aanspreekpunt tijdens de retraite. Hij ontdekte zelf hoe tekenen en stilte samenkomen tijdens een houtskoolcursus in India, waar hij merkte hoe snel de gedachte \"ik kan helemaal niet tekenen\" opkomt, en hoeveel er gebeurt als je die even laat voor wat hij is. Die ervaring was het begin van deze retraites."
+  foto: "persoon-daan.jpg"
 
-- code: "begeleider-2"
-  naam: "Naam volgt"
-  rol: "Begeleider"
-  bio: "Bio volgt. Hier komen twee à drie zinnen over wie je bent, wat je doet tijdens de retraite en waarom."
-  foto: "persoon-2.jpg"
+- code: "vincent"
+  naam: "Vincent Nieuwenhuis"
+  rol: "Oprichter en begeleider"
+  # Concept: nog afstemmen met Vincent.
+  bio: "Vincent begeleidt de yoga en de stiltewandelingen, en neemt je mee naar buiten om het landschap op je in te laten werken. Hij zorgt ervoor dat de groep zich welkom voelt en dat er een veilige bedding is om te openen voor de gezamenlijke reis."
+  foto: "persoon-vincent.jpg"

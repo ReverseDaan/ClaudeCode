@@ -59,7 +59,7 @@ site online. In het tabblad **Actions** zie je een rood kruisje; klik erop en
 je ziet in gewone taal welk bestand en welk veld je moet aanpassen.
 
 Begeleiders staan in `src/_data/personen.yaml`. Een retraite verwijst ernaar
-met hun code (bijv. `begeleider-1`).
+met hun code (bijv. `daan`).
 
 ## Stijlen vergelijken
 

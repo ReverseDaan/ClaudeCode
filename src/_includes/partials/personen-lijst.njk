@@ -1,0 +1,22 @@
+{#- Lijst met kaarten van alle personen uit src/_data/personen.yaml.
+    Gebruik in een Markdown-pagina op een eigen regel, met een lege regel
+    erboven en eronder: {% include "partials/personen-lijst.njk" %}
+    Let op: deze uitvoer mag geen lege regels bevatten, anders leest
+    Markdown de rest als gewone tekst. Daarom staan er overal streepjes
+    in de tags ({%- en -%}): die halen witruimte weg. -#}
+<ul class="personen-lijst kale-lijst">
+{%- for persoon in personen %}
+<li class="persoon-kaart">
+{%- if persoon.foto and (persoon.foto | afbeeldingBestaat) %}
+<img class="persoon-kaart__foto" src="/images/{{ persoon.foto }}" alt="Foto van {{ persoon.naam }}" width="160" height="160" loading="lazy">
+{%- else %}
+<span class="persoon-kaart__foto persoon-kaart__foto--leeg" aria-hidden="true">{{ persoon.naam | first }}</span>
+{%- endif %}
+<div class="persoon-kaart__tekst">
+<h3 class="persoon-kaart__naam">{{ persoon.naam }}</h3>
+<p class="persoon-kaart__rol">{{ persoon.rol }}</p>
+<p class="persoon-kaart__bio">{{ persoon.bio }}</p>
+</div>
+</li>
+{%- endfor %}
+</ul>

@@ -1,6 +1,6 @@
 # 005 — Pagina "Wat en waarom" met dagritme en begeleiders
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** `docs/pagina-opzet.md` (US-05, US-06); `docs/siteplan.md` sectie C (pagina 02); Drive: brochure 2025 (dia 2 en 3), Draaiboek editie 1, Weekprogramma editie 1, blogpost Daan
 **Afhankelijk van:** 003 (personendata)
 
@@ -102,8 +102,9 @@ De pagina staat nu op "in de maak". De teksten komen uit de brochure en het draa
 - Controle: echte build in GitHub Actions + browsercontrole, zoals bij story 004
 
 ## Open vragen voor Daan
-1. Kloppen de concept-bio's ongeveer? Vooral: begeleidt Daan de meditaties en Vincent de yoga en stiltewandelingen (zo stond het in het draaiboek)?
-2. Alle maaltijden waren in editie 1 plantaardig. Wordt dat in het voorjaar ook zo (dan noem ik het op deze pagina), of laat ik eten hier weg zolang verzorgd/zelfverzorging nog open is?
+1. ~~Bio's?~~ Akkoord op de concepten (Daan, 3 nov 2026); bio Vincent blijft "concept" tot hij hem heeft gezien.
+2. ~~Plantaardig eten noemen?~~ Niet genoemd zolang verzorgd/zelfverzorging open is (akkoord op het concept, dat eten niet noemt).
+3. Rol bij beide: "Oprichter en begeleider" (volgt uit story 006: alleen oprichters).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
