@@ -12,6 +12,7 @@
    9. Retraites: kaarten, kalender en aanmelden
   10. Inhoudspagina's: tabellen, citaten, personen en meldingen
   11. Pagina van één retraite en uitklapblokken
+  12. Ervaringen en secties op Home
    ================================================================== */
 
 
@@ -840,6 +841,7 @@ a:hover {
 /* ------------------------------------------------------------------
    10. Inhoudspagina's: tabellen, citaten, personen en meldingen
   11. Pagina van één retraite en uitklapblokken
+  12. Ervaringen en secties op Home
    (Wat en waarom, Over de stichting)
    ------------------------------------------------------------------ */
 .pagina__tekst h2 {
@@ -964,6 +966,7 @@ a:hover {
 
 /* ------------------------------------------------------------------
    11. Pagina van één retraite en uitklapblokken
+  12. Ervaringen en secties op Home
    ------------------------------------------------------------------ */
 .retraite-pagina__terug {
   margin: 0 0 var(--ruimte-s);
@@ -1062,4 +1065,56 @@ a:hover {
 
 .uitklap-lijst details p:last-child {
   margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------------
+   12. Ervaringen en secties op Home
+   ------------------------------------------------------------------ */
+.sectie {
+  padding-block: var(--ruimte-xl);
+}
+
+.sectie__kop {
+  font-size: var(--kop-2);
+  font-weight: 500;
+  margin-bottom: var(--ruimte-l);
+}
+
+.ervaringen {
+  display: grid;
+  gap: var(--ruimte-m);
+  margin: 0 0 var(--ruimte-m);
+}
+
+@media (min-width: 860px) {
+  .sectie .ervaringen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ervaring {
+  padding: var(--ruimte-m);
+  background: var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+}
+
+.ervaring .ervaring__quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-kop);
+  font-size: var(--tekst-groot);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.ervaring__quote p {
+  margin: 0;
+}
+
+.ervaring__bron {
+  margin: var(--ruimte-xs) 0 0;
+  font-size: var(--tekst-klein);
+  color: var(--kleur-bruin-zacht);
 }

@@ -18,5 +18,15 @@ layout: layouts/base.njk
   </svg>
 </section>
 
-{# De volgende blokken (intro, drie stappen, eerstvolgende retraite, over ons,
-   ervaringen) worden in de volgende stappen toegevoegd. #}
+{# 2. Ervaringen van deelnemers (src/_data/ervaringen.yaml) #}
+{% if ervaringen and ervaringen.length %}
+<section class="sectie" aria-labelledby="ervaringen-kop">
+  <div class="container">
+    <h2 class="sectie__kop" id="ervaringen-kop">{{ home.ervaringen.kop }}</h2>
+    {% include "partials/ervaringen.njk" %}
+  </div>
+</section>
+{% endif %}
+
+{# De volgende blokken (intro, drie stappen, eerstvolgende retraite)
+   worden in de volgende stappen toegevoegd. #}

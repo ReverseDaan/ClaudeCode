@@ -43,6 +43,10 @@ Een voorbeeld uit onze eerste retraite. Het programma per retraite kan iets vers
 
 We beginnen de dag in stilte. Tot het einde van het ontbijt moedigen we je aan om nog niet te spreken, zodat je zintuigen de kans krijgen om echt wakker te worden. Na de lunch is er weer ruimte om te spreken. De middag is vrij in te vullen: je kunt de stilte laten bezinken tijdens een wandeling, uitrusten, schrijven of contact maken met anderen, of juist met jezelf. Alles is welkom.
 
+## Wat deelnemers zeggen
+
+{% include "partials/ervaringen.njk" %}
+
 ## Begeleiding
 
 {% include "partials/personen-lijst.njk" %}

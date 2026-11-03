@@ -1,0 +1,14 @@
+{#- Ervaringen van deelnemers uit src/_data/ervaringen.yaml.
+    Gebruik: {% include "partials/ervaringen.njk" %}
+    In een Markdown-pagina op een eigen regel, met een lege regel erboven
+    en eronder. De uitvoer heeft daarom geen lege regels ({%- en -%}). -#}
+<ul class="ervaringen kale-lijst">
+{%- for e in ervaringen %}
+<li class="ervaring">
+<blockquote class="ervaring__quote">
+<p>“{{ e.tekst }}”</p>
+</blockquote>
+<p class="ervaring__bron">{{ e.bron }}</p>
+</li>
+{%- endfor %}
+</ul>
