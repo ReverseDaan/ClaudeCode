@@ -44,7 +44,7 @@ jobs:
         run: |
           I=_site/retraites/2027-04-voorjaar.ics; cat -A $I | head -12
           grep -q $'\r$' $I
-          python3 -I - "$I" <<'PY'
+          python3 - "$I" <<'PY'
           import sys, icalendar
           cal = icalendar.Calendar.from_ical(open(sys.argv[1],'rb').read())
           ev = [c for c in cal.walk('VEVENT')]
