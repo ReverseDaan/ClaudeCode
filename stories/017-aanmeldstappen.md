@@ -1,6 +1,6 @@
 # 017 — Aanmelden in drie stappen, met kennismakingsgesprek
 
-**Status:** Goedgekeurd (Daan, 3 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Drive: brochure 2025, dia 7 (aanmeldproces: mail → kort telefoongesprek → formulier + aanbetaling); Gmail: antwoorden aan geïnteresseerden in juni 2025 (Daan plant na een aanmelding een kort intakegesprek)
 **Afhankelijk van:** 015 (voorwaarden, voor de link)
 
@@ -51,8 +51,22 @@ De huidige uitleg op `/aanmelden/` noemt "aanvraag → bevestiging → betaallin
 1. ~~Gesprek?~~ Ja, weer met iedereen, telefonisch (Daan, 3 nov 2026). Op de site staat "we".
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd) en diezelfde build in Chrome op 375 px, 1024 px en 1280 px, in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Drie stappen als `<ol>` met de teksten uit de story |
+| 2 | ✅ Op 375 px onder elkaar, vanaf 768 px in drie kolommen (cijfer boven de tekst); geen horizontaal scrollen |
+| 3 | ✅ Cijfers met handgetekend rondje zijn `aria-hidden`; schermlezers lezen alleen het lijstnummer |
+| 4 | ✅ Eventpagina: de drie stapkoppen onder de aanmeldknop (met een verborgen kop "Zo werkt aanmelden" voor schermlezers) |
+| 5 | ✅ Stap 3 linkt naar `/voorwaarden/` |
+| 6 | ✅ Laagste contrast 4,77:1 (Zand); geen JavaScript nodig of fouten |
+
+Afwijking van de technische aanpak: de stappen staan in `src/_data/praktisch.yaml` (`aanmeldstappen`) in plaats van in de front matter van `aanmelden.njk`, omdat de eventpagina ze ook gebruikt. De oude drie uitlegregels zijn vervangen; de regel over een volle retraite staat er nog onder.
