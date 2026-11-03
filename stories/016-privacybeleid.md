@@ -1,6 +1,6 @@
 # 016 — Privacybeleid
 
-**Status:** Goedgekeurd (Daan, 3 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-17); `docs/siteplan.md` (juridische eisen: AVG); stories 014 (interesselijst) en 018 (aanmeldformulier)
 **Afhankelijk van:** 015 (dezelfde conceptmelding)
 
@@ -63,8 +63,22 @@ zodat **ik met een gerust hart mijn gegevens achterlaat**.
 3. Toetsing door een jurist of een AVG-check voor de lancering?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd) en diezelfde build in Chrome op 375 px en 1280 px, in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Zeven h2's in de genoemde volgorde; "Gezondheidsgegevens" als h3 onder "Welke gegevens en waarom"; "in de maak" is weg |
+| 2 | ✅ Tabel met vier rijen (interesselijst, aanmelden, gezondheid, mail), elk met doel en bewaartermijn; betaaldienst staat gemarkeerd als "volgt" |
+| 3 | ✅ Naam en e-mail uit `site.yaml`; "KvK-nummer: 12345678 (voorbeeld)" uit `stichting.yaml` |
+| 4 | ✅ De interesselijst linkt naar `/privacy/` (getest met een ingevulde formulierlink). Het aanmeldformulier volgt in story 018 |
+| 5 | ✅ Conceptmelding en "Laatst bijgewerkt" zichtbaar |
+| 6 | ✅ Geen horizontaal scrollen op 375 px; laagste contrast 4,77:1 (Zand); geen JavaScript-fouten |
+
+Bijvangst: de driekoloms tabel liep op 375 px 9 px buiten beeld. Opgelost in de CSS: alleen tabellen met twee kolommen (dagritme, voorwaarden) houden de eerste kolom op één regel, en lange woorden mogen afbreken. Dagritme, voorwaarden en stichting opnieuw gecontroleerd: in orde.
