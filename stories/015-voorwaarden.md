@@ -1,6 +1,6 @@
 # 015 — Voorwaarden: aanmelden, betalen en annuleren
 
-**Status:** Goedgekeurd (Daan, 3 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-17); `docs/siteplan.md` (juridische eisen); Drive: brochure 2025, dia 7 (aanmeldproces en annuleringsvoorwaarden)
 **Afhankelijk van:** geen (017 en 018 linken hiernaartoe)
 
@@ -73,8 +73,22 @@ zodat **ik weet waar ik aan begin en niet voor verrassingen kom te staan**.
 4. Laat een jurist dit toetsen voor de lancering (o.a. herroepingsrecht: bij vrijetijdsdiensten op een vaste datum geldt dat meestal niet, maar dat moet een jurist bevestigen).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd) en diezelfde build in Chrome op 375 px en 1280 px, in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Vier h2's in de juiste volgorde met de conceptteksten; "in de maak" is weg |
+| 2 | ✅ Melding "Concept" bovenaan; getest met `concept: false`: melding verdwijnt. Andere pagina's krijgen geen melding |
+| 3 | ✅ Echte tabel met kopregel en drie rijen; geen horizontaal scrollen op 375 px |
+| 4 | ✅ Twee keer "termijn volgt", zichtbaar gemarkeerd (zandvlak met gestippelde okerlijn) |
+| 5 | ✅ "Laatst bijgewerkt: 3 november 2026" onderaan, uit de front matter |
+| 6 | ✅ Laagste contrast 4,77:1 (thema Zand), alle tekst ≥ 4,5:1; koppen logisch; focusrand zichtbaar met Tab; geen JavaScript-fouten |
+
+Ook gewijzigd: `layouts/pagina.njk` kan nu op elke pagina een conceptmelding en "Laatst bijgewerkt" tonen (herbruikbaar voor 016); twee kleine CSS-regels (`.volgt`, `.pagina__bijgewerkt`).

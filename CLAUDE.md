@@ -258,7 +258,7 @@ wordt eerst een story in `stories/`.
 - [x] 11. Wat en waarom (US-05, US-06), story 005: ter review
 - [~] 12. Aanmelden, na de keuze voor een formulierdienst (US-11 t/m US-13). Story 004: retraitekeuze, uitleg en tijdelijke maillink staan; het formulier volgt
 - [x] 13. Contact, alleen het e-mailadres (US-15 ingeperkt, story 007): ter review
-- [~] 14. Over de stichting (US-14, story 006: ter review, met voorbeeldgegevens), privacybeleid en voorwaarden (US-17, nog te doen)
+- [~] 14. Over de stichting (US-14, story 006: ter review, met voorbeeldgegevens), voorwaarden (US-17, story 015: ter review), privacybeleid (story 016, goedgekeurd)
 - [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
 - [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
 
@@ -271,6 +271,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 012: "Is dit iets voor mij?" op Wat en waarom: ter review
 - [x] Story 013: veelgestelde vragen op /vragen/ (niet in het menu): ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
+- [ ] Stories 016–019 goedgekeurd, nog te bouwen: privacy, aanmeldstappen, aanmeldformulier (Google Forms), verblijf en tijden. Story 020 (Home) herzien, opnieuw ter goedkeuring. Story 021 (in voorbereiding): in de wacht
 
 ## Menu
 
