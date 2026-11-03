@@ -1,6 +1,6 @@
 # 020 — Home afmaken: intro, drie stappen, eerstvolgende retraite en routes
 
-**Status:** Concept (herzien 3 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-01, US-02, US-04); `docs/siteplan.md` sectie C (pagina 01, bezoekersroute); Drive: brochure 2025 (intro); Miro "Feedback": "leg uit wat creatiekracht betekent", "maak het toegankelijk voor wie zich niet kunstzinnig vindt"
 **Afhankelijk van:** 004 (retraites), 010 (ervaringen)
 
@@ -60,12 +60,28 @@ Home heeft nu alleen de hero, de ervaringen en (verborgen) de interesselijst. Di
 - CSS-sectie "Home" in `style.css`
 
 ## Open vragen voor Daan
-1. "Houtskool, verf en papier" klopt niet (Daan, 3 nov 2026). Nu algemeen: "je maakt iets met je handen". Welke creatieve vorm(en) mogen we wél noemen, of houden we het algemeen tot de kunstenaar bekend is?
+1. "Houtskool, verf en papier" klopt niet (Daan, 3 nov 2026). Nu algemeen: "je maakt iets met je handen". Besloten: algemeen houden (Daan, 3 nov 2026).
 2. Is "Reflecteren" in de groep een vast onderdeel (delingscirkel)? *Af te stemmen met Vincent.*
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), met varianten (niets gepland, met en zonder interesselijst), en de build in Chrome op 375 px en 1280 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Volgorde: hero (h1), Even uit de drukte, Aankomen/creëren/reflecteren, Eerstvolgende retraite, Wat deelnemers zeggen, Verder kijken, (interesselijst); elke sectie een h2 |
+| 2 | ✅ Eerstvolgende retraite: de voorjaarsretraite met datum, plaats, status, "Meer informatie" en "Vraag een plek aan" |
+| 3 | ✅ Met een datum in het verleden: geen kaart, wel "Er staat op dit moment geen nieuwe retraite gepland" met link naar contact; met ingevulde interesselijst staat die daar (en niet nog eens onderaan) |
+| 4 | ✅ Routes naar `/wat-en-waarom/`, `/kalender/` en `/stichting/` |
+| 5 | ✅ Drie eigen SVG-iconen (boom, penseel, spiraal), `aria-hidden`, in de linkkleur van het thema |
+| 6 | ✅ Alle teksten in `home.yaml`; naam uit `site.yaml` |
+| 7 | ✅ Op 375 px onder elkaar, geen horizontaal scrollen |
+| 8 | ✅ Laagste contrast 4,77:1 (Zand); geen animaties; geen JavaScript-fouten |
+
+Ook gemaakt: `partials/penseelstreek.njk` (stond al in CLAUDE.md maar bestond nog niet), twee keer gebruikt op Home. De kaarten op Retraites en Kalender houden de knoptekst "Aanmelden".
