@@ -5,7 +5,7 @@ import yaml from "js-yaml";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import {
   controleerRetraite, sorteerOpStart, komende, STATUSSEN,
-  datumBereik, isoDatum, perMaand, prijsTekst, isVoorbij, personenMetCodes, icsBestand,
+  datumBereik, isoDatum, perMaand, prijsTekst, isVoorbij, personenMetCodes, icsBestand, aanmeldUrl,
 } from "./lib/retraites.js";
 
 export default function (eleventyConfig) {
@@ -75,6 +75,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("isVoorbij", (eind) => isVoorbij(eind));
   // Alleen de personen met deze codes: {{ personen | personenMetCodes(begeleiders) }}
   eleventyConfig.addFilter("personenMetCodes", personenMetCodes);
+
+  // Link naar het aanmeldformulier (of "" als er geen is):
+  // {% set formulier = retraite.data | aanmeldUrl(site) %}
+  eleventyConfig.addFilter("aanmeldUrl", (gegevens, site) => aanmeldUrl(gegevens, site.aanmeldformulier));
 
   // Agenda-bestand voor een retraite (zie src/agenda.njk)
   eleventyConfig.addFilter("icsBestand", (retraite, site) =>

@@ -6,6 +6,8 @@ layout: layouts/base.njk
 {% set slug = page.fileSlug %}
 {% set datum = start | datumBereik(eind) %}
 {% set voorbij = eind | isVoorbij %}
+{# Aanmeldformulier (site.yaml of eigen aanmeldlink); leeg = naar de aanmeldpagina #}
+{% set formulier = { titel: titel, start: start, eind: eind, aanmeldlink: aanmeldlink } | aanmeldUrl(site) %}
 <article class="pagina retraite-pagina">
   <header class="pagina__kop">
     <div class="container">
@@ -34,14 +36,32 @@ layout: layouts/base.njk
       <div><dt>Waar</dt><dd>{{ locatie.naam }}, {{ locatie.plaats }}</dd></div>
       <div><dt>Soort</dt><dd>{{ formaat | capitalize }}</dd></div>
       <div><dt>Prijs</dt><dd>{{ prijs.bedrag | prijsTekst }}</dd></div>
+      <div>
+        <dt>Aankomst en vertrek</dt>
+        <dd>
+          {%- if aankomst or vertrek -%}
+            Aankomst {{ aankomst or "volgt" }}<br>Vertrek {{ vertrek or "volgt" }}
+          {%- else -%}
+            <span class="volgt">volgt</span>
+          {%- endif -%}
+        </dd>
+      </div>
     </dl>
 
     {% if not voorbij %}
-      {% set knopTekst = "Op de wachtlijst" if status == "vol" else "Aanmelden" %}
+      {% if formulier %}
+        {% set knopTekst = ("Zet me op de wachtlijst" if status == "vol" else "Vraag een plek aan") + " via het formulier" %}
+        {% set knopLink = formulier %}
+      {% else %}
+        {% set knopTekst = "Op de wachtlijst" if status == "vol" else "Aanmelden" %}
+        {% set knopLink = "/aanmelden/#" + slug %}
+      {% endif %}
       <p class="retraite-pagina__acties">
-        <a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a>
+        <a class="knop" href="{{ knopLink }}">{{ knopTekst }}</a>
         <a class="knop knop--rustig" href="/retraites/{{ slug }}.ics" download>Zet in je agenda</a>
       </p>
+      <h2 class="sr-only">Zo werkt aanmelden</h2>
+      {% set kort = true %}{% include "partials/aanmeldstappen.njk" %}
     {% endif %}
 
     <h2>Over deze retraite</h2>
@@ -73,6 +93,18 @@ layout: layouts/base.njk
         <summary>Voorbereiding</summary>
         <ul>{% for punt in praktisch.voorbereiding %}<li>{{ punt }}</li>{% endfor %}</ul>
       </details>
+      {% if verblijf %}
+      <details>
+        <summary>Slapen</summary>
+        <p>{{ verblijf }}</p>
+      </details>
+      {% endif %}
+      {% if digitale_rust %}
+      <details>
+        <summary>Digitale rust</summary>
+        <p>{{ praktisch.digitale_rust_standaard }}</p>
+      </details>
+      {% endif %}
       <details>
         <summary>Bereikbaarheid</summary>
         <p>{{ bereikbaarheid or praktisch.bereikbaarheid_standaard }}</p>
@@ -80,7 +112,7 @@ layout: layouts/base.njk
     </div>
 
     {% if not voorbij %}
-      <p class="pagina__actie"><a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a></p>
+      <p class="pagina__actie"><a class="knop" href="{{ knopLink }}">{{ knopTekst }}</a></p>
     {% endif %}
   </div>
 </article>

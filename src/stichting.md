@@ -1,6 +1,6 @@
 ---
 # Pagina "Over de stichting". Pas de tekst hieronder gewoon aan.
-# De oprichters komen uit src/_data/personen.yaml, de gegevens uit
+# De personen komen uit src/_data/personen.yaml, de gegevens uit
 # src/_data/stichting.yaml.
 layout: layouts/pagina.njk
 title: "Over de stichting"

@@ -55,8 +55,9 @@ Eén story tegelijk. Nooit meerdere stories in één keer bouwen.
 Daan heeft de pagina-opzet goedgekeurd (`docs/pagina-opzet.md`, story-overzicht
 US-01 t/m US-19). Daarin zijn deze punten besloten:
 
-- **Menu en pagina's: volg het siteplan.** Home · Wat en waarom · Retraites en
-  events · Kalender · Aanmelden · Over de stichting · Contact. "Over ons" en
+- **Menu en pagina's: volg het siteplan**, plus "Veelgestelde vragen" (Daan,
+  3 nov 2026, story 022). Home · Wat en waarom · Retraites en events · Kalender ·
+  Aanmelden · Veelgestelde vragen · Over de stichting · Contact. "Over ons" en
   "Programma" vervallen: de begeleiders en "een sessie stap voor stap" komen op
   Wat en waarom.
 - **Taal: eerst alles in het Nederlands**, maar zo opgezet dat Engels later onder
@@ -65,9 +66,9 @@ US-01 t/m US-19). Daarin zijn deze punten besloten:
 - **Stichting, KvK, RSIN en ANBI:** nu bouwen met duidelijk gemarkeerde
   placeholders. Het ANBI-blok verschijnt alleen als een instelling in het
   databestand dat aangeeft.
-- **Formulierdienst:** nog niet gekozen. Er moeten twee mails komen (naar de
-  organisatie én een bevestiging aan de aanvrager). Vergelijk de gratis opties
-  (Formspree, Web3Forms, Basin) in de story voor Aanmelden en laat Daan kiezen.
+- **Formulierdienst:** Google Forms (stories 014 en 018). Meldingen naar de
+  gedeelde mailbox en een kopie aan de aanvrager regel je in Google Forms.
+  Aanbetaling € 100; annuleringstermijnen als in editie 1 (Daan, 3 nov 2026).
 - **Gedeeld account:** de repo staat nu onder ReverseDaan. Overzetten naar een
   gedeeld account of een organisatie-account gebeurt later.
 - **Framework:** Eleventy blijft.
@@ -204,6 +205,8 @@ claudecode/
     │       ├── ervaringen.njk      # quotes uit ervaringen.yaml
     │       ├── past-bij-mij.njk    # "Is dit iets voor mij?"
     │       ├── interesselijst.njk  # "Houd me op de hoogte"
+    │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
+    │       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
@@ -222,7 +225,7 @@ claudecode/
     ├── aanmelden.njk
     ├── stichting.md        # Over de stichting
     ├── contact.md
-    ├── vragen.njk          # Veelgestelde vragen (niet in het menu)
+    ├── vragen.njk          # Veelgestelde vragen
     ├── agenda.njk          # maakt per retraite een .ics-bestand
     ├── privacy.md
     └── voorwaarden.md
@@ -252,13 +255,13 @@ wordt eerst een story in `stories/`.
 
 - [x] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16), story 001: ter review
 - [x] 7. Retraite- en personendata met de voorjaarsretraite (US-18), story 003: ter review
-- [ ] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04)
+- [x] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04), story 020: ter review
 - [x] 9. Retraites en events (US-07, story 004) en de eventpagina met praktische informatie (US-08, story 008): ter review
 - [x] 10. Kalender, als lijst per maand (US-09), story 004: ter review
 - [x] 11. Wat en waarom (US-05, US-06), story 005: ter review
-- [~] 12. Aanmelden, na de keuze voor een formulierdienst (US-11 t/m US-13). Story 004: retraitekeuze, uitleg en tijdelijke maillink staan; het formulier volgt
+- [x] 12. Aanmelden (US-11 t/m US-13): drie stappen (story 017) en Google Forms met vooraf ingevulde retraite (story 018): ter review. Daan maakt het formulier en zet de link in `site.yaml`
 - [x] 13. Contact, alleen het e-mailadres (US-15 ingeperkt, story 007): ter review
-- [~] 14. Over de stichting (US-14, story 006: ter review, met voorbeeldgegevens), privacybeleid en voorwaarden (US-17, nog te doen)
+- [x] 14. Over de stichting (US-14, story 006, met voorbeeldgegevens), voorwaarden (US-17, story 015) en privacybeleid (story 016): ter review
 - [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
 - [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
 
@@ -269,9 +272,12 @@ Extra stories (buiten het stappenplan):
 - [x] Story 010: ervaringen van deelnemers op Home en Wat en waarom (US-03): ter review
 - [ ] Story 011: galerij: in de wacht tot er foto's zijn
 - [x] Story 012: "Is dit iets voor mij?" op Wat en waarom: ter review
-- [x] Story 013: veelgestelde vragen op /vragen/ (niet in het menu): ter review
+- [x] Story 013: veelgestelde vragen op /vragen/: ter review
+- [x] Story 022: vragen opgeschoond, maaltijden plantaardig, rol Begeleider, menu-item Veelgestelde vragen: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
+- [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
+- [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu
 
-Home · Wat en waarom · Retraites en events · Kalender · Aanmelden · Over de stichting · Contact
+Home · Wat en waarom · Retraites en events · Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact
