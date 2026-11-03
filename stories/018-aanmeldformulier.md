@@ -1,6 +1,6 @@
 # 018 — Aanmeldformulier via Google Forms
 
-**Status:** Goedgekeurd (Daan, 3 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-11 t/m US-13); Drive: Google Form "Aanmelding Retraite – Stilness & Strokes" (2025); eerder advies: Google Forms (gratis, mail naar jullie via meldingen, bevestigingsmail aan de aanvrager mogelijk)
 **Afhankelijk van:** 015 (voorwaarden), 016 (privacy), 017 (stappen)
 
@@ -61,8 +61,23 @@ Nu opent de knop een mail. Daan maakt zelf een Google Form (net als voor de inte
 3. ~~Betaling?~~ Betaallink, na het gesprek (Daan, 3 nov 2026). Welke dienst de link maakt, volgt.
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), met varianten: zonder formulier, met formulier, met eigen `aanmeldlink`, met status `vol` en met een foute link.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Lege `url`: knop "Vraag een plek aan per mail" en de melding "Het aanmeldformulier volgt binnenkort"; eventpagina linkt naar `/aanmelden/` |
+| 2 | ✅ Met formulier: de knop op de aanmeldpagina en beide knoppen op de eventpagina openen `…/viewform?usp=pp_url&entry.111=Voorjaarsretraite, 25 – 29 april 2027` (netjes gecodeerd); de melding verdwijnt |
+| 3 | ✅ Een eigen `aanmeldlink` in het retraitebestand gaat voor |
+| 4 | ✅ Status `vol`: "Zet me op de wachtlijst via het formulier"; voorbije retraites hebben geen knop (ongewijzigd) |
+| 5 | ✅ Opent in hetzelfde tabblad; de knoptekst zegt "via het formulier" |
+| 6 | ✅ README: nieuwe sectie "Aanmeldformulier koppelen" met de vier stappen, inclusief de vooraf ingevulde link en de instellingen voor de bevestigingsmail |
+| 7 | ✅ Geen JavaScript; een foute `aanmeldlink` (zonder https://) stopt de build met een Nederlandse melding |
+
+De overzichtskaarten op Retraites en Kalender blijven naar de aanmeldpagina gaan, zodat bezoekers eerst de drie stappen zien.
