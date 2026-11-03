@@ -1,5 +1,10 @@
 {
-  "_uitleg": "Standaardinstellingen voor alle bestanden in deze map. Niet aanpassen. tags: zet elke retraite in de lijst met retraites. permalink false: een retraite krijgt (nog) geen eigen pagina; dat komt in een volgende stap.",
+  "_uitleg": "Standaardinstellingen voor alle bestanden in deze map. Niet aanpassen. tags: zet elke retraite in de lijst met retraites. permalink: elke retraite krijgt een eigen pagina op /retraites/<bestandsnaam>/. layout: het sjabloon voor die pagina.",
   "tags": "retraite",
-  "permalink": false
+  "layout": "layouts/retraite.njk",
+  "permalink": "/retraites/{{ page.fileSlug }}/",
+  "eleventyComputed": {
+    "title": "{{ titel }}",
+    "description": "{{ samenvatting }}"
+  }
 }

@@ -60,6 +60,10 @@ begeleiders:
 # Foto's: bestandsnamen in src/images/. Mag leeg blijven: []
 fotos: []
 
+# Hoe kom je er? Optioneel. Laat je dit weg, dan staat er een
+# standaardtekst (zie src/_data/praktisch.yaml).
+# bereikbaarheid: "Met de trein naar station Apeldoorn, daarna ..."
+
 # Is dit een voorbeeld dat niet echt doorgaat? true = ja (de site toont
 # dan een label "Voorbeeld"), false = nee, dit is een echte retraite.
 voorbeeld: false

@@ -1,11 +1,13 @@
 {#- Lijst met kaarten van alle personen uit src/_data/personen.yaml.
+    Zet je vooraf personenLijst (bijv. alleen de begeleiders van een
+    retraite), dan toont hij alleen die personen.
     Gebruik in een Markdown-pagina op een eigen regel, met een lege regel
     erboven en eronder: {% include "partials/personen-lijst.njk" %}
     Let op: deze uitvoer mag geen lege regels bevatten, anders leest
     Markdown de rest als gewone tekst. Daarom staan er overal streepjes
     in de tags ({%- en -%}): die halen witruimte weg. -#}
 <ul class="personen-lijst kale-lijst">
-{%- for persoon in personen %}
+{%- for persoon in (personenLijst if personenLijst else personen) %}
 <li class="persoon-kaart">
 {%- if persoon.foto and (persoon.foto | afbeeldingBestaat) %}
 <img class="persoon-kaart__foto" src="/images/{{ persoon.foto }}" alt="Foto van {{ persoon.naam }}" width="160" height="160" loading="lazy">

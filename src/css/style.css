@@ -11,6 +11,7 @@
    8. Stijlwisselaar (tijdelijk, om thema's te vergelijken)
    9. Retraites: kaarten, kalender en aanmelden
   10. Inhoudspagina's: tabellen, citaten, personen en meldingen
+  11. Pagina van één retraite en uitklapblokken
    ================================================================== */
 
 
@@ -838,6 +839,7 @@ a:hover {
 
 /* ------------------------------------------------------------------
    10. Inhoudspagina's: tabellen, citaten, personen en meldingen
+  11. Pagina van één retraite en uitklapblokken
    (Wat en waarom, Over de stichting)
    ------------------------------------------------------------------ */
 .pagina__tekst h2 {
@@ -957,4 +959,77 @@ a:hover {
 
 .melding strong {
   display: block;
+}
+
+
+/* ------------------------------------------------------------------
+   11. Pagina van één retraite en uitklapblokken
+   ------------------------------------------------------------------ */
+.retraite-pagina__terug {
+  margin: 0 0 var(--ruimte-s);
+  font-size: var(--tekst-klein);
+}
+
+.retraite-pagina__terug a {
+  color: var(--kleur-bruin-zacht);
+}
+
+.retraite-pagina__feiten {
+  margin-bottom: var(--ruimte-m);
+}
+
+.retraite-pagina__acties {
+  margin-bottom: var(--ruimte-l);
+}
+
+.retraite-kaart__titel a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.retraite-kaart__titel a:hover {
+  text-decoration: underline;
+}
+
+.retraite-kaart__meer {
+  margin: 0 0 var(--ruimte-s);
+}
+
+.retraite-label--voorbij {
+  background: var(--kleur-zand-donker);
+  color: var(--kleur-bruin);
+}
+
+/* Uitklapblokken (<details>): werken zonder JavaScript */
+.uitklap-lijst {
+  display: grid;
+  gap: var(--ruimte-xs);
+  margin: 0 0 var(--ruimte-m);
+}
+
+.uitklap-lijst details {
+  background: var(--kleur-zand);
+  border: 1px solid var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+  padding: 0 var(--ruimte-m);
+}
+
+.uitklap-lijst summary {
+  cursor: pointer;
+  padding: var(--ruimte-s) 0;
+  font-weight: 600;
+}
+
+.uitklap-lijst details[open] {
+  padding-bottom: var(--ruimte-s);
+}
+
+.uitklap-lijst details[open] > summary {
+  border-bottom: 1px solid var(--kleur-zand-donker);
+  margin-bottom: var(--ruimte-s);
+}
+
+.uitklap-lijst h3 {
+  font-size: 1.1rem;
+  margin: var(--ruimte-s) 0 var(--ruimte-xs);
 }

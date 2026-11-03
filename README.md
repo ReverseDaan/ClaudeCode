@@ -51,6 +51,12 @@ toe, ook zonder programmeerkennis, rechtstreeks op GitHub:
    je per veld invult.
 5. Klik op **Commit changes**. Na ongeveer een minuut is de site bijgewerkt.
 
+Elke retraite krijgt vanzelf een eigen pagina, bijv.
+`/retraites/2027-04-voorjaar/`. De paklijst en de voorbereidingstips op die
+pagina staan in `src/_data/praktisch.yaml` en gelden voor alle retraites. Wil
+je per retraite vertellen hoe je er komt, vul dan in het retraitebestand het
+veld `bereikbaarheid` in.
+
 Een retraite wijzigen (bijv. de status op `vol` zetten) gaat op dezelfde
 manier: bestand openen, potloodje, aanpassen, **Commit changes**.
 

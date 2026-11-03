@@ -5,7 +5,7 @@ import yaml from "js-yaml";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import {
   controleerRetraite, sorteerOpStart, komende, STATUSSEN,
-  datumBereik, isoDatum, perMaand, prijsTekst,
+  datumBereik, isoDatum, perMaand, prijsTekst, isVoorbij, personenMetCodes,
 } from "./lib/retraites.js";
 
 export default function (eleventyConfig) {
@@ -70,6 +70,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("perMaand", perMaand);
   // {{ retraite.data.prijs.bedrag | prijsTekst }} → "€ 495"
   eleventyConfig.addFilter("prijsTekst", prijsTekst);
+
+  // Is een retraite voorbij? {% if retraite.data.eind | isVoorbij %}
+  eleventyConfig.addFilter("isVoorbij", (eind) => isVoorbij(eind));
+  // Alleen de personen met deze codes: {{ personen | personenMetCodes(begeleiders) }}
+  eleventyConfig.addFilter("personenMetCodes", personenMetCodes);
 
   // Bestaat er een afbeelding met deze naam in src/images/?
   // {% if persoon.foto | afbeeldingBestaat %} ... {% endif %}
