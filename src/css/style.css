@@ -824,7 +824,8 @@ a:hover {
 
 .aanmeldstap__cijfer {
   position: relative;
-  flex: 0 0 2.75rem;
+  flex: none;
+  width: 2.75rem;
   height: 2.75rem;
   display: grid;
   place-items: center;
@@ -864,7 +865,7 @@ a:hover {
 }
 
 .aanmeldstappen--kort .aanmeldstap__cijfer {
-  flex-basis: 2.25rem;
+  width: 2.25rem;
   height: 2.25rem;
   font-size: var(--tekst-basis);
 }
