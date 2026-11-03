@@ -1050,3 +1050,16 @@ a:hover {
   flex-wrap: wrap;
   gap: var(--ruimte-s);
 }
+
+/* Veelgestelde vragen: groepen met uitklapblokken */
+.vragen-groep {
+  margin-bottom: var(--ruimte-l);
+}
+
+.vragen-groep h2 {
+  margin-top: 0;
+}
+
+.uitklap-lijst details p:last-child {
+  margin-bottom: 0;
+}

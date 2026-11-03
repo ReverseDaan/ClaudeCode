@@ -6,3 +6,5 @@ intro: "Heb je een vraag over een retraite, het programma of het aanmelden? We d
 ---
 
 Mail ons op **[{{ site.contact.email }}](mailto:{{ site.contact.email }})**.
+
+Misschien staat je antwoord al bij de [veelgestelde vragen](/vragen/).
