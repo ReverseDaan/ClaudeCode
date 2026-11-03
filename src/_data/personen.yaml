@@ -1,0 +1,27 @@
+# ------------------------------------------------------------------
+# Begeleiders en bestuursleden
+# ------------------------------------------------------------------
+# Elke persoon begint met een streepje (-). Per persoon:
+#  - code:  korte naam zonder spaties. Retraites verwijzen hiernaar
+#           (in src/retraites/*.md, bij "begeleiders"). Verander je een
+#           code, pas hem dan ook daar aan.
+#  - naam:  zoals bezoekers hem zien
+#  - rol:   bijv. "Begeleider" of "Bestuurslid"
+#  - bio:   twee à drie zinnen
+#  - foto:  bestandsnaam in src/images/ (tot die er is: placeholder)
+#
+# LET OP: hieronder staan nog placeholders. Vervang ze door echte
+# gegevens zodra die er zijn.
+# ------------------------------------------------------------------
+
+- code: "begeleider-1"
+  naam: "Naam volgt"
+  rol: "Begeleider"
+  bio: "Bio volgt. Hier komen twee à drie zinnen over wie je bent, wat je doet tijdens de retraite en waarom."
+  foto: "persoon-1.jpg"
+
+- code: "begeleider-2"
+  naam: "Naam volgt"
+  rol: "Begeleider"
+  bio: "Bio volgt. Hier komen twee à drie zinnen over wie je bent, wat je doet tijdens de retraite en waarom."
+  foto: "persoon-2.jpg"

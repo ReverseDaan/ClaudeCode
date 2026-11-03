@@ -2,6 +2,7 @@
 // Eleventy leest alles uit de map src/ en bouwt de website in de map _site/.
 import yaml from "js-yaml";
 import { HtmlBasePlugin } from "@11ty/eleventy";
+import { controleerRetraite, sorteerOpStart, komende, STATUSSEN } from "./lib/retraites.js";
 
 export default function (eleventyConfig) {
   // Databestanden in src/_data/ mogen YAML zijn (.yaml of .yml).
@@ -18,6 +19,43 @@ export default function (eleventyConfig) {
 
   // Het huidige jaartal, voor de copyright-regel in de footer.
   eleventyConfig.addGlobalData("jaar", new Date().getFullYear());
+
+  // ----------------------------------------------------------------
+  // Retraites: één bestand per retraite in src/retraites/.
+  // ----------------------------------------------------------------
+
+  // Alle retraites, gecontroleerd en gesorteerd op startdatum.
+  // Klopt er iets niet in een bestand, dan stopt het bouwen met een
+  // duidelijke melding, zodat er geen kapotte gegevens online komen.
+  eleventyConfig.addCollection("retraites", (collectionApi) => {
+    const retraites = collectionApi.getFilteredByTag("retraite");
+    const fouten = [];
+
+    for (const retraite of retraites) {
+      const personen = retraite.data.personen || [];
+      const codes = personen.map((persoon) => persoon.code);
+      const bestand = retraite.inputPath.replace(/^\.\//, "");
+      fouten.push(...controleerRetraite(retraite.data, bestand, codes));
+    }
+
+    if (fouten.length > 0) {
+      throw new Error(
+        "\n\nEr klopt iets niet in de retraites:\n- " + fouten.join("\n- ") +
+        "\n\nPas het bestand aan en probeer het opnieuw.\n"
+      );
+    }
+
+    return sorteerOpStart(retraites);
+  });
+
+  // Retraites die vandaag of later beginnen. De eerste hiervan is de
+  // "eerstvolgende retraite": collections.komendeRetraites[0].
+  eleventyConfig.addCollection("komendeRetraites", (collectionApi) =>
+    komende(collectionApi.getFilteredByTag("retraite"))
+  );
+
+  // Zet een status om naar leesbare tekst: {{ retraite.data.status | statusTekst }}
+  eleventyConfig.addFilter("statusTekst", (status) => STATUSSEN[status] || status);
 
   return {
     dir: {

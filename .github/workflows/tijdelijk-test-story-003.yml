@@ -1,0 +1,77 @@
+# TIJDELIJK: test de acceptatiecriteria van story 003. Wordt na de test verwijderd.
+name: Tijdelijke test story 003
+on:
+  push:
+    branches: [story/003-retraite-data]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Testpagina die de lijsten toont (alleen in deze test)
+        run: |
+          cat > src/test-lijsten.njk <<'NJK'
+          ---
+          permalink: /test-lijsten.txt
+          eleventyExcludeFromCollections: true
+          ---
+          ALLE:{% for r in collections.retraites %} {{ r.data.titel }}|{{ r.data.start | dump }}|{{ r.data.status | statusTekst }};{% endfor %}
+          KOMEND:{% for r in collections.komendeRetraites %} {{ r.data.titel }};{% endfor %}
+          EERSTVOLGENDE: {{ collections.komendeRetraites[0].data.titel if collections.komendeRetraites.length else "geen" }}
+          NJK
+      - name: "Criterium 1 en 7: basisbuild"
+        run: |
+          npx @11ty/eleventy --pathprefix=/ClaudeCode/ 2>&1 | tee build.log
+          echo "--- uitvoer"; cat _site/test-lijsten.txt
+          grep -q "ALLE: Voorjaarsretraite" _site/test-lijsten.txt
+          grep -q "EERSTVOLGENDE: Voorjaarsretraite" _site/test-lijsten.txt
+          echo "--- geschreven bestanden"; find _site -name "*.html" | sort
+          ! find _site -path "*2027-04-voorjaar*" | grep .
+          test "$(find _site -name '*.html' | wc -l)" = "9"
+      - name: "Criterium 2 en 3: verleden en kopie met andere data"
+        run: |
+          sed -e 's/titel: "Voorjaarsretraite"/titel: "Oud"/' -e 's/start: 2027-04-25/start: 2020-04-25/' -e 's/eind: 2027-04-29/eind: 2020-04-29/' src/retraites/2027-04-voorjaar.md > src/retraites/2020-oud.md
+          sed -e 's/titel: "Voorjaarsretraite"/titel: "Najaar"/' -e 's/start: 2027-04-25/start: 2027-09-10/' -e 's/eind: 2027-04-29/eind: 2027-09-12/' -e 's/status: vrij/status: bijna-vol/' src/retraites/2027-04-voorjaar.md > src/retraites/2027-09-najaar.md
+          sed -e 's/titel: "Voorjaarsretraite"/titel: "Vroeger"/' -e 's/start: 2027-04-25/start: 2027-02-01/' -e 's/eind: 2027-04-29/eind: 2027-02-02/' src/retraites/2027-04-voorjaar.md > src/retraites/2027-02-vroeger.md
+          npx @11ty/eleventy 2>&1 | tail -2
+          cat _site/test-lijsten.txt
+          grep -Eq "ALLE: Oud\|.*; Vroeger\|.*; Voorjaarsretraite\|.*; Najaar\|.*Bijna vol;" _site/test-lijsten.txt
+          grep -q "KOMEND: Vroeger; Voorjaarsretraite; Najaar;" _site/test-lijsten.txt
+          grep -q "EERSTVOLGENDE: Vroeger" _site/test-lijsten.txt
+          rm src/retraites/2020-oud.md src/retraites/2027-09-najaar.md src/retraites/2027-02-vroeger.md
+      - name: "Criterium 4: verplicht veld ontbreekt"
+        run: |
+          sed '/^start:/d' src/retraites/2027-04-voorjaar.md > src/retraites/2027-05-fout.md
+          if npx @11ty/eleventy > uit.log 2>&1; then echo "build had moeten stoppen"; exit 1; fi
+          grep -A3 "Er klopt iets niet" uit.log
+          grep -q 'src/retraites/2027-05-fout.md: het veld "start" ontbreekt' uit.log
+          rm src/retraites/2027-05-fout.md
+      - name: "Criterium 5: onbekende begeleider"
+        run: |
+          sed 's/  - begeleider-2/  - onbekend-iemand/' src/retraites/2027-04-voorjaar.md > src/retraites/2027-05-fout.md
+          if npx @11ty/eleventy > uit.log 2>&1; then echo "build had moeten stoppen"; exit 1; fi
+          grep -A3 "Er klopt iets niet" uit.log
+          grep -q 'begeleider "onbekend-iemand" staat niet in src/_data/personen.yaml' uit.log
+          rm src/retraites/2027-05-fout.md
+      - name: "Criterium 6: ongeldige status"
+        run: |
+          sed 's/^status: vrij/status: open/' src/retraites/2027-04-voorjaar.md > src/retraites/2027-05-fout.md
+          if npx @11ty/eleventy > uit.log 2>&1; then echo "build had moeten stoppen"; exit 1; fi
+          grep -A3 "Er klopt iets niet" uit.log
+          grep -q '"status" is "open", maar moet een van deze zijn: vrij, bijna-vol, vol, wachtlijst' uit.log
+          rm src/retraites/2027-05-fout.md
+      - name: "Criterium 7: bestaande pagina's ongewijzigd"
+        run: |
+          rm src/test-lijsten.njk
+          npx @11ty/eleventy --pathprefix=/ClaudeCode/ --output=_nieuw > /dev/null
+          git stash -u -q
+          git checkout -q origin/main 2>/dev/null || git fetch -q origin main && git checkout -q FETCH_HEAD
+          npx @11ty/eleventy --pathprefix=/ClaudeCode/ --output=_oud > /dev/null
+          diff -r _oud _nieuw && echo "GEEN VERSCHIL in de gebouwde site"

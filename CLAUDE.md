@@ -176,6 +176,8 @@ claudecode/
 ├── stories/                # user stories, één bestand per story (NNN-korte-naam.md)
 ├── package.json
 ├── eleventy.config.js      # Eleventy-configuratie
+├── lib/
+│   └── retraites.js        # controle en sortering van retraites (gebruikt in eleventy.config.js)
 ├── .gitignore              # o.a. node_modules/ en _site/
 └── src/
     ├── _data/
@@ -194,8 +196,8 @@ claudecode/
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
-    │   ├── retraites.json  # standaardinstellingen voor alle retraites
-    │   └── 2027-04-voorjaar.md     # voorbeeld
+    │   ├── retraites.json  # standaardinstellingen voor alle retraites (tag, geen eigen pagina)
+    │   └── 2027-04-voorjaar.md     # de voorjaarsretraite 2027
     ├── css/
     │   └── style.css
     ├── js/
@@ -236,7 +238,7 @@ Vervolg in de goedgekeurde volgorde uit `docs/pagina-opzet.md`. Elke stap
 wordt eerst een story in `stories/`.
 
 - [x] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16), story 001: ter review
-- [ ] 7. Retraite- en personendata met één voorbeeldretraite (US-18)
+- [x] 7. Retraite- en personendata met de voorjaarsretraite (US-18), story 003: ter review
 - [ ] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04)
 - [ ] 9. Retraites en events, plus de eventpagina (US-07, US-08)
 - [ ] 10. Kalender, als lijst per maand (US-09)

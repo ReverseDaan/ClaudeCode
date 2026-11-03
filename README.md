@@ -36,6 +36,31 @@ ververst de pagina vanzelf.
 De naam van de organisatie staat **alleen** in `src/_data/site.yaml`. Pas je
 hem daar aan, dan verandert hij overal op de site.
 
+## Een retraite toevoegen
+
+Elke retraite is één bestand in `src/retraites/`. Bovenin staan de gegevens
+(datum, locatie, prijs, status), daaronder de beschrijving. Zo voeg je er een
+toe, ook zonder programmeerkennis, rechtstreeks op GitHub:
+
+1. Open op GitHub de map `src/retraites/` en klik op het meest recente
+   retraitebestand (bijv. `2027-04-voorjaar.md`).
+2. Kopieer de hele inhoud (het potloodje → alles selecteren → kopiëren).
+3. Ga terug naar de map, kies **Add file → Create new file** en geef het een
+   naam als `2027-09-najaar.md` (jaar-maand-korte-naam). Plak de inhoud.
+4. Pas de gegevens en de beschrijving aan. De regels met `#` leggen uit wat
+   je per veld invult.
+5. Klik op **Commit changes**. Na ongeveer een minuut is de site bijgewerkt.
+
+Een retraite wijzigen (bijv. de status op `vol` zetten) gaat op dezelfde
+manier: bestand openen, potloodje, aanpassen, **Commit changes**.
+
+**Klopt er iets niet?** Dan stopt het bouwen en blijft de vorige versie van de
+site online. In het tabblad **Actions** zie je een rood kruisje; klik erop en
+je ziet in gewone taal welk bestand en welk veld je moet aanpassen.
+
+Begeleiders staan in `src/_data/personen.yaml`. Een retraite verwijst ernaar
+met hun code (bijv. `begeleider-1`).
+
 ## Stijlen vergelijken
 
 Rechtsonder op elke pagina staat een knop **Stijl** waarmee je wisselt tussen
