@@ -24,7 +24,7 @@ jobs:
           V=_site/voorwaarden/index.html
           sed -n '/<main/,/<\/main>/p' $V | sed 's/^ *//' | grep -v '^$'
           ! grep -qi "in de maak" $V
-          grep -o '<h2[^>]*>[^<]*' $V | sed 's/<h2[^>]*>//' > koppen.txt; cat koppen.txt
+          sed -n '/<main/,/<\/main>/p' $V | grep -o '<h2[^>]*>[^<]*' | sed 's/<h2[^>]*>//' > koppen.txt; cat koppen.txt
           diff koppen.txt <(printf '%s\n' "Aanmelden is een aanvraag" "Betalen" "Annuleren door jou" "Annuleren of wijzigen door ons")
           grep -q 'class="melding" role="note"><strong>Concept</strong>' $V
           grep -q "<table>" $V && grep -q "<th>Wanneer je annuleert</th>" $V && test "$(grep -c '<tr>' $V)" = "4"
