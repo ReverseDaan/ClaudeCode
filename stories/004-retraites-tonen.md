@@ -1,6 +1,6 @@
 # 004 — Retraitegegevens tonen op Retraites, Kalender en Aanmelden
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-07, US-09; deel van US-11); `docs/siteplan.md` sectie C (pagina's 03, 04 en 05)
 **Afhankelijk van:** 003 (retraite- en personendata)
 
@@ -66,8 +66,23 @@ De retraitegegevens staan sinds story 003 klaar, maar worden nog nergens getoond
 3. ~~Mailadres?~~ Het gedeelde S&S-adres, stillnessandstrokes@gmail.com (Daan, 3 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Criteria 1–7: echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd). Criterium 8: diezelfde build in Chrome op 375 px en 1280 px.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Voorjaarsretraite op `/retraites/`: "Meerdaags", "25 – 29 april 2027", 't Zonnehuis, Loenen, € 495, "Plekken vrij"; nergens "werkprijs" |
+| 2 | ✅ Op `/kalender/` onder "April 2027" |
+| 3 | ✅ "Aanmelden" → `/aanmelden/#2027-04-voorjaar`; die kaart krijgt een okerkleurige rand en het label "Jouw keuze" en staat in beeld |
+| 4 | ✅ Uitleg "aanvraag, nog geen boeking" en melding dat het formulier volgt; mailto naar stillnessandstrokes@gmail.com met onderwerp "Aanmelden: Voorjaarsretraite (25 – 29 april 2027)" |
+| 5 | ✅ Status `vol` → "Op de wachtlijst" (op Aanmelden: "Zet me op de wachtlijst per mail"); `bevestigd: false` → "Onder voorbehoud" |
+| 6 | ✅ Alleen retraites in het verleden → alle drie de pagina's tonen "Er staan op dit moment geen retraites gepland…" met link naar Contact |
+| 7 | ✅ Kopieën (dag in juni, weekend in januari) verschijnen vanzelf: volgorde Winterweekend, Voorjaarsretraite, Zomerdag; kalender Januari, April, Juni 2027 |
+| 8 | ✅ Geen horizontaal scrollen op 375 px; alle teksten ≥ 4,5:1 contrast in alle vier de thema's op alle drie de pagina's; `<time datetime>`, `<dl>`, één `<h1>`, h2/h3 in volgorde; met Tab bereikbaar met zichtbare focusrand, Enter werkt; geen JavaScript-fouten |
+
