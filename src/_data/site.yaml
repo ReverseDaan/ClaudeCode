@@ -11,6 +11,10 @@
 # op de site automatisch ingevuld (logo, paginatitels, footer).
 naam: "Stillness and Strokes"
 
+# Het webadres van de site, zonder / aan het eind. Wordt gebruikt in de
+# agenda-bestanden (links terug naar de site). Pas aan bij een eigen domein.
+adres: "https://reversedaan.github.io/ClaudeCode"
+
 # Korte omschrijving voor zoekmachines en bij het delen op social media.
 omschrijving: "Retraites waarin je schildert en tekent als ingang om naar binnen te kijken en tot rust te komen. Geen ervaring nodig."
 
@@ -22,6 +26,17 @@ contact:
   email: "stillnessandstrokes@gmail.com"
   telefoon: "06 12345678"
   plaats: "Veluwe, Nederland"
+
+# "Houd me op de hoogte": een blok met een knop naar een Google Form in het
+# gedeelde account, waar bezoekers hun e-mailadres kunnen achterlaten.
+# Zolang "url" leeg is (""), staat het blok nergens op de site.
+# Plak hier de link naar het formulier zodra het klaar is.
+interesselijst:
+  url: ""
+  kop: "Houd me op de hoogte"
+  tekst: "Nu geen tijd, maar wel nieuwsgierig? Laat je e-mailadres achter, dan laten we het je weten als er een nieuwe retraite is."
+  knop: "Laat je e-mailadres achter"
+  privacy: "We gebruiken je adres alleen om je te laten weten wanneer er een nieuwe retraite is. Afmelden kan altijd."
 
 # Links naar social media. Haal een regel weg als je een kanaal niet gebruikt.
 social:

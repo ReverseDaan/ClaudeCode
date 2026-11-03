@@ -23,6 +23,8 @@ leegLink: "Laat het ons weten"
 
 <p class="aanmeld-melding" role="note">{{ formulierMelding }}</p>
 
+<p>Nog vragen? Bekijk eerst de <a href="/vragen/">veelgestelde vragen</a>.</p>
+
 {% if collections.komendeRetraites.length %}
 <h2 class="aanmeld-kop">{{ kiesKop }}</h2>
 <ul class="retraite-lijst retraite-lijst--aanmelden kale-lijst">
@@ -31,5 +33,9 @@ leegLink: "Laat het ons weten"
   {% endfor %}
 </ul>
 {% else %}
+{% if site.interesselijst.url %}
+{% include "partials/interesselijst.njk" %}
+{% else %}
 <p class="retraite-leeg">{{ leeg }} <a href="/contact/">{{ leegLink }}</a>.</p>
+{% endif %}
 {% endif %}

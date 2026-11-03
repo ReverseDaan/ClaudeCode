@@ -11,3 +11,8 @@ hero:
   # Foto voor de achtergrond. Zet het bestand in src/images/.
   # Zolang de foto er niet is, zie je een groene achtergrond.
   afbeelding: "/images/hero-bos.jpg"
+
+ervaringen:
+  # Kop boven de ervaringen van deelnemers. De quotes zelf staan in
+  # src/_data/ervaringen.yaml.
+  kop: "Wat deelnemers zeggen"

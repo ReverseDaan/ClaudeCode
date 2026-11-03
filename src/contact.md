@@ -1,7 +1,10 @@
 ---
+# Pagina "Contact". Het e-mailadres komt uit src/_data/site.yaml.
 layout: layouts/pagina.njk
 title: "Contact"
-intro: "Een vraag voordat je je aanmeldt? Laat het ons weten."
+intro: "Heb je een vraag over een retraite, het programma of het aanmelden? We denken graag met je mee."
 ---
 
-Deze pagina is in de maak. Tot die tijd kun je mailen naar [{{ site.contact.email }}](mailto:{{ site.contact.email }}).
+Mail ons op **[{{ site.contact.email }}](mailto:{{ site.contact.email }})**.
+
+Misschien staat je antwoord al bij de [veelgestelde vragen](/vragen/).

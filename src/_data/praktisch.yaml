@@ -1,0 +1,39 @@
+# ------------------------------------------------------------------
+# Praktische informatie op de pagina van elke retraite
+# ------------------------------------------------------------------
+# Deze teksten staan op de pagina van iedere retraite, onder
+# "Praktische informatie". Elke regel met een streepje (-) is één punt.
+# Bereikbaarheid kun je per retraite invullen in het retraitebestand
+# (veld "bereikbaarheid"). Staat daar niets, dan verschijnt de
+# standaardtekst hieronder.
+# ------------------------------------------------------------------
+
+paklijst:
+  - kop: "Kleding"
+    punten:
+      - "Comfortabele kleding voor de hele week (ook voor de meditaties)"
+      - "Warme kleding voor koudere avonden"
+      - "Kleding die vies mag worden, voor de creatieve sessies"
+      - "Sportkleding voor de yoga"
+      - "Lichte wandelschoenen en een regenjas"
+  - kop: "Meditatie en yoga"
+    punten:
+      - "Een eigen meditatiekussen (optioneel; bankjes en stoelen zijn er)"
+      - "Een dekentje voor tijdens meditatie en yoga"
+      - "Een yogamat en blokken, als je die hebt"
+  - kop: "Verzorging"
+    punten:
+      - "Toiletspullen"
+  - kop: "Persoonlijke spullen"
+    punten:
+      - "Een notitieboek en schrijfgerei"
+      - "Een zak- of hoofdlamp"
+      - "Een boek voor jezelf, en een boek dat jou inspireert voor de gezamenlijke boekenplank"
+      - "Speel je een instrument? Neem het gerust mee"
+
+voorbereiding:
+  - "Minder in de dagen ervoor alvast met suiker, koffie en alcohol. Dat helpt je lichaam om rustiger te landen."
+  - "Neem waar het kan al wat momenten van stilte of rust in je dag, bijvoorbeeld met yoga, meditatie of een wandeling."
+  - "We beginnen de dagen vroeg en gaan op tijd naar bed. Als het lukt, pas je je thuis alvast een beetje aan dit ritme aan."
+
+bereikbaarheid_standaard: "Na je aanmelding ontvang je informatie over de bereikbaarheid van de locatie, carpoolen en eventueel samen reizen."

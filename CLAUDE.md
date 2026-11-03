@@ -187,15 +187,23 @@ claudecode/
     │   ├── home.yaml       # teksten homepagina
     │   ├── ervaringen.yaml # deelnemersquotes
     │   ├── personen.yaml   # begeleiders en bestuursleden
-    │   └── stichting.yaml  # KvK, RSIN, zetel, ANBI aan/uit
+    │   ├── stichting.yaml  # KvK, RSIN, zetel, ANBI aan/uit
+    │   ├── praktisch.yaml  # paklijst, voorbereiding, standaardtekst bereikbaarheid
+    │   ├── vragen.yaml     # veelgestelde vragen
+    │   └── pastbijmij.yaml # "Is dit iets voor mij?"
     ├── _includes/
     │   ├── layouts/
-    │   │   └── base.njk    # HTML-skelet: head, header, footer
+    │   │   ├── base.njk    # HTML-skelet: head, header, footer
+    │   │   ├── pagina.njk  # gewone pagina's
+    │   │   └── retraite.njk # pagina van één retraite
     │   └── partials/
     │       ├── header.njk
     │       ├── footer.njk
     │       ├── retraite-kaart.njk
     │       ├── personen-lijst.njk  # kaarten van begeleiders/oprichters uit personen.yaml
+    │       ├── ervaringen.njk      # quotes uit ervaringen.yaml
+    │       ├── past-bij-mij.njk    # "Is dit iets voor mij?"
+    │       ├── interesselijst.njk  # "Houd me op de hoogte"
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
@@ -213,7 +221,9 @@ claudecode/
     ├── kalender.njk        # dezelfde retraites, per datum
     ├── aanmelden.njk
     ├── stichting.md        # Over de stichting
-    ├── contact.njk
+    ├── contact.md
+    ├── vragen.njk          # Veelgestelde vragen (niet in het menu)
+    ├── agenda.njk          # maakt per retraite een .ics-bestand
     ├── privacy.md
     └── voorwaarden.md
 ```
@@ -243,11 +253,11 @@ wordt eerst een story in `stories/`.
 - [x] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16), story 001: ter review
 - [x] 7. Retraite- en personendata met de voorjaarsretraite (US-18), story 003: ter review
 - [ ] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04)
-- [~] 9. Retraites en events (US-07, story 004: ter review), plus de eventpagina (US-08, nog te doen)
+- [x] 9. Retraites en events (US-07, story 004) en de eventpagina met praktische informatie (US-08, story 008): ter review
 - [x] 10. Kalender, als lijst per maand (US-09), story 004: ter review
 - [x] 11. Wat en waarom (US-05, US-06), story 005: ter review
 - [~] 12. Aanmelden, na de keuze voor een formulierdienst (US-11 t/m US-13). Story 004: retraitekeuze, uitleg en tijdelijke maillink staan; het formulier volgt
-- [ ] 13. Contact (US-15)
+- [x] 13. Contact, alleen het e-mailadres (US-15 ingeperkt, story 007): ter review
 - [~] 14. Over de stichting (US-14, story 006: ter review, met voorbeeldgegevens), privacybeleid en voorwaarden (US-17, nog te doen)
 - [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
 - [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
@@ -255,6 +265,12 @@ wordt eerst een story in `stories/`.
 Extra stories (buiten het stappenplan):
 
 - [x] Story 002: stijlwisselaar met vier thema's (Bos, Zand, Groen & goud, Ochtend): ter review. Zet hem uit vóór de lancering (`site.yaml`).
+- [x] Story 009: "Zet in je agenda" (.ics per retraite): ter review
+- [x] Story 010: ervaringen van deelnemers op Home en Wat en waarom (US-03): ter review
+- [ ] Story 011: galerij: in de wacht tot er foto's zijn
+- [x] Story 012: "Is dit iets voor mij?" op Wat en waarom: ter review
+- [x] Story 013: veelgestelde vragen op /vragen/ (niet in het menu): ter review
+- [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 
 ## Menu
 

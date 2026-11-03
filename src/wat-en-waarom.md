@@ -17,6 +17,8 @@ De creatieve sessies vormen de rode draad. Daaromheen begeleiden we activiteiten
 
 {{ site.naam }} is er voor iedereen die verlangt naar verdieping in creativiteit, in stilte en in contact met de natuur. Ervaring is niet nodig. Alleen de wens om te vertragen, te ontdekken en op te laden.
 
+{% include "partials/past-bij-mij.njk" %}
+
 ## Waarom
 
 We organiseren deze retraites vanuit onze overtuiging dat er in deze snel veranderende wereld een tegenbeweging nodig is. Een beweging die ruimte biedt voor vertraging, verstilling en bewuste aandacht. Want juist in die ruimte kun je weer voelen wat er in je leeft.
@@ -42,6 +44,10 @@ Een voorbeeld uit onze eerste retraite. Het programma per retraite kan iets vers
 | 19:30 – 21:00 | Avondactiviteit, zoals een stiltewandeling, loopmeditatie of kampvuur |
 
 We beginnen de dag in stilte. Tot het einde van het ontbijt moedigen we je aan om nog niet te spreken, zodat je zintuigen de kans krijgen om echt wakker te worden. Na de lunch is er weer ruimte om te spreken. De middag is vrij in te vullen: je kunt de stilte laten bezinken tijdens een wandeling, uitrusten, schrijven of contact maken met anderen, of juist met jezelf. Alles is welkom.
+
+## Wat deelnemers zeggen
+
+{% include "partials/ervaringen.njk" %}
 
 ## Begeleiding
 

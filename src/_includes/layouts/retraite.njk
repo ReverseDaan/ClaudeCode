@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+---
+{# Pagina van één retraite. Alle gegevens komen uit het retraitebestand in
+   src/retraites/; de praktische informatie uit src/_data/praktisch.yaml. #}
+{% set slug = page.fileSlug %}
+{% set datum = start | datumBereik(eind) %}
+{% set voorbij = eind | isVoorbij %}
+<article class="pagina retraite-pagina">
+  <header class="pagina__kop">
+    <div class="container">
+      <p class="retraite-pagina__terug"><a href="/retraites/">← Alle retraites</a></p>
+      <div class="retraite-kaart__labels">
+        {% if voorbij %}
+          <span class="retraite-label retraite-label--voorbij">Voorbij</span>
+        {% else %}
+          <span class="retraite-label retraite-label--{{ status }}">{{ status | statusTekst }}</span>
+        {% endif %}
+        {% if not bevestigd %}<span class="retraite-label retraite-label--voorbehoud">Onder voorbehoud</span>{% endif %}
+        {% if voorbeeld %}<span class="retraite-label retraite-label--voorbeeld">Voorbeeld</span>{% endif %}
+      </div>
+      <h1>{{ titel }}</h1>
+      <p class="pagina__intro">{{ samenvatting }}</p>
+    </div>
+  </header>
+
+  <div class="container pagina__tekst">
+    {% if voorbij %}
+      <p class="melding" role="note"><strong>Deze retraite is voorbij.</strong> Bekijk de <a href="/retraites/">komende retraites</a>.</p>
+    {% endif %}
+
+    <dl class="retraite-kaart__feiten retraite-pagina__feiten">
+      <div><dt>Wanneer</dt><dd><time datetime="{{ start | isoDatum }}">{{ datum }}</time></dd></div>
+      <div><dt>Waar</dt><dd>{{ locatie.naam }}, {{ locatie.plaats }}</dd></div>
+      <div><dt>Soort</dt><dd>{{ formaat | capitalize }}</dd></div>
+      <div><dt>Prijs</dt><dd>{{ prijs.bedrag | prijsTekst }}</dd></div>
+    </dl>
+
+    {% if not voorbij %}
+      {% set knopTekst = "Op de wachtlijst" if status == "vol" else "Aanmelden" %}
+      <p class="retraite-pagina__acties">
+        <a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a>
+        <a class="knop knop--rustig" href="/retraites/{{ slug }}.ics" download>Zet in je agenda</a>
+      </p>
+    {% endif %}
+
+    <h2>Over deze retraite</h2>
+    {{ content | safe }}
+
+    {% if inbegrepen and inbegrepen.length %}
+      <h2>Wat is inbegrepen</h2>
+      <ul>
+        {% for punt in inbegrepen %}<li>{{ punt }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+
+    {% set personenLijst = personen | personenMetCodes(begeleiders) %}
+    {% if personenLijst.length %}
+      <h2>Begeleiding</h2>
+      {% include "partials/personen-lijst.njk" %}
+    {% endif %}
+
+    <h2>Praktische informatie</h2>
+    <div class="uitklap-lijst">
+      <details>
+        <summary>Wat neem je mee?</summary>
+        {% for groep in praktisch.paklijst %}
+          <h3>{{ groep.kop }}</h3>
+          <ul>{% for punt in groep.punten %}<li>{{ punt }}</li>{% endfor %}</ul>
+        {% endfor %}
+      </details>
+      <details>
+        <summary>Voorbereiding</summary>
+        <ul>{% for punt in praktisch.voorbereiding %}<li>{{ punt }}</li>{% endfor %}</ul>
+      </details>
+      <details>
+        <summary>Bereikbaarheid</summary>
+        <p>{{ bereikbaarheid or praktisch.bereikbaarheid_standaard }}</p>
+      </details>
+    </div>
+
+    {% if not voorbij %}
+      <p class="pagina__actie"><a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a></p>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,24 @@
+---
+# Pagina "Veelgestelde vragen". De vragen en antwoorden staan in
+# src/_data/vragen.yaml. Deze pagina staat niet in het hoofdmenu,
+# maar wel in de voettekst en op Aanmelden en Contact.
+layout: layouts/pagina.njk
+title: "Veelgestelde vragen"
+intro: "Antwoorden op de vragen die we het vaakst krijgen. Staat jouw vraag er niet bij? Mail ons gerust."
+---
+{% for groep in vragen %}
+<section class="vragen-groep" aria-labelledby="groep-{{ loop.index }}">
+  <h2 id="groep-{{ loop.index }}">{{ groep.groep }}</h2>
+  <div class="uitklap-lijst">
+    {% for v in groep.vragen %}
+    <details>
+      <summary>{{ v.vraag }}</summary>
+      <p>{{ v.antwoord }}</p>
+      {% if v.link %}<p><a href="{{ v.link.url }}">{{ v.link.tekst }}</a></p>{% endif %}
+    </details>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<p class="pagina__actie">Nog een vraag? Mail ons op <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>.</p>

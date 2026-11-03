@@ -60,11 +60,18 @@ begeleiders:
 # Foto's: bestandsnamen in src/images/. Mag leeg blijven: []
 fotos: []
 
+# Hoe kom je er? Optioneel. Laat je dit weg, dan staat er een
+# standaardtekst (zie src/_data/praktisch.yaml).
+# bereikbaarheid: "Met de trein naar station Apeldoorn, daarna ..."
+
+# De beschrijving van de retraite schrijf je ONDER de streepjes (---)
+# hieronder, in gewone tekst: wat doe je, hoe ziet een dag eruit, voor wie
+# is het? Een lege regel begint een nieuwe alinea. Die tekst staat op de
+# pagina van de retraite onder "Over deze retraite".
+
 # Is dit een voorbeeld dat niet echt doorgaat? true = ja (de site toont
 # dan een label "Voorbeeld"), false = nee, dit is een echte retraite.
 voorbeeld: false
 ---
 
-Hier komt de beschrijving van de retraite, in gewone tekst. Wat doe je, hoe ziet een dag eruit, voor wie is het? Een lege regel begint een nieuwe alinea.
-
-*Tekst volgt.*
+*Beschrijving volgt.*

@@ -11,6 +11,8 @@
    8. Stijlwisselaar (tijdelijk, om thema's te vergelijken)
    9. Retraites: kaarten, kalender en aanmelden
   10. Inhoudspagina's: tabellen, citaten, personen en meldingen
+  11. Pagina van één retraite en uitklapblokken
+  12. Ervaringen en secties op Home
    ================================================================== */
 
 
@@ -838,6 +840,8 @@ a:hover {
 
 /* ------------------------------------------------------------------
    10. Inhoudspagina's: tabellen, citaten, personen en meldingen
+  11. Pagina van één retraite en uitklapblokken
+  12. Ervaringen en secties op Home
    (Wat en waarom, Over de stichting)
    ------------------------------------------------------------------ */
 .pagina__tekst h2 {
@@ -957,4 +961,194 @@ a:hover {
 
 .melding strong {
   display: block;
+}
+
+
+/* ------------------------------------------------------------------
+   11. Pagina van één retraite en uitklapblokken
+  12. Ervaringen en secties op Home
+   ------------------------------------------------------------------ */
+.retraite-pagina__terug {
+  margin: 0 0 var(--ruimte-s);
+  font-size: var(--tekst-klein);
+}
+
+.retraite-pagina__terug a {
+  color: var(--kleur-bruin-zacht);
+}
+
+.retraite-pagina__feiten {
+  margin-bottom: var(--ruimte-m);
+}
+
+.retraite-pagina__acties {
+  margin-bottom: var(--ruimte-l);
+}
+
+.retraite-kaart__titel a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.retraite-kaart__titel a:hover {
+  text-decoration: underline;
+}
+
+.retraite-kaart__meer {
+  margin: 0 0 var(--ruimte-s);
+}
+
+.retraite-label--voorbij {
+  background: var(--kleur-zand-donker);
+  color: var(--kleur-bruin);
+}
+
+/* Uitklapblokken (<details>): werken zonder JavaScript */
+.uitklap-lijst {
+  display: grid;
+  gap: var(--ruimte-xs);
+  margin: 0 0 var(--ruimte-m);
+}
+
+.uitklap-lijst details {
+  background: var(--kleur-zand);
+  border: 1px solid var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+  padding: 0 var(--ruimte-m);
+}
+
+.uitklap-lijst summary {
+  cursor: pointer;
+  padding: var(--ruimte-s) 0;
+  font-weight: 600;
+}
+
+.uitklap-lijst details[open] {
+  padding-bottom: var(--ruimte-s);
+}
+
+.uitklap-lijst details[open] > summary {
+  border-bottom: 1px solid var(--kleur-zand-donker);
+  margin-bottom: var(--ruimte-s);
+}
+
+.uitklap-lijst h3 {
+  font-size: 1.1rem;
+  margin: var(--ruimte-s) 0 var(--ruimte-xs);
+}
+
+/* Tweede, rustigere knop naast de hoofdknop (bijv. "Zet in je agenda") */
+.knop--rustig {
+  background: transparent;
+  color: var(--kleur-bruin);
+  box-shadow: inset 0 0 0 2px var(--kleur-oker);
+}
+
+.knop--rustig:hover {
+  background: var(--kleur-zand-donker);
+}
+
+.retraite-pagina__acties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ruimte-s);
+}
+
+/* Veelgestelde vragen: groepen met uitklapblokken */
+.vragen-groep {
+  margin-bottom: var(--ruimte-l);
+}
+
+.vragen-groep h2 {
+  margin-top: 0;
+}
+
+.uitklap-lijst details p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------------
+   12. Ervaringen en secties op Home
+   ------------------------------------------------------------------ */
+.sectie {
+  padding-block: var(--ruimte-xl);
+}
+
+.sectie__kop {
+  font-size: var(--kop-2);
+  font-weight: 500;
+  margin-bottom: var(--ruimte-l);
+}
+
+.ervaringen {
+  display: grid;
+  gap: var(--ruimte-m);
+  margin: 0 0 var(--ruimte-m);
+}
+
+@media (min-width: 860px) {
+  .sectie .ervaringen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ervaring {
+  padding: var(--ruimte-m);
+  background: var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+}
+
+.ervaring .ervaring__quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-kop);
+  font-size: var(--tekst-groot);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.ervaring__quote p {
+  margin: 0;
+}
+
+.ervaring__bron {
+  margin: var(--ruimte-xs) 0 0;
+  font-size: var(--tekst-klein);
+  color: var(--kleur-bruin-zacht);
+}
+
+/* "Is dit iets voor mij?" */
+.past-bij-mij h4 {
+  font-size: 1.15rem;
+  margin: 0 0 var(--ruimte-s);
+}
+
+.past-bij-mij {
+  margin: var(--ruimte-m) 0 var(--ruimte-l);
+}
+
+/* "Houd me op de hoogte" */
+.sectie--compact {
+  padding-block: 0 var(--ruimte-xl);
+}
+
+.interesselijst {
+  max-width: var(--breedte-tekst);
+  padding: var(--ruimte-m);
+  margin: var(--ruimte-l) 0 0;
+  background: var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+}
+
+.interesselijst .interesselijst__kop {
+  font-size: var(--kop-3);
+  margin: 0 0 var(--ruimte-xs);
+}
+
+.interesselijst__privacy {
+  margin: 0;
+  font-size: var(--tekst-klein);
+  color: var(--kleur-bruin-zacht);
 }
