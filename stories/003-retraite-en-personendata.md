@@ -1,6 +1,6 @@
 # 003 — Retraite- en personendata met de voorjaarsretraite
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-18); `docs/siteplan.md` sectie A (sjablonen retraite en persoon) en B (nieuwe retraite in vijf stappen)
 **Afhankelijk van:** 001 (menu en voettekst)
 
@@ -84,8 +84,22 @@ Home (eerstvolgende retraite), Retraites en events, Kalender en de eventpagina l
 4. ~~Prijs?~~ Eén bedrag; werkprijs € 495 (Daan, 3 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd (n.v.t.: geen zichtbare wijziging; gebouwde site is identiek aan main)
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Getest met de echte Eleventy-build in GitHub Actions, met tijdelijke testbestanden (daarna verwijderd).
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Voorjaarsretraite staat in alle, komende en eerstvolgende |
+| 2 | ✅ Retraite uit 2020 staat alleen in "alle" |
+| 3 | ✅ Kopieën met andere data verschijnen vanzelf, op volgorde van startdatum |
+| 4 | ✅ Zonder `start`: build stopt met `src/retraites/…md: het veld "start" ontbreekt of is leeg` |
+| 5 | ✅ Onbekende begeleider: build stopt en noemt de code |
+| 6 | ✅ Status `open`: build stopt en noemt de toegestane waarden |
+| 7 | ✅ Gebouwde site identiek aan `main` (zelfde 9 pagina's, geen nieuwe) |
+| 8 | ✅ Uitleg-commentaar in het retraitebestand, `personen.yaml` en `retraites.json` |
