@@ -1,6 +1,6 @@
 # 019 — Verblijf, aankomst en vertrek op de eventpagina
 
-**Status:** Goedgekeurd (Daan, 3 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Gmail: vragen van geïnteresseerden (juni 2025) over kamers ("eigen of gedeelde kamer?"), wie er meedoen en de sfeer; Miro "Feedback": eindtijd van de laatste dag was onduidelijk, "plan rust in het weekend erna"; Drive: brochure 2025, dia 6 (aankomst zondag vanaf 18:00, einde vrijdag 17:00; telefoon inleveren bij aankomst)
 **Afhankelijk van:** 008 (eventpagina)
 
@@ -62,8 +62,21 @@ De vragen die in 2025 het vaakst per mail binnenkwamen, gingen over de kamers. D
 3. ~~Telefoon inleveren?~~ Ja (Daan, 3 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), met varianten (met tijden, zonder verblijf/digitale rust, fout type), en de build in Chrome op 375 px en 1280 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Bij de feiten staat "Aankomst en vertrek", nu gemarkeerd als "volgt"; met beide velden: "Aankomst zondag 25 april vanaf 16:00 / Vertrek donderdag 29 april rond 16:00" |
+| 2 | ✅ Uitklapblok "Slapen" met de tekst over meerpersoons- en eenpersoonskamers; zonder veld geen blok |
+| 3 | ✅ Uitklapblok "Digitale rust" met de standaardtekst bij `digitale_rust: true`; bij `false` geen blok |
+| 4 | ✅ "Plan als het kan wat rust in de dagen na de retraite" staat bij Voorbereiding |
+| 5 | ✅ `.ics`: aankomst en vertrek in de beschrijving als ze bekend zijn (gecontroleerd met de icalendar-bibliotheek); de datums blijven hele dagen |
+| 6 | ✅ `digitale_rust: "ja"` stopt de build met: "digitale_rust" moet true of false zijn |
+| 7 | ✅ Vijf uitklapblokken zonder JavaScript; geen horizontaal scrollen op 375 px; laagste contrast 4,77:1 |
