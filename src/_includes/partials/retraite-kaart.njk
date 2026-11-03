@@ -2,7 +2,8 @@
    Gebruik: {% set retraite = r %}{% set knop = "aanmelden" %}{% include "partials/retraite-kaart.njk" %}
    - retraite: één retraite uit collections.komendeRetraites
    - knop: "aanmelden" = knop naar de aanmeldpagina
-           "mail"      = knop die een mail opent (op de aanmeldpagina zelf)
+           "mail"      = knop op de aanmeldpagina zelf: opent het aanmeldformulier
+                         (als dat in site.yaml staat) of anders een mail
    Alle gegevens komen uit het retraitebestand in src/retraites/. #}
 {% set d = retraite.data %}
 {% set slug = retraite.page.fileSlug %}
@@ -41,10 +42,16 @@
 
   {% set knopTekst = "Op de wachtlijst" if d.status == "vol" else "Aanmelden" %}
   {% if knop == "mail" %}
+    {% set formulier = d | aanmeldUrl(site) %}
+    {% set actie = "Zet me op de wachtlijst" if d.status == "vol" else "Vraag een plek aan" %}
+    {% if formulier %}
+    <a class="knop" href="{{ formulier }}">{{ actie }} via het formulier<span class="sr-only">: {{ d.titel }}</span></a>
+    {% else %}
     {% set onderwerp = knopTekst + ": " + d.titel + " (" + datum + ")" %}
     <a class="knop" href="mailto:{{ site.contact.email }}?subject={{ onderwerp | urlencode }}">
-      {{ "Zet me op de wachtlijst" if d.status == "vol" else "Vraag een plek aan" }} per mail
+      {{ actie }} per mail
     </a>
+    {% endif %}
   {% else %}
     <a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}<span class="sr-only">: {{ d.titel }}</span></a>
   {% endif %}

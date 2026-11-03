@@ -6,6 +6,8 @@ layout: layouts/base.njk
 {% set slug = page.fileSlug %}
 {% set datum = start | datumBereik(eind) %}
 {% set voorbij = eind | isVoorbij %}
+{# Aanmeldformulier (site.yaml of eigen aanmeldlink); leeg = naar de aanmeldpagina #}
+{% set formulier = { titel: titel, start: start, eind: eind, aanmeldlink: aanmeldlink } | aanmeldUrl(site) %}
 <article class="pagina retraite-pagina">
   <header class="pagina__kop">
     <div class="container">
@@ -37,9 +39,15 @@ layout: layouts/base.njk
     </dl>
 
     {% if not voorbij %}
-      {% set knopTekst = "Op de wachtlijst" if status == "vol" else "Aanmelden" %}
+      {% if formulier %}
+        {% set knopTekst = ("Zet me op de wachtlijst" if status == "vol" else "Vraag een plek aan") + " via het formulier" %}
+        {% set knopLink = formulier %}
+      {% else %}
+        {% set knopTekst = "Op de wachtlijst" if status == "vol" else "Aanmelden" %}
+        {% set knopLink = "/aanmelden/#" + slug %}
+      {% endif %}
       <p class="retraite-pagina__acties">
-        <a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a>
+        <a class="knop" href="{{ knopLink }}">{{ knopTekst }}</a>
         <a class="knop knop--rustig" href="/retraites/{{ slug }}.ics" download>Zet in je agenda</a>
       </p>
       <h2 class="sr-only">Zo werkt aanmelden</h2>
@@ -82,7 +90,7 @@ layout: layouts/base.njk
     </div>
 
     {% if not voorbij %}
-      <p class="pagina__actie"><a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a></p>
+      <p class="pagina__actie"><a class="knop" href="{{ knopLink }}">{{ knopTekst }}</a></p>
     {% endif %}
   </div>
 </article>

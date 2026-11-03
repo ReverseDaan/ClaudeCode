@@ -60,6 +60,10 @@ begeleiders:
 # Foto's: bestandsnamen in src/images/. Mag leeg blijven: []
 fotos: []
 
+# Eigen aanmeldformulier voor deze retraite? Optioneel. Laat je dit weg,
+# dan gebruikt de site het algemene formulier uit src/_data/site.yaml.
+# aanmeldlink: "https://forms.gle/..."
+
 # Hoe kom je er? Optioneel. Laat je dit weg, dan staat er een
 # standaardtekst (zie src/_data/praktisch.yaml).
 # bereikbaarheid: "Met de trein naar station Apeldoorn, daarna ..."

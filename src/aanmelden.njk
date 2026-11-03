@@ -1,6 +1,7 @@
 ---
 # Pagina "Aanmelden". De teksten staan hier bovenin. Het echte
-# aanmeldformulier komt later; tot die tijd vraag je een plek aan per mail.
+# aanmeldformulier staat in src/_data/site.yaml (aanmeldformulier). Zolang
+# dat leeg is, vraag je een plek aan per mail en staat de melding hieronder.
 layout: layouts/pagina.njk
 title: "Aanmelden"
 intro: "Vraag een plek aan voor een retraite. We lezen elke aanvraag zelf en nemen binnen een paar dagen contact met je op."
@@ -18,7 +19,7 @@ leegLink: "Laat het ons weten"
   <p>{{ uitlegVol }}</p>
 </section>
 
-<p class="aanmeld-melding" role="note">{{ formulierMelding }}</p>
+{% if not site.aanmeldformulier.url %}<p class="aanmeld-melding" role="note">{{ formulierMelding }}</p>{% endif %}
 
 <p>Nog vragen? Bekijk eerst de <a href="/vragen/">veelgestelde vragen</a>.</p>
 
