@@ -1,6 +1,6 @@
 # 004 — Retraitegegevens tonen op Retraites, Kalender en Aanmelden
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** `docs/pagina-opzet.md` (US-07, US-09; deel van US-11); `docs/siteplan.md` sectie C (pagina's 03, 04 en 05)
 **Afhankelijk van:** 003 (retraite- en personendata)
 

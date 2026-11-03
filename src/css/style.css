@@ -9,6 +9,7 @@
    6. Homepagina
    7. Gewone pagina's
    8. Stijlwisselaar (tijdelijk, om thema's te vergelijken)
+   9. Retraites: kaarten, kalender en aanmelden
    ================================================================== */
 
 
@@ -687,3 +688,144 @@ a:hover {
   content: "✓";
   color: var(--kleur-mos);
 }
+
+
+/* ------------------------------------------------------------------
+   9. Retraites: kaarten, kalender en aanmelden
+   Gebruikt op Retraites en events, Kalender en Aanmelden.
+   ------------------------------------------------------------------ */
+
+/* Tekst alleen voor schermlezers (bijv. "Aanmelden: Voorjaarsretraite") */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.retraite-lijst {
+  display: grid;
+  gap: var(--ruimte-m);
+  margin-block: var(--ruimte-m) var(--ruimte-l);
+}
+
+.retraite-kaart {
+  background: var(--kleur-zand);
+  border: 1px solid var(--kleur-zand-donker);
+  border-left: 4px solid var(--kleur-mos);
+  border-radius: var(--hoek);
+  padding: var(--ruimte-m);
+  scroll-margin-top: var(--ruimte-l);
+}
+
+.retraite-kaart__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ruimte-xs);
+  margin-bottom: var(--ruimte-s);
+}
+
+.retraite-label {
+  display: inline-block;
+  font-size: var(--tekst-klein);
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: var(--kleur-zand-donker);
+  color: var(--kleur-bruin);
+}
+
+.retraite-label--vol,
+.retraite-label--wachtlijst {
+  background: var(--kleur-bruin);
+  color: var(--kleur-zand);
+}
+
+.retraite-label--voorbehoud,
+.retraite-label--voorbeeld {
+  background: transparent;
+  border: 1px dashed var(--kleur-bruin-zacht);
+  color: var(--kleur-bruin-zacht);
+}
+
+/* "Jouw keuze" verschijnt alleen bij de retraite waar je vandaan kwam */
+.retraite-label--gekozen {
+  display: none;
+  background: var(--kleur-oker);
+  color: var(--kleur-bruin);
+}
+
+.retraite-kaart__titel {
+  font-size: var(--kop-3);
+  margin-bottom: var(--ruimte-s);
+}
+
+.retraite-kaart__feiten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--ruimte-xs) var(--ruimte-m);
+  margin: 0 0 var(--ruimte-s);
+}
+
+.retraite-kaart__feiten dt {
+  font-size: var(--tekst-klein);
+  font-weight: 600;
+  color: var(--kleur-bruin-zacht);
+}
+
+.retraite-kaart__feiten dd {
+  margin: 0;
+}
+
+.retraite-kaart__samenvatting {
+  margin-bottom: var(--ruimte-m);
+}
+
+/* Kalender: kop per maand */
+.kalender-maand + .kalender-maand {
+  margin-top: var(--ruimte-l);
+}
+
+.kalender-maand__kop {
+  font-size: var(--kop-3);
+  border-bottom: 1px solid var(--kleur-zand-donker);
+  padding-bottom: var(--ruimte-xs);
+}
+
+/* Aanmelden: uitleg en melding */
+.aanmeld-uitleg ol {
+  padding-left: 1.25rem;
+}
+
+.aanmeld-uitleg li + li {
+  margin-top: var(--ruimte-xs);
+}
+
+.aanmeld-melding {
+  background: var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+  padding: var(--ruimte-s) var(--ruimte-m);
+  margin-block: var(--ruimte-l);
+}
+
+/* De retraite waar je vandaan kwam (bijv. /aanmelden/#2027-04-voorjaar) */
+.retraite-lijst--aanmelden .retraite-kaart:target {
+  border-color: var(--kleur-oker);
+  border-left-color: var(--kleur-oker);
+  box-shadow: 0 0 0 3px var(--kleur-oker);
+}
+
+.retraite-lijst--aanmelden .retraite-kaart:target .retraite-label--gekozen {
+  display: inline-block;
+}
+
+.retraite-leeg {
+  margin-block: var(--ruimte-m) var(--ruimte-l);
+}
+

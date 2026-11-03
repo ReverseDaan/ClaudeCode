@@ -1,0 +1,54 @@
+# TIJDELIJK: test de acceptatiecriteria van story 004. Wordt na de test verwijderd.
+name: Tijdelijke test story 004
+on:
+  push:
+    branches: [story/004-retraites-tonen]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: "Basisbuild (criterium 1-4)"
+        run: |
+          npx @11ty/eleventy --pathprefix=/ClaudeCode/ 2>&1 | grep -v Deprecation
+          R=_site/retraites/index.html; K=_site/kalender/index.html; A=_site/aanmelden/index.html
+          for f in $R $K $A; do echo "== $f"; sed -n '/<main/,/<\/main>/p' $f | sed 's/^ *//' | grep -v '^$'; done
+          grep -q "Voorjaarsretraite" $R && grep -q "25 – 29 april 2027" $R && grep -q "Meerdaags" $R
+          grep -q "'t Zonnehuis, Loenen\|&#39;t Zonnehuis, Loenen" $R && grep -q "€ 495" $R && grep -q "Plekken vrij" $R
+          ! grep -qi "werkprijs" $R
+          grep -q 'April 2027' $K
+          grep -q 'href="/ClaudeCode/aanmelden/#2027-04-voorjaar"' $R
+          grep -q 'id="2027-04-voorjaar"' $A
+          grep -q 'mailto:stillnessandstrokes@gmail.com?subject=Aanmelden%3A%20Voorjaarsretraite' $A
+          grep -q "aanvraag, nog geen boeking" $A
+      - name: "Bundel van de basisbuild (voor browsertest)"
+        run: |
+          echo "SITE-BEGIN"; tar czf - _site | base64 -w0; echo; echo "SITE-EINDE"
+      - name: "Criterium 5 en 7: vol, onder voorbehoud, ander formaat, volgorde"
+        run: |
+          sed -e 's/titel: "Voorjaarsretraite"/titel: "Zomerdag"/' -e 's/^formaat: meerdaags/formaat: dag/' -e 's/start: 2027-04-25/start: 2027-06-12/' -e 's/eind: 2027-04-29/eind: 2027-06-12/' -e 's/^status: vrij/status: vol/' -e 's/^bevestigd: true/bevestigd: false/' src/retraites/2027-04-voorjaar.md > src/retraites/2027-06-zomerdag.md
+          sed -e 's/titel: "Voorjaarsretraite"/titel: "Winterweekend"/' -e 's/^formaat: meerdaags/formaat: weekend/' -e 's/start: 2027-04-25/start: 2027-01-15/' -e 's/eind: 2027-04-29/eind: 2027-01-17/' src/retraites/2027-04-voorjaar.md > src/retraites/2027-01-winter.md
+          npx @11ty/eleventy 2>&1 | tail -1
+          R=_site/retraites/index.html; K=_site/kalender/index.html; A=_site/aanmelden/index.html
+          echo "Volgorde op Retraites:"; grep -o 'retraite-kaart__titel" id="[^"]*">[^<]*' $R
+          test "$(grep -o 'retraite-kaart__titel" id="[^"]*">[^<]*' $R | sed 's/.*>//' | tr '\n' ',')" = "Winterweekend,Voorjaarsretraite,Zomerdag,"
+          echo "Maanden op Kalender:"; grep -o 'kalender-maand__kop" id="[^"]*">[^<]*' $K | sed 's/.*>//'
+          test "$(grep -o 'kalender-maand__kop" id="[^"]*">[^<]*' $K | sed 's/.*>//' | tr '\n' ',')" = "Januari 2027,April 2027,Juni 2027,"
+          grep -q "Op de wachtlijst" $R && grep -q "Onder voorbehoud" $R && grep -q "12 juni 2027" $R && grep -q ">Dag<\|Dag</dd>" $R && grep -q "Weekend" $R
+          grep -q "Zet me op de wachtlijst" $A
+          rm src/retraites/2027-06-zomerdag.md src/retraites/2027-01-winter.md
+      - name: "Criterium 6: alleen retraites in het verleden"
+        run: |
+          sed -i -e 's/start: 2027-04-25/start: 2020-04-25/' -e 's/eind: 2027-04-29/eind: 2020-04-29/' src/retraites/2027-04-voorjaar.md
+          npx @11ty/eleventy 2>&1 | tail -1
+          for f in retraites kalender aanmelden; do grep -q "Er staan op dit moment geen retraites gepland" _site/$f/index.html && echo "$f: lege tekst OK"; done
+          test "$(grep -l 'Er staan op dit moment geen retraites gepland' _site/{retraites,kalender,aanmelden}/index.html | wc -l)" = "3"
+          ! grep -q "retraite-kaart" _site/retraites/index.html
+          git checkout src/retraites/2027-04-voorjaar.md
