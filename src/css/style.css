@@ -849,7 +849,8 @@ a:hover {
   display: block;
   font-family: var(--font-kop);
   font-size: var(--tekst-groot);
-  margin-bottom: 0.15rem;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
 }
 
 /* Korte versie op de pagina van een retraite: alleen de koppen */
@@ -877,6 +878,16 @@ a:hover {
 @media (min-width: 48em) {
   .aanmeldstappen {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Naast elkaar staat het cijfer boven de tekst, zodat de kolommen
+     breed genoeg blijven. De korte versie blijft onder elkaar. */
+  .aanmeldstappen:not(.aanmeldstappen--kort) .aanmeldstap {
+    flex-direction: column;
+  }
+
+  .aanmeldstappen--kort {
+    grid-template-columns: none;
   }
 }
 
