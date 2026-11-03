@@ -1,6 +1,6 @@
 # 012 — "Is dit iets voor mij?"
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** idee Daan/Claude (3 nov 2026); brochure ("Ervaring is niet nodig"); feedback editie 1
 **Afhankelijk van:** geen
 

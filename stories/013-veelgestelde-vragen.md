@@ -1,6 +1,6 @@
 # 013 — Veelgestelde vragen
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** brochure 2025, deelnemersmails en feedback editie 1 (bijv. de tip over teken)
 **Afhankelijk van:** geen
 

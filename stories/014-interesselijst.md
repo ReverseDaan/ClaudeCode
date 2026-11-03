@@ -1,6 +1,6 @@
 # 014 — "Houd me op de hoogte" (interesselijst)
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** idee Daan/Claude (3 nov 2026)
 **Afhankelijk van:** een Google Form dat Daan of Vincent aanmaakt in het gedeelde account
 

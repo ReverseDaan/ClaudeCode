@@ -1,6 +1,6 @@
 # 009 — "Zet in je agenda" per retraite
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** idee Daan/Claude (3 nov 2026), onder "Praktisch voor wie zich aanmeldt"
 **Afhankelijk van:** 008 (eventpagina)
 

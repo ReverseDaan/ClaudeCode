@@ -1,6 +1,6 @@
 # 011 — Galerij "Uit onze eerste retraite"
 
-**Status:** Concept
+**Status:** In de wacht (foto's volgen later; Daan, 3 nov 2026)
 **Bron:** Drive, map "Stillness & Strokes 2025" (4 foto's: DSCF7179, DSCF7184, DSCF7202, 0N4A0350)
 **Afhankelijk van:** geen
 

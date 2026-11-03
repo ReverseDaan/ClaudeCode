@@ -1,6 +1,6 @@
 # 010 — Ervaringen van deelnemers
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** `docs/pagina-opzet.md` (US-03); Miro-frame "Feedback" (akkoord voor gebruik op de site, Daan, 2 nov 2026)
 **Afhankelijk van:** geen
 

@@ -1,6 +1,6 @@
 # 008 — Eigen pagina per retraite, met praktische informatie
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** `docs/pagina-opzet.md` (US-08); `docs/siteplan.md` sectie A (sjabloon retraite); Drive: deelnemersmails editie 1 (paklijst, voorbereiding)
 **Afhankelijk van:** 003, 004
 

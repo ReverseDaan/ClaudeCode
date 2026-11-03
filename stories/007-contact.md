@@ -1,6 +1,6 @@
 # 007 — Contactpagina met alleen het e-mailadres
 
-**Status:** Concept
+**Status:** Goedgekeurd
 **Bron:** `docs/pagina-opzet.md` (US-15, ingeperkt); wens van Daan (3 nov 2026): "De pagina voor contact kan alleen ons e-mailadres bevatten"
 **Afhankelijk van:** geen
 
