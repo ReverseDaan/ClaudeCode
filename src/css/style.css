@@ -1118,3 +1118,8 @@ a:hover {
   font-size: var(--tekst-klein);
   color: var(--kleur-bruin-zacht);
 }
+
+/* "Is dit iets voor mij?" */
+.past-bij-mij {
+  margin: var(--ruimte-m) 0 var(--ruimte-l);
+}

@@ -1,0 +1,24 @@
+# ------------------------------------------------------------------
+# "Is dit iets voor mij?" (pagina Wat en waarom, onder "Voor wie")
+# ------------------------------------------------------------------
+# Een paar vragen die twijfelaars vaak hebben, met een eerlijk antwoord.
+# Per vraag:
+#  - vraag:    zoals bezoekers hem zien
+#  - antwoord: gewone tekst
+# Nieuwe vraag? Kopieer een blok (vanaf "- vraag:") en pas het aan.
+# ------------------------------------------------------------------
+
+kop: "Is dit iets voor mij?"
+
+vragen:
+  - vraag: "Ik kan niet schilderen. Kan ik meedoen?"
+    antwoord: "Ja. Ervaring is niet nodig. Het gaat om het proces, niet om een mooi resultaat."
+  - vraag: "Ik heb nog nooit gemediteerd."
+    antwoord: "Geen probleem. De meditaties worden begeleid en je mag zitten zoals het voor jou prettig is: op een kussen, een bankje of een stoel."
+  - vraag: "Ik vind stilte spannend."
+    antwoord: "Veel mensen vinden dat. De stilte duurt 's ochtends tot na het ontbijt; daarna is er weer ruimte om te praten."
+  - vraag: "Ik zoek vooral een schildercursus."
+    antwoord: "Dan is dit misschien niet wat je zoekt. Schilderen is hier een ingang om naar binnen te kijken, geen techniekcursus."
+
+# Tekst onder de vragen. De links naar Contact en de retraites zet de site er zelf bij.
+twijfel: "Twijfel je nog?"

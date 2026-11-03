@@ -1,0 +1,15 @@
+{#- "Is dit iets voor mij?": vragen uit src/_data/pastbijmij.yaml.
+    Gebruik in een Markdown-pagina op een eigen regel, met een lege regel
+    erboven en eronder. De uitvoer heeft daarom geen lege regels. -#}
+<section class="past-bij-mij" aria-labelledby="past-bij-mij-kop">
+<h3 id="past-bij-mij-kop">{{ pastbijmij.kop }}</h3>
+<div class="uitklap-lijst">
+{%- for v in pastbijmij.vragen %}
+<details>
+<summary>{{ v.vraag }}</summary>
+<p>{{ v.antwoord }}</p>
+</details>
+{%- endfor %}
+</div>
+<p>{{ pastbijmij.twijfel }} <a href="/contact/">Mail ons</a> of bekijk de <a href="/vragen/">veelgestelde vragen</a>.</p>
+</section>
