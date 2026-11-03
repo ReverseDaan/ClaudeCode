@@ -1,14 +1,21 @@
 # ------------------------------------------------------------------
 # Gegevens van de stichting
 # ------------------------------------------------------------------
-# Deze gegevens staan in de voettekst van elke pagina en straks op de
-# pagina "Over de stichting".
-# Zolang een waarde "volgt" is, toont de site dat ook zo.
+# Deze gegevens staan in de voettekst van elke pagina en op de pagina
+# "Over de stichting".
+#
+# LET OP: er is nog geen stichting. De waarden hieronder zijn
+# GEGENEREERDE VOORBEELDGEGEVENS, alleen om de opzet te laten zien.
+# Zolang "voorbeeld" op true staat, zet de site er een duidelijke
+# melding bij. Is de stichting opgericht? Vul dan de echte gegevens in
+# en zet "voorbeeld" op false.
 # ------------------------------------------------------------------
 
-kvk: "volgt"
-rsin: "volgt"
-zetel: "volgt"
+voorbeeld: true
+
+kvk: "12345678"
+rsin: "123456789"
+zetel: "Epe"
 
 # Heeft de stichting een ANBI-status? Zet dan op true.
 # Bij false staat er nergens op de site iets over ANBI.
