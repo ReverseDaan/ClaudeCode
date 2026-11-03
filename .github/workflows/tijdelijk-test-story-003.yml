@@ -70,8 +70,9 @@ jobs:
       - name: "Criterium 7: bestaande pagina's ongewijzigd"
         run: |
           rm src/test-lijsten.njk
-          npx @11ty/eleventy --pathprefix=/ClaudeCode/ --output=_nieuw > /dev/null
+          npx @11ty/eleventy --pathprefix=/ClaudeCode/ --output=$RUNNER_TEMP/nieuw > /dev/null
           git stash -u -q
-          git checkout -q origin/main 2>/dev/null || git fetch -q origin main && git checkout -q FETCH_HEAD
-          npx @11ty/eleventy --pathprefix=/ClaudeCode/ --output=_oud > /dev/null
-          diff -r _oud _nieuw && echo "GEEN VERSCHIL in de gebouwde site"
+          git fetch -q origin main && git checkout -q FETCH_HEAD
+          git log --oneline -1
+          npx @11ty/eleventy --pathprefix=/ClaudeCode/ --output=$RUNNER_TEMP/oud > /dev/null
+          diff -r $RUNNER_TEMP/oud $RUNNER_TEMP/nieuw && echo "GEEN VERSCHIL in de gebouwde site"
