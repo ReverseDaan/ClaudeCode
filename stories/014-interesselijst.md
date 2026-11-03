@@ -1,6 +1,6 @@
 # 014 — "Houd me op de hoogte" (interesselijst)
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** idee Daan/Claude (3 nov 2026)
 **Afhankelijk van:** een Google Form dat Daan of Vincent aanmaakt in het gedeelde account
 
@@ -29,8 +29,18 @@ zodat **ik bericht krijg als er een nieuwe retraite is of de aanmelding opent**.
 2. Het privacybeleid (US-17) moet dit dan ook noemen. Akkoord dat ik dat meeneem als die story aan de beurt is?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd), en diezelfde build in Chrome op 375 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Met een url in `site.yaml`: blok op Home en Retraites, knop opent het formulier in een nieuw tabblad |
+| 2 | ✅ Met een lege url (zoals nu): het blok staat nergens |
+| 3 | ✅ Privacytekst staat bij het blok |
+| 4 | ✅ Zonder komende retraites staat het blok op Retraites, Kalender en Aanmelden in plaats van de "geen retraites"-tekst |

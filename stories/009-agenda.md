@@ -1,6 +1,6 @@
 # 009 — "Zet in je agenda" per retraite
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** idee Daan/Claude (3 nov 2026), onder "Praktisch voor wie zich aanmeldt"
 **Afhankelijk van:** 008 (eventpagina)
 
@@ -32,8 +32,18 @@ zodat **ik de datum vrijhoud terwijl ik erover nadenk**.
 - Geen.
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd), en diezelfde build in Chrome op 375 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ `/retraites/2027-04-voorjaar.ics` geldig volgens een iCalendar-parser: één VEVENT, start 2027-04-25, eind 2027-04-30 (dag na de laatste dag), locatie en link kloppen; CRLF-regeleinden |
+| 2 | ✅ Knop "Zet in je agenda" op de eventpagina; bestand wordt geserveerd als `text/calendar` (op een telefoon openen na de merge) |
+| 3 | ✅ Een nieuwe retraite krijgt vanzelf een bestand; voorbije retraites niet |
+| 4 | ✅ Geen persoonsgegevens; alleen het gedeelde mailadres als organisator |

@@ -1,6 +1,6 @@
 # 012 — "Is dit iets voor mij?"
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** idee Daan/Claude (3 nov 2026); brochure ("Ervaring is niet nodig"); feedback editie 1
 **Afhankelijk van:** geen
 
@@ -30,8 +30,17 @@ zodat **ik met een gerust hart een plek aanvraag, of juist eerst een vraag stel*
 1. Kloppen de antwoorden, vooral 3 (stilte tot na het ontbijt) en 4?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd), en diezelfde build in Chrome op 375 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Vier vragen met antwoorden onder "Voor wie", uitklapbaar met muis, toetsenbord en zonder JavaScript; vragen en antwoorden staan in `src/_data/pastbijmij.yaml` (bewerkbaar in GitHub) |
+| 2 | ✅ Links naar Contact, de veelgestelde vragen en de retraites werken |
+| 3 | ✅ 375 px, contrast in orde |

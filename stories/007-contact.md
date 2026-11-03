@@ -1,6 +1,6 @@
 # 007 — Contactpagina met alleen het e-mailadres
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-15, ingeperkt); wens van Daan (3 nov 2026): "De pagina voor contact kan alleen ons e-mailadres bevatten"
 **Afhankelijk van:** geen
 
@@ -49,8 +49,18 @@ De contactpagina staat nu op "in de maak". Het siteplan noemde ook een formulier
 - Geen.
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd), en diezelfde build in Chrome op 375 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Alleen intro en `mailto:stillnessandstrokes@gmail.com`; geen "in de maak" |
+| 2 | ✅ Adres komt uit `site.yaml` |
+| 3 | ✅ Geen telefoon, social media of formulier (wel een link naar de veelgestelde vragen, uit story 013) |
+| 4 | ✅ 375 px, contrast ≥ 4,5:1 in alle vier de thema's, link met Tab bereikbaar |

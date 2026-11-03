@@ -1,6 +1,6 @@
 # 010 — Ervaringen van deelnemers
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-03); Miro-frame "Feedback" (akkoord voor gebruik op de site, Daan, 2 nov 2026)
 **Afhankelijk van:** geen
 
@@ -33,8 +33,17 @@ zodat **ik me een beeld kan vormen en vertrouwen krijg**.
 2. Geen achternamen en ook geen voornamen: akkoord?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd), en diezelfde build in Chrome op 375 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Vier quotes op Home ("Wat deelnemers zeggen") en op Wat en waarom, als blockquote met "Deelnemer, eerste retraite (2025)", zonder namen |
+| 2 | ✅ Een vijfde quote in het bestand verschijnt vanzelf |
+| 3 | ✅ 375 px, contrast in orde, geen beweging |

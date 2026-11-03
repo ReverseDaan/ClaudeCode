@@ -1,6 +1,6 @@
 # 008 — Eigen pagina per retraite, met praktische informatie
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-08); `docs/siteplan.md` sectie A (sjabloon retraite); Drive: deelnemersmails editie 1 (paklijst, voorbereiding)
 **Afhankelijk van:** 003, 004
 
@@ -49,8 +49,20 @@ zodat **ik weet waar ik aan begin voordat ik een plek aanvraag**.
 1. Mag de paklijst van 2025 zo overgenomen worden, of verandert er iets voor het voorjaar (bijv. eigen beddengoed bij zelfverzorging)?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd), en diezelfde build in Chrome op 375 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ `/retraites/2027-04-voorjaar/` met titel, labels, 25 – 29 april 2027, 't Zonnehuis, Loenen, € 495, inbegrepen, beschrijving, begeleiders en knop Aanmelden |
+| 2 | ✅ Kopie krijgt vanzelf een pagina; kaarten op Retraites, Kalender en Aanmelden linken erheen |
+| 3 | ✅ Zonder `bereikbaarheid` de standaardtekst; met het veld de eigen tekst |
+| 4 | ✅ Retraite uit 2020: pagina bestaat, "Deze retraite is voorbij", geen aanmeld- of agendaknop |
+| 5 | ✅ Drie uitklapblokken (paklijst, voorbereiding, bereikbaarheid), werken met toetsenbord en zonder JavaScript; 375 px en contrast in orde |
+| 6 | ✅ Controle uit story 003 werkt nog (build slaagt, fouten blijven gemeld) |

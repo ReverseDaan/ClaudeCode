@@ -1,6 +1,6 @@
 # 013 — Veelgestelde vragen
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** brochure 2025, deelnemersmails en feedback editie 1 (bijv. de tip over teken)
 **Afhankelijk van:** geen
 
@@ -34,8 +34,19 @@ zodat **ik niet hoef te mailen voor iets wat al bekend is**.
 3. Kloppen "gedeelde kamers" en "telefoon in een doos tijdens de retraite" ook voor 't Zonnehuis?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions met tijdelijke testbestanden (testworkflow daarna verwijderd), en diezelfde build in Chrome op 375 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ `/vragen/` met vier groepen en 14 vragen, uitklapbaar zonder JavaScript en met het toetsenbord |
+| 2 | ✅ Links in de voettekst, op Aanmelden en op Contact; niet in het hoofdmenu |
+| 3 | ✅ Een nieuwe vraag in `vragen.yaml` verschijnt vanzelf |
+| 4 | ✅ Minimumleeftijd, taal, eten en annuleren staan op "volgt" |
+| 5 | ✅ 375 px, contrast in orde |
