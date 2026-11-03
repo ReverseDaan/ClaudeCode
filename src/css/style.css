@@ -380,9 +380,15 @@ a:hover {
   color: var(--kleur-mos);
 }
 
-@media (min-width: 1024px) {
+/* Vanaf 1200px staat het menu naast de naam. Met acht menu-items is
+   daaronder te weinig ruimte, dan blijft het uitklapmenu. */
+@media (min-width: 1200px) {
   .site-header__inner {
     flex-wrap: nowrap;
+  }
+
+  .logo {
+    white-space: nowrap;
   }
 
   .js .menu-knop {
