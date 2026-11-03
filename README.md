@@ -55,7 +55,10 @@ Elke retraite krijgt vanzelf een eigen pagina, bijv.
 `/retraites/2027-04-voorjaar/`. De paklijst en de voorbereidingstips op die
 pagina staan in `src/_data/praktisch.yaml` en gelden voor alle retraites. Wil
 je per retraite vertellen hoe je er komt, vul dan in het retraitebestand het
-veld `bereikbaarheid` in.
+veld `bereikbaarheid` in. Op dezelfde manier vul je per retraite
+`aankomst` en `vertrek` in (anders staat er "volgt"), `verblijf` (hoe je
+slaapt; zonder dit veld staat het blok "Slapen" er niet) en
+`digitale_rust: true` (dan staat het blok "Digitale rust" erbij).
 
 Een retraite wijzigen (bijv. de status op `vol` zetten) gaat op dezelfde
 manier: bestand openen, potloodje, aanpassen, **Commit changes**.

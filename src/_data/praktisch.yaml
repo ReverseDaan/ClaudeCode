@@ -35,6 +35,10 @@ voorbereiding:
   - "Minder in de dagen ervoor alvast met suiker, koffie en alcohol. Dat helpt je lichaam om rustiger te landen."
   - "Neem waar het kan al wat momenten van stilte of rust in je dag, bijvoorbeeld met yoga, meditatie of een wandeling."
   - "We beginnen de dagen vroeg en gaan op tijd naar bed. Als het lukt, pas je je thuis alvast een beetje aan dit ritme aan."
+  - "Plan als het kan wat rust in de dagen na de retraite. Veel deelnemers merkten dat het fijn is om niet meteen weer vol aan de slag te gaan."
+
+# Tekst bij "Digitale rust", voor retraites met "digitale_rust: true".
+digitale_rust_standaard: "Er is wifi, maar we nodigen je uit je telefoon bij aankomst in te leveren. Zo krijgt je hoofd echt de ruimte. Moet je bereikbaar zijn voor thuis? Dan spreken we samen iets af."
 
 bereikbaarheid_standaard: "Na je aanmelding ontvang je informatie over de bereikbaarheid van de locatie, carpoolen en eventueel samen reizen."
 

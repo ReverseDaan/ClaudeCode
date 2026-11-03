@@ -36,6 +36,16 @@ layout: layouts/base.njk
       <div><dt>Waar</dt><dd>{{ locatie.naam }}, {{ locatie.plaats }}</dd></div>
       <div><dt>Soort</dt><dd>{{ formaat | capitalize }}</dd></div>
       <div><dt>Prijs</dt><dd>{{ prijs.bedrag | prijsTekst }}</dd></div>
+      <div>
+        <dt>Aankomst en vertrek</dt>
+        <dd>
+          {%- if aankomst or vertrek -%}
+            Aankomst {{ aankomst or "volgt" }}<br>Vertrek {{ vertrek or "volgt" }}
+          {%- else -%}
+            <span class="volgt">volgt</span>
+          {%- endif -%}
+        </dd>
+      </div>
     </dl>
 
     {% if not voorbij %}
@@ -83,6 +93,18 @@ layout: layouts/base.njk
         <summary>Voorbereiding</summary>
         <ul>{% for punt in praktisch.voorbereiding %}<li>{{ punt }}</li>{% endfor %}</ul>
       </details>
+      {% if verblijf %}
+      <details>
+        <summary>Slapen</summary>
+        <p>{{ verblijf }}</p>
+      </details>
+      {% endif %}
+      {% if digitale_rust %}
+      <details>
+        <summary>Digitale rust</summary>
+        <p>{{ praktisch.digitale_rust_standaard }}</p>
+      </details>
+      {% endif %}
       <details>
         <summary>Bereikbaarheid</summary>
         <p>{{ bereikbaarheid or praktisch.bereikbaarheid_standaard }}</p>

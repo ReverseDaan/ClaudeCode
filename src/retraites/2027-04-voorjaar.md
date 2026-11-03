@@ -60,6 +60,18 @@ begeleiders:
 # Foto's: bestandsnamen in src/images/. Mag leeg blijven: []
 fotos: []
 
+# Hoe laat begint en eindigt de retraite? Optioneel. Laat je dit weg, dan
+# staat er "volgt". Schrijf het zoals bezoekers het lezen, bijv.:
+# aankomst: "zondag 25 april vanaf 16:00"
+# vertrek: "donderdag 29 april rond 16:00"
+
+# Hoe slaap je? Optioneel; zonder dit veld staat het blok "Slapen" er niet.
+verblijf: "Je slaapt meestal in een meerpersoonskamer. Er zijn ook een paar eenpersoonskamers; vraag ernaar bij je aanmelding."
+
+# Telefoon inleveren bij aankomst? true = ja: dan staat het blok
+# "Digitale rust" op de pagina (tekst in src/_data/praktisch.yaml).
+digitale_rust: true
+
 # Eigen aanmeldformulier voor deze retraite? Optioneel. Laat je dit weg,
 # dan gebruikt de site het algemene formulier uit src/_data/site.yaml.
 # aanmeldlink: "https://forms.gle/..."
