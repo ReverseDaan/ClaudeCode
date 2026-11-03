@@ -2,7 +2,10 @@
 // Eleventy leest alles uit de map src/ en bouwt de website in de map _site/.
 import yaml from "js-yaml";
 import { HtmlBasePlugin } from "@11ty/eleventy";
-import { controleerRetraite, sorteerOpStart, komende, STATUSSEN } from "./lib/retraites.js";
+import {
+  controleerRetraite, sorteerOpStart, komende, STATUSSEN,
+  datumBereik, isoDatum, perMaand, prijsTekst,
+} from "./lib/retraites.js";
 
 export default function (eleventyConfig) {
   // Databestanden in src/_data/ mogen YAML zijn (.yaml of .yml).
@@ -56,6 +59,16 @@ export default function (eleventyConfig) {
 
   // Zet een status om naar leesbare tekst: {{ retraite.data.status | statusTekst }}
   eleventyConfig.addFilter("statusTekst", (status) => STATUSSEN[status] || status);
+
+  // Weergave van retraites (zie lib/retraites.js):
+  // {{ retraite.data.start | datumBereik(retraite.data.eind) }} → "25 – 29 april 2027"
+  eleventyConfig.addFilter("datumBereik", (start, eind) => datumBereik(start, eind));
+  // {{ retraite.data.start | isoDatum }} → "2027-04-25" (voor <time datetime="…">)
+  eleventyConfig.addFilter("isoDatum", isoDatum);
+  // {% for maand in collections.komendeRetraites | perMaand %} → maand.kop, maand.retraites
+  eleventyConfig.addFilter("perMaand", perMaand);
+  // {{ retraite.data.prijs.bedrag | prijsTekst }} → "€ 495"
+  eleventyConfig.addFilter("prijsTekst", prijsTekst);
 
   return {
     dir: {

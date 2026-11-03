@@ -206,7 +206,7 @@ claudecode/
     ├── images/             # eigen foto's (nu placeholders)
     ├── index.njk           # Home
     ├── wat-en-waarom.md
-    ├── retraites.njk       # Retraites en events (per formaat)
+    ├── retraites.njk       # Retraites en events (op datum)
     ├── kalender.njk        # dezelfde retraites, per datum
     ├── aanmelden.njk
     ├── stichting.md        # Over de stichting
@@ -240,10 +240,10 @@ wordt eerst een story in `stories/`.
 - [x] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16), story 001: ter review
 - [x] 7. Retraite- en personendata met de voorjaarsretraite (US-18), story 003: ter review
 - [ ] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04)
-- [ ] 9. Retraites en events, plus de eventpagina (US-07, US-08)
-- [ ] 10. Kalender, als lijst per maand (US-09)
+- [~] 9. Retraites en events (US-07, story 004: ter review), plus de eventpagina (US-08, nog te doen)
+- [x] 10. Kalender, als lijst per maand (US-09), story 004: ter review
 - [ ] 11. Wat en waarom (US-05, US-06)
-- [ ] 12. Aanmelden, na de keuze voor een formulierdienst (US-11 t/m US-13)
+- [~] 12. Aanmelden, na de keuze voor een formulierdienst (US-11 t/m US-13). Story 004: retraitekeuze, uitleg en tijdelijke maillink staan; het formulier volgt
 - [ ] 13. Contact (US-15)
 - [ ] 14. Over de stichting, privacybeleid en voorwaarden (US-14, US-17)
 - [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis

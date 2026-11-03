@@ -14,11 +14,12 @@ naam: "Stillness and Strokes"
 # Korte omschrijving voor zoekmachines en bij het delen op social media.
 omschrijving: "Retraites waarin je schildert en tekent als ingang om naar binnen te kijken en tot rust te komen. Geen ervaring nodig."
 
-# Contactgegevens (voorbeeldwaarden: vervang ze door de echte gegevens).
+# Contactgegevens. Het e-mailadres is het gedeelde adres van de organisatie;
+# telefoon en plaats zijn nog voorbeeldwaarden.
 # In de voettekst staat alleen het e-mailadres; telefoon en plaats zijn
 # voor later (bijv. de contactpagina).
 contact:
-  email: "info@voorbeeld.nl"
+  email: "stillnessandstrokes@gmail.com"
   telefoon: "06 12345678"
   plaats: "Veluwe, Nederland"
 

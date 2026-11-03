@@ -1,0 +1,50 @@
+{# Kaart met de gegevens van één retraite.
+   Gebruik: {% set retraite = r %}{% set knop = "aanmelden" %}{% include "partials/retraite-kaart.njk" %}
+   - retraite: één retraite uit collections.komendeRetraites
+   - knop: "aanmelden" = knop naar de aanmeldpagina
+           "mail"      = knop die een mail opent (op de aanmeldpagina zelf)
+   Alle gegevens komen uit het retraitebestand in src/retraites/. #}
+{% set d = retraite.data %}
+{% set slug = retraite.page.fileSlug %}
+{% set datum = d.start | datumBereik(d.eind) %}
+<article class="retraite-kaart" id="{{ slug }}" aria-labelledby="titel-{{ slug }}">
+  <div class="retraite-kaart__labels">
+    <span class="retraite-label retraite-label--{{ d.status }}">{{ d.status | statusTekst }}</span>
+    {% if not d.bevestigd %}<span class="retraite-label retraite-label--voorbehoud">Onder voorbehoud</span>{% endif %}
+    {% if d.voorbeeld %}<span class="retraite-label retraite-label--voorbeeld">Voorbeeld</span>{% endif %}
+    {% if knop == "mail" %}<span class="retraite-label retraite-label--gekozen">Jouw keuze</span>{% endif %}
+  </div>
+
+  <h3 class="retraite-kaart__titel" id="titel-{{ slug }}">{{ d.titel }}</h3>
+
+  <dl class="retraite-kaart__feiten">
+    <div>
+      <dt>Wanneer</dt>
+      <dd><time datetime="{{ d.start | isoDatum }}">{{ datum }}</time></dd>
+    </div>
+    <div>
+      <dt>Waar</dt>
+      <dd>{{ d.locatie.naam }}, {{ d.locatie.plaats }}</dd>
+    </div>
+    <div>
+      <dt>Soort</dt>
+      <dd>{{ d.formaat | capitalize }}</dd>
+    </div>
+    <div>
+      <dt>Prijs</dt>
+      <dd>{{ d.prijs.bedrag | prijsTekst }}</dd>
+    </div>
+  </dl>
+
+  <p class="retraite-kaart__samenvatting">{{ d.samenvatting }}</p>
+
+  {% set knopTekst = "Op de wachtlijst" if d.status == "vol" else "Aanmelden" %}
+  {% if knop == "mail" %}
+    {% set onderwerp = knopTekst + ": " + d.titel + " (" + datum + ")" %}
+    <a class="knop" href="mailto:{{ site.contact.email }}?subject={{ onderwerp | urlencode }}">
+      {{ "Zet me op de wachtlijst" if d.status == "vol" else "Vraag een plek aan" }} per mail
+    </a>
+  {% else %}
+    <a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}<span class="sr-only">: {{ d.titel }}</span></a>
+  {% endif %}
+</article>

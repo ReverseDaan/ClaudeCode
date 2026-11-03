@@ -1,0 +1,35 @@
+---
+# Pagina "Aanmelden". De teksten staan hier bovenin. Het echte
+# aanmeldformulier komt later; tot die tijd vraag je een plek aan per mail.
+layout: layouts/pagina.njk
+title: "Aanmelden"
+intro: "Vraag een plek aan voor een retraite. We lezen elke aanvraag zelf en nemen binnen een paar dagen contact met je op."
+uitlegKop: "Zo werkt aanmelden"
+uitleg:
+  - "Aanmelden is een aanvraag, nog geen boeking. Je zit pas vast als we je aanvraag hebben bevestigd en je hebt betaald."
+  - "Binnen een paar dagen hoor je van ons. Is er plek, dan krijg je een bevestiging met praktische informatie en een betaallink."
+  - "Is de retraite vol, dan zetten we je op de wachtlijst of zoeken we samen naar een andere datum."
+formulierMelding: "Het aanmeldformulier volgt binnenkort. Tot die tijd vraag je een plek aan per mail: kies hieronder je retraite en klik op de knop. Je mailprogramma opent met de retraite al in het onderwerp."
+kiesKop: "Kies je retraite"
+leeg: "Er staan op dit moment geen retraites gepland. Wil je bericht als er een nieuwe datum is?"
+leegLink: "Laat het ons weten"
+---
+<section class="aanmeld-uitleg" aria-labelledby="uitleg-kop">
+  <h2 class="aanmeld-kop" id="uitleg-kop">{{ uitlegKop }}</h2>
+  <ol>
+    {% for stap in uitleg %}<li>{{ stap }}</li>{% endfor %}
+  </ol>
+</section>
+
+<p class="aanmeld-melding" role="note">{{ formulierMelding }}</p>
+
+{% if collections.komendeRetraites.length %}
+<h2 class="aanmeld-kop">{{ kiesKop }}</h2>
+<ul class="retraite-lijst retraite-lijst--aanmelden kale-lijst">
+  {% for r in collections.komendeRetraites %}
+  <li>{% set retraite = r %}{% set knop = "mail" %}{% include "partials/retraite-kaart.njk" %}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="retraite-leeg">{{ leeg }} <a href="/contact/">{{ leegLink }}</a>.</p>
+{% endif %}
