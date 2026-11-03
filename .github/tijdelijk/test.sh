@@ -13,9 +13,9 @@ main $V | grep -o '<h2[^>]*>[^<]*' | sed 's/<h2[^>]*>//' > k.txt; cat k.txt
 diff k.txt <(printf '%s\n' "Meedoen" "Verblijf" "Aanmelden en betalen")
 main $V | grep -o '<summary>[^<]*' | sed 's/<summary>//' > v.txt; cat v.txt
 diff v.txt <(printf '%s\n' "Heb ik ervaring nodig met schilderen of mediteren?" "In welke taal wordt de retraite gegeven?" "Wat neem ik mee?" "Waar slaap ik?" "Mag ik mijn telefoon gebruiken?" "Is aanmelden een boeking?" "Wanneer betaal ik?" "Kan ik annuleren?")
-grep -q "telefoon bij aankomst in te leveren" $V && grep -q "meerpersoonskamer" $V && grep -q "aanbetaling van € 100" $V
+echo check-antwoorden; grep -q "telefoon bij aankomst in te leveren" $V && grep -q "meerpersoonskamer" $V && grep -q "aanbetaling van € 100" $V
 grep -q 'href="/ClaudeCode/voorwaarden/">Lees de voorwaarden' $V
-grep -o '<nav id="hoofdmenu".*' -A30 $V | grep -o 'href="[^"]*"[^>]*>[^<]*' | head -8
+sed -n '/id="hoofdmenu"/,/<\/nav>/p' $V | grep -o '>[^<]*</a>' || true
 test "$(sed -n '/id="hoofdmenu"/,/<\/nav>/p' $V | grep -c '<li')" = "8"
 sed -n '/id="hoofdmenu"/,/<\/nav>/p' $V | grep -q 'href="/ClaudeCode/vragen/" aria-current="page">Veelgestelde vragen'
 echo "022 OK"
