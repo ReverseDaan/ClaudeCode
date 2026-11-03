@@ -204,8 +204,8 @@ claudecode/
     │       ├── ervaringen.njk      # quotes uit ervaringen.yaml
     │       ├── past-bij-mij.njk    # "Is dit iets voor mij?"
     │       ├── interesselijst.njk  # "Houd me op de hoogte"
-│       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
-│       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
+    │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
+    │       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
