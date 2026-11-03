@@ -69,6 +69,8 @@ menu:
     url: "/kalender/"
   - tekst: "Aanmelden"
     url: "/aanmelden/"
+  - tekst: "Veelgestelde vragen"
+    url: "/vragen/"
   - tekst: "Over de stichting"
     url: "/stichting/"
   - tekst: "Contact"

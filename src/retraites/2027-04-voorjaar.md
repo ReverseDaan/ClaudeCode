@@ -50,7 +50,7 @@ inbegrepen:
   - "Vier overnachtingen"
   - "Alle sessies: schilderen, meditatie en yoga"
   - "Schildermaterialen"
-  - "Maaltijden: volgt"
+  - "Alle maaltijden, plantaardig"
 
 # Wie begeleiden deze retraite? Gebruik de codes uit src/_data/personen.yaml.
 begeleiders:

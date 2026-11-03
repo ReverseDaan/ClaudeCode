@@ -13,25 +13,10 @@
   vragen:
     - vraag: "Heb ik ervaring nodig met schilderen of mediteren?"
       antwoord: "Nee. Ervaring is niet nodig. Het gaat om het proces, niet om een mooi resultaat. De meditaties en de creatieve sessies worden begeleid."
-    - vraag: "Kan ik ook alleen komen?"
-      antwoord: "Ja, je bent van harte welkom als je alleen komt. Je maakt deel uit van een kleine groep, en er is ruimte om elkaar te leren kennen, maar ook om op jezelf te zijn."
-    - vraag: "Is er een minimumleeftijd?"
-      antwoord: "Volgt."
     - vraag: "In welke taal wordt de retraite gegeven?"
       antwoord: "Volgt. Dat hangt mede af van de kunstenaar die de creatieve sessies begeleidt."
 
-- groep: "Tijdens de retraite"
-  vragen:
-    - vraag: "Hoe stil is het?"
-      antwoord: "We beginnen de dag in stilte, tot het einde van het ontbijt. Ook de creatieve sessie in de ochtend is een stille werksessie. Vanaf de lunch is er weer ruimte om te praten. De middag is vrij in te vullen."
-    - vraag: "Moet ik overal aan meedoen?"
-      antwoord: "De meditatie en de creatieve sessie in de ochtend vormen de kern van de dag. Yoga en de avondactiviteiten zijn er ter verdieping en zijn optioneel. Luister naar waar jij behoefte aan hebt."
-    - vraag: "Mag ik mijn telefoon gebruiken?"
-      antwoord: "We vragen je je telefoon zo veel mogelijk weg te leggen, zodat je echt kunt aankomen. In onze eerste retraite was er een vaste plek om telefoons op te bergen."
-    - vraag: "Wat eten we?"
-      antwoord: "Volgt."
-
-- groep: "Praktisch"
+- groep: "Verblijf"
   vragen:
     - vraag: "Wat neem ik mee?"
       antwoord: "Op de pagina van elke retraite staat een paklijst en een paar tips om je voor te bereiden."
@@ -39,9 +24,9 @@
         tekst: "Bekijk de retraites"
         url: "/retraites/"
     - vraag: "Waar slaap ik?"
-      antwoord: "Dat verschilt per locatie. Na je aanmelding hoor je hoe de kamers zijn ingedeeld."
-    - vraag: "Moet ik rekening houden met teken?"
-      antwoord: "We zijn veel buiten, in het bos en op de heide, waar teken voorkomen. Draag bij wandelingen een lange broek en dichte schoenen, en controleer jezelf elke avond even."
+      antwoord: "Meestal in een meerpersoonskamer. Er zijn ook een paar eenpersoonskamers; vraag ernaar bij je aanmelding."
+    - vraag: "Mag ik mijn telefoon gebruiken?"
+      antwoord: "Er is wifi, maar we vragen je je telefoon bij aankomst in te leveren. Moet je bereikbaar zijn voor thuis? Dan spreken we samen iets af."
 
 - groep: "Aanmelden en betalen"
   vragen:
@@ -51,6 +36,9 @@
         tekst: "Naar aanmelden"
         url: "/aanmelden/"
     - vraag: "Wanneer betaal ik?"
-      antwoord: "Pas als we je aanvraag hebben bevestigd. Je krijgt dan een betaallink."
+      antwoord: "Na het kennismakingsgesprek krijg je een betaallink. Met de aanbetaling van € 100 reserveer je je plek."
     - vraag: "Kan ik annuleren?"
-      antwoord: "Volgt. De regels voor annuleren en terugbetalen komen in de algemene voorwaarden."
+      antwoord: "Ja. Hoeveel je terugkrijgt, hangt af van hoe ver vooruit je annuleert."
+      link:
+        tekst: "Lees de voorwaarden"
+        url: "/voorwaarden/"

@@ -983,7 +983,7 @@ a:hover {
   font-style: italic;
 }
 
-/* Kaarten van begeleiders en oprichters */
+/* Kaarten van begeleiders */
 .personen-lijst {
   display: grid;
   gap: var(--ruimte-m);
