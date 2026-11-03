@@ -21,7 +21,8 @@ jobs:
           W=_site/wat-en-waarom/index.html
           sed -n '/<main/,/<\/main>/p' $W
           echo "--- volgorde koppen:"; grep -o '<h[23][^>]*>[^<]*' $W | sed 's/<h[23][^>]*>//' | tr '\n' '|'; echo
-          test "$(grep -o '<h2[^>]*>[^<]*' $W | sed 's/<h2[^>]*>//' | tr '\n' '|')" = "Wat het is|Voor wie|Waarom|Zo kan een dag eruitzien|Begeleiding|" || test "$(grep -o '<h[23][^>]*>[^<]*' $W | sed 's/<h[23][^>]*>//' | grep -v 'Daan Smit\|Vincent Nieuwenhuis' | tr '\n' '|')" = "Wat het is|Voor wie|Waarom|Zo kan een dag eruitzien|Begeleiding|"
+          sed -n '/<main/,/<\/main>/p' $W > main-w.html
+          test "$(grep -o '<h[23][^>]*>[^<]*' main-w.html | sed 's/<h[23][^>]*>//' | tr '\n' '|')" = "Wat het is|Voor wie|Waarom|Zo kan een dag eruitzien|Begeleiding|Daan Smit|Vincent Nieuwenhuis|"
           grep -q "<table>" $W && grep -q "<th>Tijd</th>" $W && grep -q "Ontbijt in stilte" $W
           grep -q "Een voorbeeld uit onze eerste retraite" $W
           test "$(grep -c 'class="persoon-kaart"' $W)" = "2"
@@ -36,7 +37,8 @@ jobs:
         run: |
           S=_site/stichting/index.html
           sed -n '/<main/,/<\/main>/p' $S
-          test "$(grep -o '<h2[^>]*>[^<]*' $S | sed 's/<h2[^>]*>//' | tr '\n' '|')" = "Missie|Hoe het begon|Wie wij zijn|Gegevens|"
+          sed -n '/<main/,/<\/main>/p' $S > main-s.html
+          test "$(grep -o '<h2[^>]*>[^<]*' main-s.html | sed 's/<h2[^>]*>//' | tr '\n' '|')" = "Missie|Hoe het begon|Wie wij zijn|Gegevens|"
           grep -q "Let op: voorbeeldgegevens." $S
           grep -q "12345678" $S && grep -q "123456789" $S && grep -q "Epe" $S
           grep -q "KvK: 12345678 (voorbeeld)" $S && grep -q "KvK: 12345678 (voorbeeld)" _site/index.html
