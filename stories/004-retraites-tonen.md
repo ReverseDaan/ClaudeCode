@@ -15,7 +15,7 @@ De retraitegegevens staan sinds story 003 klaar, maar worden nog nergens getoond
 ## Scope
 **Wel:**
 - **Eén herbruikbare retraitekaart** (`partials/retraite-kaart.njk`) met: titel, formaat, data (bijv. "za 25 – wo 29 april 2027"), locatie, prijs, status-label, samenvatting, "Onder voorbehoud" als `bevestigd: false`, en een label "Voorbeeld" als `voorbeeld: true`
-- **Retraites en events** (`/retraites/`): alle **komende** retraites, gegroepeerd per formaat (dag / weekend / meerdaags; lege groepen worden niet getoond). Elke kaart heeft een knop **"Aanmelden"** naar de aanmeldpagina, met deze retraite gemarkeerd
+- **Retraites en events** (`/retraites/`): alle **komende** retraites, **op datum** (de eerstvolgende bovenaan). Het formaat staat op de kaart. Elke kaart heeft een knop **"Aanmelden"** naar de aanmeldpagina, met deze retraite gemarkeerd
 - **Kalender** (`/kalender/`): alle komende retraites als **lijst per maand** (kop "April 2027", daaronder de retraites van die maand), met status
 - **Aanmelden** (`/aanmelden/`):
   - een korte uitleg dat aanmelden **een aanvraag is en geen directe boeking**, en wat er daarna gebeurt (beoordeling binnen enkele dagen, daarna bevestiging en betaallink, of wachtlijst)
@@ -33,13 +33,13 @@ De retraitegegevens staan sinds story 003 klaar, maar worden nog nergens getoond
 - Het blok "eerstvolgende retraite" op Home (US-02)
 
 ## Acceptatiecriteria
-1. **Gegeven** de voorjaarsretraite, **wanneer** ik `/retraites/` open, **dan** zie ik hem onder "Meerdaags" met titel, "25 – 29 april 2027", 't Zonnehuis in Loenen, € 495 en het label "Plekken vrij".
+1. **Gegeven** de voorjaarsretraite, **wanneer** ik `/retraites/` open, **dan** zie ik hem met titel, "Meerdaags", "25 – 29 april 2027", 't Zonnehuis in Loenen, € 495 en het label "Plekken vrij".
 2. **Gegeven** `/kalender/`, **dan** staat de voorjaarsretraite onder de kop "April 2027".
 3. **Gegeven** een kaart op `/retraites/`, **wanneer** ik op "Aanmelden" klik, **dan** kom ik op `/aanmelden/` met die retraite gemarkeerd en in beeld.
 4. **Gegeven** `/aanmelden/`, **dan** staat er duidelijk dat aanmelden een aanvraag is en geen boeking, en dat het formulier nog volgt, met een werkende mailto-link waarin de naam van de retraite in het onderwerp staat.
 5. **Gegeven** een retraite met status `vol`, **dan** staat op de kaart "Op de wachtlijst" in plaats van "Aanmelden"; **gegeven** `bevestigd: false`, **dan** staat er "Onder voorbehoud".
 6. **Gegeven** alleen retraites in het verleden, **dan** tonen alle drie de pagina's de tekst dat er geen retraites gepland staan, met een link naar Contact.
-7. **Gegeven** een kopie van het retraitebestand met andere data en een ander formaat, **dan** verschijnt die zonder verdere aanpassingen op alle drie de pagina's, op de juiste plek.
+7. **Gegeven** een kopie van het retraitebestand met andere data en een ander formaat, **dan** verschijnt die zonder verdere aanpassingen op alle drie de pagina's, op volgorde van datum.
 8. Werkt op 375 px breed zonder horizontaal scrollen, met voldoende contrast in alle vier de thema's, semantische HTML (lijsten, koppen, `<time>`) en met het toetsenbord bedienbaar.
 
 ## Inhoud en placeholders
@@ -48,20 +48,22 @@ De retraitegegevens staan sinds story 003 klaar, maar worden nog nergens getoond
 | Intro's van de drie pagina's | Bestaande intro's, licht aangepast | Placeholder, aan te passen |
 | Uitleg "aanvraag, geen boeking" | Korte tekst (2–3 zinnen) volgens de bezoekersroute uit het siteplan | Placeholder, ter review |
 | Melding formulier | "Het aanmeldformulier volgt binnenkort. Mail ons in de tussentijd: …" | Tijdelijk, tot US-11 |
-| Prijsweergave | Zie open vraag 1 | — |
+| Prijsweergave | "€ 495", zonder "werkprijs" | Bedrag is een werkprijs, maar dat staat niet op de site |
+| Contactadres (`site.yaml`) | stillnessandstrokes@gmail.com | Definitief (gedeeld S&S-adres) |
 
 ## Technische aanpak (kort)
 - `src/_includes/partials/retraite-kaart.njk` (nieuw)
 - `src/retraites.md`, `src/kalender.md`, `src/aanmelden.md`: tonen de collectie `komendeRetraites`; de teksten blijven in deze bestanden
-- `eleventy.config.js`: filters voor de datumweergave in het Nederlands ("25 – 29 april 2027", "April 2027"), een filter om per formaat en per maand te groeperen, en een vaste "slug" per retraite (uit de bestandsnaam) voor de link naar Aanmelden
+- `src/_data/site.yaml`: contactadres wordt het gedeelde S&S-adres (wijzigt ook de voettekst)
+- `eleventy.config.js`: filters voor de datumweergave in het Nederlands ("25 – 29 april 2027", "April 2027"), een filter om per maand te groeperen, en een vaste "slug" per retraite (uit de bestandsnaam) voor de link naar Aanmelden
 - `src/css/style.css`: nieuwe sectie voor kaarten en lijsten
 - Markering op Aanmelden via een anker (`/aanmelden/#2027-04-voorjaar`) en CSS `:target`, zonder JavaScript
 - Controle: echte Eleventy-build via een tijdelijke testworkflow (zoals bij story 003) en de live site in de browser op mobiel en desktop, in alle vier de thema's
 
 ## Open vragen voor Daan
-1. **Prijs:** "€ 495" tonen, of "€ 495 (werkprijs)" zodat zichtbaar is dat hij nog niet vastligt?
-2. **Volgorde Retraites en events:** per formaat (zoals in het siteplan) of gewoon op datum? Met nu één retraite maakt het weinig uit; bij meer retraites wel.
-3. **Mailto-link op Aanmelden:** mag het contactadres uit `site.yaml` gebruikt worden? Daar staat nu nog `info@voorbeeld.nl`. Wil je dat ik er het gedeelde adres van S&S in zet, of blijft het een placeholder?
+1. ~~Prijs?~~ "€ 495", zonder "werkprijs" (Daan, 3 nov 2026).
+2. ~~Volgorde?~~ Op datum (Daan, 3 nov 2026).
+3. ~~Mailadres?~~ Het gedeelde S&S-adres, stillnessandstrokes@gmail.com (Daan, 3 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
