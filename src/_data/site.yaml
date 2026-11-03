@@ -11,6 +11,10 @@
 # op de site automatisch ingevuld (logo, paginatitels, footer).
 naam: "Stillness and Strokes"
 
+# Het webadres van de site, zonder / aan het eind. Wordt gebruikt in de
+# agenda-bestanden (links terug naar de site). Pas aan bij een eigen domein.
+adres: "https://reversedaan.github.io/ClaudeCode"
+
 # Korte omschrijving voor zoekmachines en bij het delen op social media.
 omschrijving: "Retraites waarin je schildert en tekent als ingang om naar binnen te kijken en tot rust te komen. Geen ervaring nodig."
 

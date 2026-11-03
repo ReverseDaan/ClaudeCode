@@ -1033,3 +1033,20 @@ a:hover {
   font-size: 1.1rem;
   margin: var(--ruimte-s) 0 var(--ruimte-xs);
 }
+
+/* Tweede, rustigere knop naast de hoofdknop (bijv. "Zet in je agenda") */
+.knop--rustig {
+  background: transparent;
+  color: var(--kleur-bruin);
+  box-shadow: inset 0 0 0 2px var(--kleur-oker);
+}
+
+.knop--rustig:hover {
+  background: var(--kleur-zand-donker);
+}
+
+.retraite-pagina__acties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ruimte-s);
+}

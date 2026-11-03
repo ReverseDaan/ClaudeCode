@@ -40,6 +40,7 @@ layout: layouts/base.njk
       {% set knopTekst = "Op de wachtlijst" if status == "vol" else "Aanmelden" %}
       <p class="retraite-pagina__acties">
         <a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a>
+        <a class="knop knop--rustig" href="/retraites/{{ slug }}.ics" download>Zet in je agenda</a>
       </p>
     {% endif %}
 
