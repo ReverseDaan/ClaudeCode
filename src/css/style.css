@@ -1120,6 +1120,11 @@ a:hover {
 }
 
 /* "Is dit iets voor mij?" */
+.past-bij-mij h4 {
+  font-size: 1.15rem;
+  margin: 0 0 var(--ruimte-s);
+}
+
 .past-bij-mij {
   margin: var(--ruimte-m) 0 var(--ruimte-l);
 }

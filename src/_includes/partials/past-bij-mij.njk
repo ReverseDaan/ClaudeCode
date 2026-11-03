@@ -2,7 +2,7 @@
     Gebruik in een Markdown-pagina op een eigen regel, met een lege regel
     erboven en eronder. De uitvoer heeft daarom geen lege regels. -#}
 <section class="past-bij-mij" aria-labelledby="past-bij-mij-kop">
-<h3 id="past-bij-mij-kop">{{ pastbijmij.kop }}</h3>
+<h4 id="past-bij-mij-kop">{{ pastbijmij.kop }}</h4>
 <div class="uitklap-lijst">
 {%- for v in pastbijmij.vragen %}
 <details>
@@ -11,5 +11,5 @@
 </details>
 {%- endfor %}
 </div>
-<p>{{ pastbijmij.twijfel }} <a href="/contact/">Mail ons</a> of bekijk de <a href="/vragen/">veelgestelde vragen</a>.</p>
+<p>{{ pastbijmij.twijfel }} <a href="/contact/">Mail ons</a>, lees de <a href="/vragen/">veelgestelde vragen</a> of <a href="/retraites/">bekijk de retraites</a>.</p>
 </section>
