@@ -80,6 +80,8 @@ en gebruik tot die tijd placeholders.
 - **Naam en domein**: zie hierboven.
 - **Rechtsvorm** (stichting ja/nee): bepaalt of er echte KvK-, RSIN- en
   ANBI-gegevens op de site komen.
+  Tot die tijd staan er gegenereerde voorbeeldgegevens in `stichting.yaml`
+  (`voorbeeld: true` zet de melding "voorbeeldgegevens" aan). Daan, 3 nov 2026.
 - **Prijzen, data en locaties** van retraites: niet als bevestigd tonen tenzij
   Daan dat aangeeft. Ook de voorjaarsretraite van april 2027 is nog niet
   definitief.
@@ -193,6 +195,7 @@ claudecode/
     │       ├── header.njk
     │       ├── footer.njk
     │       ├── retraite-kaart.njk
+    │       ├── personen-lijst.njk  # kaarten van begeleiders/oprichters uit personen.yaml
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
@@ -242,10 +245,10 @@ wordt eerst een story in `stories/`.
 - [ ] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04)
 - [~] 9. Retraites en events (US-07, story 004: ter review), plus de eventpagina (US-08, nog te doen)
 - [x] 10. Kalender, als lijst per maand (US-09), story 004: ter review
-- [ ] 11. Wat en waarom (US-05, US-06)
+- [x] 11. Wat en waarom (US-05, US-06), story 005: ter review
 - [~] 12. Aanmelden, na de keuze voor een formulierdienst (US-11 t/m US-13). Story 004: retraitekeuze, uitleg en tijdelijke maillink staan; het formulier volgt
 - [ ] 13. Contact (US-15)
-- [ ] 14. Over de stichting, privacybeleid en voorwaarden (US-14, US-17)
+- [~] 14. Over de stichting (US-14, story 006: ter review, met voorbeeldgegevens), privacybeleid en voorwaarden (US-17, nog te doen)
 - [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
 - [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
 

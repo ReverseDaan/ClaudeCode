@@ -35,9 +35,11 @@
   <div class="container site-footer__onder">
     <p>© {{ jaar }} {{ site.naam }}</p>
     <ul class="site-footer__gegevens kale-lijst">
-      <li>KvK: {{ stichting.kvk }}</li>
-      <li>RSIN: {{ stichting.rsin }}</li>
-      <li>Statutaire zetel: {{ stichting.zetel }}</li>
+      {# Zolang er geen echte stichting is, staat er "(voorbeeld)" bij #}
+      {% set vb = " (voorbeeld)" if stichting.voorbeeld else "" %}
+      <li>KvK: {{ stichting.kvk }}{{ vb }}</li>
+      <li>RSIN: {{ stichting.rsin }}{{ vb }}</li>
+      <li>Statutaire zetel: {{ stichting.zetel }}{{ vb }}</li>
       {% if stichting.anbi %}<li>ANBI-instelling</li>{% endif %}
       <li><a href="/privacy/">Privacybeleid</a></li>
       <li><a href="/voorwaarden/">Algemene voorwaarden</a></li>

@@ -54,8 +54,8 @@ inbegrepen:
 
 # Wie begeleiden deze retraite? Gebruik de codes uit src/_data/personen.yaml.
 begeleiders:
-  - begeleider-1
-  - begeleider-2
+  - daan
+  - vincent
 
 # Foto's: bestandsnamen in src/images/. Mag leeg blijven: []
 fotos: []

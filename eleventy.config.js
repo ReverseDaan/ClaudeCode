@@ -1,5 +1,6 @@
 // Eleventy-configuratie.
 // Eleventy leest alles uit de map src/ en bouwt de website in de map _site/.
+import fs from "node:fs";
 import yaml from "js-yaml";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import {
@@ -69,6 +70,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("perMaand", perMaand);
   // {{ retraite.data.prijs.bedrag | prijsTekst }} → "€ 495"
   eleventyConfig.addFilter("prijsTekst", prijsTekst);
+
+  // Bestaat er een afbeelding met deze naam in src/images/?
+  // {% if persoon.foto | afbeeldingBestaat %} ... {% endif %}
+  eleventyConfig.addFilter("afbeeldingBestaat", (naam) =>
+    Boolean(naam) && fs.existsSync(`src/images/${naam}`)
+  );
 
   return {
     dir: {
