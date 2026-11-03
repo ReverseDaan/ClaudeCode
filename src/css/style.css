@@ -806,12 +806,90 @@ a:hover {
   font-size: var(--kop-3);
 }
 
-.aanmeld-uitleg ol {
-  padding-left: 1.25rem;
+/* De drie stappen van het aanmelden: op mobiel onder elkaar,
+   vanaf tabletbreedte naast elkaar. */
+.aanmeldstappen {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--ruimte-m);
+  display: grid;
+  gap: var(--ruimte-m);
 }
 
-.aanmeld-uitleg li + li {
-  margin-top: var(--ruimte-xs);
+.aanmeldstap {
+  display: flex;
+  gap: var(--ruimte-s);
+  align-items: flex-start;
+}
+
+.aanmeldstap__cijfer {
+  position: relative;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-kop);
+  font-size: var(--tekst-groot);
+  color: var(--kleur-bruin);
+}
+
+/* Handgetekend rondje om het cijfer */
+.aanmeldstap__cijfer svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--kleur-oker);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.aanmeldstap__kop {
+  display: block;
+  font-family: var(--font-kop);
+  font-size: var(--tekst-groot);
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+}
+
+/* Korte versie op de pagina van een retraite: alleen de koppen */
+.aanmeldstappen--kort {
+  gap: var(--ruimte-s);
+  margin-top: var(--ruimte-s);
+}
+
+.aanmeldstappen--kort .aanmeldstap {
+  align-items: center;
+}
+
+.aanmeldstappen--kort .aanmeldstap__cijfer {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: var(--tekst-basis);
+}
+
+.aanmeldstappen--kort .aanmeldstap__kop {
+  font-family: inherit;
+  font-size: var(--tekst-klein);
+  margin: 0;
+}
+
+@media (min-width: 48em) {
+  .aanmeldstappen {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Naast elkaar staat het cijfer boven de tekst, zodat de kolommen
+     breed genoeg blijven. De korte versie blijft onder elkaar. */
+  .aanmeldstappen:not(.aanmeldstappen--kort) .aanmeldstap {
+    flex-direction: column;
+  }
+
+  .aanmeldstappen--kort {
+    grid-template-columns: none;
+  }
 }
 
 .aanmeld-melding {
@@ -873,6 +951,14 @@ a:hover {
   vertical-align: top;
   padding: 0.55rem 0.75rem 0.55rem 0;
   border-bottom: 1px solid var(--kleur-zand-donker);
+  /* Lange woorden ("gezondheidsklachten") mogen afbreken op smalle schermen */
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.pagina__tekst th:last-child,
+.pagina__tekst td:last-child {
+  padding-right: 0;
 }
 
 .pagina__tekst th {
@@ -880,7 +966,9 @@ a:hover {
   color: var(--kleur-bruin-zacht);
 }
 
-.pagina__tekst td:first-child {
+/* Eerste kolom niet afbreken, maar alleen bij tabellen met twee kolommen
+   (zoals het dagritme). Bredere tabellen mogen op mobiel gewoon afbreken. */
+.pagina__tekst td:first-child:nth-last-child(2) {
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -961,6 +1049,21 @@ a:hover {
 
 .melding strong {
   display: block;
+}
+
+/* Iets wat nog niet bekend is ("volgt"): zichtbaar gemarkeerd */
+.volgt {
+  padding: 0 0.35em;
+  background: var(--kleur-zand-donker);
+  border-bottom: 2px dashed var(--kleur-oker);
+  font-style: italic;
+}
+
+/* "Laatst bijgewerkt" onderaan een pagina */
+.pagina__bijgewerkt {
+  margin-top: var(--ruimte-l);
+  font-size: var(--tekst-klein);
+  color: var(--kleur-bruin-zacht);
 }
 
 
@@ -1117,6 +1220,108 @@ a:hover {
   margin: var(--ruimte-xs) 0 0;
   font-size: var(--tekst-klein);
   color: var(--kleur-bruin-zacht);
+}
+
+/* Home: sectie op een zandvlak */
+.sectie--zand {
+  background: var(--kleur-zand-donker);
+}
+
+/* Home: intro */
+.home-intro p {
+  max-width: var(--breedte-tekst);
+  font-size: var(--tekst-groot);
+}
+
+/* Home: drie stappen, op mobiel onder elkaar */
+.home-stappen {
+  display: grid;
+  gap: var(--ruimte-l);
+}
+
+@media (min-width: 48em) {
+  .home-stappen {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.home-stap__icoon {
+  width: 3rem;
+  height: 3rem;
+  fill: none;
+  stroke: var(--kleur-mos);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-stap__kop {
+  font-size: var(--kop-3);
+  margin: var(--ruimte-xs) 0 var(--ruimte-xs);
+}
+
+.home-stap__tekst {
+  margin: 0;
+}
+
+/* Home: eerstvolgende retraite */
+.home-eerstvolgende {
+  max-width: 40rem;
+}
+
+/* Home: drie routes als grote links */
+.home-routes {
+  display: grid;
+  gap: var(--ruimte-m);
+}
+
+@media (min-width: 48em) {
+  .home-routes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.home-route {
+  display: block;
+  height: 100%;
+  padding: var(--ruimte-m);
+  border: 1px solid var(--kleur-zand-donker);
+  border-left: 4px solid var(--kleur-mos);
+  border-radius: var(--hoek);
+  color: var(--kleur-bruin);
+  text-decoration: none;
+}
+
+.home-route:hover {
+  background: var(--kleur-zand-donker);
+}
+
+.home-route__kop {
+  display: block;
+  font-family: var(--font-kop);
+  font-size: var(--kop-3);
+  color: var(--kleur-mos);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.home-route__tekst {
+  display: block;
+  margin-top: var(--ruimte-xs);
+}
+
+/* Scheidingslijn als penseelstreek */
+.penseelstreek {
+  width: min(16rem, 60%);
+  margin: 0 auto;
+}
+
+.penseelstreek svg {
+  display: block;
+  width: 100%;
+  height: 1.25rem;
+  fill: var(--kleur-oker);
+  opacity: 0.7;
 }
 
 /* "Is dit iets voor mij?" */

@@ -55,7 +55,10 @@ Elke retraite krijgt vanzelf een eigen pagina, bijv.
 `/retraites/2027-04-voorjaar/`. De paklijst en de voorbereidingstips op die
 pagina staan in `src/_data/praktisch.yaml` en gelden voor alle retraites. Wil
 je per retraite vertellen hoe je er komt, vul dan in het retraitebestand het
-veld `bereikbaarheid` in.
+veld `bereikbaarheid` in. Op dezelfde manier vul je per retraite
+`aankomst` en `vertrek` in (anders staat er "volgt"), `verblijf` (hoe je
+slaapt; zonder dit veld staat het blok "Slapen" er niet) en
+`digitale_rust: true` (dan staat het blok "Digitale rust" erbij).
 
 Een retraite wijzigen (bijv. de status op `vol` zetten) gaat op dezelfde
 manier: bestand openen, potloodje, aanpassen, **Commit changes**.
@@ -66,6 +69,28 @@ je ziet in gewone taal welk bestand en welk veld je moet aanpassen.
 
 Begeleiders staan in `src/_data/personen.yaml`. Een retraite verwijst ernaar
 met hun code (bijv. `daan`).
+
+## Aanmeldformulier koppelen
+
+Aanmelden gaat via een Google Form in het gedeelde account. Zolang er geen
+formulier gekoppeld is, opent de knop "Vraag een plek aan" een mail.
+
+1. Maak het formulier in Google Forms. Zet de vraag **Retraite** als eerste
+   vraag (kort antwoord). Zet onder **Instellingen → Antwoorden** aan:
+   *E-mailadressen verzamelen* en *Kopie van antwoorden naar respondent*
+   (dan krijgt de aanvrager een bevestiging). Zet bij **Antwoorden** de
+   melding per mail aan (dan krijgen jullie elke aanmelding in de mailbox).
+2. Kopieer de link van het formulier (knop **Verzenden** → linkje) en zet die
+   in `src/_data/site.yaml` bij `aanmeldformulier` → `url`.
+3. De code van de vraag "Retraite" vind je zo: kies in het formulier het
+   menu met de drie puntjes → **Vooraf ingevulde link ophalen**. Vul bij
+   Retraite iets in, klik **Link ophalen** en kopieer de link. Daarin staat
+   iets als `entry.123456789=...`. Zet `entry.123456789` bij `retraiteVeld`.
+4. **Commit changes.** De knoppen op de aanmeldpagina en op de pagina van elke
+   retraite openen nu het formulier, met de retraite al ingevuld.
+
+Heeft één retraite een eigen formulier, zet dan in dat retraitebestand een
+`aanmeldlink`. Die gaat voor het algemene formulier.
 
 ## Stijlen vergelijken
 

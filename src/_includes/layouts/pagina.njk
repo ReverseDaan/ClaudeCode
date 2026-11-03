@@ -2,7 +2,11 @@
 layout: layouts/base.njk
 ---
 {# Layout voor gewone pagina's: een kop met titel en (optioneel) een korte intro,
-   daaronder de tekst uit het Markdown-bestand. #}
+   daaronder de tekst uit het Markdown-bestand.
+   Optioneel in de front matter:
+   - concept: true      → melding bovenaan dat de tekst nog een concept is
+   - conceptTekst: "…"  → eigen tekst voor die melding
+   - bijgewerkt: "…"    → "Laatst bijgewerkt" onderaan #}
 <article class="pagina">
   <header class="pagina__kop">
     <div class="container">
@@ -12,6 +16,8 @@ layout: layouts/base.njk
   </header>
 
   <div class="container pagina__tekst">
+    {% if concept %}<p class="melding" role="note"><strong>Concept</strong> {{ conceptTekst or "Deze tekst is nog een concept en kan nog veranderen." }}</p>{% endif %}
     {{ content | safe }}
+    {% if bijgewerkt %}<p class="pagina__bijgewerkt">Laatst bijgewerkt: {{ bijgewerkt }}</p>{% endif %}
   </div>
 </article>

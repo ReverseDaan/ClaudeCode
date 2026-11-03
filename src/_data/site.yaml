@@ -38,6 +38,18 @@ interesselijst:
   knop: "Laat je e-mailadres achter"
   privacy: "We gebruiken je adres alleen om je te laten weten wanneer er een nieuwe retraite is. Afmelden kan altijd."
 
+# Aanmeldformulier: een Google Form in het gedeelde account.
+# Zolang "url" leeg is (""), opent de knop "Vraag een plek aan" een mail.
+#  - url: de link naar het formulier (eindigt meestal op /viewform)
+#  - retraiteVeld: de code van de vraag "Retraite" in het formulier,
+#    bijv. "entry.123456789". Hiermee staat de gekozen retraite al ingevuld.
+#    Hoe je die code vindt, staat in de README ("Aanmeldformulier koppelen").
+# Een retraite kan ook een eigen formulier hebben: zet dan in het
+# retraitebestand een "aanmeldlink". Die gaat voor.
+aanmeldformulier:
+  url: ""
+  retraiteVeld: ""
+
 # Links naar social media. Haal een regel weg als je een kanaal niet gebruikt.
 social:
   - naam: "Instagram"

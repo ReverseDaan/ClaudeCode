@@ -16,3 +16,48 @@ ervaringen:
   # Kop boven de ervaringen van deelnemers. De quotes zelf staan in
   # src/_data/ervaringen.yaml.
   kop: "Wat deelnemers zeggen"
+
+intro:
+  # Kop en tekst direct onder de grote foto. Elke regel met een streepje
+  # is een alinea.
+  kop: "Even uit de drukte"
+  tekst:
+    - "Een paar dagen weg uit de drukte, in de natuur. Je maakt iets met je handen, mediteert en wandelt, en gebruikt wat je maakt om rustig naar binnen te kijken."
+    - "Je hoeft niet te kunnen tekenen: het gaat om wat het maken met je doet, niet om het resultaat."
+
+stappen:
+  # De drie stappen. "icoon" is een van: aankomen, creeren, reflecteren
+  # (de tekeningen staan in src/_includes/partials/home-stappen.njk).
+  kop: "Aankomen, creëren, reflecteren"
+  lijst:
+    - icoon: "aankomen"
+      kop: "Aankomen"
+      tekst: "Je telefoon gaat even weg, je komt tot stilstand in de natuur."
+    - icoon: "creeren"
+      kop: "Creëren"
+      tekst: "Begeleid door een kunstenaar en zonder oordeel; het materiaal staat voor je klaar."
+    - icoon: "reflecteren"
+      kop: "Reflecteren"
+      tekst: "In stilte, op papier of in de groep: wat zegt jouw werk over jou?"
+
+eerstvolgende:
+  # Blok met de eerstvolgende retraite. Welke dat is, bepaalt de site zelf:
+  # de eerste retraite in de toekomst.
+  kop: "Eerstvolgende retraite"
+  knop: "Vraag een plek aan"
+  leeg: "Er staat op dit moment geen nieuwe retraite gepland."
+  leegLink: "Laat het ons weten als je bericht wilt"
+
+routes:
+  # Drie grote links onderaan de pagina.
+  kop: "Verder kijken"
+  lijst:
+    - kop: "Wat en waarom"
+      tekst: "Wat je doet, hoe een dag eruitziet en wie je begeleidt."
+      url: "/wat-en-waarom/"
+    - kop: "Kalender"
+      tekst: "Alle retraites op een rij, per maand."
+      url: "/kalender/"
+    - kop: "Over de stichting"
+      tekst: "Wie erachter zitten en waarom we dit doen."
+      url: "/stichting/"
