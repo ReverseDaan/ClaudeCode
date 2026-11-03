@@ -15,7 +15,7 @@ leeg: "Er staan op dit moment geen retraites gepland. Wil je bericht als er een 
 leegLink: "Laat het ons weten"
 ---
 <section class="aanmeld-uitleg" aria-labelledby="uitleg-kop">
-  <h2 id="uitleg-kop">{{ uitlegKop }}</h2>
+  <h2 class="aanmeld-kop" id="uitleg-kop">{{ uitlegKop }}</h2>
   <ol>
     {% for stap in uitleg %}<li>{{ stap }}</li>{% endfor %}
   </ol>
@@ -24,7 +24,7 @@ leegLink: "Laat het ons weten"
 <p class="aanmeld-melding" role="note">{{ formulierMelding }}</p>
 
 {% if collections.komendeRetraites.length %}
-<h2>{{ kiesKop }}</h2>
+<h2 class="aanmeld-kop">{{ kiesKop }}</h2>
 <ul class="retraite-lijst retraite-lijst--aanmelden kale-lijst">
   {% for r in collections.komendeRetraites %}
   <li>{% set retraite = r %}{% set knop = "mail" %}{% include "partials/retraite-kaart.njk" %}</li>
