@@ -1,6 +1,6 @@
 # 017 — Aanmelden in drie stappen, met kennismakingsgesprek
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 3 nov 2026)
 **Bron:** Drive: brochure 2025, dia 7 (aanmeldproces: mail → kort telefoongesprek → formulier + aanbetaling); Gmail: antwoorden aan geïnteresseerden in juni 2025 (Daan plant na een aanmelding een kort intakegesprek)
 **Afhankelijk van:** 015 (voorwaarden, voor de link)
 
@@ -14,7 +14,7 @@ De huidige uitleg op `/aanmelden/` noemt "aanvraag → bevestiging → betaallin
 
 ## Scope
 **Wel:**
-- De lijst "Zo werkt aanmelden" wordt een genummerde stappenrij met drie stappen: **1. Je vraagt een plek aan** · **2. We maken kort kennis** (±15 minuten, telefonisch of videobellen) · **3. Je plek is vast na de aanbetaling**
+- De lijst "Zo werkt aanmelden" wordt een genummerde stappenrij met drie stappen: **1. Je vraagt een plek aan** · **2. We maken kort kennis** (±15 minuten, telefonisch) · **3. Je plek is vast na de aanbetaling**
 - Elke stap: korte kop, één zin uitleg, klein handgetekend cijfer (SVG/CSS, in de stijl van de penseelstreken)
 - Onder stap 3 een link naar `/voorwaarden/`
 - Dezelfde drie stappen kort op de eventpagina, bij de aanmeldknop (alleen koppen)
@@ -41,16 +41,14 @@ De huidige uitleg op `/aanmelden/` noemt "aanvraag → bevestiging → betaallin
 | Onderdeel | Tekst/waarde | Definitief of placeholder? |
 |---|---|---|
 | Duur gesprek | "±15 minuten" | Concept |
-| Gesprek: telefoon of video | "even bellen" | Concept |
+| Gesprek | telefonisch | Definitief (Daan, 3 nov 2026) |
 
 ## Technische aanpak (kort)
 - `src/aanmelden.njk` (front matter + markup), nieuwe partial `partials/aanmeldstappen.njk` voor hergebruik op `layouts/retraite.njk`
 - CSS-sectie "Aanmeldstappen" in `style.css`
 
 ## Open vragen voor Daan
-1. Doen jullie het kennismakingsgesprek in 2027 weer met iedereen? *Af te stemmen met Vincent.*
-2. Wie belt: één vaste persoon of afwisselend? (Komt niet op de site, maar bepaalt de tekst "we".)
-3. Mag het ook als videogesprek?
+1. ~~Gesprek?~~ Ja, weer met iedereen, telefonisch (Daan, 3 nov 2026). Op de site staat "we".
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd

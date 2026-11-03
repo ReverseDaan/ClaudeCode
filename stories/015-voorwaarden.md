@@ -1,6 +1,6 @@
 # 015 — Voorwaarden: aanmelden, betalen en annuleren
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 3 nov 2026)
 **Bron:** `docs/pagina-opzet.md` (US-17); `docs/siteplan.md` (juridische eisen); Drive: brochure 2025, dia 7 (aanmeldproces en annuleringsvoorwaarden)
 **Afhankelijk van:** geen (017 en 018 linken hiernaartoe)
 
@@ -22,7 +22,7 @@ zodat **ik weet waar ik aan begin en niet voor verrassingen kom te staan**.
 
 **Niet:**
 - Juridische toetsing (dat doet een jurist; zie open vragen)
-- Bedragen in euro's per retraite (de aanbetaling noemen we als percentage of "volgt", zie open vragen)
+- Bedragen per retraite anders dan de aanbetaling
 - Privacybeleid (story 016)
 
 ## Conceptteksten
@@ -30,7 +30,7 @@ zodat **ik weet waar ik aan begin en niet voor verrassingen kom te staan**.
 > Met het formulier vraag je een plek aan. Dat is nog geen boeking. Na je aanvraag maken we kort kennis (meestal telefonisch). Daarna bevestigen we je plek en sturen we een betaallink.
 
 **Betalen**
-> Je plek is gereserveerd zodra de aanbetaling binnen is. Het restbedrag betaal je uiterlijk [termijn] voor de start. Je betaalt via een betaallink; op de site zelf reken je niets af.
+> Je plek is gereserveerd zodra de aanbetaling van € 100 binnen is. Het restbedrag betaal je uiterlijk [termijn] voor de start. Je betaalt via een betaallink; op de site zelf reken je niets af.
 
 **Annuleren door jou**
 
@@ -56,8 +56,8 @@ zodat **ik weet waar ik aan begin en niet voor verrassingen kom te staan**.
 ## Inhoud en placeholders
 | Onderdeel | Tekst/waarde | Definitief of placeholder? |
 |---|---|---|
-| Annuleringstermijnen | Brochure 2025 | Concept, opnieuw te bevestigen voor 2027 |
-| Aanbetaling | "De aanbetaling" (2025: € 153 bij € 785) | Bedrag/percentage volgt |
+| Annuleringstermijnen | Brochure 2025 | Definitief: overgenomen uit editie 1 (Daan, 3 nov 2026) |
+| Aanbetaling | € 100 (in de voorwaarden zelf, niet per retraite) | Definitief (Daan, 3 nov 2026) |
 | Termijn restbetaling | "volgt" | Placeholder |
 | Go/no-go-termijn | "volgt" | Placeholder; hangt aan de go/no-go-datum die nog niet vastligt |
 
@@ -67,8 +67,8 @@ zodat **ik weet waar ik aan begin en niet voor verrassingen kom te staan**.
 - Controle: echte build in GitHub Actions + browsercontrole
 
 ## Open vragen voor Daan
-1. Gelden de termijnen van 2025 (80% / 50% / wachtlijst) ook voor 2027? *Af te stemmen met Vincent.*
-2. Hoe hoog wordt de aanbetaling bij € 495: een vast bedrag of een percentage (2025 was ca. 20%)?
+1. ~~Termijnen?~~ Overnemen uit de vorige editie (Daan, 3 nov 2026).
+2. ~~Aanbetaling?~~ € 100 (Daan, 3 nov 2026).
 3. Wanneer moet het restbedrag binnen zijn, en tot wanneer kunnen jullie een retraite afblazen? Dat hangt samen met de go/no-go-datum die nog openstaat.
 4. Laat een jurist dit toetsen voor de lancering (o.a. herroepingsrecht: bij vrijetijdsdiensten op een vaste datum geldt dat meestal niet, maar dat moet een jurist bevestigen).
 

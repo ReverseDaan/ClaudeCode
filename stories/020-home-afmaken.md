@@ -1,6 +1,6 @@
 # 020 — Home afmaken: intro, drie stappen, eerstvolgende retraite en routes
 
-**Status:** Concept
+**Status:** Concept (herzien 3 nov 2026)
 **Bron:** `docs/pagina-opzet.md` (US-01, US-02, US-04); `docs/siteplan.md` sectie C (pagina 01, bezoekersroute); Drive: brochure 2025 (intro); Miro "Feedback": "leg uit wat creatiekracht betekent", "maak het toegankelijk voor wie zich niet kunstzinnig vindt"
 **Afhankelijk van:** 004 (retraites), 010 (ervaringen)
 
@@ -30,11 +30,11 @@ Home heeft nu alleen de hero, de ervaringen en (verborgen) de interesselijst. Di
 
 ## Conceptteksten
 **Intro**
-> Een paar dagen weg uit de drukte, in het bos. Je tekent en schildert, mediteert en wandelt, en gebruikt wat je maakt om rustig naar binnen te kijken. Je hoeft niet te kunnen tekenen: het gaat om wat het maken met je doet, niet om het resultaat.
+> Een paar dagen weg uit de drukte, in de natuur. Je maakt iets met je handen, mediteert en wandelt, en gebruikt wat je maakt om rustig naar binnen te kijken. Je hoeft niet te kunnen tekenen: het gaat om wat het maken met je doet, niet om het resultaat.
 
 **Drie stappen**
 - **Aankomen.** Je telefoon gaat even weg, je komt tot stilstand in de natuur.
-- **Creëren.** Met houtskool, verf en papier, begeleid en zonder oordeel.
+- **Creëren.** Begeleid door een kunstenaar en zonder oordeel; het materiaal staat voor je klaar.
 - **Reflecteren.** In stilte, op papier of in de groep: wat zegt jouw werk over jou?
 
 ## Acceptatiecriteria
@@ -60,7 +60,7 @@ Home heeft nu alleen de hero, de ervaringen en (verborgen) de interesselijst. Di
 - CSS-sectie "Home" in `style.css`
 
 ## Open vragen voor Daan
-1. Klopt "houtskool, verf en papier" voor de voorjaarsretraite, nu de kunstenaar nog niet bekend is? Zo niet: "tekenen en schilderen".
+1. "Houtskool, verf en papier" klopt niet (Daan, 3 nov 2026). Nu algemeen: "je maakt iets met je handen". Welke creatieve vorm(en) mogen we wél noemen, of houden we het algemeen tot de kunstenaar bekend is?
 2. Is "Reflecteren" in de groep een vast onderdeel (delingscirkel)? *Af te stemmen met Vincent.*
 
 ## Definition of Done

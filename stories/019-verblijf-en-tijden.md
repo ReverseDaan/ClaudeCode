@@ -1,6 +1,6 @@
 # 019 — Verblijf, aankomst en vertrek op de eventpagina
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 3 nov 2026)
 **Bron:** Gmail: vragen van geïnteresseerden (juni 2025) over kamers ("eigen of gedeelde kamer?"), wie er meedoen en de sfeer; Miro "Feedback": eindtijd van de laatste dag was onduidelijk, "plan rust in het weekend erna"; Drive: brochure 2025, dia 6 (aankomst zondag vanaf 18:00, einde vrijdag 17:00; telefoon inleveren bij aankomst)
 **Afhankelijk van:** 008 (eventpagina)
 
@@ -48,8 +48,8 @@ De vragen die in 2025 het vaakst per mail binnenkwamen, gingen over de kamers. D
 | Onderdeel | Tekst/waarde | Definitief of placeholder? |
 |---|---|---|
 | Aankomst/vertrek voorjaar 2027 | leeg → "volgt" | Placeholder tot afgestemd met Zonnehuis |
-| Verblijf Zonnehuis | leeg | Daan vult in na bevestiging |
-| Digitale rust | aan | Concept, af te stemmen met Vincent |
+| Verblijf Zonnehuis | "Je slaapt meestal in een meerpersoonskamer. Er zijn ook een paar eenpersoonskamers; vraag ernaar bij je aanmelding." | Concept (Zonnehuis: 32 plekken, enkele eenpersoons-, vooral meerpersoonskamers; Daan, 3 nov 2026). Het aantal plekken van de locatie komt niet op de site |
+| Digitale rust | aan | Definitief (Daan, 3 nov 2026) |
 
 ## Technische aanpak (kort)
 - `src/retraites/2027-04-voorjaar.md`: velden als commentaar-voorbeeld + `digitale_rust: true`
@@ -58,8 +58,8 @@ De vragen die in 2025 het vaakst per mail binnenkwamen, gingen over de kamers. D
 
 ## Open vragen voor Daan
 1. Hoe laat is aankomst en vertrek bij 't Zonnehuis? (In de Miro-tabel staat nog niets over slaapplekken voor Zonnehuis.)
-2. Hoe zijn de kamers daar (eenpersoons, gedeeld, op aanvraag)?
-3. Blijft het telefoon inleveren onderdeel van de retraite? *Af te stemmen met Vincent.*
+2. ~~Kamers?~~ Enkele eenpersoons-, vooral meerpersoonskamers (Daan, 3 nov 2026).
+3. ~~Telefoon inleveren?~~ Ja (Daan, 3 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd

@@ -963,6 +963,21 @@ a:hover {
   display: block;
 }
 
+/* Iets wat nog niet bekend is ("volgt"): zichtbaar gemarkeerd */
+.volgt {
+  padding: 0 0.35em;
+  background: var(--kleur-zand-donker);
+  border-bottom: 2px dashed var(--kleur-oker);
+  font-style: italic;
+}
+
+/* "Laatst bijgewerkt" onderaan een pagina */
+.pagina__bijgewerkt {
+  margin-top: var(--ruimte-l);
+  font-size: var(--tekst-klein);
+  color: var(--kleur-bruin-zacht);
+}
+
 
 /* ------------------------------------------------------------------
    11. Pagina van één retraite en uitklapblokken

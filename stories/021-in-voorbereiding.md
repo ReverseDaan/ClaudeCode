@@ -1,6 +1,6 @@
 # 021 — Retraites "in voorbereiding" tonen zonder datum
 
-**Status:** Concept
+**Status:** In de wacht (nog niet tonen; Daan, 3 nov 2026)
 **Bron:** Project "Waar we nu staan" (zomer/najaar 2027: OostRaven en Uelenspieghel in beeld); Miro "Weekender voorjaar" en "2026/27" (locaties met beschikbaarheid in mei, september–november); story 014 (interesselijst)
 **Afhankelijk van:** 004 (retraites), 014 (interesselijst)
 

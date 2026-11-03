@@ -1,6 +1,6 @@
 # 018 — Aanmeldformulier via Google Forms
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 3 nov 2026)
 **Bron:** `docs/pagina-opzet.md` (US-11 t/m US-13); Drive: Google Form "Aanmelding Retraite – Stilness & Strokes" (2025); eerder advies: Google Forms (gratis, mail naar jullie via meldingen, bevestigingsmail aan de aanvrager mogelijk)
 **Afhankelijk van:** 015 (voorwaarden), 016 (privacy), 017 (stappen)
 
@@ -26,12 +26,11 @@ Nu opent de knop een mail. Daan maakt zelf een Google Form (net als voor de inte
 - Een bedankpagina op de eigen site (Google Forms toont zelf een bevestiging; die tekst levert deze story wel aan)
 - Het formulier insluiten in een iframe (traag op mobiel, slechter toegankelijk)
 
-## Voorstel formuliervelden (voor Daan, op basis van 2025)
+## Formuliervelden (alleen het essentiële; Daan, 3 nov 2026)
 - Retraite (vooraf ingevuld) · Naam · E-mail · Telefoonnummer (voor het kennismakingsgesprek)
-- Wat trekt je aan in deze retraite? (open)
-- Dieetwensen of allergieën
-- Kamervoorkeur: geen voorkeur / samen met iemand die ik ken / eigen kamer op aanvraag
-- Is er iets waar we rekening mee kunnen houden? (open, vrijwillig)
+- Eetwensen of allergieën
+- Contra-indicaties of andere gezondheidsklachten waar we rekening mee moeten houden (vrijwillig)
+- Vinkje: "Ik geef toestemming dat jullie mijn gezondheidsgegevens gebruiken om de retraite veilig te begeleiden" (verplicht als het gezondheidsveld is ingevuld; zie 016)
 - Vinkje: "Ik heb de voorwaarden en het privacybeleid gelezen" (verplicht, met links)
 - Instellingen: "E-mailadressen verzamelen" + "Kopie van antwoorden naar respondent" aan → bevestigingsmail (US-12); meldingen aan voor de gedeelde mailbox (US-13)
 
@@ -48,7 +47,7 @@ Nu opent de knop een mail. Daan maakt zelf een Google Form (net als voor de inte
 | Onderdeel | Tekst/waarde | Definitief of placeholder? |
 |---|---|---|
 | Formulierlink | leeg | Daan vult in |
-| Bevestigingstekst in Google Forms | "Dank je wel! Je aanvraag is binnen. Binnen een paar dagen nemen we contact met je op voor een kort kennismakingsgesprek. Warme groet, Vincent & Daan" | Concept |
+| Bevestigingstekst in Google Forms | "Dank je wel! Je aanvraag is binnen. Binnen een paar dagen bellen we je voor een kort kennismakingsgesprek. Daarna ontvang je een betaallink voor de aanbetaling van € 100. Warme groet, Vincent & Daan" | Concept |
 
 ## Technische aanpak (kort)
 - `src/_data/site.yaml`: nieuw blok met uitleg-commentaar
@@ -57,9 +56,9 @@ Nu opent de knop een mail. Daan maakt zelf een Google Form (net als voor de inte
 - README: sectie "Aanmeldformulier koppelen"
 
 ## Open vragen voor Daan
-1. Welke velden wil je echt in het formulier? (Het voorstel hierboven is een start.)
-2. Vragen naar gezondheid/blessures: ja of nee? Raakt aan het privacybeleid (016).
-3. Gebruiken jullie Hipsy nog voor de betaling, of een betaallink (Mollie/Stripe)? Dat staat dan in de bevestiging.
+1. ~~Velden?~~ Alleen het essentiële, zie hierboven.
+2. ~~Gezondheid?~~ Ja, met uitdrukkelijke toestemming (016).
+3. ~~Betaling?~~ Betaallink, na het gesprek (Daan, 3 nov 2026). Welke dienst de link maakt, volgt.
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
