@@ -1,0 +1,11 @@
+{#- "Houd me op de hoogte": alleen zichtbaar als site.interesselijst.url
+    is ingevuld (src/_data/site.yaml). De knop opent het Google Form in een
+    nieuw tabblad. Geen lege regels in de uitvoer (zie personen-lijst.njk). -#}
+{%- if site.interesselijst and site.interesselijst.url %}
+<aside class="interesselijst" aria-labelledby="interesselijst-kop">
+<h2 class="interesselijst__kop" id="interesselijst-kop">{{ site.interesselijst.kop }}</h2>
+<p>{{ site.interesselijst.tekst }}</p>
+<p><a class="knop" href="{{ site.interesselijst.url }}" target="_blank" rel="noopener">{{ site.interesselijst.knop }}<span class="sr-only"> (opent in een nieuw tabblad)</span></a></p>
+<p class="interesselijst__privacy">{{ site.interesselijst.privacy }}</p>
+</aside>
+{%- endif %}

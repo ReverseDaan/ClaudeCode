@@ -33,5 +33,9 @@ leegLink: "Laat het ons weten"
   {% endfor %}
 </ul>
 {% else %}
+{% if site.interesselijst.url %}
+{% include "partials/interesselijst.njk" %}
+{% else %}
 <p class="retraite-leeg">{{ leeg }} <a href="/contact/">{{ leegLink }}</a>.</p>
+{% endif %}
 {% endif %}

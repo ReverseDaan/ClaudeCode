@@ -28,5 +28,14 @@ layout: layouts/base.njk
 </section>
 {% endif %}
 
+{# 3. Houd me op de hoogte (alleen als de link in site.yaml staat) #}
+{% if site.interesselijst.url %}
+<section class="sectie sectie--compact">
+  <div class="container">
+    {% include "partials/interesselijst.njk" %}
+  </div>
+</section>
+{% endif %}
+
 {# De volgende blokken (intro, drie stappen, eerstvolgende retraite)
    worden in de volgende stappen toegevoegd. #}

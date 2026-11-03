@@ -1128,3 +1128,27 @@ a:hover {
 .past-bij-mij {
   margin: var(--ruimte-m) 0 var(--ruimte-l);
 }
+
+/* "Houd me op de hoogte" */
+.sectie--compact {
+  padding-block: 0 var(--ruimte-xl);
+}
+
+.interesselijst {
+  max-width: var(--breedte-tekst);
+  padding: var(--ruimte-m);
+  margin: var(--ruimte-l) 0 0;
+  background: var(--kleur-zand-donker);
+  border-radius: var(--hoek);
+}
+
+.interesselijst .interesselijst__kop {
+  font-size: var(--kop-3);
+  margin: 0 0 var(--ruimte-xs);
+}
+
+.interesselijst__privacy {
+  margin: 0;
+  font-size: var(--tekst-klein);
+  color: var(--kleur-bruin-zacht);
+}
