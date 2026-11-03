@@ -1,6 +1,6 @@
 # 005 — Pagina "Wat en waarom" met dagritme en begeleiders
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-05, US-06); `docs/siteplan.md` sectie C (pagina 02); Drive: brochure 2025 (dia 2 en 3), Draaiboek editie 1, Weekprogramma editie 1, blogpost Daan
 **Afhankelijk van:** 003 (personendata)
 
@@ -107,8 +107,21 @@ De pagina staat nu op "in de maak". De teksten komen uit de brochure en het draa
 3. Rol bij beide: "Oprichter en begeleider" (volgt uit story 006: alleen oprichters).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd) en diezelfde build in Chrome op 375 px en 1280 px, in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Koppen in volgorde: Wat het is, Voor wie, Waarom, Zo kan een dag eruitzien, Begeleiding; teksten uit het concept |
+| 2 | ✅ Dagritme als echte tabel (`<table>` met kopregel), met "Een voorbeeld uit onze eerste retraite"; geen horizontaal scrollen op 375 px |
+| 3 | ✅ Kaarten voor Daan Smit en Vincent Nieuwenhuis met rol en bio; zonder foto een cirkel met de voorletter. Getest: een derde persoon en een echte foto verschijnen vanzelf |
+| 4 | ✅ Geen telefoonnummers of deelnemersgegevens op de pagina |
+| 5 | ✅ Naam komt uit `site.yaml`; geen losse `{{ }}` in de uitvoer |
+| 6 | ✅ Knop "Bekijk de retraites" onderaan; met Tab bereikbaar met focusrand, Enter opent `/retraites/` |
+| 7 | ✅ Eén h1, koppen in volgorde, alle tekst ≥ 4,5:1 contrast in alle vier de thema's, geen JavaScript-fouten |

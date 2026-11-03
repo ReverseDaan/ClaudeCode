@@ -1,6 +1,6 @@
 # 006 — Pagina "Over de stichting" met missie, geschiedenis en voorbeeldgegevens
 
-**Status:** Goedgekeurd
+**Status:** Gebouwd — ter review
 **Bron:** `docs/pagina-opzet.md` (US-14); `docs/siteplan.md` sectie C (pagina 06) en "Juridisch"; Drive: brochure 2025 (dia 2), Draaiboek en overleg editie 1
 **Afhankelijk van:** 005 (personen met echte namen); kan ook los gebouwd worden
 
@@ -81,8 +81,19 @@ De nummers zijn bewust herkenbaar nep (oplopende cijfers), zodat ze niet per ong
 3. ~~Zetel?~~ Epe als voorbeeld (Daan, 3 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (3 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd) en diezelfde build in Chrome op 375 px en 1280 px, in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Koppen in volgorde: Missie, Hoe het begon, Wie wij zijn, Gegevens; Rohit wordt niet genoemd |
+| 2 | ✅ Met `voorbeeld: true`: melding "Let op: voorbeeldgegevens…" en "(voorbeeld)" bij KvK, RSIN en zetel in de voettekst. Getest met `voorbeeld: false`: beide weg |
+| 3 | ✅ Met `anbi: false` staat er nergens ANBI; getest met `true`: verschijnt in de voettekst |
+| 4 | ✅ Kaarten uit `personen.yaml` (oprichters); geen telefoonnummers |
+| 5 | ✅ Semantische HTML, contrast ≥ 4,5:1 in alle vier de thema's, werkt op 375 px |
