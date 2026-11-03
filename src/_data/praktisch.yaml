@@ -37,3 +37,19 @@ voorbereiding:
   - "We beginnen de dagen vroeg en gaan op tijd naar bed. Als het lukt, pas je je thuis alvast een beetje aan dit ritme aan."
 
 bereikbaarheid_standaard: "Na je aanmelding ontvang je informatie over de bereikbaarheid van de locatie, carpoolen en eventueel samen reizen."
+
+# ------------------------------------------------------------------
+# Zo werkt aanmelden: de drie stappen op de pagina Aanmelden.
+# Op de pagina van elke retraite staan alleen de koppen, bij de knop.
+# "link" (optioneel) verschijnt achter de tekst van die stap.
+# ------------------------------------------------------------------
+aanmeldstappen:
+  - kop: "Je vraagt een plek aan"
+    tekst: "Via het formulier of per mail. Het is nog geen boeking."
+  - kop: "We maken kort kennis"
+    tekst: "Binnen een paar dagen bellen we je even, zo'n vijftien minuten. Zo kun je al je vragen stellen en voelen we samen of het klopt."
+  - kop: "Je plek is vast"
+    tekst: "Je krijgt een betaallink. Zodra de aanbetaling binnen is, is je plek gereserveerd."
+    link:
+      tekst: "Lees onze voorwaarden"
+      url: "/voorwaarden/"

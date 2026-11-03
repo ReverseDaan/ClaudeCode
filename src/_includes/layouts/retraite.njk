@@ -42,6 +42,8 @@ layout: layouts/base.njk
         <a class="knop" href="/aanmelden/#{{ slug }}">{{ knopTekst }}</a>
         <a class="knop knop--rustig" href="/retraites/{{ slug }}.ics" download>Zet in je agenda</a>
       </p>
+      <h2 class="sr-only">Zo werkt aanmelden</h2>
+      {% set kort = true %}{% include "partials/aanmeldstappen.njk" %}
     {% endif %}
 
     <h2>Over deze retraite</h2>

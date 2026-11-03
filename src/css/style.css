@@ -806,12 +806,78 @@ a:hover {
   font-size: var(--kop-3);
 }
 
-.aanmeld-uitleg ol {
-  padding-left: 1.25rem;
+/* De drie stappen van het aanmelden: op mobiel onder elkaar,
+   vanaf tabletbreedte naast elkaar. */
+.aanmeldstappen {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--ruimte-m);
+  display: grid;
+  gap: var(--ruimte-m);
 }
 
-.aanmeld-uitleg li + li {
-  margin-top: var(--ruimte-xs);
+.aanmeldstap {
+  display: flex;
+  gap: var(--ruimte-s);
+  align-items: flex-start;
+}
+
+.aanmeldstap__cijfer {
+  position: relative;
+  flex: 0 0 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-kop);
+  font-size: var(--tekst-groot);
+  color: var(--kleur-bruin);
+}
+
+/* Handgetekend rondje om het cijfer */
+.aanmeldstap__cijfer svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--kleur-oker);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.aanmeldstap__kop {
+  display: block;
+  font-family: var(--font-kop);
+  font-size: var(--tekst-groot);
+  margin-bottom: 0.15rem;
+}
+
+/* Korte versie op de pagina van een retraite: alleen de koppen */
+.aanmeldstappen--kort {
+  gap: var(--ruimte-s);
+  margin-top: var(--ruimte-s);
+}
+
+.aanmeldstappen--kort .aanmeldstap {
+  align-items: center;
+}
+
+.aanmeldstappen--kort .aanmeldstap__cijfer {
+  flex-basis: 2.25rem;
+  height: 2.25rem;
+  font-size: var(--tekst-basis);
+}
+
+.aanmeldstappen--kort .aanmeldstap__kop {
+  font-family: inherit;
+  font-size: var(--tekst-klein);
+  margin: 0;
+}
+
+@media (min-width: 48em) {
+  .aanmeldstappen {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .aanmeld-melding {
