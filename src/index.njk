@@ -18,7 +18,44 @@ layout: layouts/base.njk
   </svg>
 </section>
 
-{# 2. Ervaringen van deelnemers (src/_data/ervaringen.yaml) #}
+{# 2. Intro (src/_data/home.yaml) #}
+<section class="sectie home-intro" aria-labelledby="intro-kop">
+  <div class="container">
+    <h2 class="sectie__kop" id="intro-kop">{{ home.intro.kop }}</h2>
+    {% for alinea in home.intro.tekst %}<p>{{ alinea }}</p>{% endfor %}
+  </div>
+</section>
+
+{# 3. Drie stappen: aankomen, creëren, reflecteren #}
+<section class="sectie sectie--zand" aria-labelledby="stappen-kop">
+  <div class="container">
+    <h2 class="sectie__kop" id="stappen-kop">{{ home.stappen.kop }}</h2>
+    {% include "partials/home-stappen.njk" %}
+  </div>
+</section>
+
+{# 4. Eerstvolgende retraite: de eerste retraite met een datum in de toekomst #}
+{% set eerstvolgende = collections.komendeRetraites[0] %}
+<section class="sectie" aria-labelledby="eerstvolgende-kop">
+  <div class="container">
+    <h2 class="sectie__kop" id="eerstvolgende-kop">{{ home.eerstvolgende.kop }}</h2>
+    {% if eerstvolgende %}
+      <div class="home-eerstvolgende">
+        {% set retraite = eerstvolgende %}{% set knop = "aanmelden" %}{% set knopLabel = home.eerstvolgende.knop %}
+        {% include "partials/retraite-kaart.njk" %}
+      </div>
+    {% elif site.interesselijst.url %}
+      <p class="retraite-leeg">{{ home.eerstvolgende.leeg }}</p>
+      {% include "partials/interesselijst.njk" %}
+    {% else %}
+      <p class="retraite-leeg">{{ home.eerstvolgende.leeg }} <a href="/contact/">{{ home.eerstvolgende.leegLink }}</a>.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% include "partials/penseelstreek.njk" %}
+
+{# 5. Ervaringen van deelnemers (src/_data/ervaringen.yaml) #}
 {% if ervaringen and ervaringen.length %}
 <section class="sectie" aria-labelledby="ervaringen-kop">
   <div class="container">
@@ -28,8 +65,23 @@ layout: layouts/base.njk
 </section>
 {% endif %}
 
-{# 3. Houd me op de hoogte (alleen als de link in site.yaml staat) #}
-{% if site.interesselijst.url %}
+{% include "partials/penseelstreek.njk" %}
+
+{# 6. Drie routes naar de rest van de site #}
+<section class="sectie" aria-labelledby="routes-kop">
+  <div class="container">
+    <h2 class="sectie__kop" id="routes-kop">{{ home.routes.kop }}</h2>
+    <ul class="home-routes kale-lijst">
+      {% for route in home.routes.lijst %}
+      <li><a class="home-route" href="{{ route.url }}"><span class="home-route__kop">{{ route.kop }}</span><span class="home-route__tekst">{{ route.tekst }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{# 7. Houd me op de hoogte (alleen als de link in site.yaml staat; staat hij
+   al bij "Eerstvolgende retraite" omdat er niets gepland is, dan niet nog eens) #}
+{% if site.interesselijst.url and eerstvolgende %}
 <section class="sectie sectie--compact">
   <div class="container">
     {% include "partials/interesselijst.njk" %}
@@ -37,5 +89,3 @@ layout: layouts/base.njk
 </section>
 {% endif %}
 
-{# De volgende blokken (intro, drie stappen, eerstvolgende retraite)
-   worden in de volgende stappen toegevoegd. #}

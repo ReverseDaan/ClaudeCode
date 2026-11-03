@@ -40,7 +40,8 @@
   <p class="retraite-kaart__samenvatting">{{ d.samenvatting }}</p>
   <p class="retraite-kaart__meer"><a href="/retraites/{{ slug }}/">Meer informatie<span class="sr-only"> over {{ d.titel }}</span></a></p>
 
-  {% set knopTekst = "Op de wachtlijst" if d.status == "vol" else "Aanmelden" %}
+  {# knopLabel (optioneel) vervangt de tekst "Aanmelden", bijv. op Home #}
+  {% set knopTekst = "Op de wachtlijst" if d.status == "vol" else (knopLabel or "Aanmelden") %}
   {% if knop == "mail" %}
     {% set formulier = d | aanmeldUrl(site) %}
     {% set actie = "Zet me op de wachtlijst" if d.status == "vol" else "Vraag een plek aan" %}

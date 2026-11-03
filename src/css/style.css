@@ -1222,6 +1222,108 @@ a:hover {
   color: var(--kleur-bruin-zacht);
 }
 
+/* Home: sectie op een zandvlak */
+.sectie--zand {
+  background: var(--kleur-zand-donker);
+}
+
+/* Home: intro */
+.home-intro p {
+  max-width: var(--breedte-tekst);
+  font-size: var(--tekst-groot);
+}
+
+/* Home: drie stappen, op mobiel onder elkaar */
+.home-stappen {
+  display: grid;
+  gap: var(--ruimte-l);
+}
+
+@media (min-width: 48em) {
+  .home-stappen {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.home-stap__icoon {
+  width: 3rem;
+  height: 3rem;
+  fill: none;
+  stroke: var(--kleur-mos);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-stap__kop {
+  font-size: var(--kop-3);
+  margin: var(--ruimte-xs) 0 var(--ruimte-xs);
+}
+
+.home-stap__tekst {
+  margin: 0;
+}
+
+/* Home: eerstvolgende retraite */
+.home-eerstvolgende {
+  max-width: 40rem;
+}
+
+/* Home: drie routes als grote links */
+.home-routes {
+  display: grid;
+  gap: var(--ruimte-m);
+}
+
+@media (min-width: 48em) {
+  .home-routes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.home-route {
+  display: block;
+  height: 100%;
+  padding: var(--ruimte-m);
+  border: 1px solid var(--kleur-zand-donker);
+  border-left: 4px solid var(--kleur-mos);
+  border-radius: var(--hoek);
+  color: var(--kleur-bruin);
+  text-decoration: none;
+}
+
+.home-route:hover {
+  background: var(--kleur-zand-donker);
+}
+
+.home-route__kop {
+  display: block;
+  font-family: var(--font-kop);
+  font-size: var(--kop-3);
+  color: var(--kleur-mos);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.home-route__tekst {
+  display: block;
+  margin-top: var(--ruimte-xs);
+}
+
+/* Scheidingslijn als penseelstreek */
+.penseelstreek {
+  width: min(16rem, 60%);
+  margin: 0 auto;
+}
+
+.penseelstreek svg {
+  display: block;
+  width: 100%;
+  height: 1.25rem;
+  fill: var(--kleur-oker);
+  opacity: 0.7;
+}
+
 /* "Is dit iets voor mij?" */
 .past-bij-mij h4 {
   font-size: 1.15rem;
