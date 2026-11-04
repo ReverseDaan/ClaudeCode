@@ -281,6 +281,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 012: "Is dit iets voor mij?" op Wat en waarom: ter review
 - [x] Story 013: veelgestelde vragen op /vragen/: ter review
 - [x] Story 022: vragen opgeschoond, maaltijden plantaardig, rol Begeleider, menu-item Veelgestelde vragen: ter review
+- [x] Story 023: lettertypes zelf hosten, CSP, placeholders opgeruimd: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)

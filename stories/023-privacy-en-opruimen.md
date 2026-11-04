@@ -1,6 +1,6 @@
 # 023 — Lettertypes zelf hosten, beveiligingstags en placeholders opruimen
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Code-analyse 4 nov 2026 (punten 1, 2, 3, 9, 10 en onderhoud); privacybeleid (story 016)
 **Afhankelijk van:** geen
 
@@ -57,8 +57,24 @@ De site laadt de lettertypes nu bij Google. Daardoor ziet Google bij elk paginab
 2. ~~Lettertypes als npm-pakket?~~ Ja (Daan, 4 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), met varianten (met hero-foto, social link en interesselijst; stijlwisselaar uit), en de build in Chrome op 375 en 1280 px in alle vier de thema's, met controle van alle netwerkaanvragen en de console.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ 0 aanvragen naar een extern domein op zeven pagina's (Home, Wat en waarom, Retraites, eventpagina, Aanmelden, Vragen, Privacy); 10 `.woff2`-bestanden in `/fonts/` (samen ca. 190 kB, de browser laadt er per pagina 2 tot 5) |
+| 2 | ✅ Chrome laadt Cormorant Garamond (500, 600, 500 cursief) en Source Sans 3 (400, 600); koppen en tekst zien er hetzelfde uit als op de live site |
+| 3 | ✅ 0 CSP-meldingen in de console; menu, stijlwisselaar (thema wordt onthouden), uitklapblokken en de link naar Google Forms werken; geen inline `<script>` of `style="…"` meer |
+| 4 | ✅ Zonder social links geen "Volg ons"; met een testlink verschijnt hij met `rel="noopener noreferrer"` |
+| 5 | ✅ Zonder `hero-bos.jpg` geen `<img>` en 0 keer een 404-fout; met een testbestand verschijnt `<img class="hero__foto" … alt="Zonlicht valt …">` |
+| 6 | ✅ "Veelgestelde vragen" staat één keer in de voettekst |
+| 7 | ✅ `telefoon` en `plaats` zijn weg uit `site.yaml`; de build werkt |
+| 8 | ✅ Laagste contrast 4,77:1 (Zand); geen horizontaal scrollen op 375 px |
+
+Ook gedaan: met de stijlwisselaar uit laadt de site `fonts-themas.css` en `stijlwisselaar.js` niet. De interesselijst kreeg ook `noreferrer`. CLAUDE.md: regel over formulieren bijgewerkt en een nieuwe regel "Geen externe bronnen".
