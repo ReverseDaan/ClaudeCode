@@ -156,7 +156,8 @@ en gebruik tot die tijd placeholders.
 - **Geen externe bronnen**: lettertypes, scripts en stijlen komen van de site
   zelf (lettertypes via de npm-pakketten van Fontsource). De
   Content-Security-Policy in `base.njk` blokkeert al het andere; gebruik dus
-  geen `style="…"`-attributen en geen inline `<script>`.
+  geen `style="…"`-attributen en geen inline `<script>` (alleen de
+  speculation rules in `base.njk` en JSON-LD voor zoekmachines zijn toegestaan).
 - Hosting: **GitHub Pages**, via de workflow `.github/workflows/pages.yml`.
   Bij elke push naar `main` wordt de site gebouwd en gepubliceerd op
   https://reversedaan.github.io/ClaudeCode/. Omdat de site in een submap staat,
@@ -212,6 +213,7 @@ claudecode/
     │       ├── interesselijst.njk  # "Houd me op de hoogte"
     │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
     │       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
+    │       ├── landschap.njk       # getekend landschap achter de hero (per stijl)
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
@@ -223,6 +225,7 @@ claudecode/
     │   └── style.css
     ├── js/
     │   ├── vooraf.js       # draait in de <head>: js-class en onthouden thema
+    │   ├── landschap.js    # Home: naam schrijven en diepte (stijl 3)
     │   ├── menu.js
     │   └── stijlwisselaar.js
     ├── images/             # eigen foto's; nu alleen deelkaart.jpg (+ bron .svg)
@@ -279,7 +282,7 @@ wordt eerst een story in `stories/`.
 
 Extra stories (buiten het stappenplan):
 
-- [x] Story 002: stijlwisselaar met vier thema's (Bos, Zand, Groen & goud, Ochtend): ter review. Zet hem uit vóór de lancering (`site.yaml`).
+- [x] Story 002: stijlwisselaar met vier thema's (Bos, Zand, Penseel & papier, Ochtend): ter review. Zet hem uit vóór de lancering (`site.yaml`).
 - [x] Story 009: "Zet in je agenda" (.ics per retraite): ter review
 - [x] Story 010: ervaringen van deelnemers op Home en Wat en waarom (US-03): ter review
 - [ ] Story 011: galerij: in de wacht tot er foto's zijn
@@ -289,6 +292,9 @@ Extra stories (buiten het stappenplan):
 - [x] Story 023: lettertypes zelf hosten, CSP, placeholders opgeruimd: ter review
 - [x] Story 024: nachtelijke herbouw, 404-pagina, controle bij elke PR: ter review
 - [x] Story 025: deelkaart, evenementgegevens, sitemap, favicon: ter review
+- [x] Story 026: getekend landschap per stijl op Home, naam die geschreven wordt: ter review
+- [x] Story 028: thema Penseel & papier vervangt Groen & goud: ter review
+- [x] Story 027: vloeiende overgangen tussen pagina's (0,6 s): ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)

@@ -95,25 +95,27 @@
   --hoek: 10px;
 }
 
-/* Groen & goud: modern en zacht */
-[data-thema="groen-goud"] {
-  --kleur-mos: #3f6656;          /* eucalyptusgroen, voor links */
-  --kleur-mos-donker: #2b453a;   /* diep saliegroen, voor vlakken */
-  --kleur-zand: #f5f4ef;         /* gebroken wit */
-  --kleur-zand-donker: #e2e4d9;  /* lichte salie */
-  --kleur-aarde: #a98e4f;        /* gedempt goud, voor details */
-  --kleur-bruin: #23302a;        /* tekst: bijna zwart groen */
-  --kleur-bruin-zacht: #52615a;
-  --kleur-oker: #cdb06a;         /* zacht goud, voor knoppen */
-  --kleur-oker-licht: #dcc489;
+/* Penseel & papier: een schetsboek, met verzadigde kleuren op papier.
+   De papierstructuur en de penseelstreken staan in sectie 13. */
+[data-thema="penseel"] {
+  --kleur-mos: #2d3fa8;          /* ultramarijn, voor links en koppen */
+  --kleur-mos-donker: #1f2340;   /* diep indigo, voor vlakken (voettekst) */
+  --kleur-zand: #f6f0e4;         /* papier */
+  --kleur-zand-donker: #ebe0cc;  /* iets donkerder papier, voor vlakken */
+  --kleur-aarde: #d9482b;        /* vermiljoen, voor accenten en streken */
+  --kleur-bruin: #1f2340;        /* tekst: indigo inkt in plaats van zwart */
+  --kleur-bruin-zacht: #4a4f6e;
+  --kleur-oker: #f2b33d;         /* saffraangeel, voor knoppen */
+  --kleur-oker-licht: #f5c45f;
+  --kleur-groen: #3e8a5c;        /* een vleugje groen, voor details */
 
-  --hero-gloed-1: #86a393;
-  --hero-gloed-2: #3f6656;
-  --hero-verloop-van: #4f7464;
-  --hero-verloop-naar: #22372e;
+  --hero-gloed-1: #f2b33d;
+  --hero-gloed-2: #2d3fa8;
+  --hero-verloop-van: #f6f0e4;
+  --hero-verloop-naar: #ebe0cc;
 
   --font-kop: "Fraunces", Georgia, serif;
-  --hoek: 12px;
+  --hoek: 4px;
 }
 
 /* Ochtend: opwekkend en activerend, maar zacht */
@@ -510,28 +512,30 @@ a:hover {
    6. Homepagina
    ------------------------------------------------------------------ */
 
-/* Hero: grote bosafbeelding met naam, slogan en knop.
-   Lagen van boven naar onder:
-   1. een donker verloop (::before), zodat de tekst goed leesbaar blijft
-   2. de foto (<img class="hero__foto">, uit home.yaml), als die er is
-   3. een groen bosverloop, zichtbaar zolang er nog geen foto is */
+/* Hero: het getekende landschap met daarboven naam, slogan en knop.
+   Het landschap (partials/landschap.njk) ligt achter de tekst; per thema
+   een eigen tekening. Staat er een foto (hero-bos.jpg), dan toont de hero
+   de foto met een donker verloop en geen landschap. */
 .hero {
+  --hero-tekst: var(--kleur-zand);
+  --hero-schaduw: 0 2px 24px rgb(0 0 0 / 0.35);
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  min-height: min(88vh, 52rem);
-  padding-block: var(--ruimte-xl) calc(var(--ruimte-xl) + 3rem);
-  color: var(--kleur-zand);
+  align-items: flex-start;
+  min-height: min(92vh, 56rem);
+  padding-block: clamp(4rem, 13vh, 8rem) 40vh;
+  color: var(--hero-tekst);
   text-align: center;
   background-color: var(--kleur-mos-donker);
-  background-image:
-    radial-gradient(ellipse at 30% 20%, var(--hero-gloed-1) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 70%, var(--hero-gloed-2) 0%, transparent 60%),
-    linear-gradient(160deg, var(--hero-verloop-van) 0%, var(--hero-verloop-naar) 100%);
-  background-size: cover;
-  background-position: center;
-  isolation: isolate;
 }
+
+/* Kleur van de tekst in de hero per thema (de lucht verschilt). De
+   achtergrondkleur is de kleur van de lucht, voor als de tekening niet laadt. */
+[data-thema="zand"] .hero { background-color: #efc99a; --hero-tekst: #3f2a1a; --hero-schaduw: 0 1px 18px rgb(255 240 215 / 0.8); }
+[data-thema="penseel"] .hero { background-color: #f6f0e4; --hero-tekst: #1f2340; --hero-schaduw: none; }
+[data-thema="ochtend"] .hero { background-color: #fbe7dc; --hero-tekst: #2d2a33; --hero-schaduw: 0 1px 18px rgb(255 250 245 / 0.9); }
 
 .hero__foto {
   position: absolute;
@@ -542,7 +546,13 @@ a:hover {
   object-fit: cover;
 }
 
-.hero::before {
+/* Met foto: donker verloop voor leesbaarheid, lichte tekst, geen landschap */
+.hero:has(.hero__foto) {
+  --hero-tekst: var(--kleur-zand);
+  --hero-schaduw: 0 2px 24px rgb(0 0 0 / 0.35);
+}
+
+.hero:has(.hero__foto)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -550,17 +560,27 @@ a:hover {
   background: linear-gradient(180deg, rgb(30 26 16 / 0.35) 0%, rgb(30 26 16 / 0.55) 100%);
 }
 
+.hero:has(.hero__foto) .landschap {
+  display: none;
+}
+
 .hero__inhoud {
-  max-width: 48rem;
+  max-width: 44rem;
+}
+
+/* Op brede schermen staat de tekst iets links van het midden, boven het
+   pad; rechts staan de bomen. */
+@media (min-width: 900px) {
+  .hero__inhoud {
+    transform: translateX(-10vw);
+  }
 }
 
 .hero__titel {
   font-size: var(--kop-1);
   font-weight: 500;
   letter-spacing: 0.01em;
-  margin-bottom: var(--ruimte-m);
-  text-wrap: balance;
-  text-shadow: 0 2px 24px rgb(0 0 0 / 0.25);
+  margin-bottom: var(--ruimte-s);
 }
 
 .hero__slogan {
@@ -568,25 +588,160 @@ a:hover {
   max-width: 32rem;
   margin: 0 auto var(--ruimte-l);
   text-wrap: balance;
-  text-shadow: 0 1px 12px rgb(0 0 0 / 0.3);
+  text-shadow: var(--hero-schaduw);
 }
 
-/* De zachte heuvelrand onderaan de hero */
-.hero__rand {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
+/* De naam als SVG-tekst, zodat hij "geschreven" kan worden.
+   src/js/landschap.js maakt de tekening precies passend. */
+.hero__naam {
+  display: block;
   width: 100%;
-  height: clamp(3rem, 8vw, 6rem);
+  max-width: 40rem;
+  height: 1.3em;
+  margin-inline: auto;
+  overflow: visible;
+  font-size: min(var(--kop-1), 10vw);
 }
 
-.hero__rand-achter {
-  fill: var(--kleur-zand);
-  opacity: 0.45;
+.hero__naam.is-passend {
+  height: auto;
 }
 
-.hero__rand-voor {
+.hero__naam text {
+  font-family: var(--font-kop);
+  font-weight: 500;
+  fill: currentColor;
+  white-space: pre;
+  filter: drop-shadow(var(--hero-schaduw-svg, 0 0 0 transparent));
+}
+
+/* Penseelstreek onder de naam */
+.hero__streek {
+  display: block;
+  width: min(18rem, 60%);
+  height: 1.1rem;
+  margin: 0 auto var(--ruimte-m);
+  overflow: visible;
+}
+
+.hero__streek path {
+  fill: none;
+  stroke: var(--kleur-oker);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+[data-thema="penseel"] .hero__streek path { stroke: #d9482b; }
+[data-thema="ochtend"] .hero__streek path { stroke: #e0896c; }
+
+/* De naam wordt geschreven: alleen als vooraf.js de klasse "schrijf-naam"
+   heeft gezet (eerste bezoek aan Home of verversen, en niet bij "minder
+   beweging"). Eerst de omtrek van elke letter, dan vult de letter zich. */
+.schrijf-naam .hero__naam text {
+  fill-opacity: 0;
+}
+
+.schrijf-naam .hero__naam .letter {
+  fill-opacity: 0;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: letter-schrijven 1.1s ease-out forwards;
+}
+
+@keyframes letter-schrijven {
+  65% { stroke-dashoffset: 0; fill-opacity: 0; stroke-width: 1; }
+  100% { stroke-dashoffset: 0; fill-opacity: 1; stroke-width: 0; }
+}
+
+.schrijf-naam .hero__streek path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: streek-trekken 0.7s ease-in-out forwards;
+  animation-delay: 1.8s; /* landschap.js zet dit precies na de laatste letter */
+}
+
+@keyframes streek-trekken {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ------------------------------------------------------------------
+   6b. Landschap achter de hero (partials/landschap.njk)
+   ------------------------------------------------------------------ */
+.landschap {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.landschap__laag {
+  position: absolute;
+  display: block;
+}
+
+.landschap__lucht {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.landschap__pad {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 42%;
+}
+
+.landschap__bomen {
+  right: 0;
+  bottom: 0;
+  height: 58%;
+  width: auto;
+  aspect-ratio: 2 / 3;
+  max-width: 44vw;
+}
+
+/* Op brede schermen: hogere bomen, en het pad schuift met de tekst mee
+   naar links (de laag is breder dan het scherm, zodat er geen rand ontstaat) */
+@media (min-width: 900px) {
+  .landschap__bomen {
+    height: 100%;
+    max-width: 40vw;
+  }
+
+  .landschap__pad {
+    width: 120%;
+    left: -20%;
+  }
+}
+
+/* De grond vooraan heeft de kleur van de pagina, zodat de hero
+   naadloos overloopt in de rest */
+.landschap__grond-voor {
   fill: var(--kleur-zand);
+}
+
+/* Alleen de tekening van het actieve thema is zichtbaar */
+.landschap__thema {
+  display: none;
+}
+
+:root:not([data-thema]) .landschap__thema--bos,
+[data-thema="bos"] .landschap__thema--bos,
+[data-thema="zand"] .landschap__thema--zand,
+[data-thema="penseel"] .landschap__thema--penseel,
+[data-thema="ochtend"] .landschap__thema--ochtend {
+  display: inline;
+}
+
+/* Lagen die bij scrollen meebewegen (alleen thema 3, zie landschap.js) */
+.landschap__laag {
+  will-change: auto;
+}
+
+.met-diepte .landschap__laag {
+  will-change: transform;
 }
 
 
@@ -1378,4 +1533,211 @@ a:hover {
   margin: 0;
   font-size: var(--tekst-klein);
   color: var(--kleur-bruin-zacht);
+}
+
+
+/* ------------------------------------------------------------------
+   13. Thema Penseel & papier: papier en penseelstreken
+   Alleen actief met data-thema="penseel". De structuur en de streek
+   zijn kleine SVG-tekeningen in de CSS zelf (data-URL's), dus geen
+   extra bestanden en binnen de Content-Security-Policy.
+   ------------------------------------------------------------------ */
+[data-thema="penseel"] {
+  /* korrel van papier */
+  --papier: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.35 0 0 0 0 0.22 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E");
+  /* vlekkerigheid van papier (grotere, zachte vlekken) */
+  --papier-vlek: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0 0.3 0 0 0 0.35 -0.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23v)'/%3E%3C/svg%3E");
+  /* vorm van een penseelstreek, gebruikt als masker */
+  --streek: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 13c28-7 66-10 108-9 40 1 62 4 86-1 3 0 4 3 1 4-24 6-52 8-88 8-38 0-72 2-104 4-4 0-6-4-3-6z'/%3E%3C/svg%3E");
+}
+
+/* Papier over de hele pagina: een vaste laag die niet meescrolt en
+   niet klikbaar is, zodat alles (ook vlakken en kaarten) op papier staat. */
+[data-thema="penseel"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  background-image: var(--papier), var(--papier-vlek);
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+}
+
+/* Grote koppen in Fraunces cursief */
+[data-thema="penseel"] h1,
+[data-thema="penseel"] .pagina__tekst h2,
+[data-thema="penseel"] .sectie__kop,
+[data-thema="penseel"] .hero__naam text {
+  font-style: italic;
+}
+
+[data-thema="penseel"] h1,
+[data-thema="penseel"] h2 {
+  color: var(--kleur-mos);
+}
+
+/* Een vermiljoen penseelstreek onder de grote koppen */
+[data-thema="penseel"] .pagina__tekst h2::after,
+[data-thema="penseel"] .sectie__kop::after,
+[data-thema="penseel"] .pagina__kop h1::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 0.6rem;
+  margin-top: 0.4rem;
+  background: var(--kleur-aarde);
+  -webkit-mask: var(--streek) no-repeat center / 100% 100%;
+  mask: var(--streek) no-repeat center / 100% 100%;
+}
+
+/* Knoppen blijven strak; bij hover en focus verschijnt er een
+   penseelstreek onder */
+[data-thema="penseel"] .knop {
+  position: relative;
+  border-radius: var(--hoek);
+}
+
+[data-thema="penseel"] .knop::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -0.65rem;
+  height: 0.55rem;
+  background: var(--kleur-aarde);
+  -webkit-mask: var(--streek) no-repeat center / 100% 100%;
+  mask: var(--streek) no-repeat center / 100% 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s ease;
+}
+
+[data-thema="penseel"] .knop:hover::after,
+[data-thema="penseel"] .knop:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Huidige pagina in het menu: een penseelstreek in plaats van een lijn */
+@media (min-width: 1200px) {
+  [data-thema="penseel"] .hoofdmenu a {
+    position: relative;
+  }
+
+  [data-thema="penseel"] .hoofdmenu a[aria-current="page"] {
+    border-bottom-color: transparent;
+  }
+
+  [data-thema="penseel"] .hoofdmenu a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: -6%;
+    right: -6%;
+    bottom: -0.45rem;
+    height: 0.5rem;
+    background: var(--kleur-aarde);
+    -webkit-mask: var(--streek) no-repeat center / 100% 100%;
+    mask: var(--streek) no-repeat center / 100% 100%;
+  }
+}
+
+/* De scheidingslijnen worden brede, zichtbare verfstreken */
+[data-thema="penseel"] .penseelstreek {
+  width: min(26rem, 80%);
+}
+
+[data-thema="penseel"] .penseelstreek svg {
+  height: 2rem;
+  fill: var(--kleur-aarde);
+  opacity: 0.85;
+}
+
+/* Iets onregelmatige randen aan vlakken en kaarten, als gescheurd papier */
+[data-thema="penseel"] .retraite-kaart,
+[data-thema="penseel"] .ervaring,
+[data-thema="penseel"] .home-route,
+[data-thema="penseel"] .persoon-kaart,
+[data-thema="penseel"] .melding,
+[data-thema="penseel"] .interesselijst {
+  border-radius: 6px 3px 7px 2px / 3px 7px 2px 6px;
+}
+
+[data-thema="penseel"] .home-route {
+  border-left-color: var(--kleur-aarde);
+}
+
+[data-thema="penseel"] .home-stap__icoon {
+  stroke: var(--kleur-aarde);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-thema="penseel"] .knop::after {
+    transition: none;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   14. Vloeiende overgangen tussen pagina's (View Transitions)
+   De browser laat de oude pagina vervagen en de nieuwe zacht opkomen.
+   De bovenbalk, de voettekst en de stijlknop blijven staan. Browsers die
+   dit niet kennen (zoals Firefox nu), laden de pagina gewoon zoals altijd.
+   ------------------------------------------------------------------ */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header { view-transition-name: bovenbalk; }
+.site-footer { view-transition-name: voettekst; }
+.stijlwisselaar { view-transition-name: stijlknop; }
+[data-thema="penseel"] body::after { view-transition-name: papier; }
+
+/* Bovenbalk, voettekst en stijlknop: geen beweging */
+::view-transition-group(bovenbalk),
+::view-transition-group(voettekst),
+::view-transition-group(stijlknop),
+::view-transition-group(papier),
+::view-transition-old(papier),
+::view-transition-new(papier),
+::view-transition-old(bovenbalk),
+::view-transition-new(bovenbalk),
+::view-transition-old(voettekst),
+::view-transition-new(voettekst),
+::view-transition-old(stijlknop),
+::view-transition-new(stijlknop) {
+  animation: none;
+}
+
+/* De inhoud: de oude pagina vervaagt, de nieuwe komt zacht omhoog */
+::view-transition-old(root) {
+  animation: pagina-weg 0.3s ease-in both;
+}
+
+::view-transition-new(root) {
+  animation: pagina-komt 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes pagina-weg {
+  to { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes pagina-komt {
+  from { opacity: 0; transform: translateY(14px); }
+}
+
+/* Wie minder beweging wil: geen schuifbeweging, alleen een hele korte
+   vervaging */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.12s;
+  }
+
+  @keyframes pagina-komt {
+    from { opacity: 0; }
+  }
+
+  @keyframes pagina-weg {
+    to { opacity: 0; }
+  }
 }

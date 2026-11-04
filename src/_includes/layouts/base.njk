@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl"{% if site.stijlwisselaar.aan %} data-themas="{% for thema in site.stijlwisselaar.themas %}{{ thema.code }}{% if not loop.last %} {% endif %}{% endfor %}"{% endif %}>
+<html lang="nl"{% if page.url == "/" %} data-home{% endif %}{% if site.stijlwisselaar.aan %} data-themas="{% for thema in site.stijlwisselaar.themas %}{{ thema.code }}{% if not loop.last %} {% endif %}{% endfor %}"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +41,7 @@
   {# Beveiliging: de browser laadt alleen bestanden van deze site zelf
      (geen scripts, stijlen of lettertypes van andere servers). Links naar
      buiten, zoals Google Forms en mailto, blijven gewoon werken. #}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'inline-speculation-rules'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   {# Lettertypes van de eigen site: Cormorant Garamond (koppen) en
@@ -50,7 +50,7 @@
   <link rel="preload" href="/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/fonts.css">
   {% if site.stijlwisselaar.aan %}
-    {# Extra koplettertypes voor de thema's Groen & goud en Ochtend #}
+    {# Extra koplettertypes voor de thema's Penseel & papier en Ochtend #}
     <link rel="stylesheet" href="/css/fonts-themas.css">
   {% endif %}
 
@@ -64,6 +64,13 @@
     <script src="/js/stijlwisselaar.js" defer></script>
   {% endif %}
   <script src="/js/menu.js" defer></script>
+  {# Vloeiende overgangen: de browser haalt een pagina van de site alvast op
+     als je met de muis op een link blijft staan of erop tikt, zodat de
+     overgang niet hapert. Browsers die dit niet kennen, slaan het over. #}
+  <script type="speculationrules">
+  {"prefetch": [{"where": {"href_matches": "{{ '/' | url }}*"}, "eagerness": "moderate"}]}
+  </script>
+  {% if page.url == "/" %}<script src="/js/landschap.js" defer></script>{% endif %}
 </head>
 <body>
   <a class="skip-link" href="#inhoud">Direct naar de inhoud</a>
