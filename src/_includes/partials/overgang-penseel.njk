@@ -1,0 +1,20 @@
+{#- Het penseel dat in de stijl Penseel & papier bij een overgang tussen
+    pagina's over het scherm trekt (story 030). Normaal onzichtbaar; alleen
+    tijdens een overgang zet vooraf.js het aan, en de CSS (sectie 14) laat
+    het bewegen. Achter het penseel blijft een natte verfstreek achter.
+    Alleen versiering: schermlezers slaan het over. -#}
+<div class="overgang-penseel" aria-hidden="true">
+  <svg class="overgang-penseel__verf" viewBox="0 0 60 400" preserveAspectRatio="none" focusable="false">
+    <path d="M14 0c-8 20 10 34 2 56-7 20 12 34 4 58-8 22 10 36 2 60-6 20 12 36 4 58-8 22 10 34 2 56-6 18 8 34 4 52-2 14 6 26 4 40h36c4-16-8-30-2-46 6-18-10-30-2-50 8-20-8-34 0-56 6-18-10-32-2-54 8-22-8-36 0-58 6-18-8-32-2-50 4-14-2-26 0-36z"/>
+  </svg>
+  <svg class="overgang-penseel__kwast" viewBox="0 0 240 140" focusable="false">
+    {#- haren, nat van de verf -#}
+    <path class="overgang-penseel__haar" d="M8 72c14-22 50-30 90-22v40c-40 8-76 2-90-18z"/>
+    <path class="overgang-penseel__haar-licht" d="M30 66c20-8 44-10 66-6M24 76c22 2 48 4 72 2"/>
+    {#- metalen ring -#}
+    <path class="overgang-penseel__ring" d="M96 50h34v40H96z"/>
+    <path class="overgang-penseel__ring-lijn" d="M106 50v40M118 50v40"/>
+    {#- steel -#}
+    <path class="overgang-penseel__steel" d="M130 54L230 14c8-3 12 7 5 11L130 86z"/>
+  </svg>
+</div>

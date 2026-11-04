@@ -57,8 +57,8 @@
   --ruimte-xl: clamp(3.5rem, 2.5rem + 5vw, 7rem);
 
   /* Overig */
-  --breedte-max: 72rem;   /* maximale breedte van de inhoud */
-  --breedte-tekst: 38rem; /* prettige regellengte voor lopende tekst */
+  --breedte-max: 80rem;   /* maximale breedte van de inhoud */
+  --breedte-tekst: 44rem; /* prettige regellengte voor lopende tekst (ca. 75 tekens) */
   --hoek: 6px;
   --overgang: 250ms ease;
 }
@@ -772,6 +772,17 @@ a:hover {
 
 .pagina__tekst > * {
   max-width: var(--breedte-tekst);
+}
+
+/* Op een laptop staan de kop en de tekst van een pagina in één
+   gecentreerde kolom, in plaats van links met veel lege ruimte rechts.
+   Op de telefoon verandert er niets. */
+@media (min-width: 1024px) {
+  .pagina__kop > .container,
+  .pagina__tekst,
+  .home-intro > .container {
+    max-width: calc(var(--breedte-tekst) + 2 * var(--ruimte-m));
+  }
 }
 
 /* ------------------------------------------------------------------
@@ -1761,18 +1772,104 @@ a:hover {
 @keyframes overgang-naar-rechts { to { transform: translateX(28%); opacity: 0; } }
 @keyframes overgang-van-links { from { transform: translateX(-28%); opacity: 0; } }
 
-/* 3. Penseel & papier: ademhaling. De oude pagina zoomt een fractie weg,
-   de nieuwe komt van iets kleiner naar normaal. */
+/* 3. Penseel & papier: een echt penseel trekt van links naar rechts over
+   het scherm en laat een vermiljoen verfstreek achter; achter de streek
+   verschijnt de nieuwe pagina (story 030). Het penseel staat in
+   partials/overgang-penseel.njk en is alleen tijdens de overgang zichtbaar
+   (klasse "overgang-penseel-bezig", gezet door vooraf.js). */
+.overgang-penseel {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 250px;
+  height: 100vh;
+  pointer-events: none;
+  view-transition-name: penseel;
+}
+
+.overgang-penseel-bezig .overgang-penseel {
+  display: block;
+}
+
+.overgang-penseel__verf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 100%;
+  fill: #d9482b;
+  opacity: 0.95;
+}
+
+.overgang-penseel__kwast {
+  position: absolute;
+  top: calc(50% - 70px);
+  left: 6px;
+  width: 240px;
+  height: 140px;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 6px 10px rgb(31 35 64 / 0.25));
+}
+
+.overgang-penseel__haar { fill: #d9482b; }
+.overgang-penseel__haar-licht { fill: none; stroke: #f2b33d; stroke-width: 3; stroke-linecap: round; opacity: 0.7; }
+.overgang-penseel__ring { fill: #c9c3b4; }
+.overgang-penseel__ring-lijn { fill: none; stroke: #8f897c; stroke-width: 2; }
+.overgang-penseel__steel { fill: #1f2340; }
+
+@media (max-width: 600px) {
+  .overgang-penseel { width: 170px; }
+  .overgang-penseel__verf { width: 30px; }
+  .overgang-penseel__kwast { width: 160px; height: 94px; top: calc(50% - 47px); left: 2px; }
+}
+
 :root[data-thema="penseel"]::view-transition-old(root) {
-  animation: overgang-adem-uit 0.25s ease-in both;
+  animation: overgang-blijf 0.65s linear both;
 }
 
+/* De nieuwe pagina verschijnt links van de verfstreek: een masker met een
+   harde rand die precies gelijk met het penseel over het scherm schuift. */
 :root[data-thema="penseel"]::view-transition-new(root) {
-  animation: overgang-adem-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  -webkit-mask: linear-gradient(to right, #000 50%, transparent 50%) no-repeat;
+  mask: linear-gradient(to right, #000 50%, transparent 50%) no-repeat;
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  animation: overgang-geschilderd 0.65s cubic-bezier(0.45, 0, 0.25, 1) both;
 }
 
-@keyframes overgang-adem-uit { to { transform: scale(1.02); opacity: 0; } }
-@keyframes overgang-adem-in { from { transform: scale(0.97); opacity: 0; } }
+@keyframes overgang-geschilderd {
+  from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+  to { -webkit-mask-position: 0 0; mask-position: 0 0; }
+}
+
+/* Het penseel zelf: de verfstreek (midden op 23px van de linkerkant van
+   het penseel) loopt gelijk op met de rand van het masker. */
+::view-transition-group(penseel) {
+  animation: penseel-trekken 0.65s cubic-bezier(0.45, 0, 0.25, 1) both;
+}
+
+::view-transition-old(penseel),
+::view-transition-new(penseel) {
+  animation: none;
+}
+
+@keyframes penseel-trekken {
+  from { transform: translateX(-23px); }
+  to { transform: translateX(calc(100vw - 23px)); }
+}
+
+@media (max-width: 600px) {
+  @keyframes penseel-trekken {
+    from { transform: translateX(-15px); }
+    to { transform: translateX(calc(100vw - 15px)); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overgang-penseel { display: none !important; }
+}
 
 /* 4. Ochtend: de nieuwe pagina schuift als een vel papier van onderen
    omhoog over de oude, met een zachte schaduw aan de bovenrand. */

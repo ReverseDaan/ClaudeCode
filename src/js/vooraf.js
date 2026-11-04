@@ -70,3 +70,16 @@ window.addEventListener("pagereveal", function (event) {
     event.viewTransition.types.add("terug");
   }
 });
+
+// Penseel & papier: het penseel (partials/overgang-penseel.njk) is alleen
+// zichtbaar zolang de overgang loopt. Niet bij "minder beweging".
+window.addEventListener("pagereveal", function (event) {
+  if (!event.viewTransition) return;
+  if (document.documentElement.dataset.thema !== "penseel") return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var html = document.documentElement;
+  html.classList.add("overgang-penseel-bezig");
+  event.viewTransition.finished.finally(function () {
+    html.classList.remove("overgang-penseel-bezig");
+  });
+});
