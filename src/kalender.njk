@@ -1,10 +1,10 @@
 ---
-# Pagina "Kalender": dezelfde retraites als op "Retraites en events",
-# maar per maand. De teksten staan hier bovenin.
+# Pagina "Kalender": het overzicht van alle komende retraites, per maand.
+# De teksten staan hier bovenin; de retraites zelf komen uit src/retraites/.
 layout: layouts/pagina.njk
 title: "Kalender"
-description: "De komende retraites per maand, met datum en locatie."
-intro: "Alle komende data per maand. Klik op Aanmelden om een plek aan te vragen."
+description: "Alle komende retraites per maand, met datum, locatie en prijs. Geen ervaring nodig."
+intro: "Alle komende retraites, per maand. Geen ervaring nodig: je hoeft niet te kunnen schilderen om mee te doen."
 leeg: "Er staan op dit moment geen retraites gepland. Wil je bericht als er een nieuwe datum is?"
 leegLink: "Laat het ons weten"
 ---
@@ -19,6 +19,7 @@ leegLink: "Laat het ons weten"
   </ul>
 </section>
 {% endfor %}
+{% include "partials/interesselijst.njk" %}
 {% else %}
 {% if site.interesselijst.url %}
 {% include "partials/interesselijst.njk" %}

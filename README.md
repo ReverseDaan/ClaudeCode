@@ -52,7 +52,7 @@ toe, ook zonder programmeerkennis, rechtstreeks op GitHub:
 5. Klik op **Commit changes**. Na ongeveer een minuut is de site bijgewerkt.
 
 Elke retraite krijgt vanzelf een eigen pagina, bijv.
-`/retraites/2027-04-voorjaar/`. De paklijst en de voorbereidingstips op die
+`/kalender/2027-04-voorjaar/`. De paklijst en de voorbereidingstips op die
 pagina staan in `src/_data/praktisch.yaml` en gelden voor alle retraites. Wil
 je per retraite vertellen hoe je er komt, vul dan in het retraitebestand het
 veld `bereikbaarheid` in. Op dezelfde manier vul je per retraite
@@ -136,7 +136,7 @@ Pages"):
 - bij elke push of merge naar `main`; na ongeveer een minuut staat de nieuwe
   versie online;
 - elke nacht rond 04:00, zodat een retraite die voorbij is vanzelf van Home,
-  Retraites en Kalender verdwijnt, ook als er niets is aangepast.
+  en de Kalender verdwijnt, ook als er niets is aangepast.
 
 Een adres dat niet bestaat, toont de eigen pagina "Pagina niet gevonden"
 (`src/404.md`).

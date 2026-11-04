@@ -56,8 +56,10 @@ Daan heeft de pagina-opzet goedgekeurd (`docs/pagina-opzet.md`, story-overzicht
 US-01 t/m US-19). Daarin zijn deze punten besloten:
 
 - **Menu en pagina's: volg het siteplan**, plus "Veelgestelde vragen" (Daan,
-  3 nov 2026, story 022). Home · Wat en waarom · Retraites en events · Kalender ·
-  Aanmelden · Veelgestelde vragen · Over de stichting · Contact. "Over ons" en
+  3 nov 2026, story 022) en zonder "Retraites en events", omdat de Kalender
+  hetzelfde overzicht is (Daan, 4 nov 2026, story 030). Home · Wat en waarom ·
+  Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact.
+  Pagina's van losse retraites staan op `/kalender/<naam>/`. "Over ons" en
   "Programma" vervallen: de begeleiders en "een sessie stap voor stap" komen op
   Wat en waarom.
 - **Taal: eerst alles in het Nederlands**, maar zo opgezet dat Engels later onder
@@ -214,6 +216,7 @@ claudecode/
     │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
     │       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
     │       ├── landschap.njk       # getekend landschap achter de hero (per stijl)
+    │       ├── overgang-penseel.njk # het penseel bij een overgang (Penseel & papier)
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
@@ -231,8 +234,7 @@ claudecode/
     ├── images/             # eigen foto's; nu alleen deelkaart.jpg (+ bron .svg)
     ├── index.njk           # Home
     ├── wat-en-waarom.md
-    ├── retraites.njk       # Retraites en events (op datum)
-    ├── kalender.njk        # dezelfde retraites, per datum
+    ├── kalender.njk        # overzicht van alle komende retraites, per maand
     ├── aanmelden.njk
     ├── stichting.md        # Over de stichting
     ├── contact.md
@@ -271,7 +273,7 @@ wordt eerst een story in `stories/`.
 - [x] 6. Menu en voettekst volgens de nieuwe sitemap, plus lege pagina's (US-16), story 001: ter review
 - [x] 7. Retraite- en personendata met de voorjaarsretraite (US-18), story 003: ter review
 - [x] 8. Home afmaken: intro, drie blokken, eerstvolgende retraite, ervaringen, drie routes (US-01 t/m US-04), story 020: ter review
-- [x] 9. Retraites en events (US-07, story 004) en de eventpagina met praktische informatie (US-08, story 008): ter review
+- [x] 9. Retraites en events (US-07, story 004; sinds story 030 opgegaan in de Kalender) en de eventpagina met praktische informatie (US-08, story 008): ter review
 - [x] 10. Kalender, als lijst per maand (US-09), story 004: ter review
 - [x] 11. Wat en waarom (US-05, US-06), story 005: ter review
 - [x] 12. Aanmelden (US-11 t/m US-13): drie stappen (story 017) en Google Forms met vooraf ingevulde retraite (story 018): ter review. Daan maakt het formulier en zet de link in `site.yaml`
@@ -295,11 +297,12 @@ Extra stories (buiten het stappenplan):
 - [x] Story 026: getekend landschap per stijl op Home, naam die geschreven wordt: ter review
 - [x] Story 028: thema Penseel & papier vervangt Groen & goud: ter review
 - [x] Story 027: overgangen tussen pagina's en alvast ophalen: ter review (animatie vervangen door 029)
-- [x] Story 029: eigen overgang per stijl (Bos penseelstreek, Zand bladzijde, Penseel adem, Ochtend vel papier): ter review
+- [x] Story 029: eigen overgang per stijl (Bos penseelstreek, Zand bladzijde, Ochtend vel papier): ter review
+- [x] Story 030: Retraites uit het menu (Kalender is het overzicht), tekst gecentreerd en breder op de laptop, echt penseel bij Penseel & papier: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu
 
-Home · Wat en waarom · Retraites en events · Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact
+Home · Wat en waarom · Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact

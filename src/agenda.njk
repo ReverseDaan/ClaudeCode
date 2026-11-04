@@ -1,12 +1,12 @@
 ---
 # Maakt per komende retraite een agenda-bestand (.ics), bijv.
-# /retraites/2027-04-voorjaar.ics. Niet aanpassen: de gegevens komen
+# /kalender/2027-04-voorjaar.ics. Niet aanpassen: de gegevens komen
 # uit de retraitebestanden in src/retraites/.
 pagination:
   data: collections.komendeRetraites
   size: 1
   alias: retraite
-permalink: "/retraites/{{ retraite.page.fileSlug }}.ics"
+permalink: "/kalender/{{ retraite.page.fileSlug }}.ics"
 eleventyExcludeFromCollections: true
 ---
 {{ retraite | icsBestand(site) | safe }}

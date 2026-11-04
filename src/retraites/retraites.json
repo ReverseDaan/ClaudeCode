@@ -1,6 +1,6 @@
 {
-  "_uitleg": "Standaardinstellingen voor alle bestanden in deze map. Niet aanpassen. tags: zet elke retraite in de lijst met retraites. permalink: elke retraite krijgt een eigen pagina op /retraites/<bestandsnaam>/. layout: het sjabloon voor die pagina. De paginatitel en beschrijving komen uit de velden titel en samenvatting (zie base.njk).",
+  "_uitleg": "Standaardinstellingen voor alle bestanden in deze map. Niet aanpassen. tags: zet elke retraite in de lijst met retraites. permalink: elke retraite krijgt een eigen pagina op /kalender/<bestandsnaam>/. layout: het sjabloon voor die pagina. De paginatitel en beschrijving komen uit de velden titel en samenvatting (zie base.njk).",
   "tags": "retraite",
   "layout": "layouts/retraite.njk",
-  "permalink": "/retraites/{{ page.fileSlug }}/"
+  "permalink": "/kalender/{{ page.fileSlug }}/"
 }
