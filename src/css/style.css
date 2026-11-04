@@ -776,11 +776,12 @@ a:hover {
 
 /* Op een laptop staan de kop en de tekst van een pagina in één
    gecentreerde kolom, in plaats van links met veel lege ruimte rechts.
-   Op de telefoon verandert er niets. */
+   Home niet: daar staan blokken over de volle breedte, en een gecentreerde
+   intro zou scheef staan ten opzichte van de rest. Op de telefoon verandert
+   er niets. */
 @media (min-width: 1024px) {
   .pagina__kop > .container,
-  .pagina__tekst,
-  .home-intro > .container {
+  .pagina__tekst {
     max-width: calc(var(--breedte-tekst) + 2 * var(--ruimte-m));
   }
 }
