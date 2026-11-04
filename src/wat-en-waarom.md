@@ -4,6 +4,7 @@
 # De begeleiders komen uit src/_data/personen.yaml.
 layout: layouts/pagina.njk
 title: "Wat en waarom"
+description: "Wat je doet tijdens een retraite: stilte, meditatie, yoga en creatief werken in de natuur. Met een voorbeelddag en wie je begeleidt."
 intro: "In een wereld waarin alles om jouw aandacht vraagt, groeit de noodzaak om te kunnen verbinden met jezelf en je omgeving."
 ---
 

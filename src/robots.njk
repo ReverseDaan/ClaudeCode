@@ -1,0 +1,12 @@
+---
+# Instructies voor zoekmachines (/robots.txt): alles mag geïndexeerd worden,
+# en hier staat de sitemap. Let op: zolang de site in een submap staat
+# (/ClaudeCode/), kijken zoekmachines hier nog niet naar; bij een eigen
+# domein wel.
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.adres | replace(r/\/$/, "") }}/sitemap.xml

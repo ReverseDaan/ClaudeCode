@@ -8,6 +8,7 @@
 # Nog niet bekend? Schrijf <span class="volgt">volgt</span>: dat wordt gemarkeerd.
 layout: layouts/pagina.njk
 title: "Privacybeleid"
+description: "Welke gegevens we vragen, waarom, hoe lang we ze bewaren en wat je rechten zijn."
 intro: "Wat we met je gegevens doen."
 concept: true
 conceptTekst: "Dit privacybeleid is nog een concept. We laten het controleren voordat de aanmeldingen opengaan."

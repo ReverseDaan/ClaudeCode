@@ -3,6 +3,11 @@ layout: layouts/base.njk
 ---
 {# Homepagina. De teksten staan in src/_data/home.yaml. #}
 
+{# Gegevens over de organisatie, voor zoekmachines #}
+<script type="application/ld+json">
+{{ site | organisatieGegevens | jsonLd | safe }}
+</script>
+
 {# 1. Hero: grote bosafbeelding met naam, slogan en knop #}
 {# De foto staat alleen op de pagina als het bestand echt bestaat;
    anders zie je het groene bosverloop uit de CSS. #}

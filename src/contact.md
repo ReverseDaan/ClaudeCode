@@ -2,6 +2,7 @@
 # Pagina "Contact". Het e-mailadres komt uit src/_data/site.yaml.
 layout: layouts/pagina.njk
 title: "Contact"
+description: "Een vraag over een retraite of over aanmelden? Mail ons, we denken graag met je mee."
 intro: "Heb je een vraag over een retraite, het programma of het aanmelden? We denken graag met je mee."
 ---
 

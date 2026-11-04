@@ -8,6 +8,14 @@ layout: layouts/base.njk
 {% set voorbij = eind | isVoorbij %}
 {# Aanmeldformulier (site.yaml of eigen aanmeldlink); leeg = naar de aanmeldpagina #}
 {% set formulier = { titel: titel, start: start, eind: eind, aanmeldlink: aanmeldlink } | aanmeldUrl(site) %}
+{# Evenementgegevens voor zoekmachines: alleen voor bevestigde, komende retraites #}
+{% set aanmeldAdres = formulier or ((site.adres | replace(r/\/$/, "")) + "/aanmelden/#" + slug) %}
+{% set evenement = { titel: titel, samenvatting: samenvatting, start: start, eind: eind, bevestigd: bevestigd, locatie: locatie, prijs: prijs, status: status } | eventGegevens(site, page.url, aanmeldAdres) %}
+{% if evenement %}
+<script type="application/ld+json">
+{{ evenement | jsonLd | safe }}
+</script>
+{% endif %}
 <article class="pagina retraite-pagina">
   <header class="pagina__kop">
     <div class="container">

@@ -10,6 +10,7 @@
 # dat verschijnt op de site gemarkeerd, zodat het niet per ongeluk live gaat.
 layout: layouts/pagina.njk
 title: "Algemene voorwaarden"
+description: "Afspraken over aanmelden, de aanbetaling en annuleren."
 intro: "Afspraken over aanmelden, betalen en annuleren."
 concept: true
 conceptTekst: "Deze voorwaarden zijn nog een concept. Wat gemarkeerd is met „volgt” maken we bekend voordat de aanmeldingen opengaan."

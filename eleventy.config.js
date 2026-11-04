@@ -6,6 +6,7 @@ import { HtmlBasePlugin } from "@11ty/eleventy";
 import {
   controleerRetraite, sorteerOpStart, komende, STATUSSEN,
   datumBereik, isoDatum, perMaand, prijsTekst, isVoorbij, personenMetCodes, icsBestand, aanmeldUrl,
+  jsonLd, eventGegevens, organisatieGegevens,
 } from "./lib/retraites.js";
 
 export default function (eleventyConfig) {
@@ -16,6 +17,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
+  // Icoontjes voor het browsertabblad en het beginscherm van een telefoon
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon.png");
+  eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
 
   // Lettertypes: alleen de bestanden die de site gebruikt, uit de
   // npm-pakketten van Fontsource. Komen op de site in /fonts/.
@@ -94,6 +99,13 @@ export default function (eleventyConfig) {
   // Link naar het aanmeldformulier (of "" als er geen is):
   // {% set formulier = retraite.data | aanmeldUrl(site) %}
   eleventyConfig.addFilter("aanmeldUrl", (gegevens, site) => aanmeldUrl(gegevens, site.aanmeldformulier));
+
+  // Gestructureerde gegevens voor zoekmachines (zie lib/retraites.js):
+  // {{ gegevens | jsonLd | safe }} in een <script type="application/ld+json">
+  eleventyConfig.addFilter("jsonLd", jsonLd);
+  eleventyConfig.addFilter("eventGegevens", (d, site, paginaUrl, aanmelden) =>
+    eventGegevens(d, site, paginaUrl, aanmelden));
+  eleventyConfig.addFilter("organisatieGegevens", organisatieGegevens);
 
   // Agenda-bestand voor een retraite (zie src/agenda.njk)
   eleventyConfig.addFilter("icsBestand", (retraite, site) =>
