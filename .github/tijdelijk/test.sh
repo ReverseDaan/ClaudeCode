@@ -3,15 +3,15 @@ npm ci 2>&1 | tail -1
 bouw() { npx @11ty/eleventy --pathprefix=/ClaudeCode/ 2>&1 | grep -v Deprecation | grep -v Benchmark | tail -1; }
 bouw
 node lib/controle.js _site /ClaudeCode/
-echo "== 028"
-grep -q 'data-themas="bos zand penseel ochtend"' _site/index.html
-! grep -rq "groen-goud" _site
-test -f _site/fonts/fraunces-latin-500-italic.woff2 && test -f _site/fonts/fraunces-latin-600-italic.woff2
-grep -q "Penseel &amp; papier" _site/index.html
-sed -i 's/^  aan: true/  aan: false/' src/_data/site.yaml
-bouw
-! grep -q "fonts-themas.css" _site/index.html
-git checkout -- src/
-echo "028 OK"
+echo "== 027"
+grep -q "script-src 'self' 'inline-speculation-rules'" _site/index.html
+grep -q '"href_matches": "/ClaudeCode/\*"' _site/index.html
+grep -q "@view-transition" _site/css/style.css
+python3 - <<'PY'
+import json,re
+h=open("_site/index.html").read()
+b=re.search(r'<script type="speculationrules">(.*?)</script>',h,re.S).group(1); print(json.loads(b))
+PY
+echo "027 OK"
 bouw
 echo "SITE-BEGIN"; tar czf - _site | base64 -w0; echo; echo "SITE-EINDE"

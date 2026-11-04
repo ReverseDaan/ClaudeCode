@@ -156,7 +156,8 @@ en gebruik tot die tijd placeholders.
 - **Geen externe bronnen**: lettertypes, scripts en stijlen komen van de site
   zelf (lettertypes via de npm-pakketten van Fontsource). De
   Content-Security-Policy in `base.njk` blokkeert al het andere; gebruik dus
-  geen `style="…"`-attributen en geen inline `<script>`.
+  geen `style="…"`-attributen en geen inline `<script>` (alleen de
+  speculation rules in `base.njk` en JSON-LD voor zoekmachines zijn toegestaan).
 - Hosting: **GitHub Pages**, via de workflow `.github/workflows/pages.yml`.
   Bij elke push naar `main` wordt de site gebouwd en gepubliceerd op
   https://reversedaan.github.io/ClaudeCode/. Omdat de site in een submap staat,

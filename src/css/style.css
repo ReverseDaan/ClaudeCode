@@ -1675,3 +1675,69 @@ a:hover {
     transition: none;
   }
 }
+
+
+/* ------------------------------------------------------------------
+   14. Vloeiende overgangen tussen pagina's (View Transitions)
+   De browser laat de oude pagina vervagen en de nieuwe zacht opkomen.
+   De bovenbalk, de voettekst en de stijlknop blijven staan. Browsers die
+   dit niet kennen (zoals Firefox nu), laden de pagina gewoon zoals altijd.
+   ------------------------------------------------------------------ */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header { view-transition-name: bovenbalk; }
+.site-footer { view-transition-name: voettekst; }
+.stijlwisselaar { view-transition-name: stijlknop; }
+[data-thema="penseel"] body::after { view-transition-name: papier; }
+
+/* Bovenbalk, voettekst en stijlknop: geen beweging */
+::view-transition-group(bovenbalk),
+::view-transition-group(voettekst),
+::view-transition-group(stijlknop),
+::view-transition-group(papier),
+::view-transition-old(papier),
+::view-transition-new(papier),
+::view-transition-old(bovenbalk),
+::view-transition-new(bovenbalk),
+::view-transition-old(voettekst),
+::view-transition-new(voettekst),
+::view-transition-old(stijlknop),
+::view-transition-new(stijlknop) {
+  animation: none;
+}
+
+/* De inhoud: de oude pagina vervaagt, de nieuwe komt zacht omhoog */
+::view-transition-old(root) {
+  animation: pagina-weg 0.3s ease-in both;
+}
+
+::view-transition-new(root) {
+  animation: pagina-komt 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes pagina-weg {
+  to { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes pagina-komt {
+  from { opacity: 0; transform: translateY(14px); }
+}
+
+/* Wie minder beweging wil: geen schuifbeweging, alleen een hele korte
+   vervaging */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.12s;
+  }
+
+  @keyframes pagina-komt {
+    from { opacity: 0; }
+  }
+
+  @keyframes pagina-weg {
+    to { opacity: 0; }
+  }
+}
