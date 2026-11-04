@@ -1,6 +1,6 @@
 # 026 — Home: een getekend boslandschap met pad, en een penseelstreek die de naam schrijft
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 4 nov 2026)
 **Bron:** Daan, 4 nov 2026 (punten 1, 4 en 5); CLAUDE.md "Look & feel" (hoofdbeeld bosrijk, kunstaccenten zelf in SVG)
 **Afhankelijk van:** 023 (CSP: geen inline stijlen of scripts)
 
@@ -24,8 +24,8 @@ De hero op Home is nu een groen verloop met tekst, en dat oogt kaal. Daan wil ee
    - **Zand**: open heide en duinen met een paar losse bomen, warm zandlicht;
    - **Penseel & papier** (de vervanger van Groen & goud, zie story 028): bomen als losse, verzadigde penseeltoetsen op papier;
    - **Ochtend**: ochtendnevel tussen berken, licht en fris, met een opkomende zon.
-3. **Penseelstreek die de naam schrijft**: bij het laden verschijnt de naam alsof hij met een penseel wordt geschreven (eerst de omtrek, dan vult de letter zich), daarna wordt er één penseelstreek onder de naam getrokken. Duur ongeveer 2 seconden, één keer per bezoek aan Home.
-4. **Zachte diepte**: de lagen bewegen bij het scrollen een klein beetje ten opzichte van elkaar (parallax), zodat het landschap diepte krijgt.
+3. **Penseelstreek die de naam schrijft**: bij het laden verschijnt de naam alsof hij met een penseel wordt geschreven (eerst de omtrek, dan vult de letter zich), daarna wordt er één penseelstreek onder de naam getrokken. Duur ongeveer 2 seconden. Alleen bij het eerste bezoek aan Home in een sessie en bij het verversen van de pagina; kom je via het menu terug op Home, dan staat de naam er meteen (Daan, 4 nov 2026).
+4. **Zachte diepte**: alleen in de derde stijl (Penseel & papier) bewegen de lagen bij het scrollen een klein beetje ten opzichte van elkaar (parallax). De andere stijlen staan stil (Daan, 4 nov 2026).
 5. **Mobiel**: op smalle schermen staan de bomen kleiner aan de rechterrand en blijft het pad in het midden; de tekst blijft goed leesbaar boven het pad.
 6. **Wie minder beweging wil** (`prefers-reduced-motion`): geen animatie en geen parallax, de naam en de streek staan er meteen.
 7. De naam komt uit `site.yaml` (`{{ site.naam }}`), ook in de animatie; er staat dus nergens een tekening van de naam.
@@ -37,8 +37,8 @@ De hero op Home is nu een groen verloop met tekst, en dat oogt kaal. Daan wil ee
 
 ## Acceptatiecriteria
 1. **Gegeven** Home in elk van de vier stijlen, **dan** zie je lucht, bomen aan de rechterkant, een pad in het midden en de tekst boven het pad, elk in de eigen stijl van dat thema (schermafbeelding per stijl, op 375 en 1280 px).
-2. **Gegeven** de eerste keer laden, **dan** wordt de naam in ongeveer 2 seconden "geschreven" en verschijnt daarna de streek eronder; de knop is vanaf het begin klikbaar.
-3. **Gegeven** `prefers-reduced-motion: reduce`, **dan** is er geen animatie of parallax.
+2. **Gegeven** de eerste keer laden of verversen, **dan** wordt de naam letter voor letter in ongeveer 2 seconden "geschreven" en verschijnt daarna de streek eronder; de knop is vanaf het begin klikbaar. **Gegeven** terugkomen op Home via het menu in dezelfde sessie, **dan** staat de naam er meteen.
+3. **Gegeven** `prefers-reduced-motion: reduce`, **dan** is er geen animatie of parallax. Parallax is er alleen in de derde stijl.
 4. **Gegeven** een andere naam in `site.yaml`, **dan** schrijft de animatie die nieuwe naam (getest met een testnaam).
 5. De tekst in de hero heeft overal minstens 4,5:1 contrast met wat erachter ligt, in alle vier de stijlen.
 6. Schermlezers lezen de naam één keer als kop (`<h1>`), het landschap is versiering (`aria-hidden`).
@@ -58,9 +58,9 @@ De hero op Home is nu een groen verloop met tekst, en dat oogt kaal. Daan wil ee
 - Controle: build, Controle-workflow, schermafbeeldingen per stijl, contrast- en CSP-controle
 
 ## Open vragen voor Daan
-1. **Naam schrijven**: zo als beschreven (de letters van de naam worden geschreven, daarna een streek eronder)? Of liever alleen een penseelstreek die onder de naam wordt getrokken (rustiger)?
-2. **Elke keer of één keer**: de animatie bij elk bezoek aan Home, of alleen bij het eerste bezoek in een sessie?
-3. **Parallax**: wil je die diepte bij scrollen, of liever een stilstaand landschap?
+1. ~~Naam schrijven?~~ De letters worden echt geschreven (Daan, 4 nov 2026).
+2. ~~Hoe vaak?~~ Bij het eerste bezoek aan Home en bij verversen (Daan, 4 nov 2026).
+3. ~~Parallax?~~ Alleen in de derde stijl (Daan, 4 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd

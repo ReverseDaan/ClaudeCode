@@ -1,6 +1,6 @@
 # 027 — Vloeiende overgangen tussen pagina's
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 4 nov 2026)
 **Bron:** Daan, 4 nov 2026 (punt 2)
 **Afhankelijk van:** 023 (CSP)
 
@@ -14,7 +14,7 @@ Bij een klik laadt de browser nu een nieuwe pagina: het scherm springt en de let
 
 ## Scope
 **Wel:**
-1. **Overgang tussen pagina's**: de oude pagina vervaagt en de nieuwe komt zacht op (ongeveer 0,35 seconde), met een kleine beweging omhoog van de inhoud.
+1. **Overgang tussen pagina's**: de oude pagina vervaagt en de nieuwe komt zacht op (0,6 seconde, Daan, 4 nov 2026), met een kleine beweging omhoog van de inhoud.
 2. **Wat blijft staan**: de bovenbalk met naam en menu en de voettekst springen niet mee, alleen de inhoud wisselt.
 3. **Paginatitel**: de grote kop van de nieuwe pagina schuift zacht op zijn plek.
 4. **Snelheid**: de browser haalt een pagina alvast op als je met de muis over een menu-item gaat of erop tikt (`speculationrules` via een eigen bestand, of `<link rel="prefetch">`), zodat de overgang niet hapert.
@@ -39,8 +39,8 @@ Bij een klik laadt de browser nu een nieuwe pagina: het scherm springt en de let
 - Controle: opname in Chrome (GIF/video) en test in Firefox
 
 ## Open vragen voor Daan
-1. **Duur**: 0,35 seconde (vlot) of iets trager, zoals 0,6 seconde (rustiger, maar je wacht net iets langer)?
-2. **Soort overgang**: alleen vervagen, of vervagen met een kleine beweging omhoog?
+1. ~~Duur?~~ 0,6 seconde (Daan, 4 nov 2026).
+2. ~~Soort?~~ Vervagen met een kleine beweging omhoog (akkoord op het voorstel, 4 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
