@@ -212,6 +212,7 @@ claudecode/
     │       ├── interesselijst.njk  # "Houd me op de hoogte"
     │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
     │       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
+    │       ├── landschap.njk       # getekend landschap achter de hero (per stijl)
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
     │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
     ├── retraites/
@@ -223,6 +224,7 @@ claudecode/
     │   └── style.css
     ├── js/
     │   ├── vooraf.js       # draait in de <head>: js-class en onthouden thema
+    │   ├── landschap.js    # Home: naam schrijven en diepte (stijl 3)
     │   ├── menu.js
     │   └── stijlwisselaar.js
     ├── images/             # eigen foto's; nu alleen deelkaart.jpg (+ bron .svg)
@@ -289,6 +291,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 023: lettertypes zelf hosten, CSP, placeholders opgeruimd: ter review
 - [x] Story 024: nachtelijke herbouw, 404-pagina, controle bij elke PR: ter review
 - [x] Story 025: deelkaart, evenementgegevens, sitemap, favicon: ter review
+- [x] Story 026: getekend landschap per stijl op Home, naam die geschreven wordt: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)

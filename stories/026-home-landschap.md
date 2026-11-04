@@ -1,6 +1,6 @@
 # 026 — Home: een getekend boslandschap met pad, en een penseelstreek die de naam schrijft
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 4 nov 2026 (punten 1, 4 en 5); CLAUDE.md "Look & feel" (hoofdbeeld bosrijk, kunstaccenten zelf in SVG)
 **Afhankelijk van:** 023 (CSP: geen inline stijlen of scripts)
 
@@ -63,8 +63,24 @@ De hero op Home is nu een groen verloop met tekst, en dat oogt kaal. Daan wil ee
 3. ~~Parallax?~~ Alleen in de derde stijl (Daan, 4 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chrome op 375 en 1280 px in alle vier de stijlen.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Per stijl een eigen landschap met lucht, bomen rechts, pad in het midden en de tekst erboven: Bos (dennen in avondlicht), Zand (heide met loofbomen), stijl 3 (bomen als verftoetsen), Ochtend (berken in nevel). Schermafbeeldingen van alle vier op 375 en 1280 px |
+| 2 | ✅ Eerste bezoek en verversen: de naam wordt letter voor letter geschreven (21 letters, ca. 2,2 s), daarna de streek eronder; via het menu terug op Home: de naam staat er meteen |
+| 3 | ✅ Met "minder beweging": geen animatie en geen parallax. Parallax alleen in stijl 3 (lagen bewegen 45, 15 en -24 px bij 300 px scrollen); in Bos niets |
+| 4 | ✅ Met een testnaam in `site.yaml` schrijft de animatie die naam |
+| 5 | ✅ Contrast per pixel gemeten (tekst verborgen, achtergrond vergeleken): naam minstens 9,6:1, slogan minstens 9,0:1, knop minstens 5,4:1, in alle stijlen en op beide breedtes |
+| 6 | ✅ Eén `<h1>` met de naam als gewone tekst voor schermlezers; landschap en tekening van de naam zijn `aria-hidden` |
+| 7 | ✅ Geen horizontaal scrollen op 375 px; 0 externe aanvragen, 0 CSP-meldingen, 0 JavaScript-fouten |
+| 8 | ✅ Landschap 11 kB (alle vier de stijlen samen); animatie in CSS, `landschap.js` alleen op Home (passend maken, letters, parallax) |
+
+Ook: staat er later een foto (`hero-bos.jpg`), dan toont de hero de foto met een donker verloop en verbergt hij het landschap. De achtergrondkleur van de hero is per stijl de kleur van de lucht, zodat de tekst leesbaar blijft als de tekening niet laadt.
