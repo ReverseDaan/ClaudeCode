@@ -1720,6 +1720,12 @@ a:hover {
   animation: none;
 }
 
+/* Van de bovenbalk alleen de nieuwe tonen: anders blijft op mobiel het
+   opengeklapte menu van de vorige pagina even over de nieuwe staan. */
+::view-transition-old(bovenbalk) {
+  display: none;
+}
+
 /* De inhoud: per stijl een eigen overgang van ongeveer 0,45 seconde
    (story 029). De stijl staat als data-thema op <html>; zonder data-thema
    is het de standaardstijl Bos. */
