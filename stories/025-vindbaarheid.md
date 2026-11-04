@@ -1,6 +1,6 @@
 # 025 — Vindbaarheid en delen: deelkaart, evenementgegevens, sitemap en favicon
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Code-analyse 4 nov 2026 (vindbaarheid); `docs/siteplan.md` (lanceercontrole: SEO-basis); plan stap 15
 **Afhankelijk van:** 023 (CSP en eigen bronnen)
 
@@ -56,8 +56,28 @@ Wordt een link nu gedeeld via WhatsApp, Instagram of mail, dan verschijnt er all
 2. ~~Beschrijvingen?~~ Claude stelt ze voor; Daan ziet ze bij de review (akkoord 4 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow "Controle", en de build in Chrome.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Alle 12 pagina's hebben `og:title`, `og:description`, `og:url`, `og:image` (volledige URL), `og:locale` (`nl_NL`) en `twitter:card` |
+| 2 | ⚠️ Deelafbeelding `images/deelkaart.jpg`: 1200×630 px, 17 kB. **Afwijking:** zonder de naam erin, zie hieronder |
+| 3 | ✅ JSON-LD van de voorjaarsretraite: Event met 2027-04-25 t/m 2027-04-29, 't Zonnehuis, Loenen, € 495 EUR, `InStock` en de link naar aanmelden. Gecontroleerd in de testbuild en voortaan bij elke PR door `lib/controle.js` (kapotte JSON wordt gemeld) |
+| 4 | ✅ Met `bevestigd: false` en met een datum in het verleden: geen Event-JSON-LD |
+| 5 | ✅ `sitemap.xml` met 11 pagina's (geldige XML, zonder 404 en agenda-bestanden), `robots.txt` met de sitemap; volledige URL's met `/ClaudeCode/` |
+| 6 | ✅ Elke pagina één `canonical` (behalve de 404-pagina, die `noindex` heeft) en een eigen `description`; geen dubbele beschrijvingen |
+| 7 | ✅ `favicon.svg` (penseelstreek op mosgroen) laadt met status 200; ook `favicon.png` en `apple-touch-icon.png` |
+| 8 | ✅ 0 CSP-meldingen, 0 externe aanvragen, 0 JavaScript-fouten; contrast ongewijzigd |
+
+**Afwijking bij 2:** in de deelafbeelding staat de naam niet. Een afbeelding met de naam erin zou bij een nieuwe naam opnieuw gemaakt moeten worden, en dat botst met de afspraak dat de naam op één plek staat (`site.yaml`). De naam staat bij het delen al als titel naast de afbeelding (`og:site_name` en `og:title`). De afbeelding is een penseelstreek boven groene heuvels; de bron is `src/images/deelkaart.svg`. Wordt later vervangen door een foto.
+
+Ook opgelost: titel en beschrijving van een retraitepagina werden dubbel ontsnapt (`&amp;#39;t Zonnehuis`). Ze komen nu rechtstreeks uit `titel` en `samenvatting`.
+
+Let op: `robots.txt` staat nu op `/ClaudeCode/robots.txt`. Zoekmachines kijken alleen naar de hoofdmap van een domein, dus hij gaat pas meetellen bij een eigen domein. De sitemap kun je nu al aanmelden in Google Search Console.

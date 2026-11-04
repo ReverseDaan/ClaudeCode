@@ -225,7 +225,7 @@ claudecode/
     │   ├── vooraf.js       # draait in de <head>: js-class en onthouden thema
     │   ├── menu.js
     │   └── stijlwisselaar.js
-    ├── images/             # eigen foto's (nu placeholders)
+    ├── images/             # eigen foto's; nu alleen deelkaart.jpg (+ bron .svg)
     ├── index.njk           # Home
     ├── wat-en-waarom.md
     ├── retraites.njk       # Retraites en events (op datum)
@@ -235,6 +235,9 @@ claudecode/
     ├── contact.md
     ├── vragen.njk          # Veelgestelde vragen
     ├── agenda.njk          # maakt per retraite een .ics-bestand
+    ├── sitemap.njk         # /sitemap.xml
+    ├── robots.njk          # /robots.txt
+    ├── favicon.svg         # icoontje (ook favicon.png en apple-touch-icon.png)
     ├── privacy.md
     ├── 404.md              # pagina "niet gevonden"
     └── voorwaarden.md
@@ -271,7 +274,7 @@ wordt eerst een story in `stories/`.
 - [x] 12. Aanmelden (US-11 t/m US-13): drie stappen (story 017) en Google Forms met vooraf ingevulde retraite (story 018): ter review. Daan maakt het formulier en zet de link in `site.yaml`
 - [x] 13. Contact, alleen het e-mailadres (US-15 ingeperkt, story 007): ter review
 - [x] 14. Over de stichting (US-14, story 006, met voorbeeldgegevens), voorwaarden (US-17, story 015) en privacybeleid (story 016): ter review
-- [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
+- [~] 15. Controle: SEO-basis en beveiliging (stories 023–025): ter review. Nog te doen: beeldoptimalisatie (als er foto's zijn) en een laatste controle vóór de lancering
 - [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
 
 Extra stories (buiten het stappenplan):
@@ -285,6 +288,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 022: vragen opgeschoond, maaltijden plantaardig, rol Begeleider, menu-item Veelgestelde vragen: ter review
 - [x] Story 023: lettertypes zelf hosten, CSP, placeholders opgeruimd: ter review
 - [x] Story 024: nachtelijke herbouw, 404-pagina, controle bij elke PR: ter review
+- [x] Story 025: deelkaart, evenementgegevens, sitemap, favicon: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
