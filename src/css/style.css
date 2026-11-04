@@ -510,28 +510,30 @@ a:hover {
    6. Homepagina
    ------------------------------------------------------------------ */
 
-/* Hero: grote bosafbeelding met naam, slogan en knop.
-   Lagen van boven naar onder:
-   1. een donker verloop (::before), zodat de tekst goed leesbaar blijft
-   2. de foto (<img class="hero__foto">, uit home.yaml), als die er is
-   3. een groen bosverloop, zichtbaar zolang er nog geen foto is */
+/* Hero: het getekende landschap met daarboven naam, slogan en knop.
+   Het landschap (partials/landschap.njk) ligt achter de tekst; per thema
+   een eigen tekening. Staat er een foto (hero-bos.jpg), dan toont de hero
+   de foto met een donker verloop en geen landschap. */
 .hero {
+  --hero-tekst: var(--kleur-zand);
+  --hero-schaduw: 0 2px 24px rgb(0 0 0 / 0.35);
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  min-height: min(88vh, 52rem);
-  padding-block: var(--ruimte-xl) calc(var(--ruimte-xl) + 3rem);
-  color: var(--kleur-zand);
+  align-items: flex-start;
+  min-height: min(92vh, 56rem);
+  padding-block: clamp(4rem, 13vh, 8rem) 40vh;
+  color: var(--hero-tekst);
   text-align: center;
   background-color: var(--kleur-mos-donker);
-  background-image:
-    radial-gradient(ellipse at 30% 20%, var(--hero-gloed-1) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 70%, var(--hero-gloed-2) 0%, transparent 60%),
-    linear-gradient(160deg, var(--hero-verloop-van) 0%, var(--hero-verloop-naar) 100%);
-  background-size: cover;
-  background-position: center;
-  isolation: isolate;
 }
+
+/* Kleur van de tekst in de hero per thema (de lucht verschilt) */
+[data-thema="zand"] .hero { --hero-tekst: #3f2a1a; --hero-schaduw: 0 1px 18px rgb(255 240 215 / 0.8); }
+[data-thema="groen-goud"] .hero,
+[data-thema="penseel"] .hero { --hero-tekst: #1f2340; --hero-schaduw: none; }
+[data-thema="ochtend"] .hero { --hero-tekst: #2d2a33; --hero-schaduw: 0 1px 18px rgb(255 250 245 / 0.9); }
 
 .hero__foto {
   position: absolute;
@@ -542,7 +544,13 @@ a:hover {
   object-fit: cover;
 }
 
-.hero::before {
+/* Met foto: donker verloop voor leesbaarheid, lichte tekst, geen landschap */
+.hero:has(.hero__foto) {
+  --hero-tekst: var(--kleur-zand);
+  --hero-schaduw: 0 2px 24px rgb(0 0 0 / 0.35);
+}
+
+.hero:has(.hero__foto)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -550,17 +558,27 @@ a:hover {
   background: linear-gradient(180deg, rgb(30 26 16 / 0.35) 0%, rgb(30 26 16 / 0.55) 100%);
 }
 
+.hero:has(.hero__foto) .landschap {
+  display: none;
+}
+
 .hero__inhoud {
-  max-width: 48rem;
+  max-width: 44rem;
+}
+
+/* Op brede schermen staat de tekst iets links van het midden, boven het
+   pad; rechts staan de bomen. */
+@media (min-width: 900px) {
+  .hero__inhoud {
+    transform: translateX(-10vw);
+  }
 }
 
 .hero__titel {
   font-size: var(--kop-1);
   font-weight: 500;
   letter-spacing: 0.01em;
-  margin-bottom: var(--ruimte-m);
-  text-wrap: balance;
-  text-shadow: 0 2px 24px rgb(0 0 0 / 0.25);
+  margin-bottom: var(--ruimte-s);
 }
 
 .hero__slogan {
@@ -568,25 +586,162 @@ a:hover {
   max-width: 32rem;
   margin: 0 auto var(--ruimte-l);
   text-wrap: balance;
-  text-shadow: 0 1px 12px rgb(0 0 0 / 0.3);
+  text-shadow: var(--hero-schaduw);
 }
 
-/* De zachte heuvelrand onderaan de hero */
-.hero__rand {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
+/* De naam als SVG-tekst, zodat hij "geschreven" kan worden.
+   src/js/landschap.js maakt de tekening precies passend. */
+.hero__naam {
+  display: block;
   width: 100%;
-  height: clamp(3rem, 8vw, 6rem);
+  max-width: 40rem;
+  height: 1.3em;
+  margin-inline: auto;
+  overflow: visible;
+  font-size: min(var(--kop-1), 10vw);
 }
 
-.hero__rand-achter {
-  fill: var(--kleur-zand);
-  opacity: 0.45;
+.hero__naam.is-passend {
+  height: auto;
 }
 
-.hero__rand-voor {
+.hero__naam text {
+  font-family: var(--font-kop);
+  font-weight: 500;
+  fill: currentColor;
+  white-space: pre;
+  filter: drop-shadow(var(--hero-schaduw-svg, 0 0 0 transparent));
+}
+
+/* Penseelstreek onder de naam */
+.hero__streek {
+  display: block;
+  width: min(18rem, 60%);
+  height: 1.1rem;
+  margin: 0 auto var(--ruimte-m);
+  overflow: visible;
+}
+
+.hero__streek path {
+  fill: none;
+  stroke: var(--kleur-oker);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+[data-thema="groen-goud"] .hero__streek path,
+[data-thema="penseel"] .hero__streek path { stroke: #d9482b; }
+[data-thema="ochtend"] .hero__streek path { stroke: #e0896c; }
+
+/* De naam wordt geschreven: alleen als vooraf.js de klasse "schrijf-naam"
+   heeft gezet (eerste bezoek aan Home of verversen, en niet bij "minder
+   beweging"). Eerst de omtrek van elke letter, dan vult de letter zich. */
+.schrijf-naam .hero__naam text {
+  fill-opacity: 0;
+}
+
+.schrijf-naam .hero__naam .letter {
+  fill-opacity: 0;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: letter-schrijven 1.1s ease-out forwards;
+}
+
+@keyframes letter-schrijven {
+  65% { stroke-dashoffset: 0; fill-opacity: 0; stroke-width: 1; }
+  100% { stroke-dashoffset: 0; fill-opacity: 1; stroke-width: 0; }
+}
+
+.schrijf-naam .hero__streek path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: streek-trekken 0.7s ease-in-out forwards;
+  animation-delay: 1.8s; /* landschap.js zet dit precies na de laatste letter */
+}
+
+@keyframes streek-trekken {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ------------------------------------------------------------------
+   6b. Landschap achter de hero (partials/landschap.njk)
+   ------------------------------------------------------------------ */
+.landschap {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.landschap__laag {
+  position: absolute;
+  display: block;
+}
+
+.landschap__lucht {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.landschap__pad {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 42%;
+}
+
+.landschap__bomen {
+  right: 0;
+  bottom: 0;
+  height: 58%;
+  width: auto;
+  aspect-ratio: 2 / 3;
+  max-width: 44vw;
+}
+
+/* Op brede schermen: hogere bomen, en het pad schuift met de tekst mee
+   naar links (de laag is breder dan het scherm, zodat er geen rand ontstaat) */
+@media (min-width: 900px) {
+  .landschap__bomen {
+    height: 100%;
+    max-width: 40vw;
+  }
+
+  .landschap__pad {
+    width: 120%;
+    left: -20%;
+  }
+}
+
+/* De grond vooraan heeft de kleur van de pagina, zodat de hero
+   naadloos overloopt in de rest */
+.landschap__grond-voor {
   fill: var(--kleur-zand);
+}
+
+/* Alleen de tekening van het actieve thema is zichtbaar */
+.landschap__thema {
+  display: none;
+}
+
+:root:not([data-thema]) .landschap__thema--bos,
+[data-thema="bos"] .landschap__thema--bos,
+[data-thema="zand"] .landschap__thema--zand,
+[data-thema="groen-goud"] .landschap__thema--penseel,
+[data-thema="penseel"] .landschap__thema--penseel,
+[data-thema="ochtend"] .landschap__thema--ochtend {
+  display: inline;
+}
+
+/* Lagen die bij scrollen meebewegen (alleen thema 3, zie landschap.js) */
+.landschap__laag {
+  will-change: auto;
+}
+
+.met-diepte .landschap__laag {
+  will-change: transform;
 }
 
 

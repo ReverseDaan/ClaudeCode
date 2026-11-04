@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl"{% if site.stijlwisselaar.aan %} data-themas="{% for thema in site.stijlwisselaar.themas %}{{ thema.code }}{% if not loop.last %} {% endif %}{% endfor %}"{% endif %}>
+<html lang="nl"{% if page.url == "/" %} data-home{% endif %}{% if site.stijlwisselaar.aan %} data-themas="{% for thema in site.stijlwisselaar.themas %}{{ thema.code }}{% if not loop.last %} {% endif %}{% endfor %}"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,6 +64,7 @@
     <script src="/js/stijlwisselaar.js" defer></script>
   {% endif %}
   <script src="/js/menu.js" defer></script>
+  {% if page.url == "/" %}<script src="/js/landschap.js" defer></script>{% endif %}
 </head>
 <body>
   <a class="skip-link" href="#inhoud">Direct naar de inhoud</a>

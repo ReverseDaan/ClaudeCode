@@ -1,0 +1,180 @@
+{#- Getekend landschap achter de hero op Home: lucht, pad en bomen.
+    Elke stijl (thema) heeft een eigen tekening; de CSS toont alleen die van
+    het actieve thema (zie style.css, sectie "Landschap").
+    Drie lagen, zodat ze op mobiel en desktop los van elkaar passen:
+     1. lucht en verre heuvels (vult de hele hero)
+     2. pad en grond (onderaan, het pad loopt het landschap in)
+     3. bomen (rechts)
+    Alles is versiering: schermlezers slaan het over. -#}
+<div class="landschap" aria-hidden="true">
+
+  {#- 1. Lucht en verre heuvels -#}
+  <svg class="landschap__laag landschap__lucht" data-diepte="0.15" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <defs>
+      <linearGradient id="lucht-bos" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1f2a17"/><stop offset="0.55" stop-color="#3d4a26"/><stop offset="1" stop-color="#7a6a3a"/>
+      </linearGradient>
+      <linearGradient id="lucht-zand" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f6e3c4"/><stop offset="0.6" stop-color="#efc99a"/><stop offset="1" stop-color="#e2a86e"/>
+      </linearGradient>
+      <linearGradient id="lucht-penseel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f6f0e4"/><stop offset="1" stop-color="#f3e6cf"/>
+      </linearGradient>
+      <linearGradient id="lucht-ochtend" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#d9e9ef"/><stop offset="0.55" stop-color="#fbe7dc"/><stop offset="1" stop-color="#fcd9c4"/>
+      </linearGradient>
+    </defs>
+
+    <g class="landschap__thema landschap__thema--bos">
+      <rect width="1440" height="900" fill="url(#lucht-bos)"/>
+      <circle cx="430" cy="610" r="150" fill="#d9b066" opacity="0.18"/>
+      <path fill="#2c3a1c" opacity="0.8" d="M0 560c110-40 210-28 320-50 120-24 220-2 340-28 130-28 240 6 380-18 150-26 260 6 400-22V900H0z"/>
+      {#- verre dennetjes op de heuvel links -#}
+      <g fill="#2c3a1c">
+        <path d="M120 548l18 40h-9l15 28H90l15-28h-9z"/><path d="M160 540l22 48h-11l18 34H120l18-34h-11z"/>
+        <path d="M205 552l16 36h-8l13 24h-42l13-24h-8z"/><path d="M300 520l20 44h-10l16 30h-52l16-30h-10z"/>
+        <path d="M335 530l15 34h-7l12 22h-40l12-22h-7z"/>
+      </g>
+      <path fill="#23301a" d="M0 640c140-30 260 4 400-14 150-20 260 10 420-6 160-16 300 14 620-18V900H0z"/>
+    </g>
+
+    <g class="landschap__thema landschap__thema--zand">
+      <rect width="1440" height="900" fill="url(#lucht-zand)"/>
+      <circle cx="560" cy="560" r="120" fill="#fff4dc" opacity="0.7"/>
+      <path fill="#d99a62" opacity="0.55" d="M0 600c160-60 300-50 460-30 170 22 300-40 480-36 180 4 300 40 500 10V900H0z"/>
+      <path fill="#c4834f" opacity="0.75" d="M0 660c200-30 360 10 540-4 170-14 330-30 500-6 150 20 260 4 400-6V900H0z"/>
+    </g>
+
+    <g class="landschap__thema landschap__thema--penseel">
+      <rect width="1440" height="900" fill="url(#lucht-penseel)"/>
+      {#- waterverfvlekken in de lucht, weg van de tekst -#}
+      <path fill="#2d3fa8" opacity="0.13" d="M1040 60c110-40 250-30 330 20 60 38 40 100-40 120-120 30-260 10-320-40-40-34-20-80 30-100z"/>
+      <path fill="#2d3fa8" opacity="0.09" d="M-40 120c100-40 220-30 280 10 50 34 20 80-50 90-90 14-190-10-230-50z"/>
+      <path fill="#f2b33d" opacity="0.3" d="M160 470c60-60 190-70 260-20 64 46 34 124-56 140-100 18-250-40-204-120z"/>
+      <path fill="#d9482b" opacity="0.12" d="M1100 330c70-30 160-14 190 34 24 40-30 72-104 72-80 0-136-64-86-106z"/>
+      <path fill="#3e8a5c" opacity="0.32" d="M0 610c120-50 250-40 380-20 150 24 260-30 420-26 170 4 300 50 640 6V900H0z"/>
+      <path fill="#2d3fa8" opacity="0.22" d="M0 650c160-24 330 16 500 2 180-14 320-24 480-4 170 22 300 0 460-10V900H0z"/>
+    </g>
+
+    <g class="landschap__thema landschap__thema--ochtend">
+      <rect width="1440" height="900" fill="url(#lucht-ochtend)"/>
+      <circle cx="520" cy="590" r="110" fill="#ffd2b3"/>
+      <circle cx="520" cy="590" r="170" fill="#ffd9c0" opacity="0.45"/>
+      <path fill="#a9c4c4" opacity="0.55" d="M0 600c140-40 270-30 400-14 150 18 260-26 420-24 170 2 300 34 620-2V900H0z"/>
+      <path fill="#fdf8f3" opacity="0.6" d="M0 640c240-20 500 10 760 4 240-6 460-20 680-6v40c-240 14-470 6-700 10-260 4-500 0-740-10z"/>
+      <path fill="#8fb1ad" opacity="0.7" d="M0 680c180-24 350 8 520-4 170-12 330-20 500-4 160 16 280 2 420-6V900H0z"/>
+    </g>
+  </svg>
+
+  {#- 2. Pad en grond: het pad slingert van onderen het landschap in -#}
+  <svg class="landschap__laag landschap__pad" data-diepte="0.05" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" focusable="false">
+    <g class="landschap__thema landschap__thema--bos">
+      <path fill="#3d4a26" d="M0 70c180-30 360-10 560-20 220-10 420-30 600-10 120 12 200 6 280 0V360H0z"/>
+      <path transform="translate(150 0)" fill="#c9a86a" d="M470 360c40-60 120-110 150-170 26-52-14-90 10-120 10-12 26-16 34-18 4 4-4 10-6 18-10 34 40 70 40 120 0 70-60 110-40 170z"/>
+      <path class="landschap__grond-voor" d="M0 300c200-24 400 10 620-2 220-12 420-18 820 4V360H0z"/>
+    </g>
+    <g class="landschap__thema landschap__thema--zand">
+      <path fill="#b9733f" d="M0 80c200-26 380-6 580-14 220-10 420-26 600-8 120 12 200 6 260 0V360H0z"/>
+      <path transform="translate(150 0)" fill="#f3d9b0" d="M460 360c30-50 130-100 160-160 24-48-6-80 14-110 8-12 22-16 30-18 4 4-2 10-4 16-8 30 34 64 34 112 0 70-70 110-50 160z"/>
+      <path class="landschap__grond-voor" d="M0 300c220-20 420 12 640 0 220-12 420-16 800 6V360H0z"/>
+    </g>
+    <g class="landschap__thema landschap__thema--penseel">
+      <path fill="#3e8a5c" d="M0 80c180-40 380-14 580-22 220-10 400-30 600-10 120 12 200 4 260 0V360H0z"/>
+      {#- het pad als brede gele verfstreek -#}
+      <path transform="translate(150 0)" fill="#f2b33d" d="M455 360c48-64 128-112 156-172 24-52-18-92 8-122 10-12 28-16 36-18 4 4-4 10-6 18-12 36 44 72 42 124-2 72-66 108-44 170z"/>
+      <path transform="translate(150 0)" fill="none" stroke="#d9482b" stroke-width="5" stroke-linecap="round" opacity="0.55" d="M520 350c36-54 96-96 112-150 12-40-8-74 6-96"/>
+      <path class="landschap__grond-voor" d="M0 302c220-26 420 10 640-4 220-14 420-14 800 6V360H0z"/>
+    </g>
+    <g class="landschap__thema landschap__thema--ochtend">
+      <path fill="#7da59f" d="M0 80c180-24 380-8 580-16 220-10 420-24 600-8 120 10 200 4 260 0V360H0z"/>
+      <path transform="translate(150 0)" fill="#fbe9dc" d="M465 360c40-58 120-106 150-166 24-50-12-86 12-116 8-12 24-16 32-18 4 4-2 10-4 18-10 32 38 66 38 116 0 70-64 110-44 166z"/>
+      <path class="landschap__grond-voor" d="M0 300c200-22 400 10 620-2 220-12 420-18 820 4V360H0z"/>
+    </g>
+  </svg>
+
+  {#- 3. Bomen aan de rechterkant -#}
+  <svg class="landschap__laag landschap__bomen" data-diepte="-0.08" viewBox="0 0 600 900" preserveAspectRatio="xMaxYMax meet" focusable="false">
+    <g class="landschap__thema landschap__thema--bos">
+      {#- dennen: stam en drie lagen takken -#}
+      <g fill="#1a2412">
+        <rect x="430" y="520" width="18" height="360"/>
+        <path d="M439 120l120 220h-60l100 170h-70l90 150H299l90-150h-70l100-170h-60z"/>
+      </g>
+      <g fill="#24321a">
+        <rect x="270" y="610" width="14" height="270"/>
+        <path d="M277 300l92 170h-46l78 130h-54l70 120H137l70-120h-54l78-130h-46z"/>
+      </g>
+      <g fill="#2f4122">
+        <rect x="548" y="660" width="12" height="220"/>
+        <path d="M554 420l70 130h-36l60 100h-42l54 92H448l54-92h-42l60-100h-36z"/>
+      </g>
+      <g fill="#3a4f2a" opacity="0.9">
+        <rect x="164" y="720" width="10" height="160"/>
+        <path d="M169 540l54 100h-28l46 76h-32l40 70H89l40-70H97l46-76h-28z"/>
+      </g>
+      <path class="landschap__grond-voor" d="M40 846c180-22 360-22 560-6V900H40z"/>
+    </g>
+
+    <g class="landschap__thema landschap__thema--zand">
+      {#- losse loofbomen op de heide -#}
+      <path fill="#6b4529" d="M402 880l6-250c-30-30-60-40-90-44 34-4 64 6 88 26l4-90 14 2-4 110c22-26 50-40 80-44-28 14-52 34-70 60l-4 230z"/>
+      <ellipse cx="400" cy="470" rx="150" ry="120" fill="#a8703f"/>
+      <ellipse cx="460" cy="430" rx="100" ry="90" fill="#c08a52"/>
+      <ellipse cx="340" cy="420" rx="80" ry="70" fill="#b57c46"/>
+      <path fill="#7a4f30" d="M200 880l4-150 10 0-2 150z"/>
+      <ellipse cx="208" cy="690" rx="70" ry="58" fill="#b9814b"/>
+      <path fill="#9b5f37" opacity="0.9" d="M60 880c20-40 60-60 100-60s60 30 90 30 60-30 110-30 80 30 120 30 80-20 120-10V900H60z"/>
+      <path class="landschap__grond-voor" d="M40 850c180-20 360-20 560-6V900H40z"/>
+    </g>
+
+    <g class="landschap__thema landschap__thema--penseel">
+      {#- bomen als losse penseeltoetsen: stammen in inkt, kronen als korte,
+          dikke toetsen in groen, blauw en een vleugje rood en geel -#}
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="#1f2340" stroke-width="15" d="M430 860c-4-110 8-230-2-360"/>
+        <path stroke="#1f2340" stroke-width="6" d="M428 620c26-24 52-36 80-40M430 700c-26-20-50-30-78-32M428 540c-22-18-40-26-62-28"/>
+        <path stroke="#3e8a5c" stroke-width="46" opacity="0.9" d="M360 470l40-30M420 420l50-24M470 470l46-14M380 380l44-30M450 350l40-16M500 410l36-6M340 540l40-10M410 500l52-8M480 540l40 0"/>
+        <path stroke="#2d3fa8" stroke-width="34" opacity="0.75" d="M350 430l30-26M430 460l40-14M500 380l30-14M400 330l34-18M460 520l34-4"/>
+        <path stroke="#f2b33d" stroke-width="16" opacity="0.95" d="M470 400l18-6M380 500l16-4"/>
+        <path stroke="#d9482b" stroke-width="12" opacity="0.85" d="M520 450l14-6M420 360l12-4"/>
+
+        <path stroke="#1f2340" stroke-width="10" d="M230 860c2-70-6-140 2-230"/>
+        <path stroke="#3e8a5c" stroke-width="36" opacity="0.85" d="M180 650l30-18M230 620l36-12M260 670l30-8M200 700l34-6"/>
+        <path stroke="#2d3fa8" stroke-width="26" opacity="0.7" d="M210 670l24-10M250 710l22-4"/>
+
+        <path stroke="#1f2340" stroke-width="9" d="M560 860c2-60-4-120 2-190"/>
+        <path stroke="#2d3fa8" stroke-width="32" opacity="0.8" d="M520 700l26-14M560 670l30-10M580 720l20-4"/>
+        <path stroke="#3e8a5c" stroke-width="26" opacity="0.8" d="M540 740l26-6"/>
+      </g>
+      <path class="landschap__grond-voor" d="M40 846c180-22 360-22 560-6V900H40z"/>
+    </g>
+
+    <g class="landschap__thema landschap__thema--ochtend">
+      {#- berken in de ochtendnevel: witte stammen met donkere vlekjes en
+          lichte, luchtige kronen -#}
+      <g fill="#f7f1ea" stroke="#9aa6a4" stroke-width="1.5">
+        <path d="M412 860l8-640 14 0 6 640z"/>
+        <path d="M282 860l6-470 11 0 4 470z"/>
+        <path d="M538 860l5-380 9 0 4 380z"/>
+      </g>
+      <g fill="#46505a">
+        <path d="M414 330h12v6h-12zM424 440h14v5h-14zM412 560h10v6h-10zM426 680h12v5h-12zM416 790h14v6h-14z"/>
+        <path d="M284 520h10v5h-10zM292 640h10v4h-10zM282 760h12v5h-12z"/>
+        <path d="M542 600h8v4h-8zM548 720h8v4h-8z"/>
+      </g>
+      <g stroke="#7d8f86" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M426 300c-30-30-60-40-90-40M430 260c30-34 64-44 96-40M298 430c-24-20-48-28-70-26M548 500c20-18 40-24 58-22"/>
+      </g>
+      <g opacity="0.9">
+        <ellipse cx="430" cy="220" rx="96" ry="70" fill="#a9cc8f"/>
+        <ellipse cx="496" cy="262" rx="70" ry="54" fill="#c4dca6"/>
+        <ellipse cx="350" cy="270" rx="66" ry="48" fill="#94bf80"/>
+        <ellipse cx="292" cy="410" rx="62" ry="46" fill="#b7d59b"/>
+        <ellipse cx="236" cy="440" rx="40" ry="30" fill="#a9cc8f"/>
+        <ellipse cx="552" cy="482" rx="54" ry="40" fill="#a9cc8f"/>
+      </g>
+      <path fill="#fdf8f3" opacity="0.55" d="M0 720c120-18 260-10 380-4 120 6 240 4 220 0v50c-140 6-260 8-380 4-110-4-160-10-220-14z"/>
+      <path class="landschap__grond-voor" d="M40 846c180-22 360-22 560-6V900H40z"/>
+    </g>
+  </svg>
+</div>

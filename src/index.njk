@@ -8,24 +8,25 @@ layout: layouts/base.njk
 {{ site | organisatieGegevens | jsonLd | safe }}
 </script>
 
-{# 1. Hero: grote bosafbeelding met naam, slogan en knop #}
-{# De foto staat alleen op de pagina als het bestand echt bestaat;
-   anders zie je het groene bosverloop uit de CSS. #}
+{# 1. Hero: getekend landschap (per thema) met naam, slogan en knop.
+   Staat er een foto in src/images/ (home.yaml), dan toont de hero die. #}
 <section class="hero">
   {% if home.hero.afbeelding | afbeeldingBestaat %}
   <img class="hero__foto" src="/images/{{ home.hero.afbeelding }}" alt="{{ home.hero.alt }}" fetchpriority="high">
   {% endif %}
+  {% include "partials/landschap.njk" %}
   <div class="container hero__inhoud">
-    <h1 class="hero__titel">{{ site.naam }}</h1>
+    {# De naam als tekening (wordt "geschreven", zie landschap.js); voor
+       schermlezers en zoekmachines staat de gewone tekst ernaast. #}
+    <h1 class="hero__titel">
+      <span class="sr-only">{{ site.naam }}</span>
+      <svg class="hero__naam" aria-hidden="true" focusable="false"><text x="50%" y="1em" text-anchor="middle">{{ site.naam }}</text></svg>
+    </h1>
+    <svg class="hero__streek" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M6 13c40-6 80-9 124-8 50 1 96 5 164-3"/></svg>
     <p class="hero__slogan">{{ home.hero.slogan }}</p>
     <a class="knop" href="/retraites/">{{ home.hero.knop }}</a>
   </div>
 
-  {# Zachte heuvelrand die de hero laat overlopen in de rest van de pagina #}
-  <svg class="hero__rand" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="hero__rand-achter" d="M0,55 C120,30 230,70 360,52 C500,32 600,62 740,48 C880,34 1000,66 1200,40 L1200,100 L0,100 Z"/>
-    <path class="hero__rand-voor" d="M0,78 C160,58 300,90 470,72 C620,56 760,88 920,74 C1040,64 1120,80 1200,70 L1200,100 L0,100 Z"/>
-  </svg>
 </section>
 
 {# 2. Intro (src/_data/home.yaml) #}
