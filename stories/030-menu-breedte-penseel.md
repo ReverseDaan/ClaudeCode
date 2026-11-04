@@ -1,6 +1,6 @@
 # 030 — Eén overzicht van retraites, minder lege ruimte op de laptop, en een echt penseel
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 4 nov 2026: "Retraites" en "Kalender" zijn dubbel; op de laptop te veel witruimte; de overgang bij Penseel & papier met een echt penseel
 **Afhankelijk van:** 004 (retraites en kalender), 029 (overgangen)
 
@@ -60,8 +60,23 @@ zodat **het menu helder is, de site op een groot scherm net zo goed oogt als op 
 3. ~~Knop op Home?~~ "Bekijk de retraites" blijft (Daan, 4 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chromium op 375, 1280 en 1440 px, vergeleken met de vorige versie.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Menu met zeven items zonder "Retraites"; `/retraites/` geeft 404 (de pagina en de map bestaan niet meer) |
+| 2 | ✅ Geen enkele link naar `/retraites/` in de site; de Controle meldt het als er toch een terugkomt (getest: "gebruik /kalender/"). Alle knoppen naar de retraites openen de kalender |
+| 3 | ✅ Retraitepagina op `/kalender/2027-04-voorjaar/`, agenda-bestand op `/kalender/2027-04-voorjaar.ics`; sitemap, evenementgegevens en de link in het agenda-bestand kloppen |
+| 4 | ✅ Laptop (1440 px): kop en tekst van inhoudspagina's in één gecentreerde kolom van 44rem; de inhoud mag 80rem breed worden (was 72rem), dus minder lege ruimte aan weerszijden. Home blijft links uitgelijnd in de bredere container (een gecentreerde intro stond scheef ten opzichte van de blokken eronder) |
+| 5 | ✅ 375 px: Home en Wat en waarom pixel voor pixel gelijk boven de voettekst (de voettekst heeft één link minder); op de kalender alleen de nieuwe intro en op de retraitepagina "← Naar de kalender"; nergens horizontaal scrollen |
+| 6 | ✅ Penseel & papier: een getekend penseel trekt over het scherm met een natte vermiljoen streek, de nieuwe pagina verschijnt erachter en het penseel vervaagt aan het eind (vertraagde opname op 1280 en 375 px). Met "minder beweging", en in de andere stijlen, geen penseel |
+| 7 | ✅ Laagste contrast 4,77:1 op vijf pagina's in alle stijlen; 0 CSP-meldingen en 0 fouten; Controle groen |
+
+Bijvangst: tijdens een overgang bleef op mobiel het opengeklapte menu van de vorige pagina even staan. Nu toont de bovenbalk tijdens een overgang alleen de nieuwe versie. Dat geldt voor alle stijlen.
