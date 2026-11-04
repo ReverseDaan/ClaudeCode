@@ -1,6 +1,6 @@
 # 027 — Vloeiende overgangen tussen pagina's
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 4 nov 2026 (punt 2)
 **Afhankelijk van:** 023 (CSP)
 
@@ -43,8 +43,22 @@ Bij een klik laadt de browser nu een nieuwe pagina: het scherm springt en de let
 2. ~~Soort?~~ Vervagen met een kleine beweging omhoog (akkoord op het voorstel, 4 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chromium 153.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Van Home naar Wat en waarom: de browser meldt een View Transition (`pagereveal` met `viewTransition`); de oude pagina vervaagt in 0,3 s, de nieuwe komt in 0,6 s zacht omhoog. Bovenbalk, voettekst en stijlknop staan stil (schermafbeeldingen na 60, 200, 350 en 700 ms) |
+| 2 | ⚠️ Firefox kon ik hier niet starten. `@view-transition` en `speculationrules` zijn daar onbekend en worden volgens de standaard overgeslagen, dus de navigatie werkt zoals nu. Graag even zelf proberen in Firefox |
+| 3 | ✅ Met "minder beweging": alleen een korte vervaging (klaar na ca. 0,4 s in plaats van 0,7 s), geen schuifbeweging |
+| 4 | ✅ 0 CSP-meldingen en 0 JavaScript-fouten; de CSP staat alleen `inline-speculation-rules` extra toe |
+| 5 | ✅ De terugknop geeft dezelfde overgang |
+| 6 | ✅ Op 375 px dezelfde overgang; de bovenbalk met de menuknop staat stil |
+
+Ook: in Penseel & papier blijft de papierlaag tijdens de overgang staan, zodat het papier niet knippert. Pagina's van de site worden alvast opgehaald als je even op een link blijft staan of erop tikt (`speculationrules`, "moderate").
