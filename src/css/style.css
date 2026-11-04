@@ -1679,7 +1679,7 @@ a:hover {
 
 /* ------------------------------------------------------------------
    14. Vloeiende overgangen tussen pagina's (View Transitions)
-   De browser laat de oude pagina vervagen en de nieuwe zacht opkomen.
+   Elke stijl heeft een eigen overgang (story 029), zie hieronder.
    De bovenbalk, de voettekst en de stijlknop blijven staan. Browsers die
    dit niet kennen (zoals Firefox nu), laden de pagina gewoon zoals altijd.
    ------------------------------------------------------------------ */
@@ -1708,36 +1708,99 @@ a:hover {
   animation: none;
 }
 
-/* De inhoud: de oude pagina vervaagt, de nieuwe komt zacht omhoog */
-::view-transition-old(root) {
-  animation: pagina-weg 0.3s ease-in both;
+/* De inhoud: per stijl een eigen overgang van ongeveer 0,45 seconde
+   (story 029). De stijl staat als data-thema op <html>; zonder data-thema
+   is het de standaardstijl Bos. */
+
+/* 1. Bos: de nieuwe pagina wordt van links naar rechts "overgeschilderd".
+   Het masker is een strook met een gerafelde penseelrand die over het
+   scherm schuift; de oude pagina blijft eronder staan. */
+:root:not([data-thema])::view-transition-old(root),
+:root[data-thema="bos"]::view-transition-old(root) {
+  animation: overgang-blijf 0.45s linear both;
 }
 
-::view-transition-new(root) {
-  animation: pagina-komt 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+:root:not([data-thema])::view-transition-new(root),
+:root[data-thema="bos"]::view-transition-new(root) {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0H112c-4 8 6 14 2 22-3 7 8 12 4 20-4 9 7 14 3 23-3 8 8 13 4 21-3 7 5 10 3 14H0z'/%3E%3C/svg%3E") no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0H112c-4 8 6 14 2 22-3 7 8 12 4 20-4 9 7 14 3 23-3 8 8 13 4 21-3 7 5 10 3 14H0z'/%3E%3C/svg%3E") no-repeat;
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
+  animation: overgang-penseel 0.45s cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
-@keyframes pagina-weg {
-  to { opacity: 0; transform: translateY(-6px); }
+@keyframes overgang-penseel {
+  from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+  to { -webkit-mask-position: 0 0; mask-position: 0 0; }
 }
 
-@keyframes pagina-komt {
-  from { opacity: 0; transform: translateY(14px); }
+@keyframes overgang-blijf {
+  from, to { opacity: 1; }
 }
 
-/* Wie minder beweging wil: geen schuifbeweging, alleen een hele korte
-   vervaging */
+/* 2. Zand: een bladzijde omslaan. Vooruit schuift de pagina naar links,
+   terug (type "terug", zie vooraf.js) naar rechts. */
+:root[data-thema="zand"]::view-transition-old(root) {
+  animation: overgang-naar-links 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+:root[data-thema="zand"]::view-transition-new(root) {
+  animation: overgang-van-rechts 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+:root[data-thema="zand"]:active-view-transition-type(terug)::view-transition-old(root) {
+  animation-name: overgang-naar-rechts;
+}
+
+:root[data-thema="zand"]:active-view-transition-type(terug)::view-transition-new(root) {
+  animation-name: overgang-van-links;
+}
+
+@keyframes overgang-naar-links { to { transform: translateX(-28%); opacity: 0; } }
+@keyframes overgang-van-rechts { from { transform: translateX(28%); opacity: 0; } }
+@keyframes overgang-naar-rechts { to { transform: translateX(28%); opacity: 0; } }
+@keyframes overgang-van-links { from { transform: translateX(-28%); opacity: 0; } }
+
+/* 3. Penseel & papier: ademhaling. De oude pagina zoomt een fractie weg,
+   de nieuwe komt van iets kleiner naar normaal. */
+:root[data-thema="penseel"]::view-transition-old(root) {
+  animation: overgang-adem-uit 0.25s ease-in both;
+}
+
+:root[data-thema="penseel"]::view-transition-new(root) {
+  animation: overgang-adem-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes overgang-adem-uit { to { transform: scale(1.02); opacity: 0; } }
+@keyframes overgang-adem-in { from { transform: scale(0.97); opacity: 0; } }
+
+/* 4. Ochtend: de nieuwe pagina schuift als een vel papier van onderen
+   omhoog over de oude, met een zachte schaduw aan de bovenrand. */
+:root[data-thema="ochtend"]::view-transition-old(root) {
+  animation: overgang-zak-weg 0.45s ease-in both;
+}
+
+:root[data-thema="ochtend"]::view-transition-new(root) {
+  animation: overgang-vel-omhoog 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  box-shadow: 0 -12px 32px rgb(45 42 51 / 0.18);
+}
+
+@keyframes overgang-zak-weg { to { transform: translateY(-6%); opacity: 0.4; } }
+@keyframes overgang-vel-omhoog { from { transform: translateY(100%); } }
+
+/* Wie minder beweging wil: in alle stijlen alleen een korte vervaging */
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
+  ::view-transition-old(root) {
+    animation: overgang-vervaag-uit 0.12s ease both !important;
+  }
+
   ::view-transition-new(root) {
-    animation-duration: 0.12s;
-  }
-
-  @keyframes pagina-komt {
-    from { opacity: 0; }
-  }
-
-  @keyframes pagina-weg {
-    to { opacity: 0; }
+    -webkit-mask: none !important;
+    mask: none !important;
+    box-shadow: none !important;
+    animation: overgang-vervaag-in 0.12s ease both !important;
   }
 }
+
+@keyframes overgang-vervaag-uit { to { opacity: 0; } }
+@keyframes overgang-vervaag-in { from { opacity: 0; } }
