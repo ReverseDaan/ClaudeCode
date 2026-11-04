@@ -529,11 +529,12 @@ a:hover {
   background-color: var(--kleur-mos-donker);
 }
 
-/* Kleur van de tekst in de hero per thema (de lucht verschilt) */
-[data-thema="zand"] .hero { --hero-tekst: #3f2a1a; --hero-schaduw: 0 1px 18px rgb(255 240 215 / 0.8); }
+/* Kleur van de tekst in de hero per thema (de lucht verschilt). De
+   achtergrondkleur is de kleur van de lucht, voor als de tekening niet laadt. */
+[data-thema="zand"] .hero { background-color: #efc99a; --hero-tekst: #3f2a1a; --hero-schaduw: 0 1px 18px rgb(255 240 215 / 0.8); }
 [data-thema="groen-goud"] .hero,
-[data-thema="penseel"] .hero { --hero-tekst: #1f2340; --hero-schaduw: none; }
-[data-thema="ochtend"] .hero { --hero-tekst: #2d2a33; --hero-schaduw: 0 1px 18px rgb(255 250 245 / 0.9); }
+[data-thema="penseel"] .hero { background-color: #f6f0e4; --hero-tekst: #1f2340; --hero-schaduw: none; }
+[data-thema="ochtend"] .hero { background-color: #fbe7dc; --hero-tekst: #2d2a33; --hero-schaduw: 0 1px 18px rgb(255 250 245 / 0.9); }
 
 .hero__foto {
   position: absolute;
