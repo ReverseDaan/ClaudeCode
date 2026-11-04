@@ -41,7 +41,7 @@ document.documentElement.classList.add("js");
 
 // Richting van de overgang tussen pagina's. Een pagina "ligt eerder" als hij
 // eerder in het menu staat, of bij hetzelfde menu-item minder diep ligt
-// (bijv. /retraites/ tegenover /retraites/voorjaar/). Ga je naar een pagina
+// (bijv. /kalender/ tegenover /kalender/voorjaar/). Ga je naar een pagina
 // die eerder ligt, of gebruik je de terugknop naar zo'n pagina, dan krijgt
 // de overgang het type "terug".
 window.addEventListener("pagereveal", function (event) {

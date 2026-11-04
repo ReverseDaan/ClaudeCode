@@ -16,7 +16,7 @@
     {% if knop == "mail" %}<span class="retraite-label retraite-label--gekozen">Jouw keuze</span>{% endif %}
   </div>
 
-  <h3 class="retraite-kaart__titel" id="titel-{{ slug }}"><a href="/retraites/{{ slug }}/">{{ d.titel }}</a></h3>
+  <h3 class="retraite-kaart__titel" id="titel-{{ slug }}"><a href="/kalender/{{ slug }}/">{{ d.titel }}</a></h3>
 
   <dl class="retraite-kaart__feiten">
     <div>
@@ -38,7 +38,7 @@
   </dl>
 
   <p class="retraite-kaart__samenvatting">{{ d.samenvatting }}</p>
-  <p class="retraite-kaart__meer"><a href="/retraites/{{ slug }}/">Meer informatie<span class="sr-only"> over {{ d.titel }}</span></a></p>
+  <p class="retraite-kaart__meer"><a href="/kalender/{{ slug }}/">Meer informatie<span class="sr-only"> over {{ d.titel }}</span></a></p>
 
   {# knopLabel (optioneel) vervangt de tekst "Aanmelden", bijv. op Home #}
   {% set knopTekst = "Op de wachtlijst" if d.status == "vol" else (knopLabel or "Aanmelden") %}

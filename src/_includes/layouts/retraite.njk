@@ -19,7 +19,7 @@ layout: layouts/base.njk
 <article class="pagina retraite-pagina">
   <header class="pagina__kop">
     <div class="container">
-      <p class="retraite-pagina__terug"><a href="/retraites/">← Alle retraites</a></p>
+      <p class="retraite-pagina__terug"><a href="/kalender/">← Naar de kalender</a></p>
       <div class="retraite-kaart__labels">
         {% if voorbij %}
           <span class="retraite-label retraite-label--voorbij">Voorbij</span>
@@ -36,7 +36,7 @@ layout: layouts/base.njk
 
   <div class="container pagina__tekst">
     {% if voorbij %}
-      <p class="melding" role="note"><strong>Deze retraite is voorbij.</strong> Bekijk de <a href="/retraites/">komende retraites</a>.</p>
+      <p class="melding" role="note"><strong>Deze retraite is voorbij.</strong> Bekijk de <a href="/kalender/">komende retraites</a>.</p>
     {% endif %}
 
     <dl class="retraite-kaart__feiten retraite-pagina__feiten">
@@ -66,7 +66,7 @@ layout: layouts/base.njk
       {% endif %}
       <p class="retraite-pagina__acties">
         <a class="knop" href="{{ knopLink }}">{{ knopTekst }}</a>
-        <a class="knop knop--rustig" href="/retraites/{{ slug }}.ics" download>Zet in je agenda</a>
+        <a class="knop knop--rustig" href="/kalender/{{ slug }}.ics" download>Zet in je agenda</a>
       </p>
       <h2 class="sr-only">Zo werkt aanmelden</h2>
       {% set kort = true %}{% include "partials/aanmeldstappen.njk" %}

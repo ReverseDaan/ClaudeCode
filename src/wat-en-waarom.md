@@ -56,4 +56,4 @@ We beginnen de dag in stilte. Tot het einde van het ontbijt moedigen we je aan o
 
 De kunstenaar die de creatieve sessies van de voorjaarsretraite begeleidt, maken we binnenkort bekend.
 
-<p class="pagina__actie"><a class="knop" href="/retraites/">Bekijk de retraites</a></p>
+<p class="pagina__actie"><a class="knop" href="/kalender/">Bekijk de retraites</a></p>

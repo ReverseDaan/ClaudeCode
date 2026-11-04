@@ -58,8 +58,6 @@ menu:
     url: "/"
   - tekst: "Wat en waarom"
     url: "/wat-en-waarom/"
-  - tekst: "Retraites"
-    url: "/retraites/"
   - tekst: "Kalender"
     url: "/kalender/"
   - tekst: "Aanmelden"
