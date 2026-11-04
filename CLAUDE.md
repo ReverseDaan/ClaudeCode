@@ -184,7 +184,8 @@ claudecode/
 ├── package.json
 ├── eleventy.config.js      # Eleventy-configuratie
 ├── lib/
-│   └── retraites.js        # controle en sortering van retraites (gebruikt in eleventy.config.js)
+│   ├── retraites.js        # controle en sortering van retraites (gebruikt in eleventy.config.js)
+│   └── controle.js         # controle van de gebouwde site (workflow Controle)
 ├── .gitignore              # o.a. node_modules/ en _site/
 └── src/
     ├── _data/
@@ -235,6 +236,7 @@ claudecode/
     ├── vragen.njk          # Veelgestelde vragen
     ├── agenda.njk          # maakt per retraite een .ics-bestand
     ├── privacy.md
+    ├── 404.md              # pagina "niet gevonden"
     └── voorwaarden.md
 ```
 
@@ -282,6 +284,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 013: veelgestelde vragen op /vragen/: ter review
 - [x] Story 022: vragen opgeschoond, maaltijden plantaardig, rol Begeleider, menu-item Veelgestelde vragen: ter review
 - [x] Story 023: lettertypes zelf hosten, CSP, placeholders opgeruimd: ter review
+- [x] Story 024: nachtelijke herbouw, 404-pagina, controle bij elke PR: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)

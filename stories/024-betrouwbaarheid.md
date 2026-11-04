@@ -1,6 +1,6 @@
 # 024 — Betrouwbaarheid: nachtelijke herbouw, 404-pagina en controle bij elke PR
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Code-analyse 4 nov 2026 (punten 4, 5, 8 en 12; punten 6, 7 en 11 als handmatige stappen)
 **Afhankelijk van:** geen
 
@@ -58,8 +58,22 @@ De "eerstvolgende retraite" en de lijst met komende retraites worden bepaald op 
 2. Handmatige GitHub-stappen: Daan doet ze zelf met de stappenlijst in de README (de koppeling van Claude mag deze instellingen niet wijzigen).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de nieuwe workflow "Controle" zelf, en de 404-pagina in Chrome op 375 en 1280 px in alle vier de thema's.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ `pages.yml` draait bij elke push/merge naar `main`, elke nacht om 03:00 UTC (`cron: "0 3 * * *"`) en handmatig |
+| 2 | ✅ `/404.html` met menu, voettekst en drie links (`/ClaudeCode/`, `/ClaudeCode/retraites/`, `/ClaudeCode/contact/`); contrast ≥ 4,77:1; GitHub Pages toont hem vanzelf bij een onbekend adres |
+| 3 | ✅ Controle groen op deze branch ("Alles in orde: 12 pagina's gecontroleerd"); met `status: misschien` stopt de build met de Nederlandse melding |
+| 4 | ✅ Met een tijdelijke kapotte link: `contact/index.html: link "/ClaudeCode/bestaat-niet/" gaat naar een pagina of bestand dat niet bestaat`. Ook getest: twee `<h1>` op een pagina geeft een melding |
+| 5 | ✅ Geen waarschuwing meer over Node 20 in de Controle-log. Nieuwe versies: checkout v5, setup-node v5, configure-pages v6, upload-pages-artifact v5, deploy-pages v5. De publicatie zelf kan pas na de merge draaien; die controleer ik dan |
+| 6 | ✅ README: secties "Als de controle rood is" en "Instellingen in GitHub (eenmalig)" met de drie handmatige stappen |
+
+Niet gedaan (buiten scope): de 2 middelzware kwetsbaarheden in het bouwgereedschap (minimatch, via Eleventy). Die lost Dependabot op zodra hij aan staat (stap 2 in de README).
