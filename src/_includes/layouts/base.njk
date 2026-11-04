@@ -4,8 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {# Paginatitel: "Titel · Naam", of alleen de naam op de homepagina #}
-  <title>{% if title %}{{ title }} · {% endif %}{{ site.naam }}</title>
-  {% set beschrijving = description or site.omschrijving %}
+  {# Titel en beschrijving: uit de front matter (title/description), bij een
+     retraite uit titel/samenvatting, en anders de gegevens uit site.yaml #}
+  {% set paginaTitel = title or titel %}
+  <title>{% if paginaTitel %}{{ paginaTitel }} · {% endif %}{{ site.naam }}</title>
+  {% set beschrijving = description or samenvatting or site.omschrijving %}
   {% set adres = site.adres | replace(r/\/$/, "") %}
   {% set paginaAdres = adres + page.url %}
   <meta name="description" content="{{ beschrijving }}">
@@ -19,7 +22,7 @@
      deelt. De afbeelding staat in src/images/deelkaart.jpg (1200 × 630). #}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.naam }}">
-  <meta property="og:title" content="{{ title or site.naam }}">
+  <meta property="og:title" content="{{ paginaTitel or site.naam }}">
   <meta property="og:description" content="{{ beschrijving }}">
   <meta property="og:url" content="{{ paginaAdres }}">
   <meta property="og:image" content="{{ adres }}/images/deelkaart.jpg">

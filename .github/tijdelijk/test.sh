@@ -5,6 +5,9 @@ bouw
 for f in $(find _site -name "*.html"); do if grep -q "<pre>\|&lt;span\|&lt;li\|&lt;a \|{{\|{%" $f; then echo "RUWE CODE IN $f"; exit 1; fi; done
 node lib/controle.js _site /ClaudeCode/
 echo "== 025"
+grep -q "<title>Voorjaarsretraite · Stillness and Strokes</title>" _site/retraites/2027-04-voorjaar/index.html
+grep -q 'name="description" content="Vier dagen vertragen in het voorjaar: schilderen, stilte en natuur rond &#39;t Zonnehuis in Loenen."' _site/retraites/2027-04-voorjaar/index.html
+! grep -rq "&amp;#39;" _site --include=*.html
 A=https://reversedaan.github.io/ClaudeCode
 E=_site/retraites/2027-04-voorjaar/index.html
 sed -n '/<head>/,/<\/head>/p' $E | grep -E "og:|twitter|canonical|icon|description|theme" 
