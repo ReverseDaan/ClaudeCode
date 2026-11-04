@@ -17,6 +17,21 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
 
+  // Lettertypes: alleen de bestanden die de site gebruikt, uit de
+  // npm-pakketten van Fontsource. Komen op de site in /fonts/.
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2": "fonts/cormorant-garamond-latin-500-normal.woff2",
+    "node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2": "fonts/cormorant-garamond-latin-600-normal.woff2",
+    "node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2": "fonts/cormorant-garamond-latin-500-italic.woff2",
+    "node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2": "fonts/source-sans-3-latin-400-normal.woff2",
+    "node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-600-normal.woff2": "fonts/source-sans-3-latin-600-normal.woff2",
+    "node_modules/@fontsource/fraunces/files/fraunces-latin-500-normal.woff2": "fonts/fraunces-latin-500-normal.woff2",
+    "node_modules/@fontsource/fraunces/files/fraunces-latin-600-normal.woff2": "fonts/fraunces-latin-600-normal.woff2",
+    "node_modules/@fontsource/nunito/files/nunito-latin-500-normal.woff2": "fonts/nunito-latin-500-normal.woff2",
+    "node_modules/@fontsource/nunito/files/nunito-latin-600-normal.woff2": "fonts/nunito-latin-600-normal.woff2",
+    "node_modules/@fontsource/nunito/files/nunito-latin-700-normal.woff2": "fonts/nunito-latin-700-normal.woff2",
+  });
+
   // Zorgt dat links als "/css/style.css" ook werken als de site in een
   // submap staat (zoals bij GitHub Pages: /ClaudeCode/). Lokaal verandert er niets.
   eleventyConfig.addPlugin(HtmlBasePlugin);

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl">
+<html lang="nl"{% if site.stijlwisselaar.aan %} data-themas="{% for thema in site.stijlwisselaar.themas %}{{ thema.code }}{% if not loop.last %} {% endif %}{% endfor %}"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,33 +7,29 @@
   <title>{% if title %}{{ title }} · {% endif %}{{ site.naam }}</title>
   <meta name="description" content="{{ description or site.omschrijving }}">
 
-  {# Lettertypes: Cormorant Garamond (koppen) en Source Sans 3 (lopende tekst) #}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap">
+  {# Beveiliging: de browser laadt alleen bestanden van deze site zelf
+     (geen scripts, stijlen of lettertypes van andere servers). Links naar
+     buiten, zoals Google Forms en mailto, blijven gewoon werken. #}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
+  {# Lettertypes van de eigen site: Cormorant Garamond (koppen) en
+     Source Sans 3 (lopende tekst). Zie src/css/fonts.css. #}
+  <link rel="preload" href="/fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
   {% if site.stijlwisselaar.aan %}
-    {# Extra koplettertypes voor de thema's Groen & goud (Fraunces) en Ochtend (Nunito) #}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Nunito:wght@500;600;700&display=swap">
+    {# Extra koplettertypes voor de thema's Groen & goud en Ochtend #}
+    <link rel="stylesheet" href="/css/fonts-themas.css">
   {% endif %}
 
   <link rel="stylesheet" href="/css/style.css">
 
-  {# Laat de CSS weten dat JavaScript werkt (nodig voor het mobiele menu) #}
-  <script>document.documentElement.classList.add("js");</script>
-
+  {# Klein script dat vóór het tekenen van de pagina draait: laat de CSS
+     weten dat JavaScript werkt (voor het mobiele menu) en zet het onthouden
+     thema van de stijlwisselaar. Zie src/js/vooraf.js. #}
+  <script src="/js/vooraf.js"></script>
   {% if site.stijlwisselaar.aan %}
-    {# Zet het onthouden thema al vóór de pagina getekend wordt,
-       zodat je niet eerst even het standaardthema ziet. #}
-    <script>
-      try {
-        var stijl = localStorage.getItem("stijl");
-        var themas = [{% for thema in site.stijlwisselaar.themas %}{{ thema.code | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}];
-        if (stijl && stijl !== themas[0] && themas.indexOf(stijl) !== -1) {
-          document.documentElement.dataset.thema = stijl;
-        }
-      } catch (fout) {}
-    </script>
     <script src="/js/stijlwisselaar.js" defer></script>
   {% endif %}
   <script src="/js/menu.js" defer></script>

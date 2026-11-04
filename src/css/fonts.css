@@ -1,0 +1,44 @@
+/* Lettertypes van de eigen site (geen Google Fonts).
+   De bestanden komen uit de npm-pakketten van Fontsource en worden bij het
+   bouwen naar /fonts/ gekopieerd (zie eleventy.config.js).
+   Licentie: SIL Open Font License. */
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-latin-500-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-latin-600-normal.woff2") format("woff2");
+}

@@ -512,8 +512,8 @@ a:hover {
 
 /* Hero: grote bosafbeelding met naam, slogan en knop.
    Lagen van boven naar onder:
-   1. een donker verloop, zodat de tekst goed leesbaar blijft
-   2. de foto (uit home.yaml)
+   1. een donker verloop (::before), zodat de tekst goed leesbaar blijft
+   2. de foto (<img class="hero__foto">, uit home.yaml), als die er is
    3. een groen bosverloop, zichtbaar zolang er nog geen foto is */
 .hero {
   position: relative;
@@ -525,13 +525,29 @@ a:hover {
   text-align: center;
   background-color: var(--kleur-mos-donker);
   background-image:
-    linear-gradient(180deg, rgb(30 26 16 / 0.35) 0%, rgb(30 26 16 / 0.55) 100%),
-    var(--hero-afbeelding),
     radial-gradient(ellipse at 30% 20%, var(--hero-gloed-1) 0%, transparent 55%),
     radial-gradient(ellipse at 80% 70%, var(--hero-gloed-2) 0%, transparent 60%),
     linear-gradient(160deg, var(--hero-verloop-van) 0%, var(--hero-verloop-naar) 100%);
   background-size: cover;
   background-position: center;
+  isolation: isolate;
+}
+
+.hero__foto {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgb(30 26 16 / 0.35) 0%, rgb(30 26 16 / 0.55) 100%);
 }
 
 .hero__inhoud {

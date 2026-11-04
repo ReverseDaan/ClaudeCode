@@ -52,7 +52,7 @@ Je mag altijd vragen welke gegevens we van je hebben, en vragen om ze aan te pas
 
 ## Cookies
 
-Deze site gebruikt geen cookies om je te volgen en geen advertenties. Kies je een andere stijl voor de site, dan onthoudt je eigen browser die keuze. Dat blijft op je eigen apparaat.
+Deze site gebruikt geen cookies om je te volgen en geen advertenties. Ook de lettertypes komen van onze eigen site. Bij een bezoek gaan er dus geen gegevens naar andere partijen. Kies je een andere stijl voor de site, dan onthoudt je eigen browser die keuze. Dat blijft op je eigen apparaat.
 
 ## Contact
 

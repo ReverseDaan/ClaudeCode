@@ -151,14 +151,18 @@ en gebruik tot die tijd placeholders.
   menu). Geen frontend-framework.
 - De "eerstvolgende retraite" wordt bij het bouwen automatisch bepaald: de
   eerste retraite met een datum in de toekomst.
-- Formulieren (aanmelden, contact): via een externe formulierdienst, nog te
-  kiezen (zie Besluiten). Er is geen eigen backend.
+- Formulieren (interesselijst, aanmelden): via Google Forms (zie Besluiten).
+  Er is geen eigen backend.
+- **Geen externe bronnen**: lettertypes, scripts en stijlen komen van de site
+  zelf (lettertypes via de npm-pakketten van Fontsource). De
+  Content-Security-Policy in `base.njk` blokkeert al het andere; gebruik dus
+  geen `style="…"`-attributen en geen inline `<script>`.
 - Hosting: **GitHub Pages**, via de workflow `.github/workflows/pages.yml`.
   Bij elke push naar `main` wordt de site gebouwd en gepubliceerd op
   https://reversedaan.github.io/ClaudeCode/. Omdat de site in een submap staat,
   gebruikt Eleventy een pathPrefix (HtmlBasePlugin). Schrijf links gewoon als
-  `/pagina/`, want de plugin zet het voorvoegsel ervoor. Alleen URL's in
-  `style`-attributen of CSS moeten door het filter `| url`.
+  `/pagina/`, want de plugin zet het voorvoegsel ervoor. In CSS gebruik je
+  relatieve paden (bijv. `url("../fonts/…")`).
   Let op: Netlify Forms werkt niet op GitHub Pages.
 - De eigenaar heeft een achtergrond in Mendix en kent wat Java/JavaScript.
   Houd de code daarom leesbaar en eenvoudig, met korte Nederlandse comments
@@ -213,8 +217,11 @@ claudecode/
     │   ├── retraites.json  # standaardinstellingen voor alle retraites (tag, geen eigen pagina)
     │   └── 2027-04-voorjaar.md     # de voorjaarsretraite 2027
     ├── css/
+    │   ├── fonts.css       # lettertypes (eigen site, geen Google)
+    │   ├── fonts-themas.css # extra lettertypes voor de stijlwisselaar
     │   └── style.css
     ├── js/
+    │   ├── vooraf.js       # draait in de <head>: js-class en onthouden thema
     │   ├── menu.js
     │   └── stijlwisselaar.js
     ├── images/             # eigen foto's (nu placeholders)

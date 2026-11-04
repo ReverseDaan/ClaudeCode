@@ -4,7 +4,12 @@ layout: layouts/base.njk
 {# Homepagina. De teksten staan in src/_data/home.yaml. #}
 
 {# 1. Hero: grote bosafbeelding met naam, slogan en knop #}
-<section class="hero" style="--hero-afbeelding: url('{{ home.hero.afbeelding | url }}')">
+{# De foto staat alleen op de pagina als het bestand echt bestaat;
+   anders zie je het groene bosverloop uit de CSS. #}
+<section class="hero">
+  {% if home.hero.afbeelding | afbeeldingBestaat %}
+  <img class="hero__foto" src="/images/{{ home.hero.afbeelding }}" alt="{{ home.hero.alt }}" fetchpriority="high">
+  {% endif %}
   <div class="container hero__inhoud">
     <h1 class="hero__titel">{{ site.naam }}</h1>
     <p class="hero__slogan">{{ home.hero.slogan }}</p>

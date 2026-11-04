@@ -13,7 +13,6 @@
         {% for item in site.menu %}
           <li><a href="{{ item.url }}">{{ item.tekst }}</a></li>
         {% endfor %}
-        <li><a href="/vragen/">Veelgestelde vragen</a></li>
       </ul>
     </nav>
 
@@ -23,12 +22,15 @@
         <li><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
       </ul>
 
+      {# "Volg ons" alleen als er social links in site.yaml staan #}
+      {% if site.social and site.social.length %}
       <h2 class="site-footer__kop site-footer__kop--los">Volg ons</h2>
       <ul class="kale-lijst">
         {% for kanaal in site.social %}
-          <li><a href="{{ kanaal.url }}" rel="noopener">{{ kanaal.naam }}</a></li>
+          <li><a href="{{ kanaal.url }}" rel="noopener noreferrer">{{ kanaal.naam }}</a></li>
         {% endfor %}
       </ul>
+      {% endif %}
     </div>
   </div>
 
