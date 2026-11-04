@@ -4,6 +4,7 @@
 # src/_data/stichting.yaml.
 layout: layouts/pagina.njk
 title: "Over de stichting"
+description: "Wie er achter de retraites zitten, waarom we dit doen en de gegevens van de stichting."
 intro: "Wie er achter de retraites zit, en waarom we dit doen."
 ---
 

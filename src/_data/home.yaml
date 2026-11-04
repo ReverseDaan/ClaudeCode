@@ -8,9 +8,11 @@ hero:
   # Korte zin onder de naam, bovenaan de pagina.
   slogan: "Vertraag. Maak iets met je handen. Begin de reis naar binnen."
   knop: "Bekijk de retraites"
-  # Foto voor de achtergrond. Zet het bestand in src/images/.
-  # Zolang de foto er niet is, zie je een groene achtergrond.
-  afbeelding: "/images/hero-bos.jpg"
+  # Foto voor de achtergrond: de bestandsnaam in src/images/.
+  # Zolang het bestand er niet is, zie je een groene achtergrond.
+  afbeelding: "hero-bos.jpg"
+  # Korte beschrijving van de foto voor wie hem niet kan zien.
+  alt: "Zonlicht valt tussen de bomen door in een rustig bos"
 
 ervaringen:
   # Kop boven de ervaringen van deelnemers. De quotes zelf staan in

@@ -151,14 +151,18 @@ en gebruik tot die tijd placeholders.
   menu). Geen frontend-framework.
 - De "eerstvolgende retraite" wordt bij het bouwen automatisch bepaald: de
   eerste retraite met een datum in de toekomst.
-- Formulieren (aanmelden, contact): via een externe formulierdienst, nog te
-  kiezen (zie Besluiten). Er is geen eigen backend.
+- Formulieren (interesselijst, aanmelden): via Google Forms (zie Besluiten).
+  Er is geen eigen backend.
+- **Geen externe bronnen**: lettertypes, scripts en stijlen komen van de site
+  zelf (lettertypes via de npm-pakketten van Fontsource). De
+  Content-Security-Policy in `base.njk` blokkeert al het andere; gebruik dus
+  geen `style="…"`-attributen en geen inline `<script>`.
 - Hosting: **GitHub Pages**, via de workflow `.github/workflows/pages.yml`.
   Bij elke push naar `main` wordt de site gebouwd en gepubliceerd op
   https://reversedaan.github.io/ClaudeCode/. Omdat de site in een submap staat,
   gebruikt Eleventy een pathPrefix (HtmlBasePlugin). Schrijf links gewoon als
-  `/pagina/`, want de plugin zet het voorvoegsel ervoor. Alleen URL's in
-  `style`-attributen of CSS moeten door het filter `| url`.
+  `/pagina/`, want de plugin zet het voorvoegsel ervoor. In CSS gebruik je
+  relatieve paden (bijv. `url("../fonts/…")`).
   Let op: Netlify Forms werkt niet op GitHub Pages.
 - De eigenaar heeft een achtergrond in Mendix en kent wat Java/JavaScript.
   Houd de code daarom leesbaar en eenvoudig, met korte Nederlandse comments
@@ -180,7 +184,8 @@ claudecode/
 ├── package.json
 ├── eleventy.config.js      # Eleventy-configuratie
 ├── lib/
-│   └── retraites.js        # controle en sortering van retraites (gebruikt in eleventy.config.js)
+│   ├── retraites.js        # controle en sortering van retraites (gebruikt in eleventy.config.js)
+│   └── controle.js         # controle van de gebouwde site (workflow Controle)
 ├── .gitignore              # o.a. node_modules/ en _site/
 └── src/
     ├── _data/
@@ -213,11 +218,14 @@ claudecode/
     │   ├── retraites.json  # standaardinstellingen voor alle retraites (tag, geen eigen pagina)
     │   └── 2027-04-voorjaar.md     # de voorjaarsretraite 2027
     ├── css/
+    │   ├── fonts.css       # lettertypes (eigen site, geen Google)
+    │   ├── fonts-themas.css # extra lettertypes voor de stijlwisselaar
     │   └── style.css
     ├── js/
+    │   ├── vooraf.js       # draait in de <head>: js-class en onthouden thema
     │   ├── menu.js
     │   └── stijlwisselaar.js
-    ├── images/             # eigen foto's (nu placeholders)
+    ├── images/             # eigen foto's; nu alleen deelkaart.jpg (+ bron .svg)
     ├── index.njk           # Home
     ├── wat-en-waarom.md
     ├── retraites.njk       # Retraites en events (op datum)
@@ -227,7 +235,11 @@ claudecode/
     ├── contact.md
     ├── vragen.njk          # Veelgestelde vragen
     ├── agenda.njk          # maakt per retraite een .ics-bestand
+    ├── sitemap.njk         # /sitemap.xml
+    ├── robots.njk          # /robots.txt
+    ├── favicon.svg         # icoontje (ook favicon.png en apple-touch-icon.png)
     ├── privacy.md
+    ├── 404.md              # pagina "niet gevonden"
     └── voorwaarden.md
 ```
 
@@ -262,7 +274,7 @@ wordt eerst een story in `stories/`.
 - [x] 12. Aanmelden (US-11 t/m US-13): drie stappen (story 017) en Google Forms met vooraf ingevulde retraite (story 018): ter review. Daan maakt het formulier en zet de link in `site.yaml`
 - [x] 13. Contact, alleen het e-mailadres (US-15 ingeperkt, story 007): ter review
 - [x] 14. Over de stichting (US-14, story 006, met voorbeeldgegevens), voorwaarden (US-17, story 015) en privacybeleid (story 016): ter review
-- [ ] 15. Controle: mobiel, toegankelijkheid, beeldoptimalisatie, SEO-basis
+- [~] 15. Controle: SEO-basis en beveiliging (stories 023–025): ter review. Nog te doen: beeldoptimalisatie (als er foto's zijn) en een laatste controle vóór de lancering
 - [ ] 16. Later: Engels (US-19), maandweergave (US-10), eigen domein
 
 Extra stories (buiten het stappenplan):
@@ -274,6 +286,9 @@ Extra stories (buiten het stappenplan):
 - [x] Story 012: "Is dit iets voor mij?" op Wat en waarom: ter review
 - [x] Story 013: veelgestelde vragen op /vragen/: ter review
 - [x] Story 022: vragen opgeschoond, maaltijden plantaardig, rol Begeleider, menu-item Veelgestelde vragen: ter review
+- [x] Story 023: lettertypes zelf hosten, CSP, placeholders opgeruimd: ter review
+- [x] Story 024: nachtelijke herbouw, 404-pagina, controle bij elke PR: ter review
+- [x] Story 025: deelkaart, evenementgegevens, sitemap, favicon: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
