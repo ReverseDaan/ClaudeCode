@@ -1,6 +1,6 @@
 # 028 — Nieuw thema "Penseel & papier" (vervangt Groen & goud)
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 4 nov 2026 (punten 3 en 4); story 002 (stijlwisselaar)
 **Afhankelijk van:** 023 (CSP, lettertypes)
 
@@ -62,8 +62,22 @@ Groen & goud is nu een nette, maar veilige variant. Daan wil een stijl met pense
 3. ~~Knoppen?~~ Niet geschilderd (Daan, 4 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chrome op 375 en 1280 px.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Stijlwisselaar: Bos, Zand, Penseel & papier, Ochtend; "groen-goud" komt nergens meer voor in de site |
+| 2 | ✅ Een oud opgeslagen thema `groen-goud` geeft het standaardthema (vooraf.js accepteert alleen thema's uit de lijst) |
+| 3 | ✅ Papierstructuur over de hele pagina, Fraunces cursief op de grote koppen, een vermiljoen streek onder de koppen, een streek onder de huidige pagina in het menu, bredere verfstreken als scheidingslijn, iets onregelmatige hoeken aan kaarten; knoppen strak met een streek eronder bij hover en focus. Gecontroleerd op Home, Wat en waarom, Retraites en de retraitepagina |
+| 4 | ✅ Contrast in Penseel & papier minstens 6,1:1 op zeven pagina's; in de hero (per pixel gemeten) naam minstens 5,1:1, slogan 10,6:1, knop 8,2:1 |
+| 5 | ✅ Bos, Zand en Ochtend pixel voor pixel gelijk aan vóór deze story (12 schermafbeeldingen vergeleken) |
+| 6 | ✅ 0 externe aanvragen, 0 CSP-meldingen; Fraunces cursief (2 bestanden) wordt alleen geladen zolang de stijlwisselaar aan staat |
+
+De penseelstreek en de papierstructuur zijn kleine SVG-tekeningen in de CSS zelf (sectie 13 van `style.css`), dus geen extra bestanden.

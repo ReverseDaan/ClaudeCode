@@ -281,7 +281,7 @@ wordt eerst een story in `stories/`.
 
 Extra stories (buiten het stappenplan):
 
-- [x] Story 002: stijlwisselaar met vier thema's (Bos, Zand, Groen & goud, Ochtend): ter review. Zet hem uit vóór de lancering (`site.yaml`).
+- [x] Story 002: stijlwisselaar met vier thema's (Bos, Zand, Penseel & papier, Ochtend): ter review. Zet hem uit vóór de lancering (`site.yaml`).
 - [x] Story 009: "Zet in je agenda" (.ics per retraite): ter review
 - [x] Story 010: ervaringen van deelnemers op Home en Wat en waarom (US-03): ter review
 - [ ] Story 011: galerij: in de wacht tot er foto's zijn
@@ -292,6 +292,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 024: nachtelijke herbouw, 404-pagina, controle bij elke PR: ter review
 - [x] Story 025: deelkaart, evenementgegevens, sitemap, favicon: ter review
 - [x] Story 026: getekend landschap per stijl op Home, naam die geschreven wordt: ter review
+- [x] Story 028: thema Penseel & papier vervangt Groen & goud: ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
