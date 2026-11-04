@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3: parallax, alleen in thema 3 en niet bij "minder beweging".
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const lagen = Array.from(document.querySelectorAll(".landschap__laag"));
-  const metDiepte = () => ["penseel", "groen-goud"].includes(html.dataset.thema);
+  const metDiepte = () => html.dataset.thema === "penseel";
   let bezig = false;
   window.addEventListener("scroll", () => {
     if (bezig) return;

@@ -95,25 +95,27 @@
   --hoek: 10px;
 }
 
-/* Groen & goud: modern en zacht */
-[data-thema="groen-goud"] {
-  --kleur-mos: #3f6656;          /* eucalyptusgroen, voor links */
-  --kleur-mos-donker: #2b453a;   /* diep saliegroen, voor vlakken */
-  --kleur-zand: #f5f4ef;         /* gebroken wit */
-  --kleur-zand-donker: #e2e4d9;  /* lichte salie */
-  --kleur-aarde: #a98e4f;        /* gedempt goud, voor details */
-  --kleur-bruin: #23302a;        /* tekst: bijna zwart groen */
-  --kleur-bruin-zacht: #52615a;
-  --kleur-oker: #cdb06a;         /* zacht goud, voor knoppen */
-  --kleur-oker-licht: #dcc489;
+/* Penseel & papier: een schetsboek, met verzadigde kleuren op papier.
+   De papierstructuur en de penseelstreken staan in sectie 13. */
+[data-thema="penseel"] {
+  --kleur-mos: #2d3fa8;          /* ultramarijn, voor links en koppen */
+  --kleur-mos-donker: #1f2340;   /* diep indigo, voor vlakken (voettekst) */
+  --kleur-zand: #f6f0e4;         /* papier */
+  --kleur-zand-donker: #ebe0cc;  /* iets donkerder papier, voor vlakken */
+  --kleur-aarde: #d9482b;        /* vermiljoen, voor accenten en streken */
+  --kleur-bruin: #1f2340;        /* tekst: indigo inkt in plaats van zwart */
+  --kleur-bruin-zacht: #4a4f6e;
+  --kleur-oker: #f2b33d;         /* saffraangeel, voor knoppen */
+  --kleur-oker-licht: #f5c45f;
+  --kleur-groen: #3e8a5c;        /* een vleugje groen, voor details */
 
-  --hero-gloed-1: #86a393;
-  --hero-gloed-2: #3f6656;
-  --hero-verloop-van: #4f7464;
-  --hero-verloop-naar: #22372e;
+  --hero-gloed-1: #f2b33d;
+  --hero-gloed-2: #2d3fa8;
+  --hero-verloop-van: #f6f0e4;
+  --hero-verloop-naar: #ebe0cc;
 
   --font-kop: "Fraunces", Georgia, serif;
-  --hoek: 12px;
+  --hoek: 4px;
 }
 
 /* Ochtend: opwekkend en activerend, maar zacht */
@@ -532,7 +534,6 @@ a:hover {
 /* Kleur van de tekst in de hero per thema (de lucht verschilt). De
    achtergrondkleur is de kleur van de lucht, voor als de tekening niet laadt. */
 [data-thema="zand"] .hero { background-color: #efc99a; --hero-tekst: #3f2a1a; --hero-schaduw: 0 1px 18px rgb(255 240 215 / 0.8); }
-[data-thema="groen-goud"] .hero,
 [data-thema="penseel"] .hero { background-color: #f6f0e4; --hero-tekst: #1f2340; --hero-schaduw: none; }
 [data-thema="ochtend"] .hero { background-color: #fbe7dc; --hero-tekst: #2d2a33; --hero-schaduw: 0 1px 18px rgb(255 250 245 / 0.9); }
 
@@ -630,7 +631,6 @@ a:hover {
   stroke-linecap: round;
 }
 
-[data-thema="groen-goud"] .hero__streek path,
 [data-thema="penseel"] .hero__streek path { stroke: #d9482b; }
 [data-thema="ochtend"] .hero__streek path { stroke: #e0896c; }
 
@@ -730,7 +730,6 @@ a:hover {
 :root:not([data-thema]) .landschap__thema--bos,
 [data-thema="bos"] .landschap__thema--bos,
 [data-thema="zand"] .landschap__thema--zand,
-[data-thema="groen-goud"] .landschap__thema--penseel,
 [data-thema="penseel"] .landschap__thema--penseel,
 [data-thema="ochtend"] .landschap__thema--ochtend {
   display: inline;
@@ -1534,4 +1533,145 @@ a:hover {
   margin: 0;
   font-size: var(--tekst-klein);
   color: var(--kleur-bruin-zacht);
+}
+
+
+/* ------------------------------------------------------------------
+   13. Thema Penseel & papier: papier en penseelstreken
+   Alleen actief met data-thema="penseel". De structuur en de streek
+   zijn kleine SVG-tekeningen in de CSS zelf (data-URL's), dus geen
+   extra bestanden en binnen de Content-Security-Policy.
+   ------------------------------------------------------------------ */
+[data-thema="penseel"] {
+  /* korrel van papier */
+  --papier: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.35 0 0 0 0 0.22 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E");
+  /* vlekkerigheid van papier (grotere, zachte vlekken) */
+  --papier-vlek: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0 0.3 0 0 0 0.35 -0.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23v)'/%3E%3C/svg%3E");
+  /* vorm van een penseelstreek, gebruikt als masker */
+  --streek: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 13c28-7 66-10 108-9 40 1 62 4 86-1 3 0 4 3 1 4-24 6-52 8-88 8-38 0-72 2-104 4-4 0-6-4-3-6z'/%3E%3C/svg%3E");
+}
+
+/* Papier over de hele pagina: een vaste laag die niet meescrolt en
+   niet klikbaar is, zodat alles (ook vlakken en kaarten) op papier staat. */
+[data-thema="penseel"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  background-image: var(--papier), var(--papier-vlek);
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+}
+
+/* Grote koppen in Fraunces cursief */
+[data-thema="penseel"] h1,
+[data-thema="penseel"] .pagina__tekst h2,
+[data-thema="penseel"] .sectie__kop,
+[data-thema="penseel"] .hero__naam text {
+  font-style: italic;
+}
+
+[data-thema="penseel"] h1,
+[data-thema="penseel"] h2 {
+  color: var(--kleur-mos);
+}
+
+/* Een vermiljoen penseelstreek onder de grote koppen */
+[data-thema="penseel"] .pagina__tekst h2::after,
+[data-thema="penseel"] .sectie__kop::after,
+[data-thema="penseel"] .pagina__kop h1::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 0.6rem;
+  margin-top: 0.4rem;
+  background: var(--kleur-aarde);
+  -webkit-mask: var(--streek) no-repeat center / 100% 100%;
+  mask: var(--streek) no-repeat center / 100% 100%;
+}
+
+/* Knoppen blijven strak; bij hover en focus verschijnt er een
+   penseelstreek onder */
+[data-thema="penseel"] .knop {
+  position: relative;
+  border-radius: var(--hoek);
+}
+
+[data-thema="penseel"] .knop::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -0.65rem;
+  height: 0.55rem;
+  background: var(--kleur-aarde);
+  -webkit-mask: var(--streek) no-repeat center / 100% 100%;
+  mask: var(--streek) no-repeat center / 100% 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s ease;
+}
+
+[data-thema="penseel"] .knop:hover::after,
+[data-thema="penseel"] .knop:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Huidige pagina in het menu: een penseelstreek in plaats van een lijn */
+@media (min-width: 1200px) {
+  [data-thema="penseel"] .hoofdmenu a {
+    position: relative;
+  }
+
+  [data-thema="penseel"] .hoofdmenu a[aria-current="page"] {
+    border-bottom-color: transparent;
+  }
+
+  [data-thema="penseel"] .hoofdmenu a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: -6%;
+    right: -6%;
+    bottom: -0.45rem;
+    height: 0.5rem;
+    background: var(--kleur-aarde);
+    -webkit-mask: var(--streek) no-repeat center / 100% 100%;
+    mask: var(--streek) no-repeat center / 100% 100%;
+  }
+}
+
+/* De scheidingslijnen worden brede, zichtbare verfstreken */
+[data-thema="penseel"] .penseelstreek {
+  width: min(26rem, 80%);
+}
+
+[data-thema="penseel"] .penseelstreek svg {
+  height: 2rem;
+  fill: var(--kleur-aarde);
+  opacity: 0.85;
+}
+
+/* Iets onregelmatige randen aan vlakken en kaarten, als gescheurd papier */
+[data-thema="penseel"] .retraite-kaart,
+[data-thema="penseel"] .ervaring,
+[data-thema="penseel"] .home-route,
+[data-thema="penseel"] .persoon-kaart,
+[data-thema="penseel"] .melding,
+[data-thema="penseel"] .interesselijst {
+  border-radius: 6px 3px 7px 2px / 3px 7px 2px 6px;
+}
+
+[data-thema="penseel"] .home-route {
+  border-left-color: var(--kleur-aarde);
+}
+
+[data-thema="penseel"] .home-stap__icoon {
+  stroke: var(--kleur-aarde);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-thema="penseel"] .knop::after {
+    transition: none;
+  }
 }

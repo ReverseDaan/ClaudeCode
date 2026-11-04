@@ -1,4 +1,4 @@
-/* Extra koplettertypes voor de thema's Groen & goud (Fraunces) en
+/* Extra koplettertypes voor de thema's Penseel & papier (Fraunces, ook cursief) en
    Ochtend (Nunito). Alleen geladen zolang de stijlwisselaar aan staat. */
 
 @font-face {
@@ -39,4 +39,20 @@
   font-weight: 700;
   font-display: swap;
   src: url("../fonts/nunito-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/fraunces-latin-500-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/fraunces-latin-600-italic.woff2") format("woff2");
 }
