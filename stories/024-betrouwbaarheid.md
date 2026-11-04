@@ -1,6 +1,6 @@
 # 024 — Betrouwbaarheid: nachtelijke herbouw, 404-pagina en controle bij elke PR
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 4 nov 2026)
 **Bron:** Code-analyse 4 nov 2026 (punten 4, 5, 8 en 12; punten 6, 7 en 11 als handmatige stappen)
 **Afhankelijk van:** geen
 
@@ -14,7 +14,7 @@ De "eerstvolgende retraite" en de lijst met komende retraites worden bepaald op 
 
 ## Scope
 **Wel:**
-1. **Nachtelijke herbouw**: `pages.yml` bouwt en publiceert de site ook elke nacht (rond 04:00 Nederlandse tijd), zodat voorbije retraites vanzelf verdwijnen.
+1. **Nachtelijke herbouw**: `pages.yml` bouwt en publiceert de site na elke merge naar `main` (zoals nu) én elke nacht (rond 04:00 Nederlandse tijd), zodat voorbije retraites vanzelf verdwijnen.
 2. **Eigen 404-pagina** (`src/404.md`) in de stijl van de site: korte tekst, links naar Home, Retraites en Contact. Tekst in het Markdown-bestand.
 3. **Controle bij elke PR** (`.github/workflows/controle.yml`): bouwt de site en controleert de basis, met een duidelijke Nederlandse melding als iets misgaat:
    - de build slaagt (dus ook de controle van retraitebestanden);
@@ -54,8 +54,8 @@ De "eerstvolgende retraite" en de lijst met komende retraites worden bepaald op 
 - `README.md`
 
 ## Open vragen voor Daan
-1. Is één keer per nacht genoeg? (Vaker kan, maar levert niets op: datums veranderen per dag.)
-2. Wil je dat ik de handmatige GitHub-stappen in deze story uitvoer (via de GitHub-koppeling), of doe je ze liever zelf?
+1. ~~Herbouw?~~ Na elke merge (blijft zo) en elke nacht (Daan, 4 nov 2026).
+2. Handmatige GitHub-stappen: Daan doet ze zelf met de stappenlijst in de README (de koppeling van Claude mag deze instellingen niet wijzigen).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd

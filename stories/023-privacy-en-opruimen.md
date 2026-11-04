@@ -1,6 +1,6 @@
 # 023 — Lettertypes zelf hosten, beveiligingstags en placeholders opruimen
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 4 nov 2026)
 **Bron:** Code-analyse 4 nov 2026 (punten 1, 2, 3, 9, 10 en onderhoud); privacybeleid (story 016)
 **Afhankelijk van:** geen
 
@@ -47,13 +47,14 @@ De site laadt de lettertypes nu bij Google. Daardoor ziet Google bij elk paginab
 ## Technische aanpak (kort)
 - Lettertypes via de npm-pakketten van Fontsource (`@fontsource/cormorant-garamond`, `@fontsource/source-sans-3`, en voor de stijlwisselaar `@fontsource/fraunces`, `@fontsource/nunito`). Eleventy kopieert alleen de benodigde `.woff2`-bestanden naar `/fonts/`. Zo staan er geen binaire bestanden in de repo en houdt Dependabot ze bij.
 - Nieuw CSS-bestand `src/css/fonts.css` met de `@font-face`-regels (met `font-display: swap`), vóór `style.css` geladen; de twee belangrijkste lettertypes krijgen een `preload`.
+- Hero: de foto wordt een gewoon `<img>` achter de tekst in plaats van een `style`-attribuut, zodat de CSP geen inline-stijlen hoeft toe te staan. Alt-tekst in `home.yaml`.
 - `base.njk`: Google-links weg, CSP- en referrer-meta erbij. Het kleine inline-script voor de stijlwisselaar gaat naar een eigen bestand, zodat de CSP geen `unsafe-inline` nodig heeft.
 - `footer.njk`, `interesselijst.njk`, `index.njk` (hero), `site.yaml`, `privacy.md`, `CLAUDE.md`
 - Controle: echte build in GitHub Actions + Chrome met netwerk- en consolecontrole
 
 ## Open vragen voor Daan
-1. Hebben jullie al Instagram of Facebook? Zo ja, welke links? Zo nee, dan laat ik "Volg ons" voorlopig weg.
-2. Akkoord dat de vier lettertypes als npm-pakket worden binnengehaald (geen eigen bestanden in de repo)?
+1. ~~Social?~~ "Volg ons" mag weg (Daan, 4 nov 2026). Het mechanisme blijft: vul je later een link in, dan verschijnt het kopje weer.
+2. ~~Lettertypes als npm-pakket?~~ Ja (Daan, 4 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd

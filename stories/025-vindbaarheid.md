@@ -1,6 +1,6 @@
 # 025 — Vindbaarheid en delen: deelkaart, evenementgegevens, sitemap en favicon
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 4 nov 2026)
 **Bron:** Code-analyse 4 nov 2026 (vindbaarheid); `docs/siteplan.md` (lanceercontrole: SEO-basis); plan stap 15
 **Afhankelijk van:** 023 (CSP en eigen bronnen)
 
@@ -15,7 +15,7 @@ Wordt een link nu gedeeld via WhatsApp, Instagram of mail, dan verschijnt er all
 ## Scope
 **Wel:**
 1. **Deelkaart (Open Graph en Twitter-kaart)** op elke pagina: titel, beschrijving, URL, taal (`nl_NL`) en een afbeelding. Zolang er geen foto is: een eigen deelafbeelding (1200×630) in de huisstijl, met de naam uit `site.yaml` en een penseelstreek, gemaakt in SVG en bij het bouwen omgezet naar PNG.
-2. **Evenementgegevens** (schema.org `Event`, als JSON-LD) op de pagina van elke komende retraite: naam, start- en einddatum, locatie (naam en plaats), prijs in euro met status (beschikbaar, uitverkocht), organisator (naam uit `site.yaml`) en de link naar aanmelden. Retraites met "onder voorbehoud" krijgen `EventScheduled` pas als ze bevestigd zijn.
+2. **Evenementgegevens** (schema.org `Event`, als JSON-LD) op de pagina van elke komende retraite: naam, start- en einddatum, locatie (naam en plaats), prijs in euro met status (beschikbaar, uitverkocht), organisator (naam uit `site.yaml`) en de link naar aanmelden. Retraites "onder voorbehoud" krijgen géén Event-gegevens (Daan, 4 nov 2026).
 3. **Organisatiegegevens** (schema.org `Organization`) op Home: naam, URL, e-mailadres.
 4. **`sitemap.xml`** met alle pagina's (zonder 404 en agenda-bestanden) en een **`robots.txt`** die naar de sitemap wijst.
 5. **Canonieke URL** op elke pagina, op basis van `site.adres`, zodat er bij een eigen domein maar één instelling verandert.
@@ -31,7 +31,7 @@ Wordt een link nu gedeeld via WhatsApp, Instagram of mail, dan verschijnt er all
 1. **Gegeven** een pagina, **dan** staan in de `<head>` `og:title`, `og:description`, `og:url`, `og:image`, `og:locale` en `twitter:card`, met absolute URL's die beginnen met `site.adres`.
 2. De deelafbeelding is 1200×630 px, toont de naam uit `site.yaml` en is kleiner dan 300 kB.
 3. **Gegeven** de voorjaarsretraite, **dan** is de JSON-LD geldig (gecontroleerd met de Schema.org-validator of een gelijkwaardige controle in de build) en bevat hij datum, locatie, prijs € 495, beschikbaarheid en de aanmeldlink.
-4. **Gegeven** een voorbije retraite, **dan** staat er geen Event-JSON-LD op de pagina.
+4. **Gegeven** een voorbije retraite of een retraite met `bevestigd: false`, **dan** staat er geen Event-JSON-LD op de pagina.
 5. `sitemap.xml` bevat alle gewone pagina's en retraites met volledige URL's; `robots.txt` noemt de sitemap. Werkt ook met het voorvoegsel `/ClaudeCode/`.
 6. Elke pagina heeft één `<link rel="canonical">` en een eigen `description`.
 7. De favicon is zichtbaar in het browsertabblad (Chrome) en past bij alle vier de thema's.
@@ -52,8 +52,8 @@ Wordt een link nu gedeeld via WhatsApp, Instagram of mail, dan verschijnt er all
 - Controle: echte build, validatie van de JSON-LD in de controle-workflow uit story 024
 
 ## Open vragen voor Daan
-1. Wil je dat retraites met status "onder voorbehoud" ook als evenement in Google kunnen verschijnen, of pas als ze bevestigd zijn? (Voorstel: pas na bevestiging.)
-2. Mag ik de beschrijvingen per pagina zelf voorstellen? Je ziet ze bij de review.
+1. ~~Onder voorbehoud?~~ Nog niet in Google (Daan, 4 nov 2026).
+2. ~~Beschrijvingen?~~ Claude stelt ze voor; Daan ziet ze bij de review (akkoord 4 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
