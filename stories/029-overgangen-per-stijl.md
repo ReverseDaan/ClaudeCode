@@ -1,6 +1,6 @@
 # 029 — Een eigen overgang tussen pagina's per stijl
 
-**Status:** Goedgekeurd (Daan, 4 nov 2026: "Akkoord bij dezen dus bouw de functionaliteit meteen")
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 4 nov 2026: de overgang uit story 027 voelt als vertraging, niet als animatie
 **Afhankelijk van:** 027 (View Transitions)
 
@@ -40,8 +40,22 @@ De vervaging van 0,6 seconde uit story 027 start pas als de nieuwe pagina gelade
 - Controle: build, Controle-workflow, schermafbeeldingen tijdens de overgang per stijl
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (4 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chromium 153, ook op 8% snelheid opgenomen om de beweging te zien.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Bos: de nieuwe pagina wordt met een golvende penseelrand van links naar rechts overgeschilderd. Zand: de oude pagina schuift naar links weg, de nieuwe komt van rechts. Penseel & papier: zoomt een fractie weg en de nieuwe ademt in. Ochtend: de nieuwe pagina schuift als een vel van onderen omhoog |
+| 2 | ✅ Type "terug" bij: menu naar een eerdere pagina, en terugknop. Niet bij: vooruit in het menu, en van Retraites naar een retraite. In Zand draait de richting dan om |
+| 3 | ✅ Gemeten van begin tot eind 0,43 tot 0,59 s (0,45 s animatie plus de tijd van de browser) |
+| 4 | ✅ Bovenbalk, voettekst en stijlknop staan stil (te zien in de opname) |
+| 5 | ✅ Met "minder beweging": korte vervaging, klaar na ca. 0,27 s |
+| 6 | ✅ 0 CSP-meldingen, 0 JavaScript-fouten |
+
+De vervaging van 0,6 s uit story 027 is vervangen door deze vier overgangen. Het alvast ophalen van pagina's uit 027 blijft.

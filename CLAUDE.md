@@ -294,7 +294,8 @@ Extra stories (buiten het stappenplan):
 - [x] Story 025: deelkaart, evenementgegevens, sitemap, favicon: ter review
 - [x] Story 026: getekend landschap per stijl op Home, naam die geschreven wordt: ter review
 - [x] Story 028: thema Penseel & papier vervangt Groen & goud: ter review
-- [x] Story 027: vloeiende overgangen tussen pagina's (0,6 s): ter review
+- [x] Story 027: overgangen tussen pagina's en alvast ophalen: ter review (animatie vervangen door 029)
+- [x] Story 029: eigen overgang per stijl (Bos penseelstreek, Zand bladzijde, Penseel adem, Ochtend vel papier): ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
