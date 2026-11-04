@@ -1,6 +1,6 @@
 # 030 — Eén overzicht van retraites, minder lege ruimte op de laptop, en een echt penseel
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 4 nov 2026)
 **Bron:** Daan, 4 nov 2026: "Retraites" en "Kalender" zijn dubbel; op de laptop te veel witruimte; de overgang bij Penseel & papier met een echt penseel
 **Afhankelijk van:** 004 (retraites en kalender), 029 (overgangen)
 
@@ -25,10 +25,7 @@ zodat **het menu helder is, de site op een groot scherm net zo goed oogt als op 
 *B. Minder witruimte op de laptop*
 6. Maximale breedte van de inhoud van 72rem naar 80rem, en de zijmarge schaalt mee met het scherm (op de telefoon gelijk aan nu, op een laptop ruimer, maar niet meer dan 3rem).
 7. De tekstkolom van 38rem naar 44rem (ca. 700 px; nog prettig leesbaar, rond 75 tekens per regel).
-8. Op schermen vanaf 1024 px benutten pagina's de breedte beter (zie open vraag 2):
-   - de kop van een pagina (titel en intro) en de tekst staan in dezelfde, gecentreerde kolom in plaats van links;
-   - retraitekaarten op de kalender en de kaarten van begeleiders staan naast elkaar (twee kolommen) als er meer dan één is;
-   - de feiten van een retraite (wanneer, waar, prijs, …) staan in een kolom naast de tekst in plaats van erboven.
+8. Op schermen vanaf 1024 px staan de kop van een pagina (titel en intro) en de tekst in dezelfde, gecentreerde kolom in plaats van links. Verder blijft de opmaak zoals hij is: geen extra kolommen (Daan, 4 nov 2026: "niet overdrijven").
 9. Op de telefoon (375 px) verandert er niets.
 
 *C. Penseel & papier: een echt penseel*
@@ -44,7 +41,7 @@ zodat **het menu helder is, de site op een groot scherm net zo goed oogt als op 
 1. Het menu heeft zeven items, zonder "Retraites"; `/retraites/` bestaat niet meer en geeft de 404-pagina.
 2. Geen enkele link op de site verwijst nog naar `/retraites/` (de Controle-workflow controleert dit); alle knoppen die naar de retraites wezen, openen de kalender.
 3. De pagina van de voorjaarsretraite staat op `/kalender/2027-04-voorjaar/`, het agenda-bestand op `/kalender/2027-04-voorjaar.ics`, en beide staan correct in de sitemap en de evenementgegevens.
-4. **Gegeven** een laptop van 1280 en 1440 px, **dan** staat de inhoud gecentreerd, is de tekstkolom ca. 700 px breed en staan kaarten in twee kolommen (schermafbeeldingen voor en na van Home, Wat en waarom, Kalender en een retraitepagina).
+4. **Gegeven** een laptop van 1280 en 1440 px, **dan** staat de tekst gecentreerd en is de tekstkolom ca. 700 px breed, met minder lege ruimte aan weerszijden (schermafbeeldingen voor en na van Home, Wat en waarom, Kalender en een retraitepagina).
 5. **Gegeven** 375 px, **dan** ziet elke pagina er hetzelfde uit als nu (pixelvergelijking) en is er geen horizontaal scrollen.
 6. **Gegeven** Penseel & papier, **wanneer** ik naar een andere pagina klik, **dan** trekt er een penseel over het scherm met een vermiljoen verfstreek, en verschijnt de nieuwe pagina erachter (vertraagde opname ter review). Met "minder beweging": geen penseel.
 7. Contrast ≥ 4,5:1 in alle stijlen; 0 CSP-meldingen; Controle groen.
@@ -58,9 +55,9 @@ zodat **het menu helder is, de site op een groot scherm net zo goed oogt als op 
 - Controle: build, Controle-workflow, schermafbeeldingen en een vertraagde opname
 
 ## Open vragen voor Daan
-1. **Adressen**: de pagina's van losse retraites naar `/kalender/<naam>/` (voorstel, past bij het menu) of laten staan op `/retraites/<naam>/`?
-2. **Breedte op de laptop**: de inhoud gecentreerd met een bredere kolom en kaarten naast elkaar (voorstel), of wil je de tekst links houden en alleen breder maken?
-3. **Knop op Home**: de tekst "Bekijk de retraites" laten staan (hij opent dan de kalender), of "Bekijk de kalender"?
+1. ~~Adressen?~~ Naar `/kalender/<naam>/` (Daan, 4 nov 2026).
+2. ~~Breedte?~~ Tekst centreren, minder ruimte aan weerszijden, niet overdrijven (Daan, 4 nov 2026).
+3. ~~Knop op Home?~~ "Bekijk de retraites" blijft (Daan, 4 nov 2026).
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
