@@ -129,6 +129,49 @@ uploaden.
 
 ## Online
 
-De site staat op **https://reversedaan.github.io/ClaudeCode/**. Bij elke push
-naar `main` bouwt GitHub de site opnieuw (zie het tabblad *Actions*). Na
-ongeveer een minuut staat de nieuwe versie online.
+De site staat op **https://reversedaan.github.io/ClaudeCode/**. GitHub bouwt
+de site opnieuw (zie het tabblad *Actions*, workflow "Publiceren op GitHub
+Pages"):
+
+- bij elke push of merge naar `main`; na ongeveer een minuut staat de nieuwe
+  versie online;
+- elke nacht rond 04:00, zodat een retraite die voorbij is vanzelf van Home,
+  Retraites en Kalender verdwijnt, ook als er niets is aangepast.
+
+Een adres dat niet bestaat, toont de eigen pagina "Pagina niet gevonden"
+(`src/404.md`).
+
+## Als de controle rood is
+
+Bij elke pull request en bij elke push naar een andere branch dan `main`
+draait de workflow **Controle**. Die bouwt de site en kijkt of:
+
+- alle retraitebestanden kloppen;
+- er geen losse template-code (`{{` of `{%`) op een pagina staat;
+- elke pagina één hoofdkop en een titel heeft;
+- alle links naar andere pagina's van de site werken.
+
+Zie je een rood kruisje bij je pull request? Klik op **Details** en open de
+stap die rood is. Daar staat in gewone taal welk bestand of welke link niet
+klopt. Pas het aan en push opnieuw; de controle draait vanzelf weer. Merge
+pas als hij groen is.
+
+## Instellingen in GitHub (eenmalig)
+
+Deze drie instellingen zet je zelf aan in GitHub. Ze kosten samen een paar
+minuten.
+
+1. **`main` beschermen** tegen per ongeluk overschrijven of verwijderen.
+   *Settings → Branches → Add branch ruleset* (of *Add rule*). Naam: `main`,
+   target: de branch `main`. Vink aan: **Restrict deletions** en **Block force
+   pushes**. Zet *Require a pull request* **niet** aan, anders kan niemand meer
+   rechtstreeks in GitHub een retraite toevoegen. Opslaan.
+2. **Dependabot** laat weten als er een beveiligingslek of update is voor de
+   gebruikte pakketten (Eleventy, de lettertypes, de GitHub-onderdelen).
+   *Settings → Code security* (of *Security*): zet **Dependabot alerts** en
+   **Dependabot security updates** aan. Dependabot opent dan zelf een pull
+   request met de oplossing; de Controle laat zien of alles nog werkt.
+3. **Oude branches opruimen.** *Settings → General*, onder *Pull Requests*:
+   vink **Automatically delete head branches** aan. Ga daarna naar
+   *Code → Branches* en verwijder de branches die al gemerged zijn
+   (alles behalve `main` en de branch waar je nu aan werkt).

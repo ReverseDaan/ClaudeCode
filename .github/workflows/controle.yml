@@ -1,0 +1,34 @@
+# Controleert elke wijziging vóór die op main komt: bij elke pull request en
+# bij elke push naar een andere branch dan main. Is de controle rood, klik
+# dan op de rode stip en open "Controle": daar staat in gewone taal wat er
+# mis is. Zie ook de README ("Als de controle rood is").
+name: Controle
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Bouwt de site zoals op GitHub Pages (in de submap /ClaudeCode/).
+      # Hier stopt het al als een retraitebestand niet klopt.
+      - name: Site bouwen
+        run: npx @11ty/eleventy --pathprefix=/ClaudeCode/
+
+      - name: Controle
+        run: node lib/controle.js _site /ClaudeCode/
