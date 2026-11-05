@@ -1,6 +1,6 @@
 # 032 — Ademblok op Home en rustig "plakkend" scrollen op de laptop
 
-**Status:** Goedgekeurd (Daan, 5 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 5 nov 2026 (voorstel 2 uit de Home-voorstellen, en snap-scrollen)
 **Afhankelijk van:** 020 (Home), 026 (landschap)
 
@@ -60,8 +60,24 @@ Daan wil op Home minder nadruk op het aanbod en meer op op je gemak voelen. Het 
 2. ~~Knop?~~ Ja, "Adem nog een keer" (Daan, 5 nov 2026).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (5 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chromium op 375, 1280 en 1440 px, met een versnelde en een vertraagde opname van de ademhaling.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Onder het landschap staat "De kracht van een korte adempauze" met de cirkel; "Even uit de drukte" is weg |
+| 2 | ✅ Vóór het blok in beeld is: geen animatie (cirkel staat klaar, tekst onzichtbaar). In beeld: 3 × 3 s in ("in…") en 3 s uit ("uit…"); na ca. 18 s verdwijnt de cirkel en verschijnt de tekst met de knop |
+| 3 | ✅ Met "minder beweging" en zonder JavaScript: tekst meteen zichtbaar, geen cirkel, geen knop |
+| 3b | ✅ "Adem nog een keer": de tekst maakt plaats voor de cirkel, die opnieuw drie keer ademt; daarna komt de tekst terug en staat de focus op de kop |
+| 4 | ✅ De introductietekst staat altijd in de HTML |
+| 5 | ✅ 1280 en 1440 px: elk deel is minstens één scherm hoog; stop je vlak onder het begin van het ademblok, dan glijdt de pagina terug naar het begin (`proximity`); verder scrollen blijft vrij |
+| 6 | ✅ 375 px en andere pagina's: geen plakken, gewone hoogtes; boven het ademblok verandert er niets |
+| 7 | ✅ Laagste contrast 4,77:1 (Zand), woorden in de cirkel 8,8 tot 10,7:1 in alle stijlen; 0 CSP-meldingen, 0 fouten, 0 externe aanvragen; Controle groen; nergens horizontaal scrollen |
+
+Tijdens het testen opgelost: de knop "Adem nog een keer" was zichtbaar terwijl hij verborgen had moeten zijn (de knopstijl overschreef `hidden`) en had het standaardlettertype van de browser. Bij Penseel & papier staat de penseelstreek onder de kop nu in het midden.
