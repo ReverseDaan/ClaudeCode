@@ -2041,6 +2041,19 @@ a:hover {
   margin-top: var(--ruimte-m);
 }
 
+/* Een <button> neemt het lettertype niet vanzelf over */
+.ademblok__knop {
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+}
+
+/* .knop zet display, dus "hidden" hier expliciet laten werken */
+.ademblok__knop[hidden] {
+  display: none;
+}
+
 /* ------------------------------------------------------------------
    16. Plakkend scrollen op Home, alleen op de laptop (story 032)
    Elk deel van Home is minstens één scherm hoog; de pagina "plakt" aan
