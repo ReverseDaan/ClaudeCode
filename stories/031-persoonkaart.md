@@ -1,6 +1,6 @@
 # 031 — Rustigere kaart voor begeleiders
 
-**Status:** Goedgekeurd (Daan, 5 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 5 nov 2026: "De kaart met begeleiders is nu wat rommelig. Centreer de foto en de naam + rol op dezelfde manier ernaast. De tekst kan in volle breedte eronder."
 **Afhankelijk van:** 005 (personenkaarten)
 
@@ -38,8 +38,18 @@ Nu staat de foto links en lopen naam, rol en bio er als één smalle kolom naast
 - Geen.
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (5 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chromium: drie pagina's (Wat en waarom, Over de stichting, de retraitepagina) × vier stijlen × 375 en 1280 px.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Foto en naam + rol naast elkaar; verschil tussen de verticale middens 0 px op alle 24 combinaties |
+| 2 | ✅ De bio begint onder de foto en loopt over de volle breedte van de kaart |
+| 3 | ✅ Met foto (Daan) en met de cirkel met voorletter (Vincent); geen horizontaal scrollen |
+| 4 | ✅ Naam blijft `<h3>`; Controle groen |
