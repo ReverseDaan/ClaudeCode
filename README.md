@@ -30,6 +30,10 @@ ververst de pagina vanzelf.
 | KvK, RSIN, statutaire zetel, ANBI      | `src/_data/stichting.yaml` |
 | Tekst van een gewone pagina            | `src/<pagina>.md` (bijv. `src/kalender.md`) |
 | Teksten op de homepagina               | `src/_data/home.yaml`      |
+| Over ons, Onze filosofie, Ons aanbod   | `src/over-ons.md`, `src/over-ons/filosofie.md`, `src/over-ons/aanbod.md` |
+| Los aanbod van Daan en Vincent         | `src/_data/aanbod.yaml`    |
+| "Is dit iets voor mij?"                | `src/_data/pastbijmij.yaml` |
+| Veelgestelde vragen                    | `src/_data/vragen.yaml`    |
 | Kleuren, lettertypes, witruimte        | `src/css/style.css` (bovenaan, onder "Design tokens") |
 | Foto's                                 | `src/images/`              |
 

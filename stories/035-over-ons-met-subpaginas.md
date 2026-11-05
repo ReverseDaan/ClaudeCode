@@ -1,6 +1,6 @@
 # 035 — "Over ons" met twee subpagina's: onze filosofie en ons aanbod
 
-**Status:** Goedgekeurd (Daan, 5 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 5 nov 2026
 **Afhankelijk van:** 005 (Wat en waarom), 012 ("Is dit iets voor mij?"), 031 (begeleiders); vervangt het deel "Is dit iets voor mij?" van story 034
 
@@ -76,8 +76,26 @@ Beantwoord door Daan, 5 nov 2026: "Over de stichting" wordt een derde subitem on
 Persoonlijk betaald aanbod van Daan en Vincent op de site van een (toekomstige) stichting: houd dat zakelijk gescheiden van de stichting. Dat geldt zeker als jullie ANBI-status willen, want dan mag de stichting geen winstoogmerk hebben en geen privébelang dienen. Op de site helpt een zin als "Daan biedt deze sessies zelfstandig aan, los van de stichting". Laat een fiscalist of notaris dit toetsen zodra de rechtsvorm vastligt.
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (5 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle (13 pagina's), en de build in Chromium op 375 en 1280 px in alle vier de stijlen.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Laptop: het pijltje naast "Over ons" klapt een lijstje open met Onze filosofie, Ons aanbod en Over de stichting. Met Tab naar het pijltje en Enter gaat het ook. Escape sluit het en de focus gaat terug naar het pijltje. Ergens anders klikken of verder tabben sluit het ook. Zonder JavaScript gaat het lijstje open als je het menu aanwijst of er met Tab in komt |
+| 2 | ✅ 375 px: de drie subitems staan ingesprongen onder "Over ons", zonder pijltje |
+| 3 | ✅ `/over-ons/`: wat we doen, voor wie, de knop "Bekijk de retraites" (naar de kalender), de begeleiders en drie blokken naar de subpagina's |
+| 4 | ✅ `/over-ons/filosofie/`: Waarom (met citaat) en Hoe we werken; geen datum, kalender of aanmeldknop |
+| 5 | ✅ `/over-ons/aanbod/`: eerst Retraites (knop naar de kalender, een dag, "Is dit iets voor mij?", ervaringen), dan "Individueel aanbod" met het blok van Daan en de melding "voorbeeldtekst". Vincent heeft nog geen tekst, dus geen blok |
+| 6 | ✅ `/wat-en-waarom/` en `/stichting/` bestaan niet meer; de stichting staat op `/over-ons/stichting/`. Geen enkele link verwijst nog naar de oude adressen; de Controle meldt het als er een terugkomt |
+| 7 | ✅ Laagste contrast 4,77:1 (Zand); 0 CSP-meldingen, 0 fouten, 0 externe aanvragen, 0 ontbrekende bestanden; Controle groen; nergens horizontaal scrollen; koppen slaan op geen enkele pagina een niveau over |
+| 11 | ✅ De ademkop op Home is "Adem kort met ons mee" |
+
+Op een subpagina is in het menu "Over ons" gemarkeerd (lijn eronder, bij Penseel & papier de penseelstreek) en het subitem in het lijstje. "Is dit iets voor mij?" is nu een `h3`, maar ziet er hetzelfde uit als de vroegere `h4` (Source Sans 3, 18,4 px, vet). In de voettekst staan de subitems onder "Over ons".
+
+Let op: de begeleiders staan nu zowel op Over ons als op Over de stichting ("Wie wij zijn"). Dat is ongewijzigd gelaten; of de stichtingspagina zich voortaan beperkt tot de missie, het ontstaan en de gegevens, is een keuze voor een volgende story.
