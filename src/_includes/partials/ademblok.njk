@@ -1,0 +1,20 @@
+{#- Ademblok op Home (story 032). Teksten in src/_data/home.yaml (intro).
+    Zonder JavaScript of met "minder beweging" staat de tekst er meteen.
+    Met JavaScript (landschap.js) ademt de cirkel drie keer zodra het blok
+    in beeld komt; daarna verdwijnt de cirkel en verschijnt de tekst.
+    De tekst staat altijd in de pagina, zodat schermlezers hem lezen. -#}
+<section class="sectie ademblok" aria-labelledby="intro-kop">
+  <div class="container ademblok__binnen">
+    <h2 class="sectie__kop ademblok__kop" id="intro-kop" tabindex="-1">{{ home.intro.kop }}</h2>
+    <div class="ademblok__podium">
+      <div class="ademblok__cirkel" aria-hidden="true">
+        <span class="ademblok__woord ademblok__woord--in">{{ home.intro.in }}</span>
+        <span class="ademblok__woord ademblok__woord--uit">{{ home.intro.uit }}</span>
+      </div>
+      <div class="ademblok__tekst">
+        {% for alinea in home.intro.tekst %}<p>{{ alinea }}</p>{% endfor %}
+        <p class="ademblok__opnieuw"><button type="button" class="knop knop--rustig ademblok__knop" hidden>{{ home.intro.opnieuw }}</button></p>
+      </div>
+    </div>
+  </div>
+</section>
