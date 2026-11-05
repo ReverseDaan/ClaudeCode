@@ -9,6 +9,7 @@
 <ul class="personen-lijst kale-lijst">
 {%- for persoon in (personenLijst if personenLijst else personen) %}
 <li class="persoon-kaart">
+<div class="persoon-kaart__kop">
 {%- if persoon.foto and (persoon.foto | afbeeldingBestaat) %}
 <img class="persoon-kaart__foto" src="/images/{{ persoon.foto }}" alt="Foto van {{ persoon.naam }}" width="160" height="160" loading="lazy">
 {%- else %}
@@ -17,8 +18,9 @@
 <div class="persoon-kaart__tekst">
 <h3 class="persoon-kaart__naam">{{ persoon.naam }}</h3>
 <p class="persoon-kaart__rol">{{ persoon.rol }}</p>
-<p class="persoon-kaart__bio">{{ persoon.bio }}</p>
 </div>
+</div>
+<p class="persoon-kaart__bio">{{ persoon.bio }}</p>
 </li>
 {%- endfor %}
 </ul>

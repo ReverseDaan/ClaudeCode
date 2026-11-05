@@ -299,6 +299,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 027: overgangen tussen pagina's en alvast ophalen: ter review (animatie vervangen door 029)
 - [x] Story 029: eigen overgang per stijl (Bos penseelstreek, Zand bladzijde, Ochtend vel papier): ter review
 - [x] Story 030: Retraites uit het menu (Kalender is het overzicht), tekst gecentreerd en breder op de laptop, echt penseel bij Penseel & papier: ter review
+- [x] Story 031: rustigere kaart voor begeleiders (foto en naam naast elkaar, bio eronder): ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)

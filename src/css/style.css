@@ -1179,14 +1179,22 @@ a:hover {
   margin: 0 0 var(--ruimte-m);
 }
 
+/* Kaart van een begeleider: bovenaan foto en naam + rol naast elkaar
+   (verticaal gecentreerd), daaronder de bio over de volle breedte */
 .persoon-kaart {
   display: flex;
+  flex-direction: column;
   gap: var(--ruimte-s);
-  align-items: flex-start;
   padding: var(--ruimte-m);
   background: var(--kleur-zand);
   border: 1px solid var(--kleur-zand-donker);
   border-radius: var(--hoek);
+}
+
+.persoon-kaart__kop {
+  display: flex;
+  align-items: center;
+  gap: var(--ruimte-s);
 }
 
 .persoon-kaart__foto {
@@ -1214,7 +1222,7 @@ a:hover {
 }
 
 .persoon-kaart__rol {
-  margin: 0 0 var(--ruimte-xs);
+  margin: 0;
   font-size: var(--tekst-klein);
   color: var(--kleur-bruin-zacht);
 }
