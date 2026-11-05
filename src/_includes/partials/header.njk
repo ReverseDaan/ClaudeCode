@@ -11,9 +11,31 @@
     <nav id="hoofdmenu" class="hoofdmenu" aria-label="Hoofdmenu">
       <ul>
         {% for item in site.menu %}
+          {% if item.sub %}
+          {#- Item met subitems (bijv. "Over ons"). Het pijltje klapt op de
+              laptop het lijstje open (menu.js); op de telefoon staan de
+              subitems er altijd onder. Op een subpagina krijgt het
+              hoofditem de klasse is-actief. -#}
+          {%- set actief = item.sub | bevatUrl(page.url) -%}
+          <li class="hoofdmenu__groep">
+            <div class="hoofdmenu__rij">
+              <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% elif actief %} class="is-actief"{% endif %}>{{ item.tekst }}</a>
+              <button class="submenu-knop" type="button" aria-expanded="false" aria-controls="submenu-{{ loop.index }}">
+                <span class="sr-only">Meer onder {{ item.tekst }}</span>
+                <svg class="submenu-knop__pijl" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true" focusable="false"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <ul class="submenu" id="submenu-{{ loop.index }}">
+              {% for sub in item.sub %}
+              <li><a href="{{ sub.url }}"{% if page.url == sub.url %} aria-current="page"{% endif %}>{{ sub.tekst }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
           <li>
             <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.tekst }}</a>
           </li>
+          {% endif %}
         {% endfor %}
       </ul>
     </nav>

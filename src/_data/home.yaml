@@ -26,7 +26,7 @@ intro:
   # "kop" met de tekst en de knop "opnieuw".
   # Zonder animatie (of voor zoekmachines) staat er alleen "kop" met de tekst.
   # Elke regel met een streepje in "tekst" is een alinea.
-  ademkop: "De kracht van een korte adempauze"
+  ademkop: "Adem kort met ons mee"
   kop: "Even uit de drukte"
   in: "in…"
   uit: "uit…"
@@ -62,12 +62,12 @@ routes:
   # Drie grote links onderaan de pagina.
   kop: "Verder kijken"
   lijst:
-    - kop: "Wat en waarom"
-      tekst: "Wat je doet, hoe een dag eruitziet en wie je begeleidt."
-      url: "/wat-en-waarom/"
+    - kop: "Over ons"
+      tekst: "Wie we zijn, waar we voor staan en wat we aanbieden."
+      url: "/over-ons/"
     - kop: "Kalender"
       tekst: "Alle retraites op een rij, per maand."
       url: "/kalender/"
     - kop: "Over de stichting"
       tekst: "Wie erachter zitten en waarom we dit doen."
-      url: "/stichting/"
+      url: "/over-ons/stichting/"

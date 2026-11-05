@@ -57,11 +57,15 @@ US-01 t/m US-19). Daarin zijn deze punten besloten:
 
 - **Menu en pagina's: volg het siteplan**, plus "Veelgestelde vragen" (Daan,
   3 nov 2026, story 022) en zonder "Retraites en events", omdat de Kalender
-  hetzelfde overzicht is (Daan, 4 nov 2026, story 030). Home · Wat en waarom ·
-  Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact.
-  Pagina's van losse retraites staan op `/kalender/<naam>/`. "Over ons" en
-  "Programma" vervallen: de begeleiders en "een sessie stap voor stap" komen op
-  Wat en waarom.
+  hetzelfde overzicht is (Daan, 4 nov 2026, story 030). Home · Over ons
+  (Onze filosofie · Ons aanbod · Over de stichting) · Kalender · Aanmelden ·
+  Veelgestelde vragen · Contact.
+  Pagina's van losse retraites staan op `/kalender/<naam>/`.
+  Sinds story 035 (Daan, 5 nov 2026) heet "Wat en waarom" **"Over ons"**
+  (`/over-ons/`), met subpagina's `/over-ons/filosofie/` (waarom, zonder data of
+  kalender), `/over-ons/aanbod/` (de retraites, en wat Daan en Vincent ieder
+  los aanbieden, uit `aanbod.yaml`) en `/over-ons/stichting/`. "Programma"
+  vervalt.
 - **Taal: eerst alles in het Nederlands**, maar zo opgezet dat Engels later onder
   `/en/` kan worden toegevoegd (aparte fase, US-19). Zet teksten daarom in data-
   of Markdown-bestanden en niet in templates.
@@ -142,7 +146,7 @@ en gebruik tot die tijd placeholders.
     beschrijving als Markdown
   - `src/_data/personen.yaml`: begeleiders en bestuursleden (foto, naam, rol, bio)
   - `src/_data/stichting.yaml`: KvK, RSIN, statutaire zetel, ANBI aan/uit
-  - Lopende tekst van pagina's (Wat en waarom, Over de stichting, privacy,
+  - Lopende tekst van pagina's (Over ons en subpagina's, Over de stichting, privacy,
     voorwaarden) als Markdown
 - Gebruik YAML in plaats van JSON voor data, omdat YAML commentaar toestaat en
   makkelijker met de hand te bewerken is. Zet bij elk databestand
@@ -197,6 +201,7 @@ claudecode/
     │   ├── ervaringen.yaml # deelnemersquotes
     │   ├── personen.yaml   # begeleiders en bestuursleden
     │   ├── stichting.yaml  # KvK, RSIN, zetel, ANBI aan/uit
+    │   ├── aanbod.yaml     # los aanbod van Daan en Vincent (Ons aanbod)
     │   ├── praktisch.yaml  # paklijst, voorbereiding, standaardtekst bereikbaarheid
     │   ├── vragen.yaml     # veelgestelde vragen
     │   └── pastbijmij.yaml # "Is dit iets voor mij?"
@@ -214,6 +219,8 @@ claudecode/
     │       ├── past-bij-mij.njk    # "Is dit iets voor mij?"
     │       ├── interesselijst.njk  # "Houd me op de hoogte"
     │       ├── ademblok.njk        # Home: cirkel om mee te ademen, daarna de intro
+    │       ├── aanbod-individueel.njk # los aanbod uit aanbod.yaml (Ons aanbod)
+    │       ├── routes.njk          # grote links naar andere pagina's (Over ons)
     │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
     │       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
     │       ├── landschap.njk       # getekend landschap achter de hero (per stijl)
@@ -234,10 +241,13 @@ claudecode/
     │   └── stijlwisselaar.js
     ├── images/             # eigen foto's; nu alleen deelkaart.jpg (+ bron .svg)
     ├── index.njk           # Home
-    ├── wat-en-waarom.md
+    ├── over-ons.md         # Over ons (algemeen)
+    ├── over-ons/
+    │   ├── filosofie.md    # Onze filosofie
+    │   └── aanbod.md       # Ons aanbod (retraites en los aanbod)
     ├── kalender.njk        # overzicht van alle komende retraites, per maand
     ├── aanmelden.njk
-    ├── stichting.md        # Over de stichting
+    ├── stichting.md        # Over de stichting (/over-ons/stichting/)
     ├── contact.md
     ├── vragen.njk          # Veelgestelde vragen
     ├── agenda.njk          # maakt per retraite een .ics-bestand
@@ -305,8 +315,9 @@ Extra stories (buiten het stappenplan):
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [x] Story 032: ademblok op Home (meeademen, dan de introductietekst) en plakkend scrollen op de laptop: ter review
 - [x] Story 033: na de adempauze komt "Even uit de drukte" terug; de pagina plakt steviger (mandatory): ter review
+- [x] Story 035: "Wat en waarom" wordt "Over ons" met subpagina's Onze filosofie, Ons aanbod en Over de stichting; ademkop "Adem kort met ons mee": ter review (story 034 is hierin opgegaan)
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu
 
-Home · Wat en waarom · Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact
+Home · Over ons (Onze filosofie · Ons aanbod · Over de stichting) · Kalender · Aanmelden · Veelgestelde vragen · Contact

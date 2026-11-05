@@ -12,6 +12,10 @@
       <ul class="kale-lijst">
         {% for item in site.menu %}
           <li><a href="{{ item.url }}">{{ item.tekst }}</a></li>
+          {#- Subitems (bijv. van "Over ons") staan er gewoon onder -#}
+          {% for sub in item.sub %}
+          <li><a href="{{ sub.url }}">{{ sub.tekst }}</a></li>
+          {% endfor %}
         {% endfor %}
       </ul>
     </nav>
