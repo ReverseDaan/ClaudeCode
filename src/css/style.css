@@ -1934,6 +1934,11 @@ a:hover {
   margin-inline: auto;
 }
 
+/* De penseelstreek onder de kop (Penseel & papier) ook in het midden */
+.ademblok__kop::after {
+  margin-inline: auto;
+}
+
 .ademblok__podium {
   display: grid;
   place-items: center;
