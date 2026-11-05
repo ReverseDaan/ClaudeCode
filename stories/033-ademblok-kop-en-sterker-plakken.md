@@ -1,6 +1,6 @@
 # 033 — Ademblok: kop wisselt na de adempauze, en de pagina plakt steviger
 
-**Status:** Goedgekeurd (Daan, 5 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 5 nov 2026, review van story 032
 **Afhankelijk van:** 032 (ademblok en plakkend scrollen)
 
@@ -48,8 +48,20 @@ In story 032 blijft de kop "De kracht van een korte adempauze" staan nadat de ci
 1. ~~Mandatory of één deel per scrollbeweging?~~ Eerst `mandatory` proberen (Daan, 5 nov 2026). Oorspronkelijke vraag: is `mandatory` (de browser glijdt altijd naar een deel) wat je bedoelt met "meer geforceerd"? Het alternatief is dat elke scrollbeweging precies één deel verder springt, zoals een presentatie. Dat vraagt JavaScript dat het scrollen overneemt. Mijn advies is `mandatory`; als dat na het testen nog te vrij voelt, kunnen we het alternatief in een aparte story proberen.
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (5 nov 2026)
+Echte Eleventy-build in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en de build in Chromium op 375, 1280 × 800, 1366 × 768 en 1440 × 900 px.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ Vóór en tijdens het ademen: "De kracht van een korte adempauze" met de cirkel, het gewone blok onzichtbaar. Na de derde ademhaling vervagen ademkop en cirkel en komt "Even uit de drukte" op met de tekst en de knop. Beide koppen staan op dezelfde hoogte |
+| 2 | ✅ "Adem nog een keer": de ademkop en de cirkel komen terug, het gewone blok (ook de knop) verdwijnt tot de drie ademhalingen klaar zijn |
+| 3 | ✅ Met "minder beweging" en zonder JavaScript: alleen "Even uit de drukte" met de tekst, geen ademkop, geen cirkel, geen knop. De gebouwde HTML heeft "Even uit de drukte" als `<h2>`; de ademkop en de cirkel zijn verborgen voor schermlezers |
+| 4 | ✅ `scroll-snap-type: y mandatory`. Op 1280 × 800, 1366 × 768 en 1440 × 900 vanaf 35–40% van een scherm boven of onder het begin van een deel gestopt: de pagina gleed elke keer naar het begin van het dichtstbijzijnde deel. De inhoud van elk deel (hoogstens 543 px) past ruim binnen één scherm. Het eerste scherm (bovenbalk en landschap) plakt nu alleen aan de bovenkant, niet nog eens aan het landschap |
+| 5 | ✅ 375 px: geen plakken |
+| 6 | ✅ Laagste contrast 4,77:1 (Zand); 0 CSP-meldingen, 0 fouten, 0 externe aanvragen; Controle groen |

@@ -304,6 +304,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
 - [x] Story 032: ademblok op Home (meeademen, dan de introductietekst) en plakkend scrollen op de laptop: ter review
+- [x] Story 033: na de adempauze komt "Even uit de drukte" terug; de pagina plakt steviger (mandatory): ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu
