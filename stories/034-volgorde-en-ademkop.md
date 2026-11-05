@@ -1,6 +1,6 @@
 # 034 — "Is dit iets voor mij?" lager op Wat en waarom, en een nieuwe ademkop
 
-**Status:** Concept
+**Status:** Vervallen: opgenomen in story 035 (Daan, 5 nov 2026)
 **Bron:** Daan, 5 nov 2026
 **Afhankelijk van:** 012 ("Is dit iets voor mij?"), 033 (ademblok)
 

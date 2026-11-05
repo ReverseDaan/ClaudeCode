@@ -1,6 +1,6 @@
 # 035 — "Over ons" met twee subpagina's: onze filosofie en ons aanbod
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 5 nov 2026)
 **Bron:** Daan, 5 nov 2026
 **Afhankelijk van:** 005 (Wat en waarom), 012 ("Is dit iets voor mij?"), 031 (begeleiders); vervangt het deel "Is dit iets voor mij?" van story 034
 
@@ -21,7 +21,7 @@ Dit wijkt af van het besluit van 2 november ("Over ons" vervalt, alles op Wat en
 **Wel:**
 
 *A. Menu*
-1. "Wat en waarom" wordt **"Over ons"**, met twee subitems: **"Onze filosofie"** en **"Ons aanbod"** (zie open vraag 2). Het menu: Home · Over ons (Onze filosofie · Ons aanbod) · Kalender · Aanmelden · Veelgestelde vragen · Over de stichting · Contact.
+1. "Wat en waarom" wordt **"Over ons"**, met drie subitems: **"Onze filosofie"**, **"Ons aanbod"** en **"Over de stichting"** (Daan, 5 nov 2026). Het menu: Home · Over ons (Onze filosofie · Ons aanbod · Over de stichting) · Kalender · Aanmelden · Veelgestelde vragen · Contact. De pagina van de stichting verhuist naar `/over-ons/stichting/`.
 2. Op de laptop: naast "Over ons" staat een pijltje. Klik of tik je erop, of gebruik je het toetsenbord, dan klapt een klein lijstje open met de twee subitems. "Over ons" zelf blijft een link naar de algemene pagina. Escape of ergens anders klikken sluit het lijstje.
 3. Op de telefoon: in het uitgeklapte menu staan de twee subitems ingesprongen onder "Over ons" (altijd zichtbaar, geen extra tikken).
 4. Op een subpagina is in het menu zowel "Over ons" als het subitem gemarkeerd als huidige pagina.
@@ -63,6 +63,8 @@ Dit wijkt af van het besluit van 2 november ("Over ons" vervalt, alles op Wat en
 - README en CLAUDE.md (menu, besluit, mappenstructuur) bijwerken
 
 ## Open vragen voor Daan
+Beantwoord door Daan, 5 nov 2026: "Over de stichting" wordt een derde subitem onder Over ons (pagina naar `/over-ons/stichting/`); de meditatiesessies krijgen voorlopig een gemarkeerde voorbeeldtekst (Daan geeft ze nog niet); de rest akkoord, dus ook de nieuwe ademkop zit in deze story.
+
 1. **Indeling:** klopt de verdeling hierboven? In het kort: de begeleiders staan op de algemene pagina, een dag en de ervaringen bij het aanbod (retraites), en "Is dit iets voor mij?" ook bij het aanbod, direct boven de ervaringen.
 2. **Namen in het menu:** "Onze filosofie" en "Ons aanbod", of iets anders (bijv. "Waarom we dit doen" en "Wat we aanbieden")?
 3. **Over de stichting:** blijft een eigen menu-item. Of wordt het een derde subitem onder "Over ons"? Dan wordt het menu korter (6 items).

@@ -1,0 +1,28 @@
+{#- Los aanbod van Daan en Vincent uit src/_data/aanbod.yaml (pagina Ons aanbod).
+    Een blok zonder tekst wordt niet getoond; zonder enkel blok met tekst
+    verdwijnt het hele deel. Gebruik in een Markdown-pagina op een eigen
+    regel, met een lege regel erboven en eronder. De uitvoer heeft daarom
+    geen lege regels ({%- en -%}). -#}
+{%- set blokken = aanbod.lijst | metTekst -%}
+{%- if blokken.length %}
+<section class="aanbod-individueel" aria-labelledby="aanbod-individueel-kop">
+<h2 id="aanbod-individueel-kop">{{ aanbod.kop }}</h2>
+<p>{{ aanbod.intro }}</p>
+{%- for blok in blokken %}
+{%- set persoon = (personen | personenMetCodes([blok.persoon]))[0] %}
+<article class="aanbod-blok">
+<h3 class="aanbod-blok__titel">{{ blok.titel }}</h3>
+{%- if persoon %}
+<p class="aanbod-blok__persoon">Door {{ persoon.naam }}</p>
+{%- endif %}
+{%- if blok.voorbeeld %}
+<p class="melding" role="note"><strong>Let op: voorbeeldtekst.</strong> Dit aanbod is er nog niet; de tekst laat alleen zien hoe het eruit komt te zien.</p>
+{%- endif %}
+{%- for alinea in blok.tekst %}
+<p>{{ alinea }}</p>
+{%- endfor %}
+<p>Interesse of een vraag? Mail naar <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>.</p>
+</article>
+{%- endfor %}
+</section>
+{%- endif %}

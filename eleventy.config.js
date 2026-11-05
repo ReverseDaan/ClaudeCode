@@ -114,6 +114,17 @@ export default function (eleventyConfig) {
     icsBestand(retraite, { naam: site.naam, email: site.contact.email, adres: site.adres })
   );
 
+  // Menu: staat de huidige pagina in deze lijst met subitems? (story 035)
+  // {% if item.sub | bevatUrl(page.url) %} ... {% endif %}
+  eleventyConfig.addFilter("bevatUrl", (lijst, url) =>
+    (lijst || []).some((item) => item.url === url)
+  );
+
+  // Aanbod: alleen de blokken waar tekst in staat (story 035)
+  eleventyConfig.addFilter("metTekst", (lijst) =>
+    (lijst || []).filter((blok) => Array.isArray(blok.tekst) && blok.tekst.length > 0)
+  );
+
   // Bestaat er een afbeelding met deze naam in src/images/?
   // {% if persoon.foto | afbeeldingBestaat %} ... {% endif %}
   eleventyConfig.addFilter("afbeeldingBestaat", (naam) =>

@@ -266,6 +266,9 @@ a:hover {
    Mobiel en tablet: menu onder een knop. Vanaf 1200px breed: menu naast het logo.
    ------------------------------------------------------------------ */
 .site-header {
+  /* relative en z-index: het uitklaplijstje van het menu valt over de pagina */
+  position: relative;
+  z-index: 20;
   background: var(--kleur-zand);
   border-bottom: 1px solid var(--kleur-zand-donker);
 }
@@ -378,8 +381,33 @@ a:hover {
 }
 
 .hoofdmenu a:hover,
-.hoofdmenu a[aria-current="page"] {
+.hoofdmenu a[aria-current="page"],
+.hoofdmenu a.is-actief {
   color: var(--kleur-mos);
+}
+
+/* Subitems (bijv. onder "Over ons"). Op de telefoon staan ze altijd
+   ingesprongen onder het hoofditem; het pijltje is alleen op de laptop. */
+.submenu-knop {
+  display: none;
+}
+
+.hoofdmenu .submenu {
+  padding: 0;
+}
+
+.hoofdmenu .submenu a {
+  padding-left: var(--ruimte-m);
+  font-size: 1rem;
+}
+
+/* De lijn onder het laatste subitem blijft, behalve in de laatste groep */
+.hoofdmenu .submenu li:last-child a {
+  border-bottom: 1px solid var(--kleur-zand-donker);
+}
+
+.hoofdmenu > ul > li:last-child .submenu li:last-child a {
+  border-bottom: 0;
 }
 
 /* Vanaf 1200px staat het menu naast de naam. Met acht menu-items is
@@ -421,8 +449,82 @@ a:hover {
   }
 
   .hoofdmenu a:hover,
-  .hoofdmenu a[aria-current="page"] {
+  .hoofdmenu a[aria-current="page"],
+  .hoofdmenu a.is-actief {
     border-bottom-color: var(--kleur-mos);
+  }
+
+  /* Item met subitems: de link en het pijltje naast elkaar */
+  .hoofdmenu__groep {
+    position: relative;
+  }
+
+  .hoofdmenu__rij {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .js .submenu-knop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.75rem;
+    min-height: 1.75rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 999px;
+    color: var(--kleur-bruin);
+    cursor: pointer;
+  }
+
+  .js .submenu-knop:hover {
+    color: var(--kleur-mos);
+  }
+
+  .submenu-knop__pijl {
+    transition: transform var(--overgang);
+  }
+
+  .submenu-knop[aria-expanded="true"] .submenu-knop__pijl {
+    transform: rotate(180deg);
+  }
+
+  /* Het uitklaplijstje */
+  .hoofdmenu .submenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: -1rem;
+    min-width: 13rem;
+    padding: 0.4rem 0;
+    background: var(--kleur-zand);
+    border: 1px solid var(--kleur-zand-donker);
+    border-radius: 0.6rem;
+    box-shadow: 0 0.6rem 1.5rem rgb(0 0 0 / 0.1);
+  }
+
+  .js .hoofdmenu .hoofdmenu__groep.is-open .submenu {
+    display: block;
+  }
+
+  /* Zonder JavaScript: open bij aanwijzen of met het toetsenbord */
+  html:not(.js) .hoofdmenu .hoofdmenu__groep:hover .submenu,
+  html:not(.js) .hoofdmenu .hoofdmenu__groep:focus-within .submenu {
+    display: block;
+  }
+
+  .hoofdmenu .submenu a,
+  .hoofdmenu .submenu li:last-child a,
+  .hoofdmenu > ul > li:last-child .submenu li:last-child a {
+    padding: 0.45rem 1rem;
+    border-bottom: 0;
+  }
+
+  .hoofdmenu .submenu a:hover,
+  .hoofdmenu .submenu a[aria-current="page"] {
+    background: var(--kleur-zand-donker);
   }
 }
 
@@ -1109,7 +1211,7 @@ a:hover {
    10. Inhoudspagina's: tabellen, citaten, personen en meldingen
   11. Pagina van één retraite en uitklapblokken
   12. Ervaringen en secties op Home
-   (Wat en waarom, Over de stichting)
+   (Over ons, Ons aanbod, Over de stichting)
    ------------------------------------------------------------------ */
 .pagina__tekst h2 {
   font-size: var(--kop-3);
@@ -1517,8 +1619,13 @@ a:hover {
 }
 
 /* "Is dit iets voor mij?" */
-.past-bij-mij h4 {
+/* Sinds story 035 een h3 (onder "Retraites"), met de opmaak van de
+   vroegere h4: klein en in de letter van de lopende tekst */
+.pagina__tekst .past-bij-mij h3 {
+  font-family: var(--font-tekst);
+  font-weight: 700;
   font-size: 1.15rem;
+  line-height: 1.7;
   margin: 0 0 var(--ruimte-s);
 }
 
@@ -1639,11 +1746,13 @@ a:hover {
     position: relative;
   }
 
-  [data-thema="penseel"] .hoofdmenu a[aria-current="page"] {
+  [data-thema="penseel"] .hoofdmenu a[aria-current="page"],
+  [data-thema="penseel"] .hoofdmenu a.is-actief {
     border-bottom-color: transparent;
   }
 
-  [data-thema="penseel"] .hoofdmenu a[aria-current="page"]::after {
+  [data-thema="penseel"] .hoofdmenu a[aria-current="page"]::after,
+  [data-thema="penseel"] .hoofdmenu a.is-actief::after {
     content: "";
     position: absolute;
     left: -6%;
@@ -1653,6 +1762,11 @@ a:hover {
     background: var(--kleur-aarde);
     -webkit-mask: var(--streek) no-repeat center / 100% 100%;
     mask: var(--streek) no-repeat center / 100% 100%;
+  }
+
+  /* In het uitklaplijstje geen penseelstreek, alleen de achtergrond */
+  [data-thema="penseel"] .hoofdmenu .submenu a[aria-current="page"]::after {
+    content: none;
   }
 }
 
@@ -2109,4 +2223,34 @@ a:hover {
     flex-direction: column;
     justify-content: center;
   }
+}
+
+
+/* ------------------------------------------------------------------
+   17. Ons aanbod: los aanbod van Daan en Vincent (story 035)
+   ------------------------------------------------------------------ */
+.aanbod-individueel {
+  margin-top: var(--ruimte-xl);
+}
+
+.aanbod-blok {
+  margin-top: var(--ruimte-m);
+  padding: var(--ruimte-m);
+  border: 1px solid var(--kleur-zand-donker);
+  border-left: 4px solid var(--kleur-mos);
+  border-radius: var(--hoek);
+}
+
+.pagina__tekst .aanbod-blok__titel {
+  margin-top: 0;
+  margin-bottom: var(--ruimte-xs);
+}
+
+.aanbod-blok__persoon {
+  color: var(--kleur-mos);
+  font-weight: 600;
+}
+
+.aanbod-blok > :last-child {
+  margin-bottom: 0;
 }

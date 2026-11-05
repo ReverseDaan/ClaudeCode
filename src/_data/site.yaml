@@ -53,19 +53,26 @@ aanmeldformulier:
 social: []
 
 # Het hoofdmenu, in deze volgorde. "tekst" is wat in het menu staat.
+# Een item kan subitems hebben ("sub"): op de laptop klappen die open via
+# het pijltje naast het item, op de telefoon staan ze eronder.
 menu:
   - tekst: "Home"
     url: "/"
-  - tekst: "Wat en waarom"
-    url: "/wat-en-waarom/"
+  - tekst: "Over ons"
+    url: "/over-ons/"
+    sub:
+      - tekst: "Onze filosofie"
+        url: "/over-ons/filosofie/"
+      - tekst: "Ons aanbod"
+        url: "/over-ons/aanbod/"
+      - tekst: "Over de stichting"
+        url: "/over-ons/stichting/"
   - tekst: "Kalender"
     url: "/kalender/"
   - tekst: "Aanmelden"
     url: "/aanmelden/"
   - tekst: "Veelgestelde vragen"
     url: "/vragen/"
-  - tekst: "Over de stichting"
-    url: "/stichting/"
   - tekst: "Contact"
     url: "/contact/"
 

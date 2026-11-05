@@ -1,0 +1,35 @@
+# ------------------------------------------------------------------
+# Los aanbod van Daan en Vincent (pagina Ons aanbod, onder de retraites)
+# ------------------------------------------------------------------
+# Naast de retraites biedt ieder van ons ook iets eigens aan.
+#
+# kop:   de kop boven dit deel van de pagina
+# intro: een zin onder de kop
+# lijst: één blok per aanbod, met:
+#  - persoon:   de code uit src/_data/personen.yaml (voor de naam)
+#  - titel:     bijv. "Persoonlijk begeleide meditatie"
+#  - tekst:     wat het is, voor wie, hoe lang, waar. Elke regel met een
+#               streepje is een alinea. Laat je "tekst" leeg ([]), dan
+#               verschijnt het blok niet op de site.
+#  - voorbeeld: true zolang de tekst nog een voorbeeld is; dan staat er
+#               een duidelijke melding bij. Zet op false als de tekst echt is.
+#
+# Is er geen enkel blok met tekst, dan verdwijnt dit hele deel van de pagina.
+# Contact gaat via het e-mailadres uit src/_data/site.yaml.
+# ------------------------------------------------------------------
+kop: "Individueel aanbod"
+intro: "Naast de retraites bieden we ieder ook iets eigens aan."
+
+lijst:
+  - persoon: "daan"
+    titel: "Persoonlijk begeleide meditatie"
+    voorbeeld: true
+    tekst:
+      - "Voorbeeldtekst. In een persoonlijke sessie begeleidt Daan je in meditatie, afgestemd op wat jij nodig hebt. Je leert een paar eenvoudige oefeningen die je daarna zelf kunt doen."
+      - "Voorbeeldtekst. Hier komt hoe lang een sessie duurt, waar die plaatsvindt (online of op locatie) en voor wie het geschikt is."
+
+  # Vincent: nog af te stemmen. Zolang "tekst" leeg is, staat dit blok niet op de site.
+  - persoon: "vincent"
+    titel: ""
+    voorbeeld: false
+    tekst: []

@@ -1,0 +1,9 @@
+{#- Grote links naar andere pagina's, uit "routes" in de front matter van
+    de pagina (bijv. src/over-ons.md). Zelfde opmaak als "Verder kijken" op
+    Home. Gebruik in een Markdown-pagina op een eigen regel, met een lege
+    regel erboven en eronder. De uitvoer heeft daarom geen lege regels. -#}
+<ul class="home-routes kale-lijst">
+{%- for route in routes %}
+<li><a class="home-route" href="{{ route.url }}"><span class="home-route__kop">{{ route.kop }}</span><span class="home-route__tekst">{{ route.tekst }}</span></a></li>
+{%- endfor %}
+</ul>
