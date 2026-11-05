@@ -20,9 +20,14 @@ ervaringen:
   kop: "Wat deelnemers zeggen"
 
 intro:
-  # Kop en tekst direct onder de grote foto. Elke regel met een streepje
-  # is een alinea.
-  kop: "Even uit de drukte"
+  # Het ademblok direct onder het landschap. De kop staat er meteen; een
+  # cirkel ademt drie keer in en uit ("in" en "uit" staan in de cirkel).
+  # Daarna verdwijnt de cirkel en verschijnt de tekst hieronder.
+  # Elke regel met een streepje in "tekst" is een alinea.
+  kop: "De kracht van een korte adempauze"
+  in: "in…"
+  uit: "uit…"
+  opnieuw: "Adem nog een keer"
   tekst:
     - "Een paar dagen weg uit de drukte, in de natuur. Je maakt iets met je handen, mediteert en wandelt, en gebruikt wat je maakt om rustig naar binnen te kijken."
     - "Je hoeft niet te kunnen tekenen: het gaat om wat het maken met je doet, niet om het resultaat."

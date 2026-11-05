@@ -29,13 +29,8 @@ layout: layouts/base.njk
 
 </section>
 
-{# 2. Intro (src/_data/home.yaml) #}
-<section class="sectie home-intro" aria-labelledby="intro-kop">
-  <div class="container">
-    <h2 class="sectie__kop" id="intro-kop">{{ home.intro.kop }}</h2>
-    {% for alinea in home.intro.tekst %}<p>{{ alinea }}</p>{% endfor %}
-  </div>
-</section>
+{# 2. Ademblok: even meeademen, daarna de introductietekst (home.yaml, intro) #}
+{% include "partials/ademblok.njk" %}
 
 {# 3. Drie stappen: aankomen, creëren, reflecteren #}
 <section class="sectie sectie--zand" aria-labelledby="stappen-kop">

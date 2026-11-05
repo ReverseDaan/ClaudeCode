@@ -3,7 +3,10 @@
 // 2. Laat de naam letter voor letter "schrijven" als vooraf.js dat heeft
 //    aangezet (klasse "schrijf-naam" op <html>).
 // 3. Diepte bij scrollen (parallax), alleen in het thema Penseel & papier.
+// 4. Ademblok: de cirkel ademt 3 keer zodra het blok in beeld komt, daarna
+//    verschijnt de tekst (story 032).
 document.addEventListener("DOMContentLoaded", () => {
+  ademblok();
   const svg = document.querySelector(".hero__naam");
   if (!svg) return;
   const tekst = svg.querySelector("text");
@@ -51,3 +54,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { passive: true });
 });
+
+// Ademblok: zie style.css, sectie 15. Zonder deze code (of met "minder
+// beweging") staat de tekst er gewoon, zonder cirkel.
+function ademblok() {
+  const blok = document.querySelector(".ademblok");
+  if (!blok || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const cirkel = blok.querySelector(".ademblok__cirkel");
+  const knop = blok.querySelector(".ademblok__knop");
+
+  function ademen() {
+    blok.classList.remove("ademblok--wacht", "ademblok--klaar");
+    void blok.offsetWidth; // zodat de animatie opnieuw begint
+    blok.classList.add("ademblok--ademt");
+  }
+
+  // Na de derde ademhaling: cirkel weg, tekst en knop erbij
+  cirkel.addEventListener("animationend", (event) => {
+    if (event.animationName !== "ademhaling") return;
+    blok.classList.remove("ademblok--ademt");
+    blok.classList.add("ademblok--klaar");
+    knop.hidden = false;
+  });
+
+  knop.addEventListener("click", () => {
+    ademen();
+    blok.querySelector(".ademblok__kop").focus({ preventScroll: true });
+  });
+
+  // Klaarzetten: cirkel in rust, tekst nog onzichtbaar. Starten zodra het
+  // blok voor het grootste deel in beeld is (één keer).
+  blok.classList.add("ademblok--wacht");
+  const kijker = new IntersectionObserver((items) => {
+    if (items.some((item) => item.isIntersecting)) {
+      kijker.disconnect();
+      ademen();
+    }
+  }, { threshold: 0.6 });
+  kijker.observe(blok);
+}

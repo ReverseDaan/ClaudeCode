@@ -213,6 +213,7 @@ claudecode/
     │       ├── ervaringen.njk      # quotes uit ervaringen.yaml
     │       ├── past-bij-mij.njk    # "Is dit iets voor mij?"
     │       ├── interesselijst.njk  # "Houd me op de hoogte"
+    │       ├── ademblok.njk        # Home: cirkel om mee te ademen, daarna de intro
     │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
     │       ├── home-stappen.njk    # aankomen, creëren, reflecteren (Home)
     │       ├── landschap.njk       # getekend landschap achter de hero (per stijl)
@@ -302,6 +303,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 031: rustigere kaart voor begeleiders (foto en naam naast elkaar, bio eronder): ter review
 - [x] Story 014: interesselijst "Houd me op de hoogte" (verborgen tot de formulierlink in site.yaml staat): ter review
 - [x] Story 019: aankomst/vertrek, slapen en digitale rust op de eventpagina: ter review
+- [x] Story 032: ademblok op Home (meeademen, dan de introductietekst) en plakkend scrollen op de laptop: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu

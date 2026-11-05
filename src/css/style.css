@@ -1424,11 +1424,6 @@ a:hover {
   background: var(--kleur-zand-donker);
 }
 
-/* Home: intro */
-.home-intro p {
-  max-width: var(--breedte-tekst);
-  font-size: var(--tekst-groot);
-}
 
 /* Home: drie stappen, op mobiel onder elkaar */
 .home-stappen {
@@ -1918,3 +1913,178 @@ a:hover {
 
 @keyframes overgang-vervaag-uit { to { opacity: 0; } }
 @keyframes overgang-vervaag-in { from { opacity: 0; } }
+
+
+/* ------------------------------------------------------------------
+   15. Ademblok op Home (story 032)
+   De cirkel en de tekst staan op dezelfde plek (een "podium"); de
+   klassen op .ademblok bepalen wat je ziet:
+   - zonder klasse (geen JavaScript of minder beweging): alleen de tekst
+   - .ademblok--wacht: cirkel in rust, tekst nog onzichtbaar
+   - .ademblok--ademt: de cirkel ademt 3 × (3 s in, 3 s uit)
+   - .ademblok--klaar: cirkel weg, tekst en knop zichtbaar
+   De tekst blijft altijd in de pagina (alleen onzichtbaar), zodat
+   schermlezers hem lezen.
+   ------------------------------------------------------------------ */
+.ademblok__binnen {
+  text-align: center;
+}
+
+.ademblok__kop {
+  margin-inline: auto;
+}
+
+/* De penseelstreek onder de kop (Penseel & papier) ook in het midden */
+.ademblok__kop::after {
+  margin-inline: auto;
+}
+
+.ademblok__podium {
+  display: grid;
+  place-items: center;
+  max-width: var(--breedte-tekst);
+  margin-inline: auto;
+}
+
+.ademblok__cirkel,
+.ademblok__tekst {
+  grid-area: 1 / 1;
+}
+
+.ademblok__tekst p {
+  font-size: var(--tekst-groot);
+}
+
+.ademblok__cirkel {
+  display: none;
+  position: relative;
+  width: min(15rem, 60vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--kleur-mos) 16%, transparent);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--kleur-mos) 45%, transparent);
+  transform: scale(0.55);
+}
+
+.ademblok__woord {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-kop);
+  font-size: var(--kop-3);
+  color: var(--kleur-bruin);
+  opacity: 0;
+}
+
+/* Klaarzetten en ademen: cirkel zichtbaar, tekst nog onzichtbaar */
+.ademblok--wacht .ademblok__cirkel,
+.ademblok--ademt .ademblok__cirkel {
+  display: block;
+}
+
+.ademblok--wacht .ademblok__tekst,
+.ademblok--ademt .ademblok__tekst {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ademblok--ademt .ademblok__cirkel {
+  animation: ademhaling 6s ease-in-out 3;
+}
+
+.ademblok--ademt .ademblok__woord--in {
+  animation: woord-in 6s linear 3;
+}
+
+.ademblok--ademt .ademblok__woord--uit {
+  animation: woord-uit 6s linear 3;
+}
+
+@keyframes ademhaling {
+  0%, 100% { transform: scale(0.55); }
+  50% { transform: scale(1); }
+}
+
+@keyframes woord-in {
+  0% { opacity: 0; }
+  8%, 42% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes woord-uit {
+  0%, 50% { opacity: 0; }
+  58%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Klaar: de cirkel verdwijnt, de tekst komt rustig op */
+.ademblok--klaar .ademblok__cirkel {
+  display: block;
+  animation: cirkel-weg 0.8s ease forwards;
+}
+
+.ademblok--klaar .ademblok__tekst {
+  animation: tekst-op 1.2s ease 0.4s both;
+}
+
+@keyframes cirkel-weg {
+  from { opacity: 1; transform: scale(0.55); }
+  to { opacity: 0; transform: scale(0.4); visibility: hidden; }
+}
+
+@keyframes tekst-op {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+.ademblok__opnieuw {
+  margin-top: var(--ruimte-m);
+}
+
+/* Een <button> neemt het lettertype niet vanzelf over */
+.ademblok__knop {
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+}
+
+/* .knop zet display, dus "hidden" hier expliciet laten werken */
+.ademblok__knop[hidden] {
+  display: none;
+}
+
+/* ------------------------------------------------------------------
+   16. Plakkend scrollen op Home, alleen op de laptop (story 032)
+   Elk deel van Home is minstens één scherm hoog; de pagina "plakt" aan
+   het begin van een deel als je daar in de buurt stopt (proximity).
+   Niet op telefoon/tablet, niet op andere pagina's, niet bij minder
+   beweging.
+   ------------------------------------------------------------------ */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  html[data-home] {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  html[data-home] .site-header,
+  html[data-home] main > section {
+    scroll-snap-align: start;
+  }
+
+  html[data-home] .site-footer {
+    scroll-snap-align: end;
+  }
+
+  /* Bovenbalk en landschap samen precies één scherm */
+  html[data-home] .hero {
+    min-height: calc(100svh - 4.4rem);
+  }
+
+  html[data-home] main > section:not(.hero) {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
