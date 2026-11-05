@@ -1,6 +1,6 @@
 # 033 — Ademblok: kop wisselt na de adempauze, en de pagina plakt steviger
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 5 nov 2026)
 **Bron:** Daan, 5 nov 2026, review van story 032
 **Afhankelijk van:** 032 (ademblok en plakkend scrollen)
 
@@ -45,7 +45,7 @@ In story 032 blijft de kop "De kracht van een korte adempauze" staan nadat de ci
 - `landschap.js`: geen wijziging verwacht (de toestanden wacht, ademt en klaar blijven)
 
 ## Open vragen voor Daan
-1. Is `mandatory` (de browser glijdt altijd naar een deel) wat je bedoelt met "meer geforceerd"? Het alternatief is dat elke scrollbeweging precies één deel verder springt, zoals een presentatie. Dat vraagt JavaScript dat het scrollen overneemt. Mijn advies is `mandatory`; als dat na het testen nog te vrij voelt, kunnen we het alternatief in een aparte story proberen.
+1. ~~Mandatory of één deel per scrollbeweging?~~ Eerst `mandatory` proberen (Daan, 5 nov 2026). Oorspronkelijke vraag: is `mandatory` (de browser glijdt altijd naar een deel) wat je bedoelt met "meer geforceerd"? Het alternatief is dat elke scrollbeweging precies één deel verder springt, zoals een presentatie. Dat vraagt JavaScript dat het scrollen overneemt. Mijn advies is `mandatory`; als dat na het testen nog te vrij voelt, kunnen we het alternatief in een aparte story proberen.
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd

@@ -20,11 +20,14 @@ ervaringen:
   kop: "Wat deelnemers zeggen"
 
 intro:
-  # Het ademblok direct onder het landschap. De kop staat er meteen; een
-  # cirkel ademt drie keer in en uit ("in" en "uit" staan in de cirkel).
-  # Daarna verdwijnt de cirkel en verschijnt de tekst hieronder.
+  # Het ademblok direct onder het landschap. Eerst staat er "ademkop" met
+  # een cirkel die drie keer in- en uitademt ("in" en "uit" staan in de
+  # cirkel). Daarna verdwijnen die twee en verschijnt het gewone blok:
+  # "kop" met de tekst en de knop "opnieuw".
+  # Zonder animatie (of voor zoekmachines) staat er alleen "kop" met de tekst.
   # Elke regel met een streepje in "tekst" is een alinea.
-  kop: "De kracht van een korte adempauze"
+  ademkop: "De kracht van een korte adempauze"
+  kop: "Even uit de drukte"
   in: "in…"
   uit: "uit…"
   opnieuw: "Adem nog een keer"

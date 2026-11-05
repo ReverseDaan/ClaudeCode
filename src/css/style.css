@@ -1916,39 +1916,58 @@ a:hover {
 
 
 /* ------------------------------------------------------------------
-   15. Ademblok op Home (story 032)
-   De cirkel en de tekst staan op dezelfde plek (een "podium"); de
-   klassen op .ademblok bepalen wat je ziet:
-   - zonder klasse (geen JavaScript of minder beweging): alleen de tekst
-   - .ademblok--wacht: cirkel in rust, tekst nog onzichtbaar
+   15. Ademblok op Home (stories 032 en 033)
+   Twee lagen op dezelfde plek (een "podium"):
+   - .ademblok__adem: de ademkop met de cirkel (alleen versiering)
+   - .ademblok__tekst: het gewone blok, kop, tekst en knop
+   De klassen op .ademblok bepalen wat je ziet:
+   - zonder klasse (geen JavaScript of minder beweging): alleen het gewone blok
+   - .ademblok--wacht: ademkop en cirkel in rust, gewone blok onzichtbaar
    - .ademblok--ademt: de cirkel ademt 3 × (3 s in, 3 s uit)
-   - .ademblok--klaar: cirkel weg, tekst en knop zichtbaar
-   De tekst blijft altijd in de pagina (alleen onzichtbaar), zodat
-   schermlezers hem lezen.
+   - .ademblok--klaar: ademkop en cirkel weg, gewone blok en knop zichtbaar
+   Het gewone blok blijft altijd in de pagina (alleen onzichtbaar), zodat
+   schermlezers het lezen.
    ------------------------------------------------------------------ */
 .ademblok__binnen {
   text-align: center;
 }
 
-.ademblok__kop {
+.ademblok__kop,
+.ademblok__ademkop {
   margin-inline: auto;
 }
 
 /* De penseelstreek onder de kop (Penseel & papier) ook in het midden */
-.ademblok__kop::after {
+.ademblok__kop::after,
+.ademblok__ademkop::after {
   margin-inline: auto;
+}
+
+/* De ademkop is geen echte kop, maar ziet er wel zo uit */
+.ademblok__ademkop {
+  font-family: var(--font-kop);
+  line-height: 1.15;
+}
+
+[data-thema="penseel"] .ademblok__ademkop {
+  color: var(--kleur-mos);
 }
 
 .ademblok__podium {
   display: grid;
-  place-items: center;
+  align-items: start;
+  justify-items: center;
   max-width: var(--breedte-tekst);
   margin-inline: auto;
 }
 
-.ademblok__cirkel,
+.ademblok__adem,
 .ademblok__tekst {
   grid-area: 1 / 1;
+}
+
+.ademblok__adem {
+  display: none;
 }
 
 .ademblok__tekst p {
@@ -1956,8 +1975,8 @@ a:hover {
 }
 
 .ademblok__cirkel {
-  display: none;
   position: relative;
+  margin-inline: auto;
   width: min(15rem, 60vw);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -1977,9 +1996,9 @@ a:hover {
   opacity: 0;
 }
 
-/* Klaarzetten en ademen: cirkel zichtbaar, tekst nog onzichtbaar */
-.ademblok--wacht .ademblok__cirkel,
-.ademblok--ademt .ademblok__cirkel {
+/* Klaarzetten en ademen: ademkop en cirkel zichtbaar, gewone blok nog niet */
+.ademblok--wacht .ademblok__adem,
+.ademblok--ademt .ademblok__adem {
   display: block;
 }
 
@@ -2018,19 +2037,18 @@ a:hover {
   100% { opacity: 0; }
 }
 
-/* Klaar: de cirkel verdwijnt, de tekst komt rustig op */
-.ademblok--klaar .ademblok__cirkel {
+/* Klaar: ademkop en cirkel vervagen, het gewone blok komt rustig op */
+.ademblok--klaar .ademblok__adem {
   display: block;
-  animation: cirkel-weg 0.8s ease forwards;
+  animation: adem-weg 0.8s ease forwards;
 }
 
 .ademblok--klaar .ademblok__tekst {
   animation: tekst-op 1.2s ease 0.4s both;
 }
 
-@keyframes cirkel-weg {
-  from { opacity: 1; transform: scale(0.55); }
-  to { opacity: 0; transform: scale(0.4); visibility: hidden; }
+@keyframes adem-weg {
+  to { opacity: 0; visibility: hidden; }
 }
 
 @keyframes tekst-op {
@@ -2055,15 +2073,17 @@ a:hover {
 }
 
 /* ------------------------------------------------------------------
-   16. Plakkend scrollen op Home, alleen op de laptop (story 032)
-   Elk deel van Home is minstens één scherm hoog; de pagina "plakt" aan
-   het begin van een deel als je daar in de buurt stopt (proximity).
+   16. Plakkend scrollen op Home, alleen op de laptop (stories 032 en 033)
+   Elk deel van Home is minstens één scherm hoog; waar je ook stopt met
+   scrollen, de pagina glijdt naar het begin van het dichtstbijzijnde
+   deel (mandatory). Een deel dat hoger is dan het scherm kun je gewoon
+   doorlezen: de browser laat je daarbinnen vrij scrollen.
    Niet op telefoon/tablet, niet op andere pagina's, niet bij minder
    beweging.
    ------------------------------------------------------------------ */
 @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
   html[data-home] {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
   }
 
@@ -2076,9 +2096,11 @@ a:hover {
     scroll-snap-align: end;
   }
 
-  /* Bovenbalk en landschap samen precies één scherm */
+  /* Bovenbalk en landschap samen precies één scherm; dat scherm plakt
+     aan de bovenbalk, niet nog eens aan het landschap */
   html[data-home] .hero {
     min-height: calc(100svh - 4.4rem);
+    scroll-snap-align: none;
   }
 
   html[data-home] main > section:not(.hero) {
