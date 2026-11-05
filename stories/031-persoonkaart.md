@@ -1,6 +1,6 @@
 # 031 — Rustigere kaart voor begeleiders
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 5 nov 2026)
 **Bron:** Daan, 5 nov 2026: "De kaart met begeleiders is nu wat rommelig. Centreer de foto en de naam + rol op dezelfde manier ernaast. De tekst kan in volle breedte eronder."
 **Afhankelijk van:** 005 (personenkaarten)
 
