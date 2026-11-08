@@ -666,6 +666,48 @@ a:hover {
   display: none;
 }
 
+/* Met foto: het portret staat links in beeld, dus houden we dat deel
+   zichtbaar. Op de telefoon staat de tekst onderaan; op de laptop rechts
+   van het schilderij (zie de media query hieronder). */
+.hero__foto {
+  object-position: 30% 50%;
+}
+
+/* Op de telefoon: de foto iets groter en naar boven geschoven, zodat de
+   tekst onder het gezicht staat en niet erover. */
+@media (max-width: 899px) {
+  .hero:has(.hero__foto) .hero__foto {
+    object-position: 20% 50%;
+    top: auto;
+    bottom: 0;
+    height: 128%;
+  }
+}
+
+.hero:has(.hero__foto) {
+  align-items: flex-end;
+  padding-block: var(--ruimte-xl) 4rem;
+}
+
+/* Extra donkere laag onderaan, onder de tekst */
+.hero:has(.hero__foto)::before {
+  background: linear-gradient(180deg, rgb(30 26 16 / 0.15) 0%, rgb(30 26 16 / 0.35) 45%, rgb(30 26 16 / 0.72) 100%);
+}
+
+.hero__bijschrift {
+  position: absolute;
+  inset-inline: 0;
+  bottom: var(--ruimte-s);
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.15rem 0.75rem;
+  border-radius: 999px;
+  background: rgb(30 26 16 / 0.6);
+  font-size: var(--tekst-klein);
+  color: var(--hero-tekst);
+  text-align: center;
+}
+
 .hero__inhoud {
   max-width: 44rem;
 }
@@ -675,6 +717,28 @@ a:hover {
 @media (min-width: 900px) {
   .hero__inhoud {
     transform: translateX(-10vw);
+  }
+
+  /* Met foto: de tekst staat rechts van het schilderij, in het midden */
+  .hero:has(.hero__foto) {
+    align-items: center;
+    padding-block: var(--ruimte-xl);
+  }
+
+  .hero:has(.hero__foto) .hero__inhoud {
+    transform: none;
+    max-width: none;
+    padding-inline-start: 48%;
+    padding-inline-end: var(--ruimte-l);
+  }
+
+  .hero:has(.hero__foto)::before {
+    background: linear-gradient(90deg, rgb(30 26 16 / 0) 0%, rgb(30 26 16 / 0) 30%, rgb(30 26 16 / 0.64) 52%, rgb(30 26 16 / 0.72) 100%);
+  }
+
+  .hero__bijschrift {
+    inset-inline: var(--ruimte-m) auto;
+    margin-inline: 0;
   }
 }
 

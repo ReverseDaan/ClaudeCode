@@ -12,7 +12,9 @@ layout: layouts/base.njk
    Staat er een foto in src/images/ (home.yaml), dan toont de hero die. #}
 <section class="hero">
   {% if home.hero.afbeelding | afbeeldingBestaat %}
-  <img class="hero__foto" src="/images/{{ home.hero.afbeelding }}" alt="{{ home.hero.alt }}" fetchpriority="high">
+  <img class="hero__foto" src="/images/{{ home.hero.afbeelding }}"
+    {%- if home.hero.afbeeldingKlein | afbeeldingBestaat %} srcset="/images/{{ home.hero.afbeeldingKlein }} 1000w, /images/{{ home.hero.afbeelding }} 2000w" sizes="100vw"{% endif %}
+    alt="{{ home.hero.alt }}" fetchpriority="high">
   {% endif %}
   {% include "partials/landschap.njk" %}
   <div class="container hero__inhoud">
@@ -26,6 +28,9 @@ layout: layouts/base.njk
     <p class="hero__slogan">{{ home.hero.slogan }}</p>
     <a class="knop" href="/kalender/">{{ home.hero.knop }}</a>
   </div>
+  {% if home.hero.afbeelding | afbeeldingBestaat and home.hero.bijschrift %}
+  <p class="hero__bijschrift">{{ home.hero.bijschrift }}</p>
+  {% endif %}
 
 </section>
 

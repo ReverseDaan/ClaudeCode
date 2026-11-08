@@ -9,10 +9,14 @@ hero:
   slogan: "Vertraag. Maak iets met je handen. Begin de reis naar binnen."
   knop: "Bekijk de retraites"
   # Foto voor de achtergrond: de bestandsnaam in src/images/.
-  # Zolang het bestand er niet is, zie je een groene achtergrond.
-  afbeelding: "hero-bos.jpg"
+  # Zolang het bestand er niet is, zie je het getekende landschap.
+  afbeelding: "hero-retraite-2025.jpg"
+  # Kleinere versie (1000 px breed) voor telefoons. Mag leeg blijven.
+  afbeeldingKlein: "hero-retraite-2025-klein.jpg"
   # Korte beschrijving van de foto voor wie hem niet kan zien.
-  alt: "Zonlicht valt tussen de bomen door in een rustig bos"
+  alt: "Een geschilderd portret op een houten ezel in een ruimte met daglicht; op de achtergrond staan meer ezels met schilderijen."
+  # Klein bijschrift onderin de foto. Leeg laten voor geen bijschrift.
+  bijschrift: "Werk uit de retraite van 2025"
 
 ervaringen:
   # Kop boven de ervaringen van deelnemers. De quotes zelf staan in
