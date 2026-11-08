@@ -239,7 +239,7 @@ claudecode/
     │   ├── landschap.js    # Home: naam schrijven en diepte (stijl 3)
     │   ├── menu.js
     │   └── stijlwisselaar.js
-    ├── images/             # eigen foto's; nu alleen deelkaart.jpg (+ bron .svg)
+    ├── images/             # eigen foto's: deelkaart.jpg (+ bron .svg), persoon-daan.jpg, hero-retraite-2025.jpg (+ -klein)
     ├── index.njk           # Home
     ├── over-ons.md         # Over ons (algemeen)
     ├── over-ons/
@@ -316,6 +316,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 032: ademblok op Home (meeademen, dan de introductietekst) en plakkend scrollen op de laptop: ter review
 - [x] Story 033: na de adempauze komt "Even uit de drukte" terug; de pagina plakt steviger (mandatory): ter review
 - [x] Story 035: "Wat en waarom" wordt "Over ons" met subpagina's Onze filosofie, Ons aanbod en Over de stichting; ademkop "Adem kort met ons mee": ter review (story 034 is hierin opgegaan)
+- [x] Story 036: foto van werk uit de retraite van 2025 als hero-achtergrond op Home (portret links, tekst rechts op de laptop, onderaan op de telefoon): ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu
