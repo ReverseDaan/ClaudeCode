@@ -1,6 +1,6 @@
 // Stijlwisselaar: wisselt tussen de thema's uit site.yaml.
 // Het gekozen thema staat als data-thema op <html>, bijv. data-thema="zand".
-// Het eerste thema (de standaard) heeft geen data-thema nodig.
+// Ook het eerste thema (de standaard) staat als data-thema op <html>.
 // De keuze wordt onthouden in de browser (localStorage), zodat je op
 // andere pagina's in dezelfde stijl blijft.
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,11 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Zet een thema actief: op de pagina, in de knop en in het geheugen.
   function kiesThema(code) {
-    if (code === standaard) {
-      delete document.documentElement.dataset.thema;
-    } else {
-      document.documentElement.dataset.thema = code;
-    }
+    document.documentElement.dataset.thema = code;
 
     opties.forEach((optie) => {
       const actief = optie.dataset.themaCode === code;

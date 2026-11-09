@@ -5,6 +5,7 @@
 //    richting van de overgang in de stijl Zand, zie style.css sectie 14).
 // 4. Staat de stijlwisselaar aan (data-themas op <html>), zet dan het
 //    onthouden thema, zodat je niet eerst even het standaardthema ziet.
+//    Het standaardthema staat al als data-thema op <html> (base.njk).
 document.documentElement.classList.add("js");
 
 (function () {
@@ -13,7 +14,7 @@ document.documentElement.classList.add("js");
   var themas = lijst.split(" ");
   try {
     var stijl = localStorage.getItem("stijl");
-    if (stijl && stijl !== themas[0] && themas.indexOf(stijl) !== -1) {
+    if (stijl && themas.indexOf(stijl) !== -1) {
       document.documentElement.dataset.thema = stijl;
     }
   } catch (fout) {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl"{% if page.url == "/" %} data-home{% endif %}{% if site.stijlwisselaar.aan %} data-themas="{% for thema in site.stijlwisselaar.themas %}{{ thema.code }}{% if not loop.last %} {% endif %}{% endfor %}"{% endif %}>
+<html lang="nl"{% if page.url == "/" %} data-home{% endif %}{% if site.stijlwisselaar.aan %} data-themas="{% for thema in site.stijlwisselaar.themas %}{{ thema.code }}{% if not loop.last %} {% endif %}{% endfor %}"{% endif %} data-thema="{{ site.stijlwisselaar.themas[0].code }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

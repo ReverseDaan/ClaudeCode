@@ -13,6 +13,16 @@
   10. Inhoudspagina's: tabellen, citaten, personen en meldingen
   11. Pagina van één retraite en uitklapblokken
   12. Ervaringen en secties op Home
+
+   Vier stijlen (story 037). Elke stijl heeft een eigen kenmerk op <html>:
+     data-thema="bos"      Daan opzet 1
+     data-thema="zand"     Daan opzet 2
+     data-thema="penseel"  Vincent opzet 1
+     data-thema="ochtend"  Vincent opzet 2
+   Regels zonder data-thema zijn de gedeelde basis voor alle vier.
+   Een wijziging voor één opzet komt altijd onder het kenmerk van die
+   opzet, bijv. [data-thema="bos"] .hero { … }. De basis verandert alleen
+   als het voor alle stijlen bedoeld is.
    ================================================================== */
 
 
@@ -20,6 +30,9 @@
    1. Design tokens
    ------------------------------------------------------------------ */
 :root {
+  /* Gedeelde basis voor alle stijlen, en tegelijk de waarden van Daan
+     opzet 1 (Bos). Iets alleen voor Daan opzet 1 aanpassen? Zet het dan
+     onder [data-thema="bos"] en niet hier. */
   /* Kleuren */
   --kleur-mos: #5f6f3e;          /* mosgroen, de hoofdkleur */
   --kleur-mos-donker: #36401f;   /* donker mos, voor vlakken met lichte tekst */
@@ -75,7 +88,7 @@
    die code ook in src/_data/site.yaml onder "stijlwisselaar".
    ------------------------------------------------------------------ */
 
-/* Zand: beige met bruin, warm en zacht */
+/* Daan opzet 2 (Zand): beige met bruin, warm en zacht */
 [data-thema="zand"] {
   --kleur-mos: #85563a;          /* warm cacaobruin, voor links */
   --kleur-mos-donker: #5a3c2a;   /* donker chocoladebruin, voor vlakken */
@@ -95,7 +108,7 @@
   --hoek: 10px;
 }
 
-/* Penseel & papier: een schetsboek, met verzadigde kleuren op papier.
+/* Vincent opzet 1 (Penseel & papier): een schetsboek, met verzadigde kleuren op papier.
    De papierstructuur en de penseelstreken staan in sectie 13. */
 [data-thema="penseel"] {
   --kleur-mos: #2d3fa8;          /* ultramarijn, voor links en koppen */
@@ -118,7 +131,7 @@
   --hoek: 4px;
 }
 
-/* Ochtend: opwekkend en activerend, maar zacht */
+/* Vincent opzet 2 (Ochtend): opwekkend en activerend, maar zacht */
 [data-thema="ochtend"] {
   --kleur-mos: #2a706b;          /* frisse zeegroen, voor links */
   --kleur-mos-donker: #1f4f4c;   /* diep zeegroen, voor vlakken */
@@ -1723,7 +1736,7 @@ a:hover {
 
 
 /* ------------------------------------------------------------------
-   13. Thema Penseel & papier: papier en penseelstreken
+   13. Vincent opzet 1 (Penseel & papier): papier en penseelstreken
    Alleen actief met data-thema="penseel". De structuur en de streek
    zijn kleine SVG-tekeningen in de CSS zelf (data-URL's), dus geen
    extra bestanden en binnen de Content-Security-Policy.

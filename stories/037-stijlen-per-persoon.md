@@ -1,6 +1,6 @@
 # 037 — Stijlen per persoon: twee opzetten voor Daan, twee voor Vincent
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 9 nov 2026)
 **Bron:** Daan, 9 nov 2026
 **Afhankelijk van:** 002 (stijlwisselaar), 026, 028, 029 (stijlen per thema)
 
@@ -51,6 +51,8 @@ Dat geldt alleen voor de **opmaak** (kleuren, lettertypes, landschap, overgangen
 - `CLAUDE.md`, `README.md`: de afspraak
 
 ## Open vragen voor Daan
+Beantwoord door Daan, 9 nov 2026: "Afgestemd en kan onveranderd blijven." De indeling is met Vincent afgestemd, de codes blijven, de hero-foto blijft in alle vier.
+
 1. **Welke stijl is van wie?** Mijn voorstel volgt de huidige volgorde: Bos en Zand voor jou, Penseel & papier en Ochtend voor Vincent. Of wil je een andere indeling? Weet Vincent hiervan, en welke twee kiest hij zelf? Dat moet met hem afgestemd worden.
 2. **Codes:** zal ik de interne codes laten zoals ze zijn (`bos`, `zand`, `penseel`, `ochtend`)? Dat is het minste werk en minder kans op fouten. Of moeten ze ook mee (`daan-1`, `daan-2`, `vincent-1`, `vincent-2`)? Dat is duidelijker in de code, maar raakt honderden regels CSS.
 3. **De hero-foto (story 036)** staat nu in alle vier de stijlen. Laten zo, of alleen in jouw opzetten? Dan is dat een eigen story.
