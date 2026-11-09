@@ -44,6 +44,8 @@ Een punt van aandacht: wie een wijziging deed, is aan GitHub niet altijd te zien
 - Testen: een test-PR per criterium (daarna gesloten)
 
 ## Open vragen voor Daan
+Beantwoord door Daan, 9 nov 2026: Vincent weet ervan en heeft een GitHub-account; alleen melden, niet blokkeren. Vraag 3 nog open (voorstel: geen mail, alleen GitHub-meldingen).
+
 1. **Heeft Vincent een eigen GitHub-account** en staat hij als collaborator op de repo? Zonder account krijgt hij de meldingen niet; dan komen ze alleen bij jou.
 2. **Alleen melden of ook blokkeren?** Ik stel voor: eerst alleen melden. Blokkeren kan later met branchbeveiliging ("goedkeuring nodig"), maar dat werkt per pull request, niet per opzet.
 3. **Ook een mail naar de gedeelde mailbox?** Dat kan, maar dan moet er een mailwachtwoord als geheim in GitHub. Mijn advies: de gewone GitHub-meldingen gebruiken.
