@@ -1,6 +1,6 @@
 # 037 — Stijlen per persoon: twee opzetten voor Daan, twee voor Vincent
 
-**Status:** Goedgekeurd (Daan, 9 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 9 nov 2026
 **Afhankelijk van:** 002 (stijlwisselaar), 026, 028, 029 (stijlen per thema)
 
@@ -59,8 +59,19 @@ Beantwoord door Daan, 9 nov 2026: "Afgestemd en kan onveranderd blijven." De ind
 4. **De Home-tekst en volgorde** zijn gedeeld. Wil Vincent later een andere indeling van Home, dan moet dat een gezamenlijke keuze worden, of een aparte opzet per persoon. Dat laatste is een grotere verandering.
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
-- [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Op mobiel en desktop gecontroleerd
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (9 nov 2026)
+Echte Eleventy-build van deze branch én van main in GitHub Actions (tijdelijke testworkflow, daarna verwijderd), de workflow Controle, en beide builds naast elkaar in Chromium.
+
+| # | Resultaat |
+|---|---|
+| 1 | ✅ De stijlwisselaar toont "Daan opzet 1", "Daan opzet 2", "Vincent opzet 1" en "Vincent opzet 2". Een gekozen stijl blijft onthouden op een volgende pagina, ook als je terug naar de eerste gaat |
+| 2 | ✅ `<html>` heeft altijd een `data-thema`: zonder JavaScript en bij het eerste bezoek `bos`, daarna de gekozen stijl |
+| 3 | ✅ 24 van de 24 schermafbeeldingen pixel voor pixel gelijk aan main (4 stijlen × 375 en 1280 px × Home, Over ons en de retraitepagina, met de stijlknop verborgen omdat alleen de naam erin anders is) |
+| 4 | ✅ De afspraak staat in CLAUDE.md (onder "Werkwijze") en in de README, met een tabel van naam, code en eigenaar. In `style.css` staat bovenaan uitgelegd hoe je iets voor één opzet wijzigt, en bij elk stijlblok van wie het is |
+| 5 | ✅ 0 CSP-meldingen, 0 fouten, 0 externe aanvragen; Controle groen |
