@@ -50,6 +50,26 @@ Daan een user story expliciet heeft goedgekeurd.**
 
 Eén story tegelijk. Nooit meerdere stories in één keer bouwen.
 
+### Stijlen per persoon (Daan, 9 nov 2026, story 037; afgestemd met Vincent)
+
+De stijlwisselaar heeft vier opzetten: **Daan opzet 1** (`bos`) en **Daan
+opzet 2** (`zand`) zijn van Daan, **Vincent opzet 1** (`penseel`) en
+**Vincent opzet 2** (`ochtend`) van Vincent.
+
+- Vraagt **Daan** om een wijziging aan de opmaak, dan komt die alleen in
+  Daan opzet 1 en 2; vraagt **Vincent** erom, dan alleen in Vincent opzet 1
+  en 2. Tenzij het verzoek expliciet iets anders zegt.
+- In `style.css` staat zo'n wijziging altijd onder het kenmerk van de
+  opzet (`[data-thema="bos"] …`, `[data-thema="zand"] …`, enz.). Regels
+  zonder `data-thema` zijn de gedeelde basis: die alleen wijzigen als het
+  verzoek zegt dat het voor alle stijlen is, of na een vraag.
+- Inhoud (teksten, data, pagina's, menu) en structuur (HTML, wat er op een
+  pagina staat) zijn gedeeld en gelden voor alle vier.
+- Is niet duidelijk wie de vraag stelt, of kan een opmaakwijziging niet
+  zonder de gedeelde basis of de opzet van de ander te raken: eerst vragen.
+- Zet bij elke story bij "Bron" wie hem vraagt, en in de scope voor welke
+  opzetten hij geldt.
+
 ## Besluiten (2 november 2026)
 
 Daan heeft de pagina-opzet goedgekeurd (`docs/pagina-opzet.md`, story-overzicht
@@ -226,7 +246,7 @@ claudecode/
     │       ├── landschap.njk       # getekend landschap achter de hero (per stijl)
     │       ├── overgang-penseel.njk # het penseel bij een overgang (Penseel & papier)
     │       ├── penseelstreek.njk   # SVG-scheidingslijn
-    │       └── stijlwisselaar.njk  # tijdelijke knop om thema's te vergelijken
+    │       └── stijlwisselaar.njk  # tijdelijke knop om de vier opzetten te vergelijken
     ├── retraites/
     │   ├── retraites.json  # standaardinstellingen voor alle retraites (tag, geen eigen pagina)
     │   └── 2027-04-voorjaar.md     # de voorjaarsretraite 2027
@@ -295,7 +315,7 @@ wordt eerst een story in `stories/`.
 
 Extra stories (buiten het stappenplan):
 
-- [x] Story 002: stijlwisselaar met vier thema's (Bos, Zand, Penseel & papier, Ochtend): ter review. Zet hem uit vóór de lancering (`site.yaml`).
+- [x] Story 002: stijlwisselaar met vier thema's (sinds story 037: Daan opzet 1 en 2, Vincent opzet 1 en 2): ter review. Zet hem uit vóór de lancering (`site.yaml`).
 - [x] Story 009: "Zet in je agenda" (.ics per retraite): ter review
 - [x] Story 010: ervaringen van deelnemers op Home en Wat en waarom (US-03): ter review
 - [ ] Story 011: galerij: in de wacht tot er foto's zijn
@@ -317,6 +337,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 033: na de adempauze komt "Even uit de drukte" terug; de pagina plakt steviger (mandatory): ter review
 - [x] Story 035: "Wat en waarom" wordt "Over ons" met subpagina's Onze filosofie, Ons aanbod en Over de stichting; ademkop "Adem kort met ons mee": ter review (story 034 is hierin opgegaan)
 - [x] Story 036: foto van werk uit de retraite van 2025 als hero-achtergrond op Home (portret links, tekst rechts op de laptop, onderaan op de telefoon): ter review
+- [x] Story 037: stijlen per persoon (Daan opzet 1 en 2, Vincent opzet 1 en 2), elke stijl een eigen kenmerk, afspraak in CLAUDE.md en README: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu

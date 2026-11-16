@@ -107,10 +107,34 @@ een paar huisstijlen (thema's). Je keuze blijft bewaard als je doorklikt.
 | Thema toevoegen                 | Kopieer een blok in sectie 1b, geef het een nieuwe code en zet code + naam in `src/_data/site.yaml` onder `stijlwisselaar` |
 | Knop uitzetten (vóór lancering) | `src/_data/site.yaml`: `stijlwisselaar: aan: false` |
 
-Het eerste thema in de lijst (nu **Bos**) is de standaard: dat zien
-bezoekers als de knop uit staat. Kies je later een ander thema als vaste
-stijl, kopieer dan de waarden van dat thema naar het `:root`-blok bovenaan
-`style.css`.
+Het eerste thema in de lijst (nu **Daan opzet 1**) is de standaard: dat
+zien bezoekers als de knop uit staat. Kies je later een ander thema als vaste
+stijl, zet dat thema dan bovenaan de lijst in `site.yaml`.
+
+### Wie past welke stijl aan? (story 037)
+
+Er zijn vier opzetten, twee per persoon:
+
+| Naam in de knop  | Code      | Van wie |
+| ---------------- | --------- | ------- |
+| Daan opzet 1     | `bos`     | Daan    |
+| Daan opzet 2     | `zand`    | Daan    |
+| Vincent opzet 1  | `penseel` | Vincent |
+| Vincent opzet 2  | `ochtend` | Vincent |
+
+De afspraak:
+- Een wijziging aan de **opmaak** (kleuren, lettertypes, landschap,
+  overgangen, een foto in één stijl) van Daan komt alleen in Daan opzet 1
+  en 2, en van Vincent alleen in Vincent opzet 1 en 2. In `style.css` staat
+  zo'n wijziging altijd onder het kenmerk van die opzet, bijvoorbeeld
+  `[data-thema="zand"] .hero { … }`.
+- De **inhoud** (teksten, pagina's, menu) en de **indeling** van een pagina
+  zijn gedeeld: een wijziging daarin geldt voor alle vier.
+- Iets aan de gedeelde basis voor alle stijlen veranderen kan, maar alleen
+  als je dat er expliciet bij zegt ("voor alle stijlen").
+- Dit is een afspraak, geen slot: GitHub kan niet per stuk bestand regelen
+  wie wat mag wijzigen. Claude houdt zich eraan en vraagt het als het niet
+  duidelijk is.
 
 ## Foto's toevoegen
 
