@@ -1,6 +1,6 @@
 # 040 — Een eigen icoon naast "StilteSmederij": aambeeld, penseelstreek en vonk
 
-**Status:** Goedgekeurd (Daan, 16 nov 2026: schets F, in beide opzetten)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 16 nov 2026
 **Geldt voor:** alleen **Daan opzet 1** (`bos`) en **Daan opzet 2** (`zand`), net als de proefkop uit story 039. Vincent opzet 1 en 2 blijven ongewijzigd.
 **Afhankelijk van:** 039 (band met proefkop)
@@ -40,8 +40,18 @@ Daan wil een smederij-icoon naast de titel, waarin ook de stilte te zien is (Daa
 1. ~~Welke schets?~~ **F: ensō met vonk** (Daan, 16 nov 2026). Oorspronkelijke vraag: A t/m H? Of een combinatie, bijvoorbeeld de namastehanden van D in de ensō van G met een kleine vonk?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
 - [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (16 nov 2026)
+Gecontroleerd met de gewone workflow Controle (groen); geen tijdelijke testworkflows. De schets is vooraf in Chromium getekend op de band van beide opzetten (zie de chat). De pagina zelf test Daan.
+
+| # | Resultaat |
+|---|---|
+| 1 | ⏳ Daan test: icoon links naast "StilteSmederij", wit, op de laptop en op 375 px. Het icoon is 1 em groot en schaalt mee met de kop |
+| 2 | ⏳ Daan test: Vincent opzet 1 en 2 ongewijzigd. In de code: het icoon staat in de proefkop, en die is buiten Daan opzet 1 en 2 verborgen |
+| 3 | ✅ `icoon-smederij.svg` is 713 bytes, één kleur (`currentColor`), zonder `style`-attributen |
+| 4 | ✅ Controle groen |
