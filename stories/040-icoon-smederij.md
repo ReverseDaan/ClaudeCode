@@ -11,7 +11,7 @@ wil ik **naast de naam een klein, herkenbaar beeldje zien**
 zodat **de naam "StilteSmederij" meteen een gezicht krijgt en blijft hangen**.
 
 ## Context
-Daan wil een smederij-icoon naast de titel. Volgens CLAUDE.md maken we handgetekende accenten zelf in SVG, zonder externe illustraties. Het icoon bestaat uit een aambeeld met een penseelstreek en een vonk erboven. Drie schetsen (A lijn, B massief, C met penseel) zijn in de chat getoond. Daan kiest er één.
+Daan wil een smederij-icoon naast de titel, waarin ook de stilte te zien is (Daan, 16 nov 2026: "De stilte is nog niet duidelijk in het icoon"). Volgens CLAUDE.md maken we handgetekende accenten zelf in SVG, zonder externe illustraties. Het icoon bestaat uit een aambeeld met een penseelstreek en een vonk erboven. In de chat getoond: ronde 1 (A lijn, B massief, C met penseel, steeds met vonk) en ronde 2 met meer stilte (D namaste lijn, E namaste massief, F ensō met vonk, G namaste in ensō, H aambeeld dat afkoelt). Daan kiest er één; het gekozen ontwerp wordt nog verfijnd.
 
 ## Scope
 **Wel:**
@@ -37,7 +37,7 @@ Daan wil een smederij-icoon naast de titel. Volgens CLAUDE.md maken we handgetek
 - Testen: Controle; Daan test zelf (teststappen in de chat)
 
 ## Open vragen voor Daan
-1. **Welke schets: A (lijn), B (massief) of C (met penseel)?** Of een combinatie, bijvoorbeeld de massieve vorm van B met het penseel van C?
+1. **Welke schets: A t/m H?** Of een combinatie, bijvoorbeeld de namastehanden van D in de ensō van G met een kleine vonk?
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
