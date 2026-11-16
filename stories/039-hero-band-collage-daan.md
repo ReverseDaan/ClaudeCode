@@ -1,6 +1,6 @@
 # 039 — Daan opzet 1 en 2: hero als gekleurde band met collage, in een frisse en een warme kleurencombinatie
 
-**Status:** Goedgekeurd (Daan, 16 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 16 nov 2026 (voorbeeld-screenshot van een andere website en een collage van vijf foto's uit editie 1, aangeleverd in de chat)
 **Geldt voor:** alleen **Daan opzet 1** (`bos`) en **Daan opzet 2** (`zand`). Vincent opzet 1 en 2 blijven ongewijzigd.
 **Afhankelijk van:** 036 (hero-foto), 037 (stijlen per persoon)
@@ -94,3 +94,20 @@ Nog open: 1, 4 en 7 (met voorstel; zie hieronder).
 - [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
 - [ ] Op mobiel en desktop gecontroleerd
 - [ ] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (16 nov 2026)
+Gebouwd en gecontroleerd met de gewone workflow Controle (groen). Zoals afgesproken zonder tijdelijke testworkflows, dus Claude heeft de pagina zelf niet in een browser gezien: de visuele criteria test Daan (zie de teststappen in de pull request).
+
+| # | Resultaat |
+|---|---|
+| 1 | ⏳ Daan test: Daan opzet 1 (zeegroen, geel, Fraunces) |
+| 2 | ⏳ Daan test: Daan opzet 2 (roestbruin, goud) |
+| 3 | ⏳ Daan test: 375 px, collage onder de tekst |
+| 4 | ⏳ Daan test: Vincent opzet 1 en 2 ongewijzigd. In de code: alles staat onder `[data-thema="bos"]` of `"zand"`; de nieuwe onderdelen zijn standaard verborgen en de collage laadt pas als hij zichtbaar is (`loading="lazy"`) |
+| 5 | ✅ Berekend: wit op de band 6,3:1 (opzet 1) en 8,5:1 (opzet 2); tekst 13:1 en 10:1; links 6,0:1 en 7,4:1; knoppen 9,3:1 en 6,3:1; menu 6,1:1. Geen `style`-attributen of inline scripts toegevoegd. Controle groen |
+| 6 | ✅ Alt-tekst bij de collage, uit `home.yaml` |
+
+Afwijkingen van de scope:
+- **Geen verticale lijn in de bovenbalk.** De site heeft nog geen logo-tekentje, dus er staat alleen de naam. Komt er een logo, dan is de lijn een kleine aanvulling.
+- **"StilteSmederij" is een gewone alinea, geen kop.** Voor schermlezers en zoekmachines blijft de echte kop (h1) "Stillness and Strokes"; die is in deze opzetten onzichtbaar.
+- In `landschap.js` een kleine beveiliging: als de naam verborgen is (in deze opzetten), wordt hij niet opgemeten.
