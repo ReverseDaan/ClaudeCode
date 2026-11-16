@@ -18,6 +18,19 @@ hero:
   # Klein bijschrift onderin de foto. Leeg laten voor geen bijschrift.
   bijschrift: "Werk uit de retraite van 2025"
 
+  # Proef in Daan opzet 1 en 2 (story 039): de hero als gekleurde band met
+  # een kop, een subtekst en een fotocollage. Alleen zichtbaar in die twee
+  # opzetten; in Vincent opzet 1 en 2 staan de gewone naam en slogan.
+  # "kop" is een naam om uit te proberen; de echte naam staat in site.yaml.
+  proef:
+    kop: "StilteSmederij"
+    subtekst: "Waar stilte, natuur en verbinding samenkomen tot een groter geheel"
+    # De collage: bestandsnaam in src/images/, een kleinere versie (600 px)
+    # voor telefoons, en een korte beschrijving voor wie hem niet kan zien.
+    collage: "collage-editie-1.jpg"
+    collageKlein: "collage-editie-1-klein.jpg"
+    collageAlt: "Vijf foto's uit de retraite van 2025: een maaltijd aan een lange tafel in het bos, een ontbijt met een handgeschreven kaartje, geschilderde portretten op ezels, kaartjes met woorden van deelnemers, en twee mensen die samen een handpan bespelen."
+
 ervaringen:
   # Kop boven de ervaringen van deelnemers. De quotes zelf staan in
   # src/_data/ervaringen.yaml.

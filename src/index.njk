@@ -26,8 +26,24 @@ layout: layouts/base.njk
     </h1>
     <svg class="hero__streek" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M6 13c40-6 80-9 124-8 50 1 96 5 164-3"/></svg>
     <p class="hero__slogan">{{ home.hero.slogan }}</p>
+    {#- Proef in Daan opzet 1 en 2 (story 039): een eigen kop en subtekst.
+        In de andere opzetten verborgen (style.css, sectie 18). -#}
+    {% if home.hero.proef %}
+    <p class="hero__proefkop">{{ home.hero.proef.kop }}</p>
+    <p class="hero__proeftekst">{{ home.hero.proef.subtekst }}</p>
+    {% endif %}
     <a class="knop" href="/kalender/">{{ home.hero.knop }}</a>
   </div>
+  {#- De collage (story 039), alleen zichtbaar in Daan opzet 1 en 2.
+      loading="lazy": in de andere opzetten is hij verborgen en wordt hij
+      niet opgehaald. -#}
+  {% if home.hero.proef and (home.hero.proef.collage | afbeeldingBestaat) %}
+  <div class="hero__collage">
+    <img src="/images/{{ home.hero.proef.collage }}"
+      {%- if home.hero.proef.collageKlein | afbeeldingBestaat %} srcset="/images/{{ home.hero.proef.collageKlein }} 600w, /images/{{ home.hero.proef.collage }} 1080w" sizes="(min-width: 900px) 30rem, 100vw"{% endif %}
+      width="1080" height="1080" loading="lazy" alt="{{ home.hero.proef.collageAlt }}">
+  </div>
+  {% endif %}
   {% if home.hero.afbeelding | afbeeldingBestaat and home.hero.bijschrift %}
   <p class="hero__bijschrift">{{ home.hero.bijschrift }}</p>
   {% endif %}

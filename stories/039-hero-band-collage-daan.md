@@ -1,6 +1,6 @@
 # 039 — Daan opzet 1 en 2: hero als gekleurde band met collage, in een frisse en een warme kleurencombinatie
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 16 nov 2026)
 **Bron:** Daan, 16 nov 2026 (voorbeeld-screenshot van een andere website en een collage van vijf foto's uit editie 1, aangeleverd in de chat)
 **Geldt voor:** alleen **Daan opzet 1** (`bos`) en **Daan opzet 2** (`zand`). Vincent opzet 1 en 2 blijven ongewijzigd.
 **Afhankelijk van:** 036 (hero-foto), 037 (stijlen per persoon)

@@ -88,17 +88,40 @@
    die code ook in src/_data/site.yaml onder "stijlwisselaar".
    ------------------------------------------------------------------ */
 
-/* Daan opzet 2 (Zand): beige met bruin, warm en zacht */
+/* Daan opzet 1 (Bos), sinds story 039: fris. Zeegroen met zacht geel,
+   een witte bovenbalk en de hero als band met collage (sectie 18). */
+[data-thema="bos"] {
+  --kleur-mos: #1f6b66;          /* diep zeegroen, de hoofdkleur en de band */
+  --kleur-mos-donker: #154b48;   /* donker zeegroen, voor vlakken (voettekst) */
+  --kleur-zand: #f7faf9;         /* wit met een vleugje groen, de achtergrond */
+  --kleur-zand-donker: #e3eeec;  /* licht zeegroen, voor vlakken */
+  --kleur-aarde: #3e8f86;        /* lichter zeegroen, voor details */
+  --kleur-bruin: #24302f;        /* tekst: bijna zwart met groen */
+  --kleur-bruin-zacht: #4a5a5a;  /* leigrijs, voor bijzaken en het menu */
+  --kleur-oker: #f3d36b;         /* zacht citroengeel, voor knoppen */
+  --kleur-oker-licht: #f7df8f;
+
+  --band: #1f6b66;               /* kleur van de band op Home */
+  --bovenbalk: #ffffff;          /* achtergrond van de bovenbalk */
+
+  --font-kop: "Fraunces", Georgia, serif;
+}
+
+/* Daan opzet 2 (Zand), sinds story 039: warm en professioneel. Roestbruin
+   met warm goud, en de hero als band met collage (sectie 18). */
 [data-thema="zand"] {
-  --kleur-mos: #85563a;          /* warm cacaobruin, voor links */
-  --kleur-mos-donker: #5a3c2a;   /* donker chocoladebruin, voor vlakken */
-  --kleur-zand: #f8f1e7;         /* crème */
-  --kleur-zand-donker: #ecdfcd;  /* zachte beige */
-  --kleur-aarde: #b08766;        /* karamel, voor details */
-  --kleur-bruin: #46301f;        /* tekst */
-  --kleur-bruin-zacht: #765b47;
-  --kleur-oker: #dcbb93;         /* zachte karamel, voor knoppen */
-  --kleur-oker-licht: #e8cfae;
+  --kleur-mos: #7a3b2a;          /* diep roestbruin, de hoofdkleur en de band */
+  --kleur-mos-donker: #55281c;   /* donker roestbruin, voor vlakken (voettekst) */
+  --kleur-zand: #f6efe6;         /* warm zand, de achtergrond */
+  --kleur-zand-donker: #eadccb;  /* iets donkerder zand, voor vlakken */
+  --kleur-aarde: #a8664a;        /* terracotta, voor details */
+  --kleur-bruin: #4a3a30;        /* tekst: donkerbruin */
+  --kleur-bruin-zacht: #6e5a4d;  /* zachter bruin, voor bijzaken en het menu */
+  --kleur-oker: #e8c07a;         /* warm goud, voor knoppen */
+  --kleur-oker-licht: #efcf96;
+
+  --band: #7a3b2a;               /* kleur van de band op Home */
+  --bovenbalk: #fbf7f1;          /* warm gebroken wit, de bovenbalk */
 
   --hero-gloed-1: #b08766;
   --hero-gloed-2: #7a523b;
@@ -2330,4 +2353,185 @@ a:hover {
 
 .aanbod-blok > :last-child {
   margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------------
+   18. Daan opzet 1 en 2: witte bovenbalk en de hero als band met
+   collage (story 039). Alles hier geldt alleen met data-thema="bos" of
+   "zand". De kleuren staan in sectie 1b (--band, --bovenbalk).
+   ------------------------------------------------------------------ */
+
+/* In de andere opzetten: de proefkop, proeftekst en collage niet tonen */
+.hero__proefkop,
+.hero__proeftekst,
+.hero__collage {
+  display: none;
+}
+
+/* Bovenbalk: licht, menu in een rustige kleur */
+:is([data-thema="bos"], [data-thema="zand"]) .site-header {
+  background: var(--bovenbalk);
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a {
+  color: var(--kleur-bruin-zacht);
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a:hover,
+:is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a[aria-current="page"],
+:is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a.is-actief {
+  color: var(--kleur-mos);
+}
+
+/* "Contact" als omlijnde knop, op de laptop */
+@media (min-width: 1200px) {
+  :is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a[href$="/contact/"] {
+    padding: 0.45rem 1.1rem;
+    border: 1.5px solid var(--kleur-mos);
+    border-radius: var(--hoek);
+    color: var(--kleur-mos);
+  }
+
+  :is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a[href$="/contact/"]:hover,
+  :is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a[href$="/contact/"][aria-current="page"] {
+    background: var(--kleur-mos);
+    color: #fff;
+  }
+}
+
+/* De hero als band. Hoeveel de collage onder de band uitsteekt, staat in
+   --uitsteek; het blok eronder krijgt zoveel extra ruimte bovenin. */
+:is([data-thema="bos"], [data-thema="zand"]) {
+  --uitsteek: 16vw;
+}
+
+@media (min-width: 900px) {
+  :is([data-thema="bos"], [data-thema="zand"]) {
+    --uitsteek: 5rem;
+  }
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hero {
+  --hero-tekst: #fff;
+  --hero-schaduw: none;
+  z-index: 1;                    /* de collage valt over het blok eronder */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--ruimte-l);
+  min-height: 0;
+  padding: clamp(3rem, 8vw, 5.5rem) var(--ruimte-m) 0;
+  background-color: var(--band);
+  text-align: left;
+}
+
+/* De foto van 2025: vervaagd en ingekleurd, als textuur in de band */
+:is([data-thema="bos"], [data-thema="zand"]) .hero .hero__foto {
+  inset: 0;
+  top: 0;
+  height: 100%;
+  object-position: 30% 50%;
+  filter: blur(6px) grayscale(0.3);
+  clip-path: inset(0);           /* de vervaging niet buiten de band */
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--band);
+  opacity: 0.86;
+}
+
+/* Wat in deze opzetten niet in de band hoort */
+:is([data-thema="bos"], [data-thema="zand"]) .hero .landschap,
+:is([data-thema="bos"], [data-thema="zand"]) .hero__bijschrift,
+:is([data-thema="bos"], [data-thema="zand"]) .hero__naam,
+:is([data-thema="bos"], [data-thema="zand"]) .hero__streek,
+:is([data-thema="bos"], [data-thema="zand"]) .hero__slogan {
+  display: none;
+}
+
+/* De h1 blijft (voor schermlezers en zoekmachines de echte naam), maar
+   neemt geen ruimte in */
+:is([data-thema="bos"], [data-thema="zand"]) .hero__titel {
+  margin: 0;
+}
+
+/* ".hero .hero__inhoud": sterker dan de regel voor de hero met foto */
+:is([data-thema="bos"], [data-thema="zand"]) .hero .hero__inhoud {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  transform: none;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hero__proefkop {
+  display: block;
+  margin: 0 0 var(--ruimte-s);
+  font-family: var(--font-kop);
+  font-size: var(--kop-1);
+  font-weight: 500;
+  line-height: 1.05;
+  overflow-wrap: anywhere;       /* een lang woord past ook op de telefoon */
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hero__proeftekst {
+  display: block;
+  max-width: 34rem;
+  margin: 0 0 var(--ruimte-l);
+  font-family: var(--font-kop);
+  font-size: clamp(1.35rem, 1.1rem + 1.2vw, 2rem);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+/* De collage in een wit kader, half over de onderrand van de band */
+:is([data-thema="bos"], [data-thema="zand"]) .hero__collage {
+  display: block;
+  position: relative;
+  margin-bottom: calc(-1 * var(--uitsteek));
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.12);
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hero__collage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hero + .ademblok {
+  padding-top: calc(var(--ruimte-xl) + var(--uitsteek));
+}
+
+/* Laptop: tekst links, collage rechts */
+@media (min-width: 900px) {
+  :is([data-thema="bos"], [data-thema="zand"]) .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 28rem);
+    align-items: center;
+    column-gap: var(--ruimte-xl);
+    padding-inline: max(var(--ruimte-m), (100% - var(--breedte-max)) / 2 + var(--ruimte-m));
+  }
+
+  :is([data-thema="bos"], [data-thema="zand"]) .hero .hero__inhoud {
+    padding-bottom: calc(var(--ruimte-xl) + var(--uitsteek));
+  }
+
+  :is([data-thema="bos"], [data-thema="zand"]) .hero__collage {
+    align-self: end;
+  }
+}
+
+/* Plakkend scrollen op de laptop: de band is lager dan een scherm, zodat
+   de collage in het eerste scherm helemaal te zien is */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  html[data-home]:is([data-thema="bos"], [data-thema="zand"]) .hero {
+    min-height: 0;
+  }
 }
