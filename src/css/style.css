@@ -2479,6 +2479,24 @@ a:hover {
   overflow-wrap: anywhere;       /* een lang woord past ook op de telefoon */
 }
 
+/* Het icoon links naast de proefkop (story 040). Het kleurt mee met de
+   tekst; de tekening staat in partials/icoon-smederij.njk. */
+:is([data-thema="bos"], [data-thema="zand"]) .hero__proefkop {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .hero__proefkop > span {
+  min-width: 0;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .icoon-smederij {
+  flex: none;
+  width: 1em;
+  height: 1em;
+}
+
 :is([data-thema="bos"], [data-thema="zand"]) .hero__proeftekst {
   display: block;
   max-width: 34rem;
