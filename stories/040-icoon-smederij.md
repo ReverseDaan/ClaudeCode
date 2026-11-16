@@ -1,6 +1,6 @@
 # 040 — Een eigen icoon naast "StilteSmederij": aambeeld, penseelstreek en vonk
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 16 nov 2026: schets F, in beide opzetten)
 **Bron:** Daan, 16 nov 2026
 **Geldt voor:** alleen **Daan opzet 1** (`bos`) en **Daan opzet 2** (`zand`), net als de proefkop uit story 039. Vincent opzet 1 en 2 blijven ongewijzigd.
 **Afhankelijk van:** 039 (band met proefkop)
@@ -37,7 +37,7 @@ Daan wil een smederij-icoon naast de titel, waarin ook de stilte te zien is (Daa
 - Testen: Controle; Daan test zelf (teststappen in de chat)
 
 ## Open vragen voor Daan
-1. **Welke schets: A t/m H?** Of een combinatie, bijvoorbeeld de namastehanden van D in de ensō van G met een kleine vonk?
+1. ~~Welke schets?~~ **F: ensō met vonk** (Daan, 16 nov 2026). Oorspronkelijke vraag: A t/m H? Of een combinatie, bijvoorbeeld de namastehanden van D in de ensō van G met een kleine vonk?
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
