@@ -75,7 +75,9 @@ Antwoorden van Daan, 16 nov 2026:
 - De deelnemers op de collage hebben toestemming gegeven (vraag 3 beantwoord).
 - Testen: Daan test zelf; Claude geeft na het bouwen de teststappen (vraag 5 beantwoord).
 
-Nog open: zie de vragen 6 en 7 hieronder, en 1, 2 en 4.
+- Vraag 6: "StilteSmederij" is een naam om uit te proberen. Hij komt alleen als kop in de band van Daan opzet 1 en 2; de naam in `site.yaml` en elders op de site blijft ongewijzigd (Daan, 16 nov 2026).
+
+Nog open: 1, 4 en 7 (met voorstel; zie hieronder).
 
 1. **Kleuren:** zijn de voorstellen hierboven goed om mee te beginnen? Achteraf aanpassen is één regel per kleur.
 2. **Accentwoord:** welk woord in de slogan ("Vertraag. Maak iets met je handen. Begin de reis naar binnen.")? Mijn voorstel is "handen". Ook één letter in de naam een accentkleur geven, zoals in het voorbeeld? Mijn voorstel: niet doen, omdat de naam nog verandert.
