@@ -70,11 +70,21 @@ De collage bestaat uit vijf foto's uit editie 1: een maaltijd aan een lange tafe
 - Testen: de build in de normale Controle-workflow bij de pull request. **Geen tijdelijke testworkflows meer**, zoals besproken na de blokkade. Daardoor maak ik zelf geen schermafbeeldingen. Daan bekijkt het resultaat na de merge, of lokaal met `npm start`.
 
 ## Open vragen voor Daan
+Antwoorden van Daan, 16 nov 2026:
+- In de band komt **"StilteSmederij"**, met als subtekst **"Waar stilte, natuur en verbinding samenkomen tot een groter geheel"**. Geen accentletter in dat woord.
+- De deelnemers op de collage hebben toestemming gegeven (vraag 3 beantwoord).
+- Testen: Daan test zelf; Claude geeft na het bouwen de teststappen (vraag 5 beantwoord).
+
+Nog open: zie de vragen 6 en 7 hieronder, en 1, 2 en 4.
+
 1. **Kleuren:** zijn de voorstellen hierboven goed om mee te beginnen? Achteraf aanpassen is één regel per kleur.
 2. **Accentwoord:** welk woord in de slogan ("Vertraag. Maak iets met je handen. Begin de reis naar binnen.")? Mijn voorstel is "handen". Ook één letter in de naam een accentkleur geven, zoals in het voorbeeld? Mijn voorstel: niet doen, omdat de naam nog verandert.
 3. **Toestemming:** op de collage staan herkenbare mensen. Zitten er deelnemers bij, en hebben die toestemming gegeven voor een openbare website? De repo is ook openbaar. Zolang dat niet zeker is, zet ik de collage niet online.
 4. **De twee mensen met de handpan:** zijn dat jij en/of Vincent? Dat bepaalt de alt-tekst ("Vincent en Daan…" of "Twee mensen…").
 5. **Testen:** is het goed dat ik zonder eigen schermafbeeldingen werk (zie Technische aanpak)? Of zetten we eerst testlinks per pull request op (Netlify of Cloudflare)? Dan kan ik weer zelf meekijken zonder GitHub te belasten.
+
+6. **"StilteSmederij": de nieuwe naam, of alleen een kop in jouw opzetten?** Is het de nieuwe naam van de organisatie (met Vincent besloten), dan verandert hij in `site.yaml` en staat hij overal op de site: in de bovenbalk, de titel van elk tabblad, de voettekst en alle teksten, in alle vier de opzetten. Is het een naam die je wilt uitproberen, dan komt hij alleen als kop in de band van Daan opzet 1 en 2, en blijft de naam elders "Stillness and Strokes".
+7. **De subtekst** vervangt in jouw opzetten de slogan "Vertraag. Maak iets met je handen. Begin de reis naar binnen."? In Vincents opzetten blijft dan de huidige slogan staan.
 
 ## Definition of Done
 - [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
