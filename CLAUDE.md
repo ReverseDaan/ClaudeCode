@@ -259,7 +259,7 @@ claudecode/
     │   ├── landschap.js    # Home: naam schrijven en diepte (stijl 3)
     │   ├── menu.js
     │   └── stijlwisselaar.js
-    ├── images/             # eigen foto's: deelkaart.jpg (+ bron .svg), persoon-daan.jpg, hero-retraite-2025.jpg (+ -klein)
+    ├── images/             # eigen foto's: deelkaart.jpg (+ bron .svg), persoon-daan.jpg, hero-retraite-2025.jpg (+ -klein), collage-editie-1.jpg (+ -klein)
     ├── index.njk           # Home
     ├── over-ons.md         # Over ons (algemeen)
     ├── over-ons/
@@ -337,6 +337,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 033: na de adempauze komt "Even uit de drukte" terug; de pagina plakt steviger (mandatory): ter review
 - [x] Story 035: "Wat en waarom" wordt "Over ons" met subpagina's Onze filosofie, Ons aanbod en Over de stichting; ademkop "Adem kort met ons mee": ter review (story 034 is hierin opgegaan)
 - [x] Story 036: foto van werk uit de retraite van 2025 als hero-achtergrond op Home (portret links, tekst rechts op de laptop, onderaan op de telefoon): ter review
+- [x] Story 039: Daan opzet 1 (fris, zeegroen) en 2 (warm, roestbruin): witte bovenbalk, hero als band met proefkop "StilteSmederij" en collage van editie 1: ter review
 - [x] Story 037: stijlen per persoon (Daan opzet 1 en 2, Vincent opzet 1 en 2), elke stijl een eigen kenmerk, afspraak in CLAUDE.md en README: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 

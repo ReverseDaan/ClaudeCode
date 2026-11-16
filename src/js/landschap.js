@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
     tekst.setAttribute("x", svg.clientWidth / 2);
     const vak = tekst.getBBox();
+    // Verborgen naam (Daan opzet 1 en 2 tonen een proefkop, story 039):
+    // dan valt er niets te meten.
+    if (vak.width === 0) return;
     const marge = vak.height * 0.08;
     svg.setAttribute("viewBox", `${vak.x - marge} ${vak.y - marge} ${vak.width + 2 * marge} ${vak.height + 2 * marge}`);
     svg.classList.add("is-passend");
