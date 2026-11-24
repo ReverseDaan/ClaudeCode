@@ -343,6 +343,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 037: stijlen per persoon (Daan opzet 1 en 2, Vincent opzet 1 en 2), elke stijl een eigen kenmerk, afspraak in CLAUDE.md en README: ter review
 - [x] Story 041: Home rustiger (geen plakkend scrollen, ademblok en drie stappen weg, minder ruimte), geen bron onder de citaten, tweede versie van Daans bio in Daan opzet 2: ter review
 - [x] Story 042: "Over ons" en "Onze filosofie" samen als "Even kennismaken"; "Over ons" alleen kop van het uitklapmenu; proefnaam "de StilteSmederij" in Daan opzet 2: ter review
+- [x] Story 043: Daan opzet 1 en 2: paginakop in de bandkleur, "Even uit de drukte" links, retraitekaart in het midden, bio met "Lees verder"; prijs voorjaarsretraite € 650: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu

@@ -3,6 +3,7 @@
 # Eerst de retraites, daarna wat Daan en Vincent ieder los aanbieden.
 # Dat losse aanbod staat in src/_data/aanbod.yaml.
 layout: layouts/pagina.njk
+boven: "Over ons"
 title: "Ons aanbod"
 description: "Onze retraites met stilte, meditatie, yoga en creatief werken in de natuur: hoe een dag eruitziet en wat deelnemers zeggen."
 intro: "In de eerste plaats onze retraites. Daarnaast bieden we ieder ook iets eigens aan."

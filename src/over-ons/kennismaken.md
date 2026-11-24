@@ -7,6 +7,7 @@
 # zin: {{ site | naamHtml("begin") | safe }}.
 # De begeleiders komen uit src/_data/personen.yaml.
 layout: layouts/pagina.njk
+boven: "Over ons"
 title: "Even kennismaken"
 description: "Wie we zijn, waarom we dit doen en hoe we werken: retraites met stilte, meditatie, yoga en creatief werken in de natuur."
 intro: "In een wereld waarin alles om jouw aandacht vraagt, groeit de noodzaak om te kunnen verbinden met jezelf en je omgeving."

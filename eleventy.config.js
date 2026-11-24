@@ -130,6 +130,12 @@ export default function (eleventyConfig) {
     return `<span class="naam-echt">${echt}</span><span class="naam-proef">${proef}</span>`;
   });
 
+  // Een tekst met alinea's (gescheiden door een nieuwe regel) als lijst,
+  // zonder lege regels (story 043, bio met "Lees verder")
+  eleventyConfig.addFilter("alineas", (tekst) =>
+    String(tekst || "").split("\n").map((a) => a.trim()).filter((a) => a !== "")
+  );
+
   // Menu: staat de huidige pagina in deze lijst met subitems? (story 035)
   // {% if item.sub | bevatUrl(page.url) %} ... {% endif %}
   eleventyConfig.addFilter("bevatUrl", (lijst, url) =>

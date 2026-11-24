@@ -51,6 +51,8 @@ eerstvolgende:
   knop: "Vraag een plek aan"
   leeg: "Er staat op dit moment geen nieuwe retraite gepland."
   leegLink: "Laat het ons weten als je bericht wilt"
+  # Link onder de kaart (alleen in Daan opzet 1 en 2, story 043)
+  kalenderLink: "Alle retraites in de kalender"
 
 routes:
   # Drie grote links onderaan de pagina.

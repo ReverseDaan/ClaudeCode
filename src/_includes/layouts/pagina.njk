@@ -6,10 +6,13 @@ layout: layouts/base.njk
    Optioneel in de front matter:
    - concept: true      → melding bovenaan dat de tekst nog een concept is
    - conceptTekst: "…"  → eigen tekst voor die melding
-   - bijgewerkt: "…"    → "Laatst bijgewerkt" onderaan #}
+   - bijgewerkt: "…"    → "Laatst bijgewerkt" onderaan
+   - boven: "…"         → klein boven de titel, bijv. "Over ons" (story 043;
+                          alleen zichtbaar in Daan opzet 1 en 2) #}
 <article class="pagina">
   <header class="pagina__kop">
     <div class="container">
+      {% if boven %}<p class="pagina__boven">{{ boven }}</p>{% endif %}
       <h1>{{ kop or title }}</h1>
       {% if intro %}<p class="pagina__intro">{{ intro }}</p>{% endif %}
     </div>
