@@ -1615,10 +1615,23 @@ a:hover {
   margin: 0;
 }
 
-.ervaring__bron {
-  margin: var(--ruimte-xs) 0 0;
-  font-size: var(--tekst-klein);
-  color: var(--kleur-bruin-zacht);
+/* Home compacter (story 041): minder ruimte tussen de delen, zodat je
+   meer tegelijk ziet. Geldt voor alle opzetten. */
+html[data-home] main > .sectie {
+  padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+}
+
+html[data-home] main > .sectie--compact {
+  padding-top: 0;
+}
+
+/* Home: "Even uit de drukte" (story 041: zonder ademen) */
+.home-intro {
+  max-width: var(--breedte-tekst);
+}
+
+.home-intro p:last-child {
+  margin-bottom: 0;
 }
 
 /* Home: sectie op een zandvlak */
@@ -1626,37 +1639,6 @@ a:hover {
   background: var(--kleur-zand-donker);
 }
 
-
-/* Home: drie stappen, op mobiel onder elkaar */
-.home-stappen {
-  display: grid;
-  gap: var(--ruimte-l);
-}
-
-@media (min-width: 48em) {
-  .home-stappen {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.home-stap__icoon {
-  width: 3rem;
-  height: 3rem;
-  fill: none;
-  stroke: var(--kleur-mos);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.home-stap__kop {
-  font-size: var(--kop-3);
-  margin: var(--ruimte-xs) 0 var(--ruimte-xs);
-}
-
-.home-stap__tekst {
-  margin: 0;
-}
 
 /* Home: eerstvolgende retraite */
 .home-eerstvolgende {
@@ -1895,10 +1877,6 @@ a:hover {
   border-left-color: var(--kleur-aarde);
 }
 
-[data-thema="penseel"] .home-stap__icoon {
-  stroke: var(--kleur-aarde);
-}
-
 @media (prefers-reduced-motion: reduce) {
   [data-thema="penseel"] .knop::after {
     transition: none;
@@ -2130,200 +2108,8 @@ a:hover {
 
 
 /* ------------------------------------------------------------------
-   15. Ademblok op Home (stories 032 en 033)
-   Twee lagen op dezelfde plek (een "podium"):
-   - .ademblok__adem: de ademkop met de cirkel (alleen versiering)
-   - .ademblok__tekst: het gewone blok, kop, tekst en knop
-   De klassen op .ademblok bepalen wat je ziet:
-   - zonder klasse (geen JavaScript of minder beweging): alleen het gewone blok
-   - .ademblok--wacht: ademkop en cirkel in rust, gewone blok onzichtbaar
-   - .ademblok--ademt: de cirkel ademt 3 × (3 s in, 3 s uit)
-   - .ademblok--klaar: ademkop en cirkel weg, gewone blok en knop zichtbaar
-   Het gewone blok blijft altijd in de pagina (alleen onzichtbaar), zodat
-   schermlezers het lezen.
+   15. en 16. (ademblok en plakkend scrollen) zijn weggehaald in story 041.
    ------------------------------------------------------------------ */
-.ademblok__binnen {
-  text-align: center;
-}
-
-.ademblok__kop,
-.ademblok__ademkop {
-  margin-inline: auto;
-}
-
-/* De penseelstreek onder de kop (Penseel & papier) ook in het midden */
-.ademblok__kop::after,
-.ademblok__ademkop::after {
-  margin-inline: auto;
-}
-
-/* De ademkop is geen echte kop, maar ziet er wel zo uit */
-.ademblok__ademkop {
-  font-family: var(--font-kop);
-  line-height: 1.15;
-}
-
-[data-thema="penseel"] .ademblok__ademkop {
-  color: var(--kleur-mos);
-}
-
-.ademblok__podium {
-  display: grid;
-  align-items: start;
-  justify-items: center;
-  max-width: var(--breedte-tekst);
-  margin-inline: auto;
-}
-
-.ademblok__adem,
-.ademblok__tekst {
-  grid-area: 1 / 1;
-}
-
-.ademblok__adem {
-  display: none;
-}
-
-.ademblok__tekst p {
-  font-size: var(--tekst-groot);
-}
-
-.ademblok__cirkel {
-  position: relative;
-  margin-inline: auto;
-  width: min(15rem, 60vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--kleur-mos) 16%, transparent);
-  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--kleur-mos) 45%, transparent);
-  transform: scale(0.55);
-}
-
-.ademblok__woord {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-kop);
-  font-size: var(--kop-3);
-  color: var(--kleur-bruin);
-  opacity: 0;
-}
-
-/* Klaarzetten en ademen: ademkop en cirkel zichtbaar, gewone blok nog niet */
-.ademblok--wacht .ademblok__adem,
-.ademblok--ademt .ademblok__adem {
-  display: block;
-}
-
-.ademblok--wacht .ademblok__tekst,
-.ademblok--ademt .ademblok__tekst {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.ademblok--ademt .ademblok__cirkel {
-  animation: ademhaling 6s ease-in-out 3;
-}
-
-.ademblok--ademt .ademblok__woord--in {
-  animation: woord-in 6s linear 3;
-}
-
-.ademblok--ademt .ademblok__woord--uit {
-  animation: woord-uit 6s linear 3;
-}
-
-@keyframes ademhaling {
-  0%, 100% { transform: scale(0.55); }
-  50% { transform: scale(1); }
-}
-
-@keyframes woord-in {
-  0% { opacity: 0; }
-  8%, 42% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-@keyframes woord-uit {
-  0%, 50% { opacity: 0; }
-  58%, 92% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Klaar: ademkop en cirkel vervagen, het gewone blok komt rustig op */
-.ademblok--klaar .ademblok__adem {
-  display: block;
-  animation: adem-weg 0.8s ease forwards;
-}
-
-.ademblok--klaar .ademblok__tekst {
-  animation: tekst-op 1.2s ease 0.4s both;
-}
-
-@keyframes adem-weg {
-  to { opacity: 0; visibility: hidden; }
-}
-
-@keyframes tekst-op {
-  from { opacity: 0; transform: translateY(8px); }
-}
-
-.ademblok__opnieuw {
-  margin-top: var(--ruimte-m);
-}
-
-/* Een <button> neemt het lettertype niet vanzelf over */
-.ademblok__knop {
-  font: inherit;
-  font-weight: 600;
-  border: 0;
-  cursor: pointer;
-}
-
-/* .knop zet display, dus "hidden" hier expliciet laten werken */
-.ademblok__knop[hidden] {
-  display: none;
-}
-
-/* ------------------------------------------------------------------
-   16. Plakkend scrollen op Home, alleen op de laptop (stories 032 en 033)
-   Elk deel van Home is minstens één scherm hoog; waar je ook stopt met
-   scrollen, de pagina glijdt naar het begin van het dichtstbijzijnde
-   deel (mandatory). Een deel dat hoger is dan het scherm kun je gewoon
-   doorlezen: de browser laat je daarbinnen vrij scrollen.
-   Niet op telefoon/tablet, niet op andere pagina's, niet bij minder
-   beweging.
-   ------------------------------------------------------------------ */
-@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
-  html[data-home] {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
-
-  html[data-home] .site-header,
-  html[data-home] main > section {
-    scroll-snap-align: start;
-  }
-
-  html[data-home] .site-footer {
-    scroll-snap-align: end;
-  }
-
-  /* Bovenbalk en landschap samen precies één scherm; dat scherm plakt
-     aan de bovenbalk, niet nog eens aan het landschap */
-  html[data-home] .hero {
-    min-height: calc(100svh - 4.4rem);
-    scroll-snap-align: none;
-  }
-
-  html[data-home] main > section:not(.hero) {
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
 
 
 /* ------------------------------------------------------------------
@@ -2505,7 +2291,7 @@ a:hover {
   height: auto;
 }
 
-:is([data-thema="bos"], [data-thema="zand"]) .hero + .ademblok {
+:is([data-thema="bos"], [data-thema="zand"]) .hero + .sectie {
   padding-top: calc(var(--ruimte-xl) + var(--uitsteek));
 }
 
@@ -2528,10 +2314,22 @@ a:hover {
   }
 }
 
-/* Plakkend scrollen op de laptop: de band is lager dan een scherm, zodat
-   de collage in het eerste scherm helemaal te zien is */
-@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
-  html[data-home]:is([data-thema="bos"], [data-thema="zand"]) .hero {
-    min-height: 0;
-  }
+
+/* ------------------------------------------------------------------
+   19. Daans bio in twee versies (story 041). In personen-lijst.njk staan
+   beide; Daan opzet 2 (zand) toont versie 2, alle andere opzetten
+   versie 1. display: none verbergt ook voor schermlezers.
+   ------------------------------------------------------------------ */
+[data-thema="zand"] .persoon-versie-1,
+:root:not([data-thema="zand"]) .persoon-versie-2 {
+  display: none;
+}
+
+/* Versie 2 heeft meerdere alinea's */
+div.persoon-kaart__bio p {
+  margin: 0 0 var(--ruimte-s);
+}
+
+div.persoon-kaart__bio p:last-child {
+  margin-bottom: 0;
 }

@@ -50,14 +50,11 @@ layout: layouts/base.njk
 
 </section>
 
-{# 2. Ademblok: even meeademen, daarna de introductietekst (home.yaml, intro) #}
-{% include "partials/ademblok.njk" %}
-
-{# 3. Drie stappen: aankomen, creëren, reflecteren #}
-<section class="sectie sectie--zand" aria-labelledby="stappen-kop">
-  <div class="container">
-    <h2 class="sectie__kop" id="stappen-kop">{{ home.stappen.kop }}</h2>
-    {% include "partials/home-stappen.njk" %}
+{# 2. Even uit de drukte (home.yaml, intro) #}
+<section class="sectie" aria-labelledby="intro-kop">
+  <div class="container home-intro">
+    <h2 class="sectie__kop" id="intro-kop">{{ home.intro.kop }}</h2>
+    {% for alinea in home.intro.tekst %}<p>{{ alinea }}</p>{% endfor %}
   </div>
 </section>
 

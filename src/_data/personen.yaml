@@ -10,6 +10,9 @@
 #  - bio:   twee à drie zinnen
 #  - foto:  bestandsnaam in src/images/. Staat het bestand er (nog) niet,
 #           dan toont de site een cirkel met de voorletter.
+#  - bio2 en foto2 (mag weg): een tweede versie om uit te proberen. Die
+#           staat in Daan opzet 2; alle andere opzetten tonen bio en foto
+#           (story 041).
 #
 # De bio's zijn nog concepten: pas ze gerust aan.
 # ------------------------------------------------------------------
@@ -23,6 +26,15 @@ Ik heb ervaren hoe meditatie ruimte kan bieden om daar niet langer alleen tegen 
 
 Onlangs heb ik een opleiding tot meditatieleraar afgerond. Vanuit mijn eigen ervaring en nieuwsgierigheid begeleid ik anderen graag bij hun eigen onderzoek. Ik vind het waardevol om samen ruimte te creëren voor verstilling, zelfonderzoek en het ontwikkelen van een vriendelijkere verhouding tot onszelf."
   foto: "persoon-daan.jpg"
+  # Tweede versie, alleen in Daan opzet 2 (story 041)
+  bio2: "Meditatie speelt al zo'n tien jaar een belangrijke rol in mijn leven en is steeds meer een manier geworden om mezelf beter te leren kennen. Onderweg kwam ik onder andere mijn innerlijke criticus tegen, mijn oordelen en mijn weerstand tegen bepaalde delen van mezelf. Daardoor ben ik op zoek gegaan naar alle manieren waarop we liefde en geduld kunnen vinden voor de minder mooie kanten van onszelf: de juiste balans tussen confrontatie, openheid, wijsheid en zachtaardigheid.
+
+Ik blijf verbaasd over de kracht waarmee opmerkzaamheid kan verzachten. Meditatie biedt ruimte om niet langer alleen te vechten tegen wat ongemakkelijk of kwetsbaar is, maar er juist bij stil te staan. Soms betekent dat simpelweg dat je jezelf ook op de moeilijkste momenten een knuffel leert geven. Tegelijk merk ik hoe hardnekkig het verlangen blijft om iets op te lossen, ook nadat acceptatie zich keer op keer heeft bewezen als het meer heilzame pad. Mediteren is voor mij onder meer een manier om juist die neiging met nieuwsgierigheid en mildheid te leren bekijken. Zo voelt iedere wending authentiek en verdiepend.
+
+Een ander aspect waar ik vaak tegenaan loop, is de rommeligheid van de beoefening. Het is verleidelijk om vast te houden aan een ideaalbeeld van volledige ontspanning, terwijl de werkelijkheid vaak ontnuchterend anders is. Echt even helemaal niets doen, en ook de subtiele manieren loslaten waarop ik invloed en controle probeer uit te oefenen, staat daarom centraal in mijn meditaties.
+
+Onlangs heb ik de opleiding tot meditatieleraar afgerond. Vanuit mijn eigen ervaring en nieuwsgierigheid begeleid ik anderen graag bij hun eigen onderzoek. Samen met Vincent organiseer ik retraites waarin kunst en verstilling deze reis voor iedereen toegankelijk maken, met ruimte voor verstilling, zelfonderzoek en een vriendelijkere verhouding tot onszelf."
+  foto2: "persoon-daan-2.jpg"
 
 - code: "vincent"
   naam: "Vincent Nieuwenhuis"
