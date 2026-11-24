@@ -114,6 +114,22 @@ export default function (eleventyConfig) {
     icsBestand(retraite, { naam: site.naam, email: site.contact.email, adres: site.adres })
   );
 
+  // De naam van de organisatie als tekst op de pagina (story 042). Staat er
+  // een proefnaam in site.yaml, dan komen beide namen in een <span>; de CSS
+  // (sectie 20) toont in Daan opzet 2 de proefnaam en elders de echte naam.
+  // {{ site | naamHtml | safe }}               midden in een zin
+  // {{ site | naamHtml("begin") | safe }}      begin van een zin, logo
+  // {{ site | naamHtml("stichting") | safe }}  na "Stichting", zonder "de"
+  // In <title> en metagegevens blijft {{ site.naam }} staan.
+  eleventyConfig.addFilter("naamHtml", (site, vorm) => {
+    const echt = site.naam;
+    let proef = site.proefnaam;
+    if (!proef) return echt;
+    if (vorm === "begin") proef = proef.charAt(0).toUpperCase() + proef.slice(1);
+    if (vorm === "stichting") proef = proef.replace(/^de\s+/i, "");
+    return `<span class="naam-echt">${echt}</span><span class="naam-proef">${proef}</span>`;
+  });
+
   // Menu: staat de huidige pagina in deze lijst met subitems? (story 035)
   // {% if item.sub | bevatUrl(page.url) %} ... {% endif %}
   eleventyConfig.addFilter("bevatUrl", (lijst, url) =>

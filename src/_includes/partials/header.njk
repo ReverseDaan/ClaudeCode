@@ -1,7 +1,7 @@
 {# Bovenbalk met de naam en het hoofdmenu. Het menu komt uit src/_data/site.yaml. #}
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="logo" href="/">{{ site.naam }}</a>
+    <a class="logo" href="/">{{ site | naamHtml("begin") | safe }}</a>
 
     <button class="menu-knop" type="button" aria-expanded="false" aria-controls="hoofdmenu">
       <span class="menu-knop__streepjes" aria-hidden="true"></span>
@@ -12,18 +12,28 @@
       <ul>
         {% for item in site.menu %}
           {% if item.sub %}
-          {#- Item met subitems (bijv. "Over ons"). Het pijltje klapt op de
-              laptop het lijstje open (menu.js); op de telefoon staan de
-              subitems er altijd onder. Op een subpagina krijgt het
+          {#- Item met subitems (bijv. "Over ons"). Op de laptop klapt de knop
+              het lijstje open (menu.js); op de telefoon staan de subitems er
+              altijd onder. Heeft het item een eigen pagina ("url"), dan is
+              de naam een link met een pijltje ernaast; zonder "url" is de
+              naam zelf de knop (story 042). Op een subpagina krijgt het
               hoofditem de klasse is-actief. -#}
           {%- set actief = item.sub | bevatUrl(page.url) -%}
           <li class="hoofdmenu__groep">
             <div class="hoofdmenu__rij">
+              {% if item.url %}
               <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% elif actief %} class="is-actief"{% endif %}>{{ item.tekst }}</a>
               <button class="submenu-knop" type="button" aria-expanded="false" aria-controls="submenu-{{ loop.index }}">
                 <span class="sr-only">Meer onder {{ item.tekst }}</span>
                 <svg class="submenu-knop__pijl" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true" focusable="false"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
+              {% else %}
+              <span class="hoofdmenu__label{% if actief %} is-actief{% endif %}">{{ item.tekst }}</span>
+              <button class="submenu-knop submenu-knop--tekst{% if actief %} is-actief{% endif %}" type="button" aria-expanded="false" aria-controls="submenu-{{ loop.index }}">
+                {{ item.tekst }}
+                <svg class="submenu-knop__pijl" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true" focusable="false"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              {% endif %}
             </div>
             <ul class="submenu" id="submenu-{{ loop.index }}">
               {% for sub in item.sub %}

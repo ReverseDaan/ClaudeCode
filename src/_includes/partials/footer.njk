@@ -3,7 +3,7 @@
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div>
-      <p class="site-footer__naam">{{ site.naam }}</p>
+      <p class="site-footer__naam">{{ site | naamHtml("begin") | safe }}</p>
       <p>Retraites over vertragen, creëren en de reis naar binnen.</p>
     </div>
 
@@ -11,7 +11,7 @@
       <h2 class="site-footer__kop">Snelle links</h2>
       <ul class="kale-lijst">
         {% for item in site.menu %}
-          <li><a href="{{ item.url }}">{{ item.tekst }}</a></li>
+          {% if item.url %}<li><a href="{{ item.url }}">{{ item.tekst }}</a></li>{% endif %}
           {#- Subitems (bijv. van "Over ons") staan er gewoon onder -#}
           {% for sub in item.sub %}
           <li><a href="{{ sub.url }}">{{ sub.tekst }}</a></li>
@@ -40,7 +40,7 @@
 
   {# Onderste regel: juridische gegevens en links #}
   <div class="container site-footer__onder">
-    <p>© {{ jaar }} {{ site.naam }}</p>
+    <p>© {{ jaar }} {{ site | naamHtml("begin") | safe }}</p>
     <ul class="site-footer__gegevens kale-lijst">
       {# Zolang er geen echte stichting is, staat er "(voorbeeld)" bij #}
       {% set vb = " (voorbeeld)" if stichting.voorbeeld else "" %}

@@ -13,6 +13,10 @@ van elke sessie en houd je eraan. Werk de sectie "Voortgang" bij als een stap af
 - Naam: **Stillness and Strokes**. ("Nest" was een werknaam en wordt niet meer gebruikt.)
   Let op: dit is de oude naam; er wordt een nieuwe, Nederlandse naam gezocht.
   Tot die vastligt blijft "Stillness and Strokes" in `site.yaml` staan.
+  In Daan opzet 2 staat als proef "de StilteSmederij" (veld `proefnaam` in
+  `site.yaml`, story 042). Zichtbare naam in templates en teksten daarom via
+  `{{ site | naamHtml | safe }}` (of `naamHtml("begin")` aan het begin van
+  een zin); in `<title>` en metagegevens `{{ site.naam }}`.
   De naam staat op precies één plek, `src/_data/site.yaml` (veld `naam`), en
   wordt in templates altijd gebruikt als `{{ site.naam }}`. Zet de naam nooit
   rechtstreeks in een template, tekstbestand of CSS, zodat hij later met één
@@ -78,14 +82,15 @@ US-01 t/m US-19). Daarin zijn deze punten besloten:
 - **Menu en pagina's: volg het siteplan**, plus "Veelgestelde vragen" (Daan,
   3 nov 2026, story 022) en zonder "Retraites en events", omdat de Kalender
   hetzelfde overzicht is (Daan, 4 nov 2026, story 030). Home · Over ons
-  (Onze filosofie · Ons aanbod · Over de stichting) · Kalender · Aanmelden ·
-  Veelgestelde vragen · Contact.
+  (Even kennismaken · Ons aanbod · Over de stichting) · Kalender · Aanmelden ·
+  Veelgestelde vragen · Contact. "Over ons" is zelf geen pagina, alleen de
+  kop van het uitklapmenu (Daan, 24 nov 2026, story 042).
   Pagina's van losse retraites staan op `/kalender/<naam>/`.
   Sinds story 035 (Daan, 5 nov 2026) heet "Wat en waarom" **"Over ons"**
-  (`/over-ons/`), met subpagina's `/over-ons/filosofie/` (waarom, zonder data of
-  kalender), `/over-ons/aanbod/` (de retraites, en wat Daan en Vincent ieder
-  los aanbieden, uit `aanbod.yaml`) en `/over-ons/stichting/`. "Programma"
-  vervalt.
+  met subpagina's; sinds story 042 zijn "Over ons" en "Onze filosofie" samen
+  **"Even kennismaken"** (`/over-ons/kennismaken/`). Verder `/over-ons/aanbod/`
+  (de retraites, en wat Daan en Vincent ieder los aanbieden, uit `aanbod.yaml`)
+  en `/over-ons/stichting/`. "Programma" vervalt.
 - **Taal: eerst alles in het Nederlands**, maar zo opgezet dat Engels later onder
   `/en/` kan worden toegevoegd (aparte fase, US-19). Zet teksten daarom in data-
   of Markdown-bestanden en niet in templates.
@@ -259,9 +264,8 @@ claudecode/
     │   └── stijlwisselaar.js
     ├── images/             # eigen foto's: deelkaart.jpg (+ bron .svg), persoon-daan.jpg, hero-retraite-2025.jpg (+ -klein), collage-editie-1.jpg (+ -klein), persoon-daan-2.jpg
     ├── index.njk           # Home
-    ├── over-ons.md         # Over ons (algemeen)
     ├── over-ons/
-    │   ├── filosofie.md    # Onze filosofie
+    │   ├── kennismaken.md  # Even kennismaken (wie we zijn, waarom, hoe we werken)
     │   └── aanbod.md       # Ons aanbod (retraites en los aanbod)
     ├── kalender.njk        # overzicht van alle komende retraites, per maand
     ├── aanmelden.njk
@@ -338,8 +342,9 @@ Extra stories (buiten het stappenplan):
 - [x] Story 039: Daan opzet 1 (fris, zeegroen) en 2 (warm, roestbruin): witte bovenbalk, hero als band met proefkop "StilteSmederij" en collage van editie 1: ter review
 - [x] Story 037: stijlen per persoon (Daan opzet 1 en 2, Vincent opzet 1 en 2), elke stijl een eigen kenmerk, afspraak in CLAUDE.md en README: ter review
 - [x] Story 041: Home rustiger (geen plakkend scrollen, ademblok en drie stappen weg, minder ruimte), geen bron onder de citaten, tweede versie van Daans bio in Daan opzet 2: ter review
+- [x] Story 042: "Over ons" en "Onze filosofie" samen als "Even kennismaken"; "Over ons" alleen kop van het uitklapmenu; proefnaam "de StilteSmederij" in Daan opzet 2: ter review
 - [ ] Story 021: retraites "in voorbereiding": in de wacht (nog niet tonen; Daan, 3 nov 2026)
 
 ## Menu
 
-Home · Over ons (Onze filosofie · Ons aanbod · Over de stichting) · Kalender · Aanmelden · Veelgestelde vragen · Contact
+Home · Over ons (Even kennismaken · Ons aanbod · Over de stichting) · Kalender · Aanmelden · Veelgestelde vragen · Contact
