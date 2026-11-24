@@ -1,6 +1,6 @@
 # 041 — Home rustiger en compacter, en een tweede versie van Daans bio
 
-**Status:** Goedgekeurd (Daan, 24 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 24 nov 2026 (met een nieuwe portretfoto en een nieuwe bio-tekst in de chat)
 **Geldt voor:** zie per onderdeel en open vraag 1
 **Afhankelijk van:** 032/033 (ademblok en plakkend scrollen), 020 (Home), 010 (ervaringen), 031 (begeleiderskaart), 039 (Daan opzet 1 en 2)
@@ -59,8 +59,21 @@ Beantwoord door Daan, 24 nov 2026 ("Yes, akkoord" op de voorstellen): A geldt vo
 3. **Vincents opzetten:** welke versie van jouw bio tonen die? Voorstel: de huidige (versie 1).
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
 - [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (24 nov 2026)
+Gecontroleerd met de gewone workflow Controle (groen); geen tijdelijke testworkflows. De visuele controle doet Daan (teststappen in de chat).
+
+| # | Resultaat |
+|---|---|
+| 1 | ⏳ Daan test. In de code: de regels voor plakkend scrollen en schermhoge delen zijn weg; de delen van Home hebben minder ruimte (2,5–4,5rem in plaats van 3,5–7rem) |
+| 2 | ⏳ Daan test. `ademblok.njk`, `home-stappen.njk`, hun CSS en de ademcode in `landschap.js` zijn weg; "Even uit de drukte" staat als gewoon blok op Home |
+| 3 | ✅ De bron staat niet meer in `ervaringen.yaml` en wordt niet meer getoond |
+| 4 | ⏳ Daan test. In de code: beide versies staan in de kaart, `display: none` verbergt per opzet de andere (ook voor schermlezers); de verborgen foto wordt niet geladen (`loading="lazy"`) |
+| 5 | ✅ Controle groen; geen `style`-attributen of inline scripts toegevoegd |
+
+Nieuwe foto: `persoon-daan-2.jpg`, vierkant bijgesneden rond het gezicht, 480 × 480 px, 50 kB, zonder EXIF.
