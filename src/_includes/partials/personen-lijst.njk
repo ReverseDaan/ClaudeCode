@@ -26,10 +26,21 @@
 </div>
 {%- if persoon.bio2 %}
 <p class="persoon-kaart__bio persoon-versie-1">{{ persoon.bio }}</p>
+{#- Versie 2 is lang: eerst de eerste alinea, de rest achter "Lees verder"
+    (story 043; <details> werkt zonder JavaScript) #}
+{%- set alineas = persoon.bio2 | alineas %}
 <div class="persoon-kaart__bio persoon-versie-2">
-{%- for alinea in persoon.bio2.split("\n") %}{% if alinea | trim %}
-<p>{{ alinea | trim }}</p>
+<p>{{ alineas[0] }}</p>
+{%- if alineas.length > 1 %}
+<details class="lees-verder">
+<summary><span class="lees-verder__open">Lees verder</span><span class="lees-verder__dicht">Minder tonen</span></summary>
+<div class="lees-verder__rest">
+{%- for alinea in alineas %}{% if not loop.first %}
+<p>{{ alinea }}</p>
 {%- endif %}{% endfor %}
+</div>
+</details>
+{%- endif %}
 </div>
 {%- else %}
 <p class="persoon-kaart__bio">{{ persoon.bio }}</p>

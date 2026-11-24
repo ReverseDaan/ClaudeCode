@@ -39,8 +39,7 @@ locatie:
 # Prijs per deelnemer, als getal zonder € (bijv. 495).
 # De toelichting staat bij de prijs, bijv. wat erbij inbegrepen is.
 prijs:
-  bedrag: 495   # werkprijs, nog niet definitief
-  toelichting: "werkprijs, nog niet definitief"
+  bedrag: 650   # vraagprijs (Daan, 24 nov 2026)
 
 # Kies één van: vrij, bijna-vol, vol, wachtlijst
 status: vrij

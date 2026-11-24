@@ -2386,3 +2386,118 @@ div.persoon-kaart__bio p:last-child {
 :root:not([data-thema="zand"]) .naam-proef {
   display: none;
 }
+
+
+/* ------------------------------------------------------------------
+   21. Daan opzet 1 en 2: paginakop in de bandkleur, Home rustiger
+   uitgelijnd, bio met "Lees verder" (story 043). De nieuwe onderdelen
+   (.pagina__boven, .home-eerstvolgende__meer) zijn in de andere opzetten
+   verborgen.
+   ------------------------------------------------------------------ */
+.pagina__boven,
+.home-eerstvolgende__meer {
+  display: none;
+}
+
+/* Kop van elke pagina (behalve Home) in de bandkleur, met witte tekst */
+:is([data-thema="bos"], [data-thema="zand"]) .pagina__kop {
+  background: var(--band);
+  color: #fff;
+  padding-block: clamp(2.5rem, 2rem + 3vw, 4rem) clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .pagina__kop h1,
+:is([data-thema="bos"], [data-thema="zand"]) .pagina__intro,
+:is([data-thema="bos"], [data-thema="zand"]) .pagina__kop a {
+  color: #fff;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .pagina__kop h1 {
+  font-size: var(--kop-1);
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .pagina__intro {
+  font-family: var(--font-kop);
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem);
+  line-height: 1.45;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .pagina__boven {
+  display: block;
+  margin: 0 0 var(--ruimte-xs);
+  font-size: var(--tekst-klein);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Home: "Even uit de drukte" links, gelijk met de andere delen */
+:is([data-thema="bos"], [data-thema="zand"]) .home-intro {
+  max-width: var(--breedte-max);
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .home-intro > * {
+  max-width: var(--breedte-tekst);
+}
+
+/* Home: eerstvolgende retraite in het midden (voorstel B) */
+:is([data-thema="bos"], [data-thema="zand"]) .home-eerstvolgende-sectie .sectie__kop,
+:is([data-thema="bos"], [data-thema="zand"]) .home-eerstvolgende__meer {
+  text-align: center;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .home-eerstvolgende {
+  margin-inline: auto;
+}
+
+:is([data-thema="bos"], [data-thema="zand"]) .home-eerstvolgende__meer {
+  display: block;
+  margin: var(--ruimte-m) 0 0;
+}
+
+/* Bio met "Lees verder". Open staat "Minder tonen" onder de tekst. */
+.lees-verder summary {
+  display: inline-block;
+  margin-top: var(--ruimte-xs);
+  color: var(--kleur-mos);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lees-verder summary::-webkit-details-marker {
+  display: none;
+}
+
+.lees-verder summary::after {
+  content: " ▾";
+}
+
+.lees-verder[open] summary::after {
+  content: " ▴";
+}
+
+.lees-verder__dicht,
+.lees-verder[open] .lees-verder__open {
+  display: none;
+}
+
+.lees-verder[open] .lees-verder__dicht {
+  display: inline;
+}
+
+.lees-verder[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.lees-verder[open] summary {
+  order: 2;
+}
+
+.lees-verder__rest p {
+  margin: 0 0 var(--ruimte-s);
+}

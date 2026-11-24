@@ -60,7 +60,7 @@ layout: layouts/base.njk
 
 {# 4. Eerstvolgende retraite: de eerste retraite met een datum in de toekomst #}
 {% set eerstvolgende = collections.komendeRetraites[0] %}
-<section class="sectie" aria-labelledby="eerstvolgende-kop">
+<section class="sectie home-eerstvolgende-sectie" aria-labelledby="eerstvolgende-kop">
   <div class="container">
     <h2 class="sectie__kop" id="eerstvolgende-kop">{{ home.eerstvolgende.kop }}</h2>
     {% if eerstvolgende %}
@@ -68,6 +68,8 @@ layout: layouts/base.njk
         {% set retraite = eerstvolgende %}{% set knop = "aanmelden" %}{% set knopLabel = home.eerstvolgende.knop %}
         {% include "partials/retraite-kaart.njk" %}
       </div>
+      {#- Alleen zichtbaar in Daan opzet 1 en 2 (story 043) -#}
+      <p class="home-eerstvolgende__meer"><a href="/kalender/">{{ home.eerstvolgende.kalenderLink }} →</a></p>
     {% elif site.interesselijst.url %}
       <p class="retraite-leeg">{{ home.eerstvolgende.leeg }}</p>
       {% include "partials/interesselijst.njk" %}

@@ -3,6 +3,7 @@
 # De personen komen uit src/_data/personen.yaml, de gegevens uit
 # src/_data/stichting.yaml.
 layout: layouts/pagina.njk
+boven: "Over ons"
 permalink: /over-ons/stichting/
 title: "Over de stichting"
 description: "Wie er achter de retraites zitten, waarom we dit doen en de gegevens van de stichting."
