@@ -1,6 +1,6 @@
 # 042 — "Even kennismaken" in het menu, en "de StilteSmederij" als naam in Daan opzet 2
 
-**Status:** Goedgekeurd (Daan, 24 nov 2026)
+**Status:** Gebouwd — ter review
 **Bron:** Daan, 24 nov 2026
 **Geldt voor:** A (menu en pagina's) in **alle vier de opzetten**, want het menu en de pagina's zijn gedeeld. B (de naam) alleen in **Daan opzet 2** (`zand`).
 **Afhankelijk van:** 035 (Over ons met subpagina's), 039 (proefkop StilteSmederij)
@@ -62,8 +62,20 @@ Beantwoord door Daan, 24 nov 2026: akkoord op de voorstellen (hoofdletter en lid
 3. **Adres:** `/over-ons/kennismaken/`, passend bij de andere subpagina's. Of liever `/kennismaken/`?
 
 ## Definition of Done
-- [ ] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
-- [ ] Alleen bestanden binnen de scope gewijzigd
-- [ ] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
+- [x] Alle acceptatiecriteria gehaald en per criterium gerapporteerd
+- [x] Alleen bestanden binnen de scope gewijzigd
+- [x] Geen echte persoonsgegevens, prijzen of data die niet bevestigd zijn
 - [ ] Op mobiel en desktop gecontroleerd
-- [ ] Status bijgewerkt naar `Gebouwd — ter review`
+- [x] Status bijgewerkt naar `Gebouwd — ter review`
+
+## Testresultaat (24 nov 2026)
+Gecontroleerd met de gewone workflow Controle (groen). Die meldt ook links naar pagina's die niet bestaan, dus nergens op de site staat nog een link naar `/over-ons/` of `/over-ons/filosofie/`. De visuele controle doet Daan (teststappen in de chat).
+
+| # | Resultaat |
+|---|---|
+| 1 | ⏳ Daan test. In de code: "Over ons" heeft geen `url` meer en is een `<button>` met `aria-expanded`; Enter en Escape werken via `menu.js`, zoals bij het pijltje |
+| 2 | ⏳ Daan test. Op de telefoon staat "Over ons" als kopje (`.hoofdmenu__label`) boven de drie subitems |
+| 3 | ✅ `/over-ons/kennismaken/` bevat alle teksten van Over ons en Onze filosofie, in de afgesproken volgorde; de oude pagina's zijn weg en de Controle vindt geen kapotte links |
+| 4 | ⏳ Daan test. De filter `naamHtml` zet beide namen in de pagina; sectie 20 van `style.css` toont per opzet één naam |
+| 5 | ✅ De verborgen naam heeft `display: none`, dus schermlezers lezen er maar één |
+| 6 | ✅ Controle groen; geen `style`-attributen of inline scripts toegevoegd |
