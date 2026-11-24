@@ -1,6 +1,6 @@
 # 042 — "Even kennismaken" in het menu, en "de StilteSmederij" als naam in Daan opzet 2
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 24 nov 2026)
 **Bron:** Daan, 24 nov 2026
 **Geldt voor:** A (menu en pagina's) in **alle vier de opzetten**, want het menu en de pagina's zijn gedeeld. B (de naam) alleen in **Daan opzet 2** (`zand`).
 **Afhankelijk van:** 035 (Over ons met subpagina's), 039 (proefkop StilteSmederij)
@@ -51,6 +51,8 @@ zodat **ik niet hoef te zoeken tussen een korte pagina "Over ons" en een korte p
 - Testen: Controle; Daan test zelf (teststappen in de chat)
 
 ## Open vragen voor Daan
+Beantwoord door Daan, 24 nov 2026: akkoord op de voorstellen (hoofdletter en lidwoord, tabblad en zoekmachines houden de echte naam) en adres `/over-ons/kennismaken/`.
+
 1. **Hoofdletter en lidwoord.** Voorstel:
    - in lopende tekst "de StilteSmederij";
    - aan het begin van een zin en als logo in de bovenbalk "De StilteSmederij";

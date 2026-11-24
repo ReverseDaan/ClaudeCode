@@ -11,6 +11,12 @@
 # op de site automatisch ingevuld (logo, paginatitels, footer).
 naam: "Stillness and Strokes"
 
+# Een naam om uit te proberen (story 042). Alleen zichtbaar in Daan opzet 2;
+# de andere opzetten, het tabblad en zoekmachines houden "naam". Schrijf hem
+# zoals hij midden in een zin staat ("de ..."); aan het begin van een zin
+# krijgt hij vanzelf een hoofdletter. Leeg laten ("") zet de proef uit.
+proefnaam: "de StilteSmederij"
+
 # Het webadres van de site, zonder / aan het eind. Wordt gebruikt in de
 # agenda-bestanden (links terug naar de site). Pas aan bij een eigen domein.
 adres: "https://reversedaan.github.io/ClaudeCode"
@@ -54,15 +60,15 @@ social: []
 
 # Het hoofdmenu, in deze volgorde. "tekst" is wat in het menu staat.
 # Een item kan subitems hebben ("sub"): op de laptop klappen die open via
-# het pijltje naast het item, op de telefoon staan ze eronder.
+# het item, op de telefoon staan ze eronder. Zonder "url" is het item zelf
+# geen pagina, alleen de kop van het uitklapmenu (zoals "Over ons").
 menu:
   - tekst: "Home"
     url: "/"
   - tekst: "Over ons"
-    url: "/over-ons/"
     sub:
-      - tekst: "Onze filosofie"
-        url: "/over-ons/filosofie/"
+      - tekst: "Even kennismaken"
+        url: "/over-ons/kennismaken/"
       - tekst: "Ons aanbod"
         url: "/over-ons/aanbod/"
       - tekst: "Over de stichting"

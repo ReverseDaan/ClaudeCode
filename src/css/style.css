@@ -428,6 +428,17 @@ a:hover {
   display: none;
 }
 
+/* Een hoofditem zonder eigen pagina ("Over ons", story 042): op de
+   telefoon (en zonder JavaScript) een kopje boven de subitems, op de
+   laptop met JavaScript een knop die het lijstje openklapt. */
+.hoofdmenu__label {
+  display: block;
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  color: var(--kleur-bruin-zacht);
+  border-bottom: 1px solid var(--kleur-zand-donker);
+}
+
 .hoofdmenu .submenu {
   padding: 0;
 }
@@ -517,6 +528,36 @@ a:hover {
 
   .js .submenu-knop:hover {
     color: var(--kleur-mos);
+  }
+
+  /* Hoofditem zonder eigen pagina: de naam zelf is de knop */
+  .hoofdmenu__label {
+    padding: 0.25rem 0;
+    font-size: 1rem;
+    border-bottom: 0;
+    white-space: nowrap;
+    cursor: default;
+  }
+
+  .js .hoofdmenu__label {
+    display: none;
+  }
+
+  .js .submenu-knop--tekst {
+    gap: 0.35rem;
+    min-height: 0;
+    padding: 0.25rem 0;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    font: inherit;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .js .submenu-knop--tekst.is-actief,
+  .js .submenu-knop--tekst[aria-expanded="true"] {
+    color: var(--kleur-mos);
+    border-bottom-color: var(--kleur-mos);
   }
 
   .submenu-knop__pijl {
@@ -2160,7 +2201,8 @@ html[data-home] main > .sectie--compact {
   background: var(--bovenbalk);
 }
 
-:is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a {
+:is([data-thema="bos"], [data-thema="zand"]) .hoofdmenu a,
+:is([data-thema="bos"], [data-thema="zand"]) .submenu-knop--tekst {
   color: var(--kleur-bruin-zacht);
 }
 
@@ -2332,4 +2374,15 @@ div.persoon-kaart__bio p {
 
 div.persoon-kaart__bio p:last-child {
   margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------------
+   20. Proefnaam in Daan opzet 2 (story 042). De filter naamHtml zet de
+   echte naam en de proefnaam elk in een <span>; hier staat welke zichtbaar
+   is. display: none verbergt ook voor schermlezers.
+   ------------------------------------------------------------------ */
+[data-thema="zand"] .naam-echt,
+:root:not([data-thema="zand"]) .naam-proef {
+  display: none;
 }

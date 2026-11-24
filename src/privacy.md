@@ -17,7 +17,7 @@ bijgewerkt: "3 november 2026"
 
 ## Wie wij zijn
 
-{{ site.naam }} organiseert retraites. Wij zijn verantwoordelijk voor de gegevens die je ons geeft. Je bereikt ons via [{{ site.contact.email }}](mailto:{{ site.contact.email }}).{% if stichting.kvk %} KvK-nummer: {{ stichting.kvk }}{% if stichting.voorbeeld %} (voorbeeld){% endif %}.{% endif %}
+{{ site | naamHtml("begin") | safe }} organiseert retraites. Wij zijn verantwoordelijk voor de gegevens die je ons geeft. Je bereikt ons via [{{ site.contact.email }}](mailto:{{ site.contact.email }}).{% if stichting.kvk %} KvK-nummer: {{ stichting.kvk }}{% if stichting.voorbeeld %} (voorbeeld){% endif %}.{% endif %}
 
 ## Welke gegevens en waarom
 

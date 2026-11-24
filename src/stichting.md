@@ -11,7 +11,7 @@ intro: "Wie er achter de retraites zit, en waarom we dit doen."
 
 ## Missie
 
-We geloven dat er in deze snel veranderende wereld een tegenbeweging nodig is. Een beweging die ruimte biedt voor vertraging, verstilling en bewuste aandacht. Met {{ site.naam }} maken we die ruimte: retraites waarin stilte, creativiteit en natuurlijke verbinding samenkomen, toegankelijk voor iedereen, ook zonder ervaring.
+We geloven dat er in deze snel veranderende wereld een tegenbeweging nodig is. Een beweging die ruimte biedt voor vertraging, verstilling en bewuste aandacht. Met {{ site | naamHtml | safe }} maken we die ruimte: retraites waarin stilte, creativiteit en natuurlijke verbinding samenkomen, toegankelijk voor iedereen, ook zonder ervaring.
 
 ## Hoe het begon
 
@@ -29,7 +29,7 @@ In de zomer van 2025 vond de eerste editie plaats: vijf dagen op de Veluwe, met 
 
 | Gegeven | Waarde |
 |---|---|
-| Naam | Stichting {{ site.naam }} |
+| Naam | Stichting {{ site | naamHtml("stichting") | safe }} |
 | KvK-nummer | {{ stichting.kvk }} |
 | RSIN | {{ stichting.rsin }} |
 | Statutaire zetel | {{ stichting.zetel }} |

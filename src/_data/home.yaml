@@ -58,7 +58,7 @@ routes:
   lijst:
     - kop: "Over ons"
       tekst: "Wie we zijn, waar we voor staan en wat we aanbieden."
-      url: "/over-ons/"
+      url: "/over-ons/kennismaken/"
     - kop: "Kalender"
       tekst: "Alle retraites op een rij, per maand."
       url: "/kalender/"
