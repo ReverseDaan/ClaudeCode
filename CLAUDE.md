@@ -245,6 +245,7 @@ claudecode/
     │       ├── interesselijst.njk  # "Houd me op de hoogte"
     │       ├── aanbod-individueel.njk # los aanbod uit aanbod.yaml (Ons aanbod)
     │       ├── routes.njk          # grote links naar andere pagina's (Over ons)
+    │       ├── icoon-smederij.njk  # icoon naast de proefkop (ook als src/images/icoon-smederij.svg)
     │       ├── aanmeldstappen.njk  # de drie stappen van het aanmelden
     │       ├── landschap.njk       # getekend landschap achter de hero (per stijl)
     │       ├── overgang-penseel.njk # het penseel bij een overgang (Penseel & papier)
@@ -340,6 +341,7 @@ Extra stories (buiten het stappenplan):
 - [x] Story 035: "Wat en waarom" wordt "Over ons" met subpagina's Onze filosofie, Ons aanbod en Over de stichting; ademkop "Adem kort met ons mee": ter review (story 034 is hierin opgegaan)
 - [x] Story 036: foto van werk uit de retraite van 2025 als hero-achtergrond op Home (portret links, tekst rechts op de laptop, onderaan op de telefoon): ter review
 - [x] Story 039: Daan opzet 1 (fris, zeegroen) en 2 (warm, roestbruin): witte bovenbalk, hero als band met proefkop "StilteSmederij" en collage van editie 1: ter review
+- [x] Story 040: eigen icoon (aambeeld met ensō en vonk) naast "StilteSmederij" in Daan opzet 1 en 2: ter review
 - [x] Story 037: stijlen per persoon (Daan opzet 1 en 2, Vincent opzet 1 en 2), elke stijl een eigen kenmerk, afspraak in CLAUDE.md en README: ter review
 - [x] Story 041: Home rustiger (geen plakkend scrollen, ademblok en drie stappen weg, minder ruimte), geen bron onder de citaten, tweede versie van Daans bio in Daan opzet 2: ter review
 - [x] Story 042: "Over ons" en "Onze filosofie" samen als "Even kennismaken"; "Over ons" alleen kop van het uitklapmenu; proefnaam "de StilteSmederij" in Daan opzet 2: ter review

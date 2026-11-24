@@ -29,7 +29,7 @@ layout: layouts/base.njk
     {#- Proef in Daan opzet 1 en 2 (story 039): een eigen kop en subtekst.
         In de andere opzetten verborgen (style.css, sectie 18). -#}
     {% if home.hero.proef %}
-    <p class="hero__proefkop">{{ home.hero.proef.kop }}</p>
+    <p class="hero__proefkop">{% include "partials/icoon-smederij.njk" %}<span>{{ home.hero.proef.kop }}</span></p>
     <p class="hero__proeftekst">{{ home.hero.proef.subtekst }}</p>
     {% endif %}
     <a class="knop" href="/kalender/">{{ home.hero.knop }}</a>
