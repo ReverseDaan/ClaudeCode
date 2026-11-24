@@ -1,6 +1,6 @@
 # 041 — Home rustiger en compacter, en een tweede versie van Daans bio
 
-**Status:** Concept
+**Status:** Goedgekeurd (Daan, 24 nov 2026)
 **Bron:** Daan, 24 nov 2026 (met een nieuwe portretfoto en een nieuwe bio-tekst in de chat)
 **Geldt voor:** zie per onderdeel en open vraag 1
 **Afhankelijk van:** 032/033 (ademblok en plakkend scrollen), 020 (Home), 010 (ervaringen), 031 (begeleiderskaart), 039 (Daan opzet 1 en 2)
@@ -50,6 +50,8 @@ Daan vindt dat Home te veel lege ruimte en te veel losse elementen heeft. Het pl
 - Testen: Controle; Daan test zelf (teststappen in de chat)
 
 ## Open vragen voor Daan
+Beantwoord door Daan, 24 nov 2026 ("Yes, akkoord" op de voorstellen): A geldt voor alle vier de opzetten; "Even uit de drukte" blijft als gewoon tekstblok; Vincents opzetten tonen versie 1 van Daans bio. Nog af te stemmen met Vincent dat de blokken ook uit zijn opzetten verdwijnen.
+
 1. **Voor welke opzetten gelden A1 t/m A3?** Volgens onze afspraak raken jouw wijzigingen aan de opmaak alleen jouw twee opzetten. Het weghalen van blokken is echter de gedeelde indeling van Home.
    - **Voorstel:** alles van A geldt voor alle vier de opzetten. Dat is het eenvoudigst en geeft de minste code. Dan moet Vincent het er wel mee eens zijn.
    - **Alternatief:** alleen in Daan opzet 1 en 2. Dan blijven de blokken in Vincents opzetten staan, en verberg ik ze alleen in de jouwe.

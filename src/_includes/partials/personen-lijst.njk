@@ -10,7 +10,11 @@
 {%- for persoon in (personenLijst if personenLijst else personen) %}
 <li class="persoon-kaart">
 <div class="persoon-kaart__kop">
-{%- if persoon.foto and (persoon.foto | afbeeldingBestaat) %}
+{%- if persoon.foto2 and (persoon.foto2 | afbeeldingBestaat) and persoon.foto and (persoon.foto | afbeeldingBestaat) %}
+{#- Twee versies (story 041): per opzet is er één zichtbaar (style.css, sectie 19) #}
+<img class="persoon-kaart__foto persoon-versie-1" src="/images/{{ persoon.foto }}" alt="Foto van {{ persoon.naam }}" width="160" height="160" loading="lazy">
+<img class="persoon-kaart__foto persoon-versie-2" src="/images/{{ persoon.foto2 }}" alt="Foto van {{ persoon.naam }}" width="160" height="160" loading="lazy">
+{%- elif persoon.foto and (persoon.foto | afbeeldingBestaat) %}
 <img class="persoon-kaart__foto" src="/images/{{ persoon.foto }}" alt="Foto van {{ persoon.naam }}" width="160" height="160" loading="lazy">
 {%- else %}
 <span class="persoon-kaart__foto persoon-kaart__foto--leeg" aria-hidden="true">{{ persoon.naam | first }}</span>
@@ -20,7 +24,16 @@
 <p class="persoon-kaart__rol">{{ persoon.rol }}</p>
 </div>
 </div>
+{%- if persoon.bio2 %}
+<p class="persoon-kaart__bio persoon-versie-1">{{ persoon.bio }}</p>
+<div class="persoon-kaart__bio persoon-versie-2">
+{%- for alinea in persoon.bio2.split("\n") %}{% if alinea | trim %}
+<p>{{ alinea | trim }}</p>
+{%- endif %}{% endfor %}
+</div>
+{%- else %}
 <p class="persoon-kaart__bio">{{ persoon.bio }}</p>
+{%- endif %}
 </li>
 {%- endfor %}
 </ul>
